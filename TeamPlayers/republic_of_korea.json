@@ -1,0 +1,38 @@
+{
+  "name": "republic_of_korea",
+  "final_list": true,
+  "goalkeepers": [
+    "Song Bumkeun",
+    "Jo Hyeonwoo",
+    "Kim Seung-gyu"
+  ],
+  "defenders": [
+    "Jens Castrop",
+    "Lee Hanbeom",
+    "Park Jinseob",
+    "Lee Kihyuk",
+    "Kim Minjae",
+    "Kim Moonhwan",
+    "Kim Taehyeon",
+    "Lee Taeseok",
+    "Seol Youngwoo",
+    "Cho Yumin"
+  ],
+  "middle": [
+    "Lee Donggyeong",
+    "Hwang Heechan",
+    "Yang Hyunjun",
+    "Hwang Inbeom",
+    "Lee Jaesung",
+    "Kim Jingyu",
+    "Eom Jisung",
+    "Bae Junho",
+    "Lee Kangin",
+    "Paik Seungho"
+  ],
+  "attackers": [
+    "Cho Guesung",
+    "Son Heungmin",
+    "Oh Hyeongyu"
+  ]
+}

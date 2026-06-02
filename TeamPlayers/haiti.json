@@ -1,0 +1,38 @@
+{
+  "name": "haiti",
+  "final_list": true,
+  "goalkeepers": [
+    "Josue Duverger",
+    "Alexandre Pierre",
+    "Johny Placide"
+  ],
+  "defenders": [
+    "Ricardo Ade",
+    "Carlens Arcus",
+    "Hannes Delcroix",
+    "Jean-Kevin Duverne",
+    "Martin Experience",
+    "Duke Lacroix",
+    "Wilguens Paugain",
+    "Keeto Thermoncy"
+  ],
+  "middle": [
+    "Carl Fred Sainte",
+    "Jean-Ricner Bellegarde",
+    "Leverton Pierre",
+    "Danley Jean Jacques",
+    "Woodensky Pierre",
+    "Dominique Simon"
+  ],
+  "attackers": [
+    "Josue Casimir",
+    "Louicius Deedson",
+    "Derrick Etienne Jr.",
+    "Yassin Fortune",
+    "Wilson Isidor",
+    "Lenny Joseph",
+    "Duckens Nazon",
+    "Frantzdy Pierrot",
+    "Ruben Providence"
+  ]
+}

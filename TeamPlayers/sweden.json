@@ -1,0 +1,37 @@
+{
+  "name": "sweden",
+  "final_list": true,
+  "goalkeepers": [
+    "Viktor Johansson",
+    "Gustaf Lagerbielke",
+    "Kristoffer Nordfeldt",
+    "Jacob Zetterström"
+  ],
+  "defenders": [
+    "Hjalmar Ekdal",
+    "Gabriel Gudmundsson",
+    "Isak Hien",
+    "Victor Lindelöf",
+    "Eric Smith",
+    "Carl Starfelt",
+    "Daniel Svensson"
+  ],
+  "middle": [
+    "Yasin Ayari",
+    "Lucas Bergvall",
+    "Jesper Karlström",
+    "Benjamin Nygren",
+    "Ken Sema",
+    "Elliot Stroud",
+    "Mattias Svanberg",
+    "Besfort Zeneli"
+  ],
+  "attackers": [
+    "Taha Ali",
+    "Alexander Bernhardsson",
+    "Anthony Elanga",
+    "Viktor Gyökeres",
+    "Alexander Isak",
+    "Gustaf Nilsson"
+  ]
+}

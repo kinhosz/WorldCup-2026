@@ -1,0 +1,38 @@
+{
+  "name": "morocco",
+  "final_list": false,
+  "goalkeepers": [
+    "Yassine Bounou",
+    "Munir El Kajoui",
+    "Reda Tagnaouti"
+  ],
+  "defenders": [
+    "Noussair Mazraoui",
+    "Anass Salah-Eddine",
+    "Youssef Belammari",
+    "Achraf Hakimi",
+    "Zakaria El Ouahdi",
+    "Nayef Aguerd",
+    "Chadi Riad",
+    "Redouane Halhal",
+    "Issa Diop"
+  ],
+  "middle": [
+    "Samir El Mourabet",
+    "Ayyoub Bouaddi",
+    "Neil El Aynaoui",
+    "Sofyan Amrabat",
+    "Azzedine Ounahi",
+    "Bilal El Khannouss",
+    "Ismael Saibari"
+  ],
+  "attackers": [
+    "Abde Ezzalzouli",
+    "Chemsdine Talbi",
+    "Soufiane Rahimi",
+    "Ayoub El Kaabi",
+    "Brahim Díaz",
+    "Gessime Yassine",
+    "Ayoube Amaimouni"
+  ]
+}

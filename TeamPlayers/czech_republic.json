@@ -1,0 +1,41 @@
+{
+  "name": "czech_republic",
+  "final_list": false,
+  "goalkeepers": [
+    "Lukas Hornicek",
+    "Matej Kovar",
+    "Jindrich Stanrk"
+  ],
+  "defenders": [
+    "Vladimir Coufal",
+    "David Doudera",
+    "Tomas Holes",
+    "Robin Hranac",
+    "Stepan Chaloupek",
+    "David Jurasek",
+    "Ladislav Krejci",
+    "Jaroslav Zeleny",
+    "David Zima"
+  ],
+  "middle": [
+    "Pavel Bucha",
+    "Lukas Cerv",
+    "Vladimir Darida",
+    "Tomas Ladra",
+    "Lukas Provod",
+    "Michal Sadilek",
+    "Hugo Sochurek",
+    "Alexandr Sojka",
+    "Tomas Soucek",
+    "Pavel Sulc",
+    "Denis Visinsky"
+  ],
+  "attackers": [
+    "Adam Hlozek",
+    "Tomas Chory",
+    "Mojmir Chytil",
+    "Christophe Kabongo",
+    "Jan Kuchta",
+    "Patrik Schick"
+  ]
+}

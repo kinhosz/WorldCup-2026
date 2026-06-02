@@ -1,0 +1,38 @@
+{
+  "name": "paraguay",
+  "final_list": true,
+  "goalkeepers": [
+    "Orlando Gill",
+    "Roberto Fernández",
+    "Gastón Olveira"
+  ],
+  "defenders": [
+    "Juan Cáceres",
+    "Gustavo Velázquez",
+    "Gustavo Gómez",
+    "Junior Alonso",
+    "José Canale",
+    "Omar Alderete",
+    "Alexandro Maidana",
+    "Fabián Balbuena"
+  ],
+  "middle": [
+    "Diego Gómez",
+    "Mauricio Magalhães",
+    "Damián Bobadilla",
+    "Braian Ojeda",
+    "Andrés Cubas",
+    "Matías Galarza",
+    "Alejandro Gamarra"
+  ],
+  "attackers": [
+    "Gustavo Caballero",
+    "Ramón Sosa",
+    "Alex Arce",
+    "Isidro Pitta",
+    "Gabriel Ávalos",
+    "Miguel Almirón",
+    "Julio Enciso",
+    "Antonio Sanabria"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "canada",
+  "final_list": false,
+  "goalkeepers": [
+    "Maxime Crepeau",
+    "Owen Goodman",
+    "Dayne St. Clair"
+  ],
+  "defenders": [
+    "Moise Bombito",
+    "Derek Cornelius",
+    "Alphonso Davies",
+    "Luc de Fougerolles",
+    "Alistair Johnston",
+    "Alfie Jones",
+    "Richie Laryea",
+    "Niko Sigur",
+    "Joel Waterman"
+  ],
+  "middle": [
+    "Ali Ahmed",
+    "Tajon Buchanan",
+    "Mathieu Choiniere",
+    "Stephen Eustaquio",
+    "Ismael Kone",
+    "Liam Millar",
+    "Jonathan Osorio",
+    "Nathan-Dylan Saliba",
+    "Jacob Shaffelburg"
+  ],
+  "attackers": [
+    "Jonathan David",
+    "Promise David",
+    "Cyle Larin",
+    "Tani Oluwaseyi"
+  ]
+}

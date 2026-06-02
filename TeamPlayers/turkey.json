@@ -1,0 +1,38 @@
+{
+  "name": "turkey",
+  "final_list": true,
+  "goalkeepers": [
+    "Altay Bayindir",
+    "Mert Günok",
+    "Ugurcan Cakir"
+  ],
+  "defenders": [
+    "Abdulkerim Bardakci",
+    "Caglar Soyuncu",
+    "Eren Elmalı",
+    "Ferdi Kadıoğlu",
+    "Merih Demiral",
+    "Mert Müldür",
+    "Ozan Kabak",
+    "Akaydin",
+    "Zeki Celik"
+  ],
+  "middle": [
+    "Hakan Calhanoglu",
+    "Ismail Yuksek",
+    "Kaan Ayhan",
+    "Orkun Kökçü",
+    "Salih Ozcan"
+  ],
+  "attackers": [
+    "Arda Güler",
+    "Barış Alper Yılmaz",
+    "Can Uzun",
+    "Deniz Gül",
+    "Irfan Can Kahveci",
+    "Kenan Yildiz",
+    "Kerem Akturkoglu",
+    "Oguz Aydin",
+    "Yunus Akgun"
+  ]
+}

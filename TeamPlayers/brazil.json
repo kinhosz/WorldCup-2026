@@ -1,0 +1,38 @@
+{
+  "name": "brazil",
+  "final_list": true,
+  "goalkeepers": [
+    "Alisson",
+    "Ederson",
+    "Weverton"
+  ],
+  "defenders": [
+    "Alex Sandro",
+    "Bremer",
+    "Danilo",
+    "Douglas Santos",
+    "Gabriel Magalhães",
+    "Ibañez",
+    "Léo Pereira",
+    "Marquinhos",
+    "Wesley"
+  ],
+  "middle": [
+    "Bruno Guimarães",
+    "Casemiro",
+    "Danilo Santos",
+    "Fabinho",
+    "Lucas Paquetá"
+  ],
+  "attackers": [
+    "Endrick",
+    "Gabriel Martinelli",
+    "Igor Thiago",
+    "Luiz Henrique",
+    "Matheus Cunha",
+    "Neymar Junior",
+    "Raphinha",
+    "Rayan",
+    "Vinicius Junior"
+  ]
+}

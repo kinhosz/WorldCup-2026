@@ -1,0 +1,38 @@
+{
+  "name": "japan",
+  "final_list": true,
+  "goalkeepers": [
+    "Tomoki Hayakawa",
+    "Keisuke Osako",
+    "Zion Suzuki"
+  ],
+  "defenders": [
+    "Ko Itakura",
+    "Hiroki Ito",
+    "Yuto Nagatomo",
+    "Ayumu Seko",
+    "Yukinari Sugawara",
+    "Junnosuke Suzuki",
+    "Shogo Taniguchi",
+    "Takehiro Tomiyasu",
+    "Tsuyoshi Watanabe"
+  ],
+  "middle": [
+    "Ritsu Doan",
+    "Wataru Endo",
+    "Junya Ito",
+    "Daichi Kamada",
+    "Takefusa Kubo",
+    "Keito Nakamura",
+    "Kaishu Sano",
+    "Ao Tanaka"
+  ],
+  "attackers": [
+    "Keisuke Goto",
+    "Daizen Maeda",
+    "Koki Ogawa",
+    "Kento Shiogai",
+    "Yuito Suzuki",
+    "Ayase Ueda"
+  ]
+}

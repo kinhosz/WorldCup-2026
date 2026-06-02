@@ -1,0 +1,38 @@
+{
+  "name": "ivory_coast",
+  "final_list": false,
+  "goalkeepers": [
+    "Yahia Fofana",
+    "Mohamed Kone",
+    "Alban Lafont"
+  ],
+  "defenders": [
+    "Emmanuel Agbadou",
+    "Clement Akpa",
+    "Ousmane Diomande",
+    "Guela Doue",
+    "Ghislain Konan",
+    "Odilon Kossounou",
+    "Wilfried Singo",
+    "Evan Ndicka"
+  ],
+  "middle": [
+    "Seko Fofana",
+    "Parfait Guiagon",
+    "Christ Inao Oulai",
+    "Franck Kessie",
+    "Ibrahim Sangare",
+    "Jean Michael Seri"
+  ],
+  "attackers": [
+    "Simon Adingra",
+    "Ange-Yoan Bonny",
+    "Amad Diallo",
+    "Oumar Diakite",
+    "Yan Diomande",
+    "Evann Guessand",
+    "Nicolas Pepe",
+    "Bazoumana Toure",
+    "Elye Wahi"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "scotland",
+  "final_list": true,
+  "goalkeepers": [
+    "Craig Gordon",
+    "Angus Gunn",
+    "Liam Kelly"
+  ],
+  "defenders": [
+    "Grant Hanley",
+    "Jack Hendry",
+    "Aaron Hickey",
+    "Dom Hyam",
+    "Scott McKenna",
+    "Nathan Patterson",
+    "Anthony Ralston",
+    "Andy Robertson",
+    "John Souttar",
+    "Kieran Tierney"
+  ],
+  "middle": [
+    "Ryan Christie",
+    "Findlay Curtis",
+    "Lewis Ferguson",
+    "Ben Gannon-Doak",
+    "Billy Gilmour",
+    "John McGinn",
+    "Kenny McLean",
+    "Scott McTominay"
+  ],
+  "attackers": [
+    "Che Adams",
+    "Lyndon Dykes",
+    "George Hirst",
+    "Lawrence Shankland",
+    "Ross Stewart"
+  ]
+}

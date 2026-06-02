@@ -1,0 +1,38 @@
+{
+  "name": "south_africa",
+  "final_list": true,
+  "goalkeepers": [
+    "Ronwen Williams",
+    "Ricardo Goss",
+    "Sipho Chaine"
+  ],
+  "defenders": [
+    "Khuliso Mudau",
+    "Olwethu Makhanya",
+    "Bradley Cross",
+    "Thabang Matuludi",
+    "Nkosinathi Sibisi",
+    "Aubrey Modiba",
+    "Khulumani Ndamane",
+    "Ime Okon",
+    "Samukele Kabini",
+    "Kamogelo Sebelebele",
+    "Mbekezeli Mbokazi"
+  ],
+  "middle": [
+    "Teboho Mokoena",
+    "Jayden Adams",
+    "Thalente Mbatha",
+    "Sphephelo Sithole"
+  ],
+  "attackers": [
+    "Oswin Appollis",
+    "Tshepang Moremi",
+    "Evidence Makgopa",
+    "Lyle Foster",
+    "Iqraam Rayners",
+    "Relebohile Mofokeng",
+    "Themba Zwane",
+    "Thapelo Maseko"
+  ]
+}

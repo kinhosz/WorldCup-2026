@@ -1,0 +1,38 @@
+{
+  "name": "ecuador",
+  "final_list": true,
+  "goalkeepers": [
+    "Hernán Galíndez",
+    "Gonzalo Valle",
+    "Moisés Ramírez"
+  ],
+  "defenders": [
+    "Piero Hincapié",
+    "Willian Pacho",
+    "Pervis Estupiñán",
+    "Ángelo Preciado",
+    "Joel Ordóñez",
+    "Félix Torres",
+    "Jackson Porozo",
+    "Yaimar Medina"
+  ],
+  "middle": [
+    "Moisés Caicedo",
+    "Alan Franco",
+    "Gonzalo Plata",
+    "Kendry Páez",
+    "Pedro Vite",
+    "Jordy Alcívar",
+    "Denil Castillo",
+    "John Yeboah",
+    "Nilson Angulo",
+    "Alan Minda"
+  ],
+  "attackers": [
+    "Enner Valencia",
+    "Kevin Rodríguez",
+    "Jordy Caicedo",
+    "Anthony Valencia",
+    "Jeremy Arévalo"
+  ]
+}

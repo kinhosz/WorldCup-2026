@@ -1,0 +1,46 @@
+{
+  "name": "qatar",
+  "final_list": false,
+  "goalkeepers": [
+    "Mahmoud Abunada",
+    "Shehab Al Lithi",
+    "Meshaal Barsham",
+    "Salah Zakaria"
+  ],
+  "defenders": [
+    "Ryan Al Ali",
+    "Al Hashemi Al Hussein",
+    "Ayub Al Alawi",
+    "Bassam Al Rawi",
+    "Hommam Al Amin",
+    "Sultan Al Brake",
+    "Boualem Khoukhi",
+    "Niall Mason",
+    "Lucas Mendes",
+    "Pedro Miguel",
+    "Tarek Salman"
+  ],
+  "middle": [
+    "Karim Boudiaf",
+    "Ahmed Fathi",
+    "Jassem Gaber",
+    "Abdulaziz Hatem",
+    "Issa Lay",
+    "Assim Madibo",
+    "Mohammed Manaai",
+    "Tahsin Mohammed",
+    "Mohammed Waad"
+  ],
+  "attackers": [
+    "Youssef Abdelrisaq",
+    "Akram Afif",
+    "Ahmed Alaaeldin",
+    "Hassan Al Haydos",
+    "Almoez Ali",
+    "Ahmed Al Janhi",
+    "Edmilson Júnior",
+    "Mohammed Muntari",
+    "Mubarak Shannan",
+    "Sebastián Soria"
+  ]
+}

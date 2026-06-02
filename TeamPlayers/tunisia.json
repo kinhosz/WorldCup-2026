@@ -1,0 +1,38 @@
+{
+  "name": "tunisia",
+  "final_list": true,
+  "goalkeepers": [
+    "Aymen Dahmen",
+    "Sabri Ben Hassen",
+    "Abdelmouhib Chamakh"
+  ],
+  "defenders": [
+    "Yan Valéry",
+    "Moutaz Neffati",
+    "Dylan Bronn",
+    "Raed Chikhaoui",
+    "Montassar Talbi",
+    "Adem Arous",
+    "Omar Rekik",
+    "Ali Abdi",
+    "Mohamed Ben Hmida"
+  ],
+  "middle": [
+    "Ellyes Skhiri",
+    "Anis Ben Slimane",
+    "Rani Khedira",
+    "Mortadha Ben Ouanes",
+    "Ismaël Gharbi",
+    "Mohamed Hadj-Mahmoud",
+    "Hannbial"
+  ],
+  "attackers": [
+    "Elias Saäd",
+    "Khalil Ayari",
+    "Elias Achouri",
+    "Sebastian Tounekti",
+    "Hazem Mastouri",
+    "Firas Chawat",
+    "Rayan Elloumi"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "curacao",
+  "final_list": true,
+  "goalkeepers": [
+    "Tyrick Bodack",
+    "Trevor Doornbusch",
+    "Eloy Room"
+  ],
+  "defenders": [
+    "Riechedly Bazoer",
+    "Joshua Brenet",
+    "Roshon van Eijma",
+    "Sherel Floranus",
+    "Deveron Fonville",
+    "Jurien Gaari",
+    "Armando Obispo",
+    "Shurandy Sambo"
+  ],
+  "middle": [
+    "Juninho Bacuna",
+    "Leandro Bacuna",
+    "Livano Comenencia",
+    "Kevin Felida",
+    "Ar'jany Martha",
+    "Tyrese Noslin",
+    "Godfried Roemeratoe"
+  ],
+  "attackers": [
+    "Jeremy Antonisse",
+    "Tahith Chong",
+    "Kenji Gorre",
+    "Sontje Hansen",
+    "Gervane Kastaneer",
+    "Brandley Kuwas",
+    "Jurgen Locadia",
+    "Jearl Margaritha"
+  ]
+}

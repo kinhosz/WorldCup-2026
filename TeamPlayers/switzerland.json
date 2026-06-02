@@ -1,0 +1,38 @@
+{
+  "name": "switzerland",
+  "final_list": true,
+  "goalkeepers": [
+    "Gregor Kobel",
+    "Yvon Mvogo",
+    "Marvin Keller"
+  ],
+  "defenders": [
+    "Manuel Akanji",
+    "Aurèle Amenda",
+    "Eray Cömert",
+    "Luca Jaquez",
+    "Nico Elvedi",
+    "Miro Muheim",
+    "Ricardo Rodríguez",
+    "Silvan Widmer"
+  ],
+  "middle": [
+    "Granit Xhaka",
+    "Ardon Jashari",
+    "Denis Zakaria",
+    "Cedric Itten",
+    "Djibril Sow",
+    "Michel Aebischer",
+    "Remo Freuler",
+    "Fabian Rieder",
+    "Christian Fassnacht"
+  ],
+  "attackers": [
+    "Breel Embolo",
+    "Johan Manzambi",
+    "Noah Okafor",
+    "Rubén Vargas",
+    "Dan Ndoye",
+    "Zeki Amdouni"
+  ]
+}

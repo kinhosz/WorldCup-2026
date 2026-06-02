@@ -1,0 +1,38 @@
+{
+  "name": "germany",
+  "final_list": true,
+  "goalkeepers": [
+    "Oliver Baumann",
+    "Manuel Neuer",
+    "Alexander Nübel"
+  ],
+  "defenders": [
+    "Waldemar Anton",
+    "Nathaniel Brown",
+    "Joshua Kimmich",
+    "David Raum",
+    "Antonio Rüdiger",
+    "Nico Schlotterbeck",
+    "Jonathan Tah",
+    "Malick Thiaw"
+  ],
+  "middle": [
+    "Nadiem Amiri",
+    "Leon Goretzka",
+    "Pascal Gross",
+    "Lennart Karl",
+    "Jamie Leweling",
+    "Jamal Musiala",
+    "Felix Nmecha",
+    "Aleksandar Pavlovic",
+    "Leroy Sané",
+    "Angelo Stiller",
+    "Florian Wirtz"
+  ],
+  "attackers": [
+    "Maximilian Beier",
+    "Kai Havertz",
+    "Deniz Undav",
+    "Nick Woltemade"
+  ]
+}

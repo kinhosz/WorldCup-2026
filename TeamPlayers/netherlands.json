@@ -1,0 +1,38 @@
+{
+  "name": "netherlands",
+  "final_list": true,
+  "goalkeepers": [
+    "Mark Flekken",
+    "Robin Roefs",
+    "Bart Verbruggen"
+  ],
+  "defenders": [
+    "Nathan Aké",
+    "Denzel Dumfries",
+    "Jorrel Hato",
+    "Jurriën Timber",
+    "Jan Paul van Hecke",
+    "Virgil van Dijk",
+    "Micky van de Ven"
+  ],
+  "middle": [
+    "Frenkie de Jong",
+    "Marten de Roon",
+    "Ryan Gravenberch",
+    "Teun Koopmeiners",
+    "Tijjani Reijnders",
+    "Guus Til",
+    "Quinten Timber",
+    "Mats Wieffer"
+  ],
+  "attackers": [
+    "Brian Brobbey",
+    "Memphis Depay",
+    "Cody Gakpo",
+    "Justin Kluivert",
+    "Noa Lang",
+    "Donyell Malen",
+    "Crysencio Summerville",
+    "Wout Weghorst"
+  ]
+}

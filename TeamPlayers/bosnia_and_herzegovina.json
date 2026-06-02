@@ -1,0 +1,38 @@
+{
+  "name": "bosnia_and_herzegovina",
+  "final_list": true,
+  "goalkeepers": [
+    "Nikola Vasilj",
+    "Martin Zlomislic",
+    "Osman Hadzikic"
+  ],
+  "defenders": [
+    "Sead Kolasinac",
+    "Amar Dedic",
+    "Nihad Mujakic",
+    "Nikola Katic",
+    "Tarik Muharemovic",
+    "Stjepan Radeljic"
+  ],
+  "middle": [
+    "Dennis Hadzikadunic",
+    "Nidal Celik",
+    "Amir Hadziahmetovic",
+    "Ivan Sunjic",
+    "Ivan Basic",
+    "Dzenis Burnic",
+    "Benjamin Tahirovic",
+    "Amar Memic",
+    "Armin Gigovic",
+    "Kerim Alajbegovic",
+    "Esmir Bajraktarevic"
+  ],
+  "attackers": [
+    "Ermin Mahmic",
+    "Ermedin Demirovic",
+    "Jovo Lukic",
+    "Samed Bazdar",
+    "Haris Tabakovic",
+    "Edin Dzeko"
+  ]
+}

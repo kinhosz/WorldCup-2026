@@ -1,0 +1,38 @@
+{
+  "name": "australia",
+  "final_list": true,
+  "goalkeepers": [
+    "Patrick Beach",
+    "Paul Izzo",
+    "Mathew Ryan"
+  ],
+  "defenders": [
+    "Aziz Behich",
+    "Jordan Bos",
+    "Cameron Burgess",
+    "Alessandro Circati",
+    "Milos Degenek",
+    "Jason Geria",
+    "Lucas Herrington",
+    "Jacob Italiano",
+    "Harry Souttar",
+    "Kai Trewin"
+  ],
+  "middle": [
+    "Cameron Devlin",
+    "Ajdin Hrustic",
+    "Jackson Irvine",
+    "Connor Metcalfe",
+    "Paul Okon-Engstler",
+    "Aiden O'Neill"
+  ],
+  "attackers": [
+    "Nestory Irankunda",
+    "Mathew Leckie",
+    "Awer Mabil",
+    "Mohamed Toure",
+    "Nishan Velupillay",
+    "Cristian Volpato",
+    "Tete Yengi"
+  ]
+}

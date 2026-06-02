@@ -1,0 +1,38 @@
+{
+  "name": "united_states_of_america",
+  "final_list": true,
+  "goalkeepers": [
+    "Chris Brady",
+    "Matt Freese",
+    "Matt Turner"
+  ],
+  "defenders": [
+    "Max Arfsten",
+    "Sergino Dest",
+    "Alex Freeman",
+    "Mark McKenzie",
+    "Tim Ream",
+    "Chris Richards",
+    "Antonee Robinson",
+    "Miles Robinson",
+    "Joe Scally",
+    "Auston Trusty"
+  ],
+  "middle": [
+    "Tyler Adams",
+    "Sebastian Berhalter",
+    "Weston McKennie",
+    "Cristian Roldan",
+    "Brenden Aaronson",
+    "Christian Pulisic",
+    "Gio Reyna",
+    "Malik Tillman",
+    "Timothy Weah",
+    "Alejandro Zendejas"
+  ],
+  "attackers": [
+    "Folarin Balogun",
+    "Ricardo Pepi",
+    "Haji Wright"
+  ]
+}

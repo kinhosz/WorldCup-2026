@@ -1,0 +1,38 @@
+{
+  "name": "mexico",
+  "final_list": true,
+  "goalkeepers": [
+    "Carlos Acevedo",
+    "Guillermo Ochoa",
+    "Raul Rangel"
+  ],
+  "defenders": [
+    "Edson Alvarez",
+    "Mateo Chavez",
+    "Jesus Gallardo",
+    "Cesar Montes",
+    "Israel Reyes",
+    "Jorge Sanchez",
+    "Johan Vasquez"
+  ],
+  "middle": [
+    "Luis Chavez",
+    "Alvaro Fidalgo",
+    "Brian Gutierrez",
+    "Erik Lira",
+    "Gilberto Mora",
+    "Luis Romo",
+    "Orbelin Pineda",
+    "Obed Vargas"
+  ],
+  "attackers": [
+    "Roberto Alvarado",
+    "Santiago Gimenez",
+    "Armando Gonzalez",
+    "Cesar Huerta",
+    "Raul Jimenez",
+    "Guillermo Martinez",
+    "Julian Quinones",
+    "Alexis Vega"
+  ]
+}
