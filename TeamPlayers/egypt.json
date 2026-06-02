@@ -1,0 +1,39 @@
+{
+  "name": "egypt",
+  "final_list": false,
+  "goalkeepers": [
+    "Mohamed Alaa",
+    "Mohamed El Shenawy",
+    "Mostafa Shobeir",
+    "El Mahdy Soliman"
+  ],
+  "defenders": [
+    "Hossam Abdelmagid",
+    "Mohamed Abdelmonem",
+    "Tarek Alaa",
+    "Ahmed Fatouh",
+    "Karim Hafez",
+    "Mohamed Hany",
+    "Yasser Ibrahim",
+    "Rami Rabia"
+  ],
+  "midfielders": [
+    "Emam Ashour",
+    "Marwan Attia",
+    "Nabil Emad",
+    "Hamdi Fathi",
+    "Haitham Hassan",
+    "Mohannad Lashin",
+    "Mahmoud Saber",
+    "Mahmoud Hassan",
+    "Mostafa Zico",
+    "Ahmed Sayed"
+  ],
+  "forwards": [
+    "Aqtay Abdullah",
+    "Hamza Abdulkarim",
+    "Ibrahim Adel",
+    "Omar Marmoush",
+    "Mohamed Salah"
+  ]
+}

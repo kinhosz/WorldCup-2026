@@ -1,0 +1,38 @@
+{
+  "name": "colombia",
+  "final_list": true,
+  "goalkeepers": [
+    "Alvaro Montero",
+    "Camilo Vargas",
+    "David Ospina"
+  ],
+  "defenders": [
+    "Daniel Munoz",
+    "Santiago Arias",
+    "Davinson Sanchez",
+    "Jhon Lucumi",
+    "Yerry Mina",
+    "Willer Ditta",
+    "Deiver Machado",
+    "Johan Mojica"
+  ],
+  "midfielders": [
+    "Gustavo Puerta",
+    "James Rodriguez",
+    "Jefferson Lerma",
+    "Jhon Arias",
+    "Jorge Carrascal",
+    "Juan Fernando Quintero",
+    "Richard Rios",
+    "Kevin Castano",
+    "Jaminton Campaz",
+    "Juan Portilla"
+  ],
+  "forwards": [
+    "Luis Diaz",
+    "Luis Suarez",
+    "Jhon Cordoba",
+    "Carlos Gomez",
+    "Juan Camilo Hernandez"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "england",
+  "final_list": true,
+  "goalkeepers": [
+    "Jordan PICKFORD",
+    "Dean Henderson",
+    "James TRAFFORD"
+  ],
+  "defenders": [
+    "Ezri KONSA",
+    "Nico OREILLY",
+    "John STONES",
+    "Marc GUEHI",
+    "Tino LIVRAMENTO",
+    "Dan BURN",
+    "Reece JAMES",
+    "Djed SPENCE",
+    "Jarell QUANSAH"
+  ],
+  "midfielders": [
+    "Declan RICE",
+    "Elliot ANDERSON",
+    "Jude BELLINGHAM",
+    "Jordan HENDERSON",
+    "Kobbie MAINOO",
+    "Morgan ROGERS",
+    "Eberechi EZE"
+  ],
+  "forwards": [
+    "Bukayo SAKA",
+    "Harry KANE",
+    "Marcus RASHFORD",
+    "Anthony GORDON",
+    "Ollie WATKINS",
+    "Noni MADUEKE",
+    "Ivan TONEY"
+  ]
+}

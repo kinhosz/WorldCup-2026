@@ -1,0 +1,42 @@
+{
+  "name": "uzbekistan",
+  "final_list": false,
+  "goalkeepers": [
+    "Botirali Ergashev",
+    "Abduvohid Nematov",
+    "Utkir Yusupov"
+  ],
+  "defenders": [
+    "Abdullah Abdullaev",
+    "Khojiakbar Alijonov",
+    "Rustamjon Ashurmatov",
+    "Umarbek Eshmuradov",
+    "Bekhruz Karimov",
+    "Abdukodir Khusanov",
+    "Sherzod Nasrullaev",
+    "Umaraali Rakhmonaliev",
+    "Farrukh Sayfiev",
+    "Avazbek Ulmasaliev",
+    "Jakhongir Urozov",
+    "Ruslanbek Yiyanov"
+  ],
+  "midfielders": [
+    "Sherzod Esanov",
+    "Azizbek Ganiev",
+    "Dostonbek Hamdamov",
+    "Odiljon Hamrobekov",
+    "Jamshid Iskanderov",
+    "Jashur Jaloliddinov",
+    "Akmal Mozgovoy",
+    "Otabek Shukurov"
+  ],
+  "forwards": [
+    "Azizbek Amonov",
+    "Abbosbek Fayzullaev",
+    "Jaloliddin Masharipov",
+    "Eldor Shomurodov",
+    "Igor Sergeev",
+    "Sherzod Temirov",
+    "Oston Urunov"
+  ]
+}

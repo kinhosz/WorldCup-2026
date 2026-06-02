@@ -1,0 +1,38 @@
+{
+  "name": "croatia",
+  "final_list": true,
+  "goalkeepers": [
+    "Dominik Livakovic",
+    "Dominik Kotarski",
+    "Ivor Pandur"
+  ],
+  "defenders": [
+    "Josko Gvardiol",
+    "Duje Caleta-Car",
+    "Josip Sutalo",
+    "Josip Stanisic",
+    "Marin Pongracic",
+    "Martin Erlic",
+    "Luka Vuskovic"
+  ],
+  "midfielders": [
+    "Luka Modric",
+    "Mateo Kovacic",
+    "Mario Pasalic",
+    "Nikola Vlasic",
+    "Luka Sucic",
+    "Martin Baturina",
+    "Kristijan Jakic",
+    "Petar Sucic",
+    "Nikola Moro",
+    "Toni Fruk"
+  ],
+  "forwards": [
+    "Ivan Perisic",
+    "Andrej Kramaric",
+    "Ante Budimir",
+    "Marco Pasalic",
+    "Petar Musa",
+    "Igor Matanovic"
+  ]
+}

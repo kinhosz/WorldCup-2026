@@ -1,0 +1,46 @@
+{
+  "name": "iraq",
+  "final_list": false,
+  "goalkeepers": [
+    "Ahmed Basil",
+    "Jalal Hassan",
+    "Kumel Saadi",
+    "Fahad Talib"
+  ],
+  "defenders": [
+    "Hussein Ali",
+    "Merchas Doski",
+    "Akam Hashem",
+    "Maytham Jabbar",
+    "Ahmed Maknzi",
+    "Dario Naamo",
+    "Frans Putros",
+    "Mustafa Saadoon",
+    "Rebin Sulaka",
+    "Zaid Tahseen",
+    "Ahmed Yahya",
+    "Manaf Younis"
+  ],
+  "midfielders": [
+    "Hasan Abdulkareem",
+    "Amir Al Ammari",
+    "Youssef Amyn",
+    "Ibrahim Bayesh",
+    "Marko Farji",
+    "Peter Gwargis",
+    "Zidane Iqbal",
+    "Zaid Ismail",
+    "Ali Jassim",
+    "Karar Nabeel",
+    "Jussef Nasrawe",
+    "Ahmed Qasim",
+    "Aimar Sher",
+    "Kevin Yakob"
+  ],
+  "forwards": [
+    "Mohanad Ali",
+    "Aymen Hussein",
+    "Ali Al Hamadi",
+    "Ali Yousef"
+  ]
+}

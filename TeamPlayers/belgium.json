@@ -1,0 +1,38 @@
+{
+  "name": "belgium",
+  "final_list": true,
+  "goalkeepers": [
+    "Thibaut Courtois",
+    "Senne Lammens",
+    "Mike Penders"
+  ],
+  "defenders": [
+    "Timothy Castagne",
+    "Zeno Debast",
+    "Maxim De Cuyper",
+    "Koni De Winter",
+    "Brandon Mechele",
+    "Thomas Meunier",
+    "Nathan Ngoy",
+    "Joaquin Seys",
+    "Arthur Theate"
+  ],
+  "midfielders": [
+    "Kevin De Bruyne",
+    "Amadou Onana",
+    "Nicolas Raskin",
+    "Youri Tielemans",
+    "Hans Vanaken",
+    "Axel Witsel"
+  ],
+  "forwards": [
+    "Charles De Ketelaere",
+    "Jeremy Doku",
+    "Matias Fernandez-Pardo",
+    "Romelu Lukaku",
+    "Dodi Lukebakio",
+    "Diego Moreira",
+    "Alexis Saelemekars",
+    "Leandro Trossard"
+  ]
+}

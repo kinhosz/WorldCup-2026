@@ -1,0 +1,38 @@
+{
+  "name": "new_zealand",
+  "final_list": true,
+  "goalkeepers": [
+    "Max CROCOMBE",
+    "Alex PAULSEN",
+    "Michael WOUD"
+  ],
+  "defenders": [
+    "Tim PAYNE",
+    "Francis DE VRIES",
+    "Tyler BINDON",
+    "Michael BOXALL",
+    "Liberato CACACE",
+    "Nando PIJNAKER",
+    "Finn SURMAN",
+    "Callan ELLIOT",
+    "Tommy SMITH"
+  ],
+  "midfielders": [
+    "Joe BELL",
+    "Matthew GARBETT",
+    "Marko STAMENIC",
+    "Sarpreet SINGH",
+    "Elijah JUST",
+    "Alex RUFER",
+    "Ben OLD",
+    "Callum McCOWATT",
+    "Ryan THOMAS",
+    "Lachlan BAYLISS"
+  ],
+  "forwards": [
+    "Chris WOOD",
+    "Kosta BARBAROUSES",
+    "Ben WAINE",
+    "Jesse RANDALL"
+  ]
+}

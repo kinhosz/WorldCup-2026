@@ -1,0 +1,38 @@
+{
+  "name": "norway",
+  "final_list": true,
+  "goalkeepers": [
+    "Orjan Haskjold Nyland",
+    "Egil Selvik",
+    "Sander Tangvik"
+  ],
+  "defenders": [
+    "Kristoffer Vassbakk Ajer",
+    "Fredrik Bjorkan",
+    "Henrik Falchener",
+    "Sondre Langas",
+    "Torbjorn Heggem",
+    "Marcus Holmgren Pedersen",
+    "Julian Ryerson",
+    "David Moller Wolfe",
+    "Leo Ostigard"
+  ],
+  "midfielders": [
+    "Thelonious Aasgaard",
+    "Fredrik Aursnes",
+    "Patrick Berg",
+    "Sander Berge",
+    "Oscar Bobb",
+    "Jens Petter Hauge",
+    "Antonio Nusa",
+    "Andreas Schjelderup",
+    "Morten Thorsby",
+    "Kristian Thorstvedt",
+    "Martin Odegaard"
+  ],
+  "forwards": [
+    "Erling Haaland",
+    "Jorgen Strand Larsen",
+    "Alexander Sorloth"
+  ]
+}

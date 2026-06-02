@@ -1,0 +1,42 @@
+{
+  "name": "saudi_arabia",
+  "final_list": false,
+  "goalkeepers": [
+    "Ahmed Al Kassar",
+    "Mohammed Al Owais",
+    "Nawaf Al Aqidi",
+    "Abdulqudus Attia"
+  ],
+  "defenders": [
+    "Saud Abdulhamid",
+    "Mohammed Abu Al Shamat",
+    "Khalid Al Ghannam",
+    "Moteb Al Harbi",
+    "Abdulelah Al Amri",
+    "Nawaf Boushal",
+    "Zakaria Hawsawi",
+    "Hassan Kadesh",
+    "Ali Lajami",
+    "Ali Majrashi",
+    "Hassan Tambakti",
+    "Jehad Thikri"
+  ],
+  "midfielders": [
+    "Nasser Al Dawsari",
+    "Alaa Al Hajji",
+    "Ziyad Al Johani",
+    "Musab Al Juwayr",
+    "Abdullah Al Khaibari",
+    "Saleh Abu Al Shamat",
+    "Mohammed Kanno",
+    "Sultan Mandash",
+    "Ayman Yahya"
+  ],
+  "forwards": [
+    "Feras Al Brikan",
+    "Salem Al Dawsari",
+    "Abdullah Al Hamdan",
+    "Abdullah Al Salem",
+    "Saleh Al Shehri"
+  ]
+}

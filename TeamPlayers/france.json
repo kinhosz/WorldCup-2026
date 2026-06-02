@@ -1,0 +1,38 @@
+{
+  "name": "france",
+  "final_list": true,
+  "goalkeepers": [
+    "Mike Maignan",
+    "Robin Risser",
+    "Brice Samba"
+  ],
+  "defenders": [
+    "Lucas Digne",
+    "Malo Gusto",
+    "Lucas Hernandez",
+    "Theo Hernandez",
+    "Ibrahima Konate",
+    "Jules Kounde",
+    "Maxence Lacroix",
+    "William Saliba",
+    "Dayot Upamecano"
+  ],
+  "midfielders": [
+    "N'Golo Kante",
+    "Manu Kone",
+    "Adrien Rabiot",
+    "Aurelien Tchouameni",
+    "Warren Zaire-Emery"
+  ],
+  "forwards": [
+    "Maghnes Akliouche",
+    "Bradley Barcola",
+    "Rayan Cherki",
+    "Ousmane Dembele",
+    "Desire Doue",
+    "Jean-Philippe Mateta",
+    "Kylian Mbappe",
+    "Michael Olise",
+    "Marcus Thuram"
+  ]
+}

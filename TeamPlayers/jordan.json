@@ -1,0 +1,42 @@
+{
+  "name": "jordan",
+  "final_list": false,
+  "goalkeepers": [
+    "Yazid Abulaila",
+    "Abdallah Al Fakhouri",
+    "Ahmad Al Juaidi",
+    "Nour Bani Attiah"
+  ],
+  "defenders": [
+    "Mohammad Abualnadi",
+    "Yousef Abu Al Jazar",
+    "Husam Abu Dahab",
+    "Mohammad Abu Hashish",
+    "Mohannad Abu Taha",
+    "Yazan Al Arab",
+    "Saed Al Rosan",
+    "Ahmad Assaf",
+    "Anas Badawi",
+    "Abdallah Nasib",
+    "Ehsan Haddad",
+    "Saleem Obaid",
+    "Mohammad Taha"
+  ],
+  "midfielders": [
+    "Mohammad Al Dawoud",
+    "Nizar Al Rashdan",
+    "Noor Al Rawabdeh",
+    "Rajaei Ayed",
+    "Amer Jamous",
+    "Yousef Qashi",
+    "Ibrahim Sadeh"
+  ],
+  "forwards": [
+    "Mohammad Abu Zraiq",
+    "Mousa Al Tamari",
+    "Ali Azaizeh",
+    "Odeh Fakhoury",
+    "Ali Olwan",
+    "Ibrahim Sabra"
+  ]
+}

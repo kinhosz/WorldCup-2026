@@ -1,0 +1,38 @@
+{
+  "name": "spain",
+  "final_list": true,
+  "goalkeepers": [
+    "David RAYA",
+    "Joan GARCIA",
+    "Unai SIMON"
+  ],
+  "defenders": [
+   "Marc PUBILL",
+   "Alex GRIMALDO",
+   "Eric GARCIA",
+   "Marcos LLORENTE",
+   "Pedro PORRO",
+   "Aymeric LAPORTE",
+   "Pau CUBARSI",
+   "Marc CUCURELLA"
+  ],
+  "midfielders": [
+    "Mikel MERINO",
+    "Fabian RUIZ",
+    "GAVI",
+    "Alex BAENA",
+    "RODRI",
+    "Martin ZUBIMENDI",
+    "PEDRI"
+  ],
+  "forwards": [
+    "Ferran TORRES",
+    "Dani OLMO",
+    "Yeremy PINO",
+    "Nico WILLIAMS",
+    "Lamine YAMAL",
+    "Mikel OYARZABAL",
+    "Victor MUNOZ",
+    "Borja IGLESIAS"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "ghana",
+  "final_list": true,
+  "goalkeepers": [
+    "Lawrence Ati ZIGI",
+    "Joseph ANANG",
+    "Benjamin ASARE"
+  ],
+  "defenders": [
+    "Alidu SEIDU",
+    "Jonas ADJETEY",
+    "Abdul MUMIN",
+    "Gideon MENSAH",
+    "Baba RAHMAN",
+    "Jerome OPOKU",
+    "Kojo Peprah OPPONG",
+    "Derrick LUCKASSEN",
+    "Marvin SENAYA"
+  ],
+  "midfielders": [
+    "Caleb YIRENKYI",
+    "Thomas PARTEY",
+    "Kwasi SIBO",
+    "Antoine SEMENYO",
+    "Elisha OWUSU",
+    "Augustine BOAKYE"
+  ],
+  "forwards": [
+    "Fatawu ISSAHAKU",
+    "Jordan AYEW",
+    "Brandon THOMAS-ASANTE",
+    "Christopher Bonsu BAAH",
+    "Inaki WILLIAMS",
+    "Kamaldeen SULEMANA",
+    "Ernest NUAMAH",
+    "Prince ADU"
+  ]
+}

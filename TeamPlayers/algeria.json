@@ -1,0 +1,38 @@
+{
+  "name": "algeria",
+  "final_list": true,
+  "goalkeepers": [
+    "Oussama Benbot",
+    "Melvin Mastil",
+    "Luca Zidane"
+  ],
+  "defenders": [
+    "Achref Abada",
+    "Rayan Ait-Nouri",
+    "Zineddine Belaid",
+    "Rafik Belghali",
+    "Ramy Bensebaïni",
+    "Samir Chergui",
+    "Jaouen Hadjam",
+    "Aissa Mandi",
+    "Mohamed Tougai"
+  ],
+  "midfielders": [
+    "Houssem Aouar",
+    "Nabil Bentaleb",
+    "Hicham Boudaoui",
+    "Fares Chaibi",
+    "Ibrahim Maza",
+    "Yacine Titraoui",
+    "Ramiz Zerrouki"
+  ],
+  "forwards": [
+    "Mohamed Amoura",
+    "Nadhir Benbouali",
+    "Adil Boulbina",
+    "Fares Ghedjemis",
+    "Amine Gouiri",
+    "Riyad Mahrez",
+    "Anis Hadj Moussa"
+  ]
+}

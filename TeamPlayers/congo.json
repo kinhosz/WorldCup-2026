@@ -1,0 +1,38 @@
+{
+  "name": "congo",
+  "final_list": true,
+  "goalkeepers": [
+    "Lionel Mpasi",
+    "Thimothy Fayulu",
+    "Matthieu Epolo"
+  ],
+  "defenders": [
+    "Chancel Mbemba",
+    "Aaron Wan-Bissaka",
+    "Alex Tuanzebe",
+    "Arthur Masuaku",
+    "Joris Kayembe",
+    "Steve Kapuadi",
+    "Aaron Tshibola",
+    "Dylan Batubinsika",
+    "Gédéon Kalulu"
+  ],
+  "midfielders": [
+    "Noah Sadiki",
+    "Samuel Moutoussamy",
+    "Edo Kayembe",
+    "Ngal'ayel Mukau",
+    "Charles Pickel",
+    "Nathanael Mbuku",
+    "Brian Cipenga",
+    "Meschack Elia",
+    "Gael Kakuta"
+  ],
+  "forwards": [
+    "Theo Bongonda",
+    "Fiston Mayele",
+    "Cedric Bakambu",
+    "Simon Banza",
+    "Yoane Wissa"
+  ]
+}

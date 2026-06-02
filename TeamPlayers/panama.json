@@ -1,0 +1,38 @@
+{
+  "name": "panama",
+  "final_list": true,
+  "goalkeepers": [
+    "Orlando Mosquera",
+    "Luis Mejia",
+    "Cesar Samudio"
+  ],
+  "defenders": [
+    "Cesar Blackman",
+    "Jorge Gutierrez",
+    "Amir Murillo",
+    "Fidel Escobar",
+    "Andres Andrade",
+    "Edgardo Farina",
+    "Jose Cordoba",
+    "Eric Davis",
+    "Jiovany Ramos",
+    "Roderick Miller"
+  ],
+  "midfielders": [
+    "Anibal Godoy",
+    "Adalberto Carrasquilla",
+    "Carlos Harvey",
+    "Cristian Martinez",
+    "Jose Luis Rodriguez",
+    "Cesar Yanis",
+    "Yoel Barcenas",
+    "Alberto Quintero",
+    "Azarias Londono"
+  ],
+  "forwards": [
+    "Ismael Diaz",
+    "Cecilio Waterman",
+    "Jose Fajardo",
+    "Tomas Rodriguez"
+  ]
+}

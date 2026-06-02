@@ -1,0 +1,39 @@
+{
+  "name": "ira",
+  "final_list": true,
+  "goalkeepers": [
+    "Alireza Beiranvand",
+    "Hossein Hosseini",
+    "Payam Niazmand"  
+  ],
+  "defenders": [
+    "Daniyal Eiri",
+    "Ehsan Hajsafi",
+    "Saleh Hardani",
+    "Hossein Kanaani",
+    "Shoja Khalilzadeh",
+    "Milad Mohammadi",
+    "Ali Nemati",
+    "Ramin Rezaeian"
+  ],
+  "midfielders": [
+    "Rouzbeh Cheshmi",
+    "Saeid Ezatolahi",
+    "Mehdi Ghayedi",
+    "Saman Ghoddos",
+    "Mohammad Ghorbani",
+    "Alireza Jahanbakhsh",
+    "Mohammad Mohebi",
+    "Amir Mohammad Razzaghinia",
+    "Mehdi Torabi",
+    "Aria Yousefi"
+  ],
+  "forwards": [
+    "Ali Alipour",
+    "Dennis Dargahi",
+    "Amirhossein Hosseinzadeh",
+    "Shahriyar Moghanlou",
+    "Mehdi Taremi"
+  ]
+}
+

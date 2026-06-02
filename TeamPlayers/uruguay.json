@@ -1,0 +1,39 @@
+{
+  "name": "uruguay",
+  "final_list": true,
+  "goalkeepers": [
+    "Sergio ROCHET",
+    "Santiago MELE",
+    "Fernando MUSLERA"
+
+  ],
+  "defenders": [
+    "Jose Maria GIMENEZ",
+    "Sebastian CACERES",
+    "Ronald ARAUJO",
+    "Guillermo VARELA",
+    "Mathias OLIVERA",
+    "Matias VINA",
+    "Santiago BUENO"
+  ],
+  "midfielders": [
+    "Manuel UGARTE",
+    "Rodrigo BENTANCUR",
+    "Nicolas DE LA CRUZ",
+    "Federico VALVERDE",
+    "Giorgian DE ARRASCAETA",
+    "Agustin CANOBBIO",
+    "Emiliano MARTINEZ",
+    "Maxi ARAUJO",
+    "Joaquin PIQUEREZ",
+    "Juan Manuel SANABRIA",
+    "Rodrigo ZALAZAR"
+  ],
+  "forwards": [
+    "Darwin NUNEZ",
+    "Facundo PELLISTRI",
+    "Brian RODRIGUEZ",
+    "Rodrigo AGUIRRE",
+    "Federico VINAS"
+  ]
+}

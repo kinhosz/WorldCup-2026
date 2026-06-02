@@ -1,0 +1,38 @@
+{
+  "name": "cape_verde",
+  "final_list": true,
+  "goalkeepers": [
+   "VOZINHA",
+   "MARCIO ROSA",
+   "CJ DOS SANTOS"
+  ],
+  "defenders": [
+   "STOPIRA",
+   "DINEY BORGES",
+   "PICO LOPES",
+   "LOGAN COSTA",
+   "SIDNY LOPES CABRAL",
+   "STEVEN MOREIRA",
+   "WAGNER PINA",
+   "KELVIN PIRES"
+  ],
+  "midfielders": [
+    "KEVIN PINA",
+    "JOVANE CABRAL",
+    "JOAO PAULO",
+    "JAMIRO MONTEIRO",
+    "GARRY RODRIGUES",
+    "DEROY DUARTE",
+    "LAROS DUARTE",
+    "YANNICK SEMEDO",
+    "WILLY SEMEDO",
+    "TELMO ARCANJO",
+    "NUNO DA COSTA",
+    "HELIO VARELA"
+  ],
+  "forwards": [
+    "GILSON BENCHIMOL",
+    "DAILON LIVRAMENTO",
+    "RYAN MENDES"
+  ]
+}

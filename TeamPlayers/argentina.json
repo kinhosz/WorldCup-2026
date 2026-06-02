@@ -1,0 +1,38 @@
+{
+  "name": "argentina",
+  "final_list": true,
+  "goalkeepers": [
+    "Emiliano Martínez",
+    "Geronimo Rulli",
+    "Juan Musso"
+  ],
+  "defenders": [
+    "Nahuel Molina",
+    "Gonzalo Montiel",
+    "Cristian Romero",
+    "Leonardo Balerdi",
+    "Nicolas Otamendi",
+    "Lisandro Martinez",
+    "Nicolas Tagliafico",
+    "Facundo Medina"
+  ],
+  "midfielders": [
+    "Leandro Paredes",
+    "Alexis Mac Allister",
+    "Rodrigo De Paul",
+    "Giovani Lo Celso",
+    "Exequiel Palacios",
+    "Enzo Fernandez",
+    "Valentin Barco"
+  ],
+  "forwards": [
+    "Lionel Messi",
+    "Julian Alvarez",
+    "Lautaro Martinez",
+    "Thiago Almada",
+    "Nicolas Paz",
+    "Nicolas Gonzalez",
+    "Giuliano Simeone",
+    "Jose Manuel Lopez"
+  ]
+}

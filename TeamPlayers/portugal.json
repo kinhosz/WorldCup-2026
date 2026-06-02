@@ -1,0 +1,39 @@
+{
+  "name": "portugal",
+  "final_list": true,
+  "goalkeepers": [
+    "Diogo Costa",
+    "Jose Sa",
+    "Rui Silva",
+    "Ricardo Velho"
+  ],
+  "defenders": [
+    "Tomas Araujo",
+    "Joao Cancelo",
+    "Diogo Dalot",
+    "Ruben Dias",
+    "Goncalo Inacio",
+    "Nuno Mendes",
+    "Matheus Nunes",
+    "Nelson Semedo",
+    "Renato Veiga"
+  ],
+  "midfielders": [
+    "Samuel Costa",
+    "Bruno Fernandes",
+    "Joao Neves",
+    "Ruben Neves",
+    "Bernardo Silva",
+    "Vitinha"
+  ],
+  "forwards": [
+    "Francisco Conceicao",
+    "Joao Felix",
+    "Goncalo Guedes",
+    "Rafael Leao",
+    "Pedro Neto",
+    "Goncalo Ramos",
+    "Cristiano Ronaldo",
+    "Francisco Trincao"
+  ]
+}

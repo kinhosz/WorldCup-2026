@@ -1,0 +1,40 @@
+{
+  "name": "senegal",
+  "final_list": true,
+  "goalkeepers": [
+    "Mory Diaw",
+    "Yehvann Diouf",
+    "Edouard Mendy"
+  ],
+  "defenders": [
+    "Ilay Camara",
+    "Krepin Diatta",
+    "El Hadji Malick Diouf",
+    "Ismail Jakobs",
+    "Kalidou Koulibaly",
+    "Moustapha Mbow",
+    "Antoine Mendy",
+    "Moussa Niakhate",
+    "Mamadou Sarr",
+    "Abdoulaye Seck"
+  ],
+  "midfielders": [
+    "Lamine Camara",
+    "Pathe Ciss",
+    "Habib Diarra",
+    "Idrissa Gana Gueye",
+    "Pape Gueye",
+    "Pape Matar Sarr",
+    "Bara Sapoko Ndiaye"
+  ],
+  "forwards": [
+    "Assane Diao",
+    "Bamba Dieng",
+    "Nicolas Jackson",
+    "Sadio Mane",
+    "Ibrahim Mbaye",
+    "Cherif Ndiaye",
+    "Iliman Ndiaye",
+    "Ismaila Sarr"
+  ]
+}
