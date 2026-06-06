@@ -6,6 +6,28 @@ Simulação completa da Copa do Mundo 2026 usando atributos de jogadores do FIFA
 
 ---
 
+## 🏆 Nossa aposta — Seed 303
+
+> **Holanda campeã.** Esta é a nossa aposta para a Copa 2026.
+
+Na simulação determinística com seed `303`, a Holanda vence o torneio inteiro:
+bate a França nas quartas, derrota a Espanha nas semis e conquista o título na final contra a Argentina.
+
+```
+QF   França     1–2   Holanda   ✓
+SF   Holanda    3–0   Espanha   ✓
+F    Holanda    2–0   Argentina 🏆
+```
+
+Relatório completo: [`output/JOGO_303.md`](output/JOGO_303.md)
+
+Para rodar você mesmo:
+```bash
+python scripts/play_simulation.py 303
+```
+
+---
+
 ## Estrutura do projeto
 
 ```
