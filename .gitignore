@@ -1,0 +1,16 @@
+# Source datasets — too large for git
+transfermarket/
+datasets/*.zip
+datasets/extracted/fifa_players.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Claude Code memory
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
