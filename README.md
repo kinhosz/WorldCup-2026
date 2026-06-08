@@ -61,3 +61,19 @@ output/team_scores.json  →  simulate.py  →  output/simulation_results.json
 | 10 | Belgium | 2.65% | 8.63% | 24.26% | 58.66% |
 
 Full 48-team table and group-stage odds: [SIMULATION.md](SIMULATION.md)
+
+---
+
+## Example Seeds
+
+Each seed produces a fully deterministic tournament — run it again and you get the exact same bracket.
+
+| Seed | Champion | Final | Output |
+|------|----------|-------|--------|
+| `2026` | Netherlands | Netherlands 3–1 England | [output/JOGO_2026.md](output/JOGO_2026.md) |
+| `303` | Brazil | Brazil 2–1 France | [output/JOGO_303.md](output/JOGO_303.md) |
+
+```bash
+python3 scripts/simulate_single.py 2026   # Netherlands lifts the trophy
+python3 scripts/simulate_single.py 303    # Brazil campeão
+```
