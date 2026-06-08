@@ -1,32 +1,34 @@
-# WorldCup 2026 — Simulação Monte Carlo
+# WorldCup 2026 — Monte Carlo Simulation
 
-Simulação completa da Copa do Mundo 2026 usando atributos de jogadores do FC25 e FIFA22 como proxy de força, xG via Poisson, e Monte Carlo para estimar probabilidades de título.
+A complete 2026 FIFA World Cup simulator using FC25 and FIFA22 player attributes as strength proxies, Poisson-distributed xG to model matches, and Monte Carlo to estimate title probabilities across all 48 nations.
 
-**Resultados (1.000.000 simulações):** Brasil 20.8% · Portugal 17.1% · França 16.9% · Inglaterra 9.3% · Argentina 8.2%
-
----
-
-## Documentos
-
-| Documento | Conteúdo |
-|-----------|----------|
-| [SIMULACAO.md](SIMULACAO.md) | Metodologia completa, scores, resultados e simulações de exemplo |
-| [ANALISE.md](ANALISE.md) | Análise profunda: bugs corrigidos, impacto do FC25, interpretação dos resultados |
-| [output/score_audit.md](output/score_audit.md) | Breakdown por jogador — qual fonte de dados e rating foi usado em cada seleção |
+**Results (1,000,000 simulations):** Brazil 20.8% · Portugal 17.1% · France 16.9% · England 9.3% · Argentina 8.2%
 
 ---
 
-## Como rodar
+## Documents
+
+| Document | Language | Contents |
+|----------|----------|----------|
+| [SIMULATION.md](SIMULATION.md) | English | Methodology, scores, full results table, group-stage odds |
+| [ANALYSIS.md](ANALYSIS.md) | English | Deep analysis: data quality bugs fixed, FC25 impact, team-by-team interpretation |
+| [SIMULACAO.md](SIMULACAO.md) | Portuguese | Full methodology + individual simulation traces |
+| [ANALISE.md](ANALISE.md) | Portuguese | Deep analysis (Portuguese version) |
+| [output/score_audit.md](output/score_audit.md) | — | Per-player breakdown: data source and rating for all 48 squads |
+
+---
+
+## How to Run
 
 ```bash
-python3 scripts/build_team_scores.py   # gera output/team_scores.json
-python3 scripts/simulate.py 100000     # roda 100k simulações
-python3 scripts/generate_report.py     # gera SIMULACAO.md atualizado
+python3 scripts/build_team_scores.py   # generates output/team_scores.json
+python3 scripts/simulate.py 100000     # runs 100k simulations
+python3 scripts/generate_report.py     # regenerates SIMULACAO.md
 ```
 
 ---
 
-## Pipeline
+## Data Pipeline
 
 ```
 squads/*.json
@@ -35,27 +37,27 @@ squads/*.json
 build_team_scores.py
     │  Tier 1: FC25    (datasets/extracted/fc25_akshay/players_info.csv)
     │  Tier 2: FIFA22  (datasets/extracted/players_22.csv)
-    │  Tier 3: Transfermarket market value → rating log-linear
-    │  Tier 4: mediana global do setor
+    │  Tier 3: Transfermarket market value → log-linear rating
+    │  Tier 4: global sector median
     ▼
 output/team_scores.json  →  simulate.py  →  output/simulation_results.json
 ```
 
 ---
 
-## Resultados — 1.000.000 simulações
+## Results — 1,000,000 Simulations
 
-| # | Seleção | Campeão | Finalista | Semi | QF |
-|---|---------|---------|-----------|------|----|
-| 1 | Brasil | 20.82% | 31.96% | 48.03% | 68.09% |
+| # | Team | Champion | Finalist | Semi | QF |
+|---|------|----------|----------|------|----|
+| 1 | Brazil | 20.82% | 31.96% | 48.03% | 68.09% |
 | 2 | Portugal | 17.09% | 28.49% | 49.87% | 71.28% |
-| 3 | França | 16.89% | 30.04% | 44.63% | 65.29% |
-| 4 | Inglaterra | 9.32% | 17.88% | 33.11% | 63.48% |
+| 3 | France | 16.89% | 30.04% | 44.63% | 65.29% |
+| 4 | England | 9.32% | 17.88% | 33.11% | 63.48% |
 | 5 | Argentina | 8.18% | 15.79% | 31.93% | 55.64% |
-| 6 | Países Baixos | 7.00% | 15.56% | 26.80% | 51.82% |
-| 7 | Espanha | 6.95% | 15.45% | 32.05% | 47.38% |
-| 8 | Colômbia | 3.45% | 9.45% | 23.71% | 41.85% |
-| 9 | Alemanha | 3.24% | 8.23% | 16.60% | 31.81% |
-| 10 | Bélgica | 2.65% | 8.63% | 24.26% | 58.66% |
+| 6 | Netherlands | 7.00% | 15.56% | 26.80% | 51.82% |
+| 7 | Spain | 6.95% | 15.45% | 32.05% | 47.38% |
+| 8 | Colombia | 3.45% | 9.45% | 23.71% | 41.85% |
+| 9 | Germany | 3.24% | 8.23% | 16.60% | 31.81% |
+| 10 | Belgium | 2.65% | 8.63% | 24.26% | 58.66% |
 
-Para análise completa: [ANALISE.md](ANALISE.md)
+Full 48-team table and group-stage odds: [SIMULATION.md](SIMULATION.md)
