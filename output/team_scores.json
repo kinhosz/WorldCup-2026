@@ -1,10 +1,10 @@
 {
   "algeria": {
-    "goalkeeper": 0.1505,
-    "defense": 0.6383,
-    "midfield": 0.5951,
-    "attack": 0.6,
-    "xg_vs_average_opponent": 1.5562,
+    "goalkeeper": 0.3882,
+    "defense": 0.2928,
+    "midfield": 0.4887,
+    "attack": 0.4479,
+    "xg_vs_average_opponent": 1.1964,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -13,113 +13,113 @@
         "avg": 2
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 4,
+        "fc25": 5,
+        "fifa22": 2,
+        "tm": 0,
         "avg": 2
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 5,
+        "fc25": 5,
+        "fifa22": 1,
+        "tm": 1,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 3,
         "fifa22": 1,
-        "tm": 5,
+        "tm": 2,
         "avg": 1
       }
     }
   },
   "argentina": {
-    "goalkeeper": 0.8172,
-    "defense": 0.7848,
-    "midfield": 0.7991,
-    "attack": 0.7878,
-    "xg_vs_average_opponent": 2.0571,
+    "goalkeeper": 0.8208,
+    "defense": 0.8381,
+    "midfield": 0.7871,
+    "attack": 0.6631,
+    "xg_vs_average_opponent": 1.8208,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 2,
+        "fifa22": 1,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 8,
+        "fc25": 7,
+        "fifa22": 1,
         "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 7,
+        "fc25": 4,
+        "fifa22": 3,
         "tm": 0,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 1,
+        "fc25": 4,
+        "fifa22": 4,
+        "tm": 0,
         "unmatched": 0
       }
     }
   },
   "australia": {
-    "goalkeeper": 0.0,
-    "defense": 0.2225,
-    "midfield": 0.2095,
-    "attack": 0.1929,
-    "xg_vs_average_opponent": 0.5145,
+    "goalkeeper": 0.4406,
+    "defense": 0.2452,
+    "midfield": 0.1505,
+    "attack": 0.3725,
+    "xg_vs_average_opponent": 0.7953,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 1,
+        "fc25": 3,
+        "fifa22": 0,
+        "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 8,
+        "fc25": 6,
+        "fifa22": 3,
         "tm": 0,
-        "avg": 2
+        "avg": 1
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 5,
+        "fc25": 3,
+        "fifa22": 2,
         "tm": 0,
         "avg": 1
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 3,
-        "avg": 1
+        "fc25": 4,
+        "fifa22": 1,
+        "tm": 2,
+        "unmatched": 0
       }
     }
   },
   "austria": {
-    "goalkeeper": 0.3656,
-    "defense": 0.4351,
-    "midfield": 0.7682,
-    "attack": 0.0349,
-    "xg_vs_average_opponent": 0.6627,
+    "goalkeeper": 0.4221,
+    "defense": 0.4462,
+    "midfield": 0.5875,
+    "attack": 0.2147,
+    "xg_vs_average_opponent": 0.849,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
-        "fifa22": 3,
+        "fifa22": 2,
         "tm": 0,
-        "unmatched": 0
+        "avg": 1
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 9,
+        "fc25": 1,
+        "fifa22": 8,
         "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 9,
+        "fc25": 1,
+        "fifa22": 8,
         "tm": 2,
         "unmatched": 0
       },
@@ -132,44 +132,44 @@
     }
   },
   "belgium": {
-    "goalkeeper": 0.9355,
-    "defense": 0.6043,
-    "midfield": 0.9218,
-    "attack": 0.6056,
-    "xg_vs_average_opponent": 1.8212,
+    "goalkeeper": 0.5409,
+    "defense": 0.392,
+    "midfield": 0.8455,
+    "attack": 0.6255,
+    "xg_vs_average_opponent": 1.7979,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 2,
-        "tm": 1,
+        "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 3,
+        "fc25": 4,
+        "fifa22": 5,
+        "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 6,
+        "fc25": 2,
+        "fifa22": 4,
         "tm": 0,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 2,
+        "fc25": 2,
+        "fifa22": 5,
+        "tm": 1,
         "unmatched": 0
       }
     }
   },
   "bosnia_and_herzegovina": {
-    "goalkeeper": 0.1505,
-    "defense": 0.0075,
-    "midfield": 0.4161,
-    "attack": 0.1754,
-    "xg_vs_average_opponent": 0.6438,
+    "goalkeeper": 0.3882,
+    "defense": 0.1302,
+    "midfield": 0.0778,
+    "attack": 0.2862,
+    "xg_vs_average_opponent": 0.5816,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -184,58 +184,58 @@
         "avg": 1
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 5,
-        "tm": 6,
+        "fc25": 3,
+        "fifa22": 3,
+        "tm": 5,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 1,
+        "fifa22": 2,
         "tm": 0,
         "avg": 3
       }
     }
   },
   "brazil": {
-    "goalkeeper": 0.9785,
-    "defense": 0.8484,
-    "midfield": 0.6963,
-    "attack": 0.7609,
-    "xg_vs_average_opponent": 1.928,
+    "goalkeeper": 1.0,
+    "defense": 0.967,
+    "midfield": 0.7635,
+    "attack": 0.9604,
+    "xg_vs_average_opponent": 2.3435,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 2,
+        "fifa22": 0,
         "tm": 0,
-        "unmatched": 0
+        "avg": 1
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 9,
+        "fc25": 5,
+        "fifa22": 4,
         "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 5,
+        "fc25": 4,
+        "fifa22": 1,
         "tm": 0,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 9,
+        "fc25": 7,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "canada": {
-    "goalkeeper": 0.3011,
-    "defense": 0.1997,
-    "midfield": 0.485,
-    "attack": 0.3678,
-    "xg_vs_average_opponent": 1.0477,
+    "goalkeeper": 0.3086,
+    "defense": 0.0,
+    "midfield": 0.0883,
+    "attack": 0.4387,
+    "xg_vs_average_opponent": 0.8673,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -244,31 +244,31 @@
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 5,
-        "tm": 3,
-        "avg": 1
+        "fc25": 5,
+        "fifa22": 3,
+        "tm": 1,
+        "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 1,
-        "avg": 1
+        "fc25": 4,
+        "fifa22": 5,
+        "tm": 0,
+        "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 1,
+        "fc25": 3,
+        "fifa22": 0,
+        "tm": 0,
         "avg": 1
       }
     }
   },
   "cape_verte": {
-    "goalkeeper": 0.1505,
-    "defense": 0.1496,
-    "midfield": 0.4705,
-    "attack": 0.1394,
-    "xg_vs_average_opponent": 0.6207,
+    "goalkeeper": 0.3882,
+    "defense": 0.2384,
+    "midfield": 0.2704,
+    "attack": 0.2174,
+    "xg_vs_average_opponent": 0.6066,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -277,130 +277,130 @@
         "avg": 3
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 1,
+        "fc25": 3,
+        "fifa22": 0,
         "tm": 0,
-        "avg": 7
+        "avg": 5
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 2,
+        "fifa22": 2,
         "tm": 0,
-        "avg": 9
+        "avg": 8
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 1,
         "tm": 0,
-        "avg": 2
+        "avg": 1
       }
     }
   },
   "colombia": {
-    "goalkeeper": 0.5914,
-    "defense": 0.6047,
-    "midfield": 0.782,
-    "attack": 0.6251,
-    "xg_vs_average_opponent": 1.7476,
+    "goalkeeper": 0.5973,
+    "defense": 0.5972,
+    "midfield": 0.3949,
+    "attack": 0.8996,
+    "xg_vs_average_opponent": 1.9453,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 2,
+        "fifa22": 1,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 8,
+        "fc25": 6,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 2,
-        "avg": 1
+        "fc25": 5,
+        "fifa22": 5,
+        "tm": 0,
+        "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 5,
+        "fc25": 2,
+        "fifa22": 3,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "congo": {
-    "goalkeeper": 0.1505,
-    "defense": 0.4305,
-    "midfield": 0.5643,
-    "attack": 0.5782,
-    "xg_vs_average_opponent": 1.4925,
+    "goalkeeper": 0.1895,
+    "defense": 0.4699,
+    "midfield": 0.176,
+    "attack": 0.8327,
+    "xg_vs_average_opponent": 1.6528,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
+        "fc25": 2,
         "fifa22": 0,
-        "tm": 2,
-        "avg": 1
+        "tm": 1,
+        "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 4,
+        "fc25": 4,
+        "fifa22": 1,
+        "tm": 3,
         "avg": 1
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 4,
-        "avg": 1
+        "fc25": 5,
+        "fifa22": 3,
+        "tm": 1,
+        "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 2,
-        "tm": 2,
+        "tm": 1,
         "avg": 1
       }
     }
   },
   "croatia": {
-    "goalkeeper": 0.6882,
-    "defense": 0.4646,
-    "midfield": 0.9932,
-    "attack": 0.4038,
-    "xg_vs_average_opponent": 1.5096,
+    "goalkeeper": 0.653,
+    "defense": 0.4383,
+    "midfield": 0.5851,
+    "attack": 0.3863,
+    "xg_vs_average_opponent": 1.1594,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 1,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
+        "fc25": 1,
+        "fifa22": 6,
         "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 8,
-        "tm": 1,
+        "fc25": 2,
+        "fifa22": 7,
+        "tm": 0,
         "avg": 1
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 5,
-        "tm": 1,
+        "tm": 0,
         "unmatched": 0
       }
     }
   },
   "curacao": {
-    "goalkeeper": 0.3441,
-    "defense": 0.0,
-    "midfield": 0.2699,
-    "attack": 0.1659,
-    "xg_vs_average_opponent": 0.5125,
+    "goalkeeper": 0.4117,
+    "defense": 0.0714,
+    "midfield": 0.066,
+    "attack": 0.0632,
+    "xg_vs_average_opponent": 0.1665,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -409,109 +409,109 @@
         "avg": 1
       },
       "defenders": {
-        "fc25": 0,
+        "fc25": 2,
         "fifa22": 1,
-        "tm": 6,
-        "avg": 1
-      },
-      "middle": {
-        "fc25": 0,
-        "fifa22": 2,
         "tm": 4,
         "avg": 1
       },
+      "middle": {
+        "fc25": 4,
+        "fifa22": 1,
+        "tm": 1,
+        "avg": 1
+      },
       "attackers": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 2,
-        "tm": 5,
+        "tm": 4,
         "avg": 1
       }
     }
   },
   "czech_republic": {
-    "goalkeeper": 0.3871,
-    "defense": 0.6273,
-    "midfield": 0.6187,
-    "attack": 0.2926,
-    "xg_vs_average_opponent": 1.0151,
+    "goalkeeper": 0.5239,
+    "defense": 0.5907,
+    "midfield": 0.3272,
+    "attack": 0.3737,
+    "xg_vs_average_opponent": 0.9354,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 1,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 2,
-        "avg": 3
-      },
-      "middle": {
-        "fc25": 0,
-        "fifa22": 8,
-        "tm": 0,
-        "avg": 3
-      },
-      "attackers": {
-        "fc25": 0,
+        "fc25": 5,
         "fifa22": 4,
         "tm": 0,
-        "avg": 2
-      }
-    }
-  },
-  "ecuador": {
-    "goalkeeper": 0.1505,
-    "defense": 0.4115,
-    "midfield": 0.3266,
-    "attack": 0.1326,
-    "xg_vs_average_opponent": 0.4961,
-    "_sources": {
-      "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 0,
-        "tm": 0,
-        "avg": 3
-      },
-      "defenders": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 2,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 2,
-        "avg": 2
+        "fc25": 1,
+        "fifa22": 7,
+        "tm": 0,
+        "avg": 3
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 1,
+        "fc25": 1,
+        "fifa22": 4,
+        "tm": 0,
         "avg": 1
       }
     }
   },
+  "ecuador": {
+    "goalkeeper": 0.4614,
+    "defense": 0.4304,
+    "midfield": 0.146,
+    "attack": 0.3589,
+    "xg_vs_average_opponent": 0.7671,
+    "_sources": {
+      "goalkeepers": {
+        "fc25": 3,
+        "fifa22": 0,
+        "tm": 0,
+        "unmatched": 0
+      },
+      "defenders": {
+        "fc25": 7,
+        "fifa22": 1,
+        "tm": 0,
+        "unmatched": 0
+      },
+      "middle": {
+        "fc25": 6,
+        "fifa22": 2,
+        "tm": 1,
+        "avg": 1
+      },
+      "attackers": {
+        "fc25": 4,
+        "fifa22": 1,
+        "tm": 0,
+        "unmatched": 0
+      }
+    }
+  },
   "egypt": {
-    "goalkeeper": 0.1505,
-    "defense": 0.0868,
-    "midfield": 0.3393,
-    "attack": 0.4861,
-    "xg_vs_average_opponent": 1.1494,
+    "goalkeeper": 0.5237,
+    "defense": 0.1351,
+    "midfield": 0.1981,
+    "attack": 0.8728,
+    "xg_vs_average_opponent": 1.743,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
-        "fifa22": 1,
-        "tm": 1,
+        "fifa22": 0,
+        "tm": 2,
         "avg": 2
       },
       "defenders": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 1,
         "tm": 2,
-        "avg": 5
+        "avg": 4
       },
       "middle": {
         "fc25": 0,
@@ -520,19 +520,19 @@
         "avg": 7
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 2,
+        "fc25": 2,
+        "fifa22": 0,
         "tm": 0,
         "avg": 3
       }
     }
   },
   "england": {
-    "goalkeeper": 0.7204,
-    "defense": 0.89,
-    "midfield": 0.7741,
-    "attack": 0.6689,
-    "xg_vs_average_opponent": 1.8212,
+    "goalkeeper": 0.7541,
+    "defense": 0.7716,
+    "midfield": 0.6696,
+    "attack": 0.8352,
+    "xg_vs_average_opponent": 2.0424,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -541,130 +541,97 @@
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 2,
-        "unmatched": 0
-      },
-      "middle": {
-        "fc25": 0,
-        "fifa22": 6,
+        "fc25": 3,
+        "fifa22": 5,
         "tm": 1,
         "unmatched": 0
       },
+      "middle": {
+        "fc25": 3,
+        "fifa22": 4,
+        "tm": 0,
+        "unmatched": 0
+      },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 7,
+        "fc25": 1,
+        "fifa22": 6,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "france": {
-    "goalkeeper": 0.7957,
-    "defense": 0.8299,
-    "midfield": 0.8673,
-    "attack": 1.0,
-    "xg_vs_average_opponent": 2.4965,
+    "goalkeeper": 0.8379,
+    "defense": 1.0,
+    "midfield": 0.7376,
+    "attack": 0.8233,
+    "xg_vs_average_opponent": 2.0737,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
+        "fc25": 2,
         "fifa22": 1,
-        "tm": 2,
+        "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 9,
+        "fc25": 4,
+        "fifa22": 5,
         "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 3,
-        "tm": 2,
+        "tm": 1,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 3,
+        "fc25": 6,
+        "fifa22": 3,
+        "tm": 0,
         "unmatched": 0
       }
     }
   },
   "germany": {
-    "goalkeeper": 1.0,
-    "defense": 0.931,
-    "midfield": 1.0,
-    "attack": 0.0058,
-    "xg_vs_average_opponent": 0.7906,
+    "goalkeeper": 0.8165,
+    "defense": 0.7326,
+    "midfield": 0.6581,
+    "attack": 0.5639,
+    "xg_vs_average_opponent": 1.5396,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 1,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 1,
+        "fc25": 3,
+        "fifa22": 5,
+        "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 9,
-        "tm": 2,
+        "fc25": 3,
+        "fifa22": 5,
+        "tm": 1,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 4,
+        "fc25": 3,
+        "fifa22": 3,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "ghana": {
-    "goalkeeper": 0.2043,
-    "defense": 0.1067,
-    "midfield": 0.5917,
-    "attack": 0.4917,
-    "xg_vs_average_opponent": 1.3564,
-    "_sources": {
-      "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 0,
-        "avg": 1
-      },
-      "defenders": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 4,
-        "avg": 2
-      },
-      "middle": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 2,
-        "avg": 1
-      },
-      "attackers": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 4,
-        "avg": 2
-      }
-    }
-  },
-  "haiti": {
-    "goalkeeper": 0.1505,
-    "defense": 0.0868,
-    "midfield": 0.4333,
-    "attack": 0.1736,
-    "xg_vs_average_opponent": 0.6539,
+    "goalkeeper": 0.3435,
+    "defense": 0.2145,
+    "midfield": 0.2947,
+    "attack": 0.5726,
+    "xg_vs_average_opponent": 1.272,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -673,31 +640,64 @@
         "avg": 1
       },
       "defenders": {
+        "fc25": 5,
+        "fifa22": 1,
+        "tm": 2,
+        "avg": 1
+      },
+      "middle": {
+        "fc25": 3,
+        "fifa22": 2,
+        "tm": 0,
+        "avg": 1
+      },
+      "attackers": {
+        "fc25": 5,
+        "fifa22": 1,
+        "tm": 1,
+        "avg": 1
+      }
+    }
+  },
+  "haiti": {
+    "goalkeeper": 0.2408,
+    "defense": 0.2066,
+    "midfield": 0.3027,
+    "attack": 0.0,
+    "xg_vs_average_opponent": 0.2361,
+    "_sources": {
+      "goalkeepers": {
         "fc25": 0,
+        "fifa22": 1,
+        "tm": 1,
+        "avg": 1
+      },
+      "defenders": {
+        "fc25": 2,
         "fifa22": 0,
-        "tm": 3,
+        "tm": 1,
         "avg": 5
       },
       "middle": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 1,
-        "tm": 2,
+        "tm": 1,
         "avg": 3
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 1,
+        "fifa22": 2,
         "tm": 6,
         "unmatched": 0
       }
     }
   },
   "ira": {
-    "goalkeeper": 0.1935,
-    "defense": 0.0868,
-    "midfield": 0.4657,
-    "attack": 0.2003,
-    "xg_vs_average_opponent": 0.7278,
+    "goalkeeper": 0.2573,
+    "defense": 0.1538,
+    "midfield": 0.2738,
+    "attack": 0.2993,
+    "xg_vs_average_opponent": 0.7583,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -726,110 +726,11 @@
     }
   },
   "iraq": {
-    "goalkeeper": 0.1505,
-    "defense": 0.0868,
-    "midfield": 0.3393,
-    "attack": 0.065,
-    "xg_vs_average_opponent": 0.383,
-    "_sources": {
-      "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 1,
-        "tm": 0,
-        "avg": 3
-      },
-      "defenders": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 1,
-        "avg": 9
-      },
-      "middle": {
-        "fc25": 0,
-        "fifa22": 1,
-        "tm": 4,
-        "avg": 9
-      },
-      "attackers": {
-        "fc25": 0,
-        "fifa22": 0,
-        "tm": 2,
-        "avg": 2
-      }
-    }
-  },
-  "ivory_coast": {
-    "goalkeeper": 0.2366,
-    "defense": 0.6011,
-    "midfield": 0.5741,
-    "attack": 0.5625,
-    "xg_vs_average_opponent": 1.4715,
-    "_sources": {
-      "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 1,
-        "unmatched": 0
-      },
-      "defenders": {
-        "fc25": 0,
-        "fifa22": 5,
-        "tm": 3,
-        "unmatched": 0
-      },
-      "middle": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 1,
-        "avg": 1
-      },
-      "attackers": {
-        "fc25": 0,
-        "fifa22": 5,
-        "tm": 3,
-        "avg": 1
-      }
-    }
-  },
-  "japan": {
-    "goalkeeper": 0.1505,
-    "defense": 0.4332,
-    "midfield": 0.8014,
-    "attack": 0.3164,
-    "xg_vs_average_opponent": 1.2009,
-    "_sources": {
-      "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 0,
-        "avg": 1
-      },
-      "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 1,
-        "avg": 1
-      },
-      "middle": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 5,
-        "unmatched": 0
-      },
-      "attackers": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 1,
-        "avg": 1
-      }
-    }
-  },
-  "jordan": {
-    "goalkeeper": 0.1505,
-    "defense": 0.0868,
-    "midfield": 0.3393,
-    "attack": 0.1485,
-    "xg_vs_average_opponent": 0.5349,
+    "goalkeeper": 0.3882,
+    "defense": 0.1994,
+    "midfield": 0.1396,
+    "attack": 0.2104,
+    "xg_vs_average_opponent": 0.4918,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -838,10 +739,109 @@
         "avg": 4
       },
       "defenders": {
+        "fc25": 1,
+        "fifa22": 2,
+        "tm": 0,
+        "avg": 9
+      },
+      "middle": {
+        "fc25": 4,
+        "fifa22": 1,
+        "tm": 2,
+        "avg": 7
+      },
+      "attackers": {
+        "fc25": 1,
+        "fifa22": 0,
+        "tm": 1,
+        "avg": 2
+      }
+    }
+  },
+  "ivory_coast": {
+    "goalkeeper": 0.3619,
+    "defense": 0.5165,
+    "midfield": 0.4314,
+    "attack": 0.6251,
+    "xg_vs_average_opponent": 1.4742,
+    "_sources": {
+      "goalkeepers": {
+        "fc25": 2,
+        "fifa22": 0,
+        "tm": 1,
+        "unmatched": 0
+      },
+      "defenders": {
+        "fc25": 5,
+        "fifa22": 3,
+        "tm": 0,
+        "unmatched": 0
+      },
+      "middle": {
+        "fc25": 2,
+        "fifa22": 4,
+        "tm": 0,
+        "unmatched": 0
+      },
+      "attackers": {
+        "fc25": 3,
+        "fifa22": 3,
+        "tm": 2,
+        "avg": 1
+      }
+    }
+  },
+  "japan": {
+    "goalkeeper": 0.3593,
+    "defense": 0.4856,
+    "midfield": 0.5601,
+    "attack": 0.3751,
+    "xg_vs_average_opponent": 1.1196,
+    "_sources": {
+      "goalkeepers": {
+        "fc25": 1,
+        "fifa22": 1,
+        "tm": 0,
+        "avg": 1
+      },
+      "defenders": {
+        "fc25": 7,
+        "fifa22": 1,
+        "tm": 0,
+        "avg": 1
+      },
+      "middle": {
+        "fc25": 8,
+        "fifa22": 0,
+        "tm": 0,
+        "unmatched": 0
+      },
+      "attackers": {
+        "fc25": 4,
+        "fifa22": 0,
+        "tm": 1,
+        "avg": 1
+      }
+    }
+  },
+  "jordan": {
+    "goalkeeper": 0.3882,
+    "defense": 0.1994,
+    "midfield": 0.1981,
+    "attack": 0.3718,
+    "xg_vs_average_opponent": 0.8312,
+    "_sources": {
+      "goalkeepers": {
         "fc25": 0,
         "fifa22": 0,
         "tm": 0,
-        "avg": 13
+        "avg": 4
+      },
+      "defenders": {
+        "fc25": 1,
+        "fifa22": 0,
+        "tm": 0,
+        "avg": 12
       },
       "middle": {
         "fc25": 0,
@@ -850,19 +850,19 @@
         "avg": 7
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 1,
+        "fc25": 1,
+        "fifa22": 0,
         "tm": 0,
         "avg": 5
       }
     }
   },
   "mexico": {
-    "goalkeeper": 0.4731,
-    "defense": 0.4205,
-    "midfield": 0.4498,
-    "attack": 0.2286,
-    "xg_vs_average_opponent": 0.7669,
+    "goalkeeper": 0.4734,
+    "defense": 0.5204,
+    "midfield": 0.213,
+    "attack": 0.2432,
+    "xg_vs_average_opponent": 0.6088,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -871,31 +871,31 @@
         "avg": 1
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
+        "fc25": 3,
+        "fifa22": 4,
         "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 6,
+        "fc25": 2,
+        "fifa22": 4,
         "tm": 1,
         "avg": 1
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 6,
+        "fc25": 3,
+        "fifa22": 4,
         "tm": 0,
-        "avg": 2
+        "avg": 1
       }
     }
   },
   "morocco": {
-    "goalkeeper": 0.7097,
-    "defense": 0.5203,
-    "midfield": 0.8379,
-    "attack": 0.5979,
-    "xg_vs_average_opponent": 1.7417,
+    "goalkeeper": 0.5833,
+    "defense": 0.4746,
+    "midfield": 0.5594,
+    "attack": 0.6459,
+    "xg_vs_average_opponent": 1.6119,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -904,31 +904,31 @@
         "avg": 1
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 5,
+        "fc25": 3,
+        "fifa22": 3,
+        "tm": 3,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
+        "fc25": 3,
         "fifa22": 2,
-        "tm": 5,
+        "tm": 2,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 2,
         "fifa22": 2,
-        "tm": 3,
-        "avg": 2
+        "tm": 2,
+        "avg": 1
       }
     }
   },
   "netherlands": {
-    "goalkeeper": 0.3763,
-    "defense": 1.0,
-    "midfield": 0.8285,
-    "attack": 0.6804,
-    "xg_vs_average_opponent": 1.8846,
+    "goalkeeper": 0.2779,
+    "defense": 0.9492,
+    "midfield": 0.5721,
+    "attack": 0.7949,
+    "xg_vs_average_opponent": 1.893,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -957,44 +957,44 @@
     }
   },
   "new_zealand": {
-    "goalkeeper": 0.1505,
-    "defense": 0.0755,
-    "midfield": 0.3241,
-    "attack": 0.1916,
-    "xg_vs_average_opponent": 0.6015,
+    "goalkeeper": 0.0,
+    "defense": 0.1042,
+    "midfield": 0.0,
+    "attack": 0.3137,
+    "xg_vs_average_opponent": 0.5709,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 2,
+        "fc25": 2,
+        "fifa22": 1,
         "tm": 0,
-        "avg": 1
+        "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 1,
-        "avg": 1
+        "fc25": 9,
+        "fifa22": 0,
+        "tm": 0,
+        "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 8,
-        "tm": 1,
-        "avg": 1
+        "fc25": 8,
+        "fifa22": 2,
+        "tm": 0,
+        "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 2,
+        "fifa22": 1,
         "tm": 0,
         "avg": 1
       }
     }
   },
   "norway": {
-    "goalkeeper": 0.2473,
-    "defense": 0.2412,
-    "midfield": 0.7889,
-    "attack": 0.3358,
-    "xg_vs_average_opponent": 1.2265,
+    "goalkeeper": 0.1799,
+    "defense": 0.1355,
+    "midfield": 0.3583,
+    "attack": 1.0,
+    "xg_vs_average_opponent": 2.0995,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -1003,64 +1003,64 @@
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
+        "fc25": 3,
+        "fifa22": 6,
         "tm": 0,
-        "avg": 2
+        "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 8,
-        "tm": 2,
-        "avg": 1
+        "fc25": 5,
+        "fifa22": 6,
+        "tm": 0,
+        "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 1,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "panama": {
-    "goalkeeper": 0.3763,
-    "defense": 0.1079,
-    "midfield": 0.2963,
-    "attack": 0.1485,
-    "xg_vs_average_opponent": 0.5014,
+    "goalkeeper": 0.3882,
+    "defense": 0.1954,
+    "midfield": 0.124,
+    "attack": 0.3915,
+    "xg_vs_average_opponent": 0.8093,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 1,
+        "fc25": 1,
+        "fifa22": 0,
         "tm": 0,
         "avg": 2
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 4,
+        "fifa22": 1,
         "tm": 2,
-        "avg": 5
+        "avg": 3
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 7,
+        "fc25": 3,
+        "fifa22": 4,
         "tm": 0,
         "avg": 2
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 2,
         "fifa22": 0,
-        "tm": 1,
-        "avg": 3
+        "tm": 0,
+        "avg": 2
       }
     }
   },
   "paraguay": {
-    "goalkeeper": 0.1505,
-    "defense": 0.3221,
-    "midfield": 0.5139,
-    "attack": 0.2539,
-    "xg_vs_average_opponent": 0.8629,
+    "goalkeeper": 0.3882,
+    "defense": 0.2637,
+    "midfield": 0.1109,
+    "attack": 0.1676,
+    "xg_vs_average_opponent": 0.3915,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -1069,64 +1069,64 @@
         "avg": 3
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 3,
+        "fc25": 3,
+        "fifa22": 2,
+        "tm": 2,
         "avg": 1
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 2,
+        "fc25": 4,
+        "fifa22": 1,
+        "tm": 0,
         "avg": 2
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 6,
+        "fc25": 6,
+        "fifa22": 2,
         "tm": 0,
-        "avg": 2
+        "unmatched": 0
       }
     }
   },
   "portugal": {
-    "goalkeeper": 0.6989,
-    "defense": 0.9338,
-    "midfield": 0.9164,
-    "attack": 0.7653,
-    "xg_vs_average_opponent": 2.1076,
+    "goalkeeper": 0.752,
+    "defense": 0.7605,
+    "midfield": 1.0,
+    "attack": 0.8331,
+    "xg_vs_average_opponent": 2.2962,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 4,
+        "fc25": 4,
+        "fifa22": 0,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 2,
+        "fc25": 9,
+        "fifa22": 0,
+        "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 6,
+        "fc25": 6,
+        "fifa22": 0,
         "tm": 0,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 8,
+        "fc25": 8,
+        "fifa22": 0,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "qatar": {
-    "goalkeeper": 0.1505,
-    "defense": 0.0868,
-    "midfield": 0.3393,
-    "attack": 0.1485,
-    "xg_vs_average_opponent": 0.5349,
+    "goalkeeper": 0.3882,
+    "defense": 0.1994,
+    "midfield": 0.1981,
+    "attack": 0.2764,
+    "xg_vs_average_opponent": 0.6576,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -1155,81 +1155,81 @@
     }
   },
   "republic_of_korea": {
-    "goalkeeper": 0.4409,
-    "defense": 0.0933,
-    "midfield": 0.5316,
-    "attack": 0.0,
-    "xg_vs_average_opponent": 0.4146,
+    "goalkeeper": 0.4503,
+    "defense": 0.1561,
+    "midfield": 0.375,
+    "attack": 0.8037,
+    "xg_vs_average_opponent": 1.7552,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 2,
+        "fifa22": 1,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 7,
+        "fc25": 6,
+        "fifa22": 3,
         "tm": 1,
-        "avg": 2
+        "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 8,
-        "tm": 1,
-        "avg": 1
+        "fc25": 9,
+        "fifa22": 1,
+        "tm": 0,
+        "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 2,
         "fifa22": 1,
-        "tm": 1,
-        "avg": 1
+        "tm": 0,
+        "unmatched": 0
       }
     }
   },
   "saudi_arabia": {
-    "goalkeeper": 0.2151,
-    "defense": 0.0505,
-    "midfield": 0.0,
-    "attack": 0.0332,
-    "xg_vs_average_opponent": 0.0604,
+    "goalkeeper": 0.1783,
+    "defense": 0.0969,
+    "midfield": 0.0043,
+    "attack": 0.3468,
+    "xg_vs_average_opponent": 0.6345,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
+        "fc25": 3,
+        "fifa22": 1,
+        "tm": 0,
+        "unmatched": 0
+      },
+      "defenders": {
+        "fc25": 8,
         "fifa22": 3,
         "tm": 0,
         "avg": 1
       },
-      "defenders": {
-        "fc25": 0,
-        "fifa22": 11,
-        "tm": 0,
-        "avg": 1
-      },
       "middle": {
-        "fc25": 0,
-        "fifa22": 8,
+        "fc25": 6,
+        "fifa22": 2,
         "tm": 0,
         "avg": 1
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 5,
+        "fc25": 3,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "scotland": {
-    "goalkeeper": 0.1973,
-    "defense": 0.4784,
-    "midfield": 0.5824,
-    "attack": 0.1286,
-    "xg_vs_average_opponent": 0.6883,
+    "goalkeeper": 0.3824,
+    "defense": 0.3654,
+    "midfield": 0.3903,
+    "attack": 0.2788,
+    "xg_vs_average_opponent": 0.8118,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 2,
+        "fc25": 2,
+        "fifa22": 0,
         "tm": 1,
         "unmatched": 0
       },
@@ -1246,52 +1246,52 @@
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 5,
+        "fc25": 3,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "senegal": {
-    "goalkeeper": 0.7527,
-    "defense": 0.6898,
-    "midfield": 0.5117,
-    "attack": 0.8169,
-    "xg_vs_average_opponent": 1.8859,
+    "goalkeeper": 0.6812,
+    "defense": 0.4752,
+    "midfield": 0.2782,
+    "attack": 0.7349,
+    "xg_vs_average_opponent": 1.5545,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 1,
-        "tm": 2,
+        "tm": 1,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 3,
-        "avg": 1
+        "fc25": 4,
+        "fifa22": 4,
+        "tm": 2,
+        "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 5,
-        "tm": 1,
+        "fc25": 4,
+        "fifa22": 2,
+        "tm": 0,
         "avg": 1
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 1,
+        "fc25": 3,
+        "fifa22": 5,
+        "tm": 0,
         "unmatched": 0
       }
     }
   },
   "south_africa": {
-    "goalkeeper": 0.1505,
-    "defense": 0.0868,
-    "midfield": 0.2768,
-    "attack": 0.234,
-    "xg_vs_average_opponent": 0.6418,
+    "goalkeeper": 0.3882,
+    "defense": 0.1994,
+    "midfield": 0.1981,
+    "attack": 0.2958,
+    "xg_vs_average_opponent": 0.6929,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -1300,130 +1300,130 @@
         "avg": 3
       },
       "defenders": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 0,
         "tm": 0,
-        "avg": 11
+        "avg": 10
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 1,
+        "fc25": 1,
+        "fifa22": 0,
         "tm": 0,
         "avg": 3
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 0,
-        "tm": 1,
+        "tm": 0,
         "avg": 7
       }
     }
   },
   "spain": {
-    "goalkeeper": 0.7312,
-    "defense": 0.7733,
-    "midfield": 0.6804,
-    "attack": 0.7302,
-    "xg_vs_average_opponent": 1.8597,
+    "goalkeeper": 0.8481,
+    "defense": 0.6257,
+    "midfield": 0.8509,
+    "attack": 0.6746,
+    "xg_vs_average_opponent": 1.8915,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 3,
+        "fifa22": 0,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 6,
+        "fc25": 5,
+        "fifa22": 1,
         "tm": 2,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 7,
+        "fc25": 5,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 1,
+        "fc25": 6,
+        "fifa22": 1,
+        "tm": 0,
         "avg": 1
       }
     }
   },
   "sweden": {
-    "goalkeeper": 0.3871,
-    "defense": 0.3493,
-    "midfield": 0.5684,
-    "attack": 0.2074,
-    "xg_vs_average_opponent": 0.8208,
+    "goalkeeper": 0.3486,
+    "defense": 0.4,
+    "midfield": 0.1215,
+    "attack": 0.7321,
+    "xg_vs_average_opponent": 1.4272,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 0,
+        "fc25": 2,
+        "fifa22": 1,
+        "tm": 1,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 1,
+        "fc25": 4,
+        "fifa22": 3,
+        "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 5,
-        "tm": 1,
-        "avg": 2
+        "fc25": 7,
+        "fifa22": 1,
+        "tm": 0,
+        "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 6,
+        "fc25": 4,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       }
     }
   },
   "switzerland": {
-    "goalkeeper": 0.5914,
-    "defense": 0.5211,
-    "midfield": 0.594,
-    "attack": 0.4718,
-    "xg_vs_average_opponent": 1.322,
+    "goalkeeper": 0.6391,
+    "defense": 0.5883,
+    "midfield": 0.4178,
+    "attack": 0.483,
+    "xg_vs_average_opponent": 1.2049,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 2,
+        "fc25": 2,
+        "fifa22": 1,
         "tm": 0,
-        "avg": 1
+        "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 2,
+        "fc25": 7,
+        "fifa22": 1,
+        "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 9,
+        "fc25": 3,
+        "fifa22": 6,
         "tm": 0,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 5,
-        "tm": 1,
+        "fc25": 4,
+        "fifa22": 2,
+        "tm": 0,
         "unmatched": 0
       }
     }
   },
   "tunisia": {
-    "goalkeeper": 0.1505,
-    "defense": 0.2283,
-    "midfield": 0.462,
-    "attack": 0.1485,
-    "xg_vs_average_opponent": 0.6306,
+    "goalkeeper": 0.3882,
+    "defense": 0.1467,
+    "midfield": 0.1893,
+    "attack": 0.3074,
+    "xg_vs_average_opponent": 0.7071,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -1432,130 +1432,130 @@
         "avg": 3
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 4,
+        "fc25": 4,
+        "fifa22": 1,
+        "tm": 2,
         "avg": 2
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 3,
-        "tm": 3,
-        "avg": 1
+        "fc25": 3,
+        "fifa22": 2,
+        "tm": 2,
+        "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
+        "fc25": 2,
         "fifa22": 1,
-        "tm": 1,
-        "avg": 5
+        "tm": 0,
+        "avg": 4
       }
     }
   },
   "turkey": {
-    "goalkeeper": 0.6022,
-    "defense": 0.7264,
-    "midfield": 0.7176,
-    "attack": 0.3671,
-    "xg_vs_average_opponent": 1.2278,
+    "goalkeeper": 0.6549,
+    "defense": 0.5506,
+    "midfield": 0.5666,
+    "attack": 0.2271,
+    "xg_vs_average_opponent": 0.8553,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 1,
+        "fifa22": 2,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 8,
-        "tm": 1,
+        "fc25": 4,
+        "fifa22": 5,
+        "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 4,
-        "tm": 1,
+        "fc25": 2,
+        "fifa22": 3,
+        "tm": 0,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 7,
-        "tm": 1,
+        "fc25": 4,
+        "fifa22": 4,
+        "tm": 0,
         "avg": 1
       }
     }
   },
   "united_states_of_america": {
-    "goalkeeper": 0.4516,
-    "defense": 0.1186,
-    "midfield": 0.7418,
-    "attack": 0.0667,
-    "xg_vs_average_opponent": 0.7,
+    "goalkeeper": 0.3501,
+    "defense": 0.3192,
+    "midfield": 0.4675,
+    "attack": 0.4432,
+    "xg_vs_average_opponent": 1.1713,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 3,
+        "fc25": 3,
+        "fifa22": 0,
         "tm": 0,
         "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 9,
+        "fc25": 9,
+        "fifa22": 1,
         "tm": 0,
-        "avg": 1
+        "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 9,
-        "tm": 1,
+        "fc25": 7,
+        "fifa22": 3,
+        "tm": 0,
         "unmatched": 0
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 2,
-        "tm": 1,
+        "fc25": 2,
+        "fifa22": 1,
+        "tm": 0,
         "unmatched": 0
       }
     }
   },
   "uruguay": {
-    "goalkeeper": 0.6344,
-    "defense": 0.6143,
-    "midfield": 0.6449,
-    "attack": 0.281,
-    "xg_vs_average_opponent": 1.0144,
+    "goalkeeper": 0.68,
+    "defense": 0.6647,
+    "midfield": 0.4477,
+    "attack": 0.4671,
+    "xg_vs_average_opponent": 1.1993,
     "_sources": {
       "goalkeepers": {
-        "fc25": 0,
-        "fifa22": 2,
+        "fc25": 2,
+        "fifa22": 1,
         "tm": 0,
-        "avg": 1
+        "unmatched": 0
       },
       "defenders": {
-        "fc25": 0,
-        "fifa22": 6,
-        "tm": 1,
+        "fc25": 5,
+        "fifa22": 2,
+        "tm": 0,
         "unmatched": 0
       },
       "middle": {
-        "fc25": 0,
-        "fifa22": 9,
+        "fc25": 5,
+        "fifa22": 4,
         "tm": 0,
         "avg": 2
       },
       "attackers": {
-        "fc25": 0,
-        "fifa22": 4,
+        "fc25": 3,
+        "fifa22": 2,
         "tm": 0,
-        "avg": 1
+        "unmatched": 0
       }
     }
   },
   "uzbekistan": {
-    "goalkeeper": 0.1505,
-    "defense": 0.3043,
-    "midfield": 0.3393,
-    "attack": 0.2246,
-    "xg_vs_average_opponent": 0.6734,
+    "goalkeeper": 0.3882,
+    "defense": 0.1994,
+    "midfield": 0.1243,
+    "attack": 0.3113,
+    "xg_vs_average_opponent": 0.6635,
     "_sources": {
       "goalkeepers": {
         "fc25": 0,
@@ -1564,15 +1564,15 @@
         "avg": 3
       },
       "defenders": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 1,
-        "tm": 3,
+        "tm": 2,
         "avg": 8
       },
       "middle": {
-        "fc25": 0,
+        "fc25": 1,
         "fifa22": 1,
-        "tm": 3,
+        "tm": 2,
         "avg": 4
       },
       "attackers": {

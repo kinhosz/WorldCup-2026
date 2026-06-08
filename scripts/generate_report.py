@@ -60,15 +60,16 @@ Para cada seleção, calculamos um score em quatro setores: **goleiro**, **defes
 
 | Tier | Fonte | Cobertura |
 |------|-------|-----------|
-| 1° | **FIFA 22** — atributos por setor | ~80% dos jogadores |
-| 2° | **Transfermarket** — valor de mercado convertido para rating | complemento |
-| 3° | **Mediana global do setor** | jogadores sem dados em nenhuma fonte |
+| 1° | **FC25** — atributos por setor (EA Sports FC 25) | ~17k jogadores, prioridade máxima |
+| 2° | **FIFA 22** — atributos por setor | fallback para jogadores ausentes no FC25 |
+| 3° | **Transfermarket** — valor de mercado convertido para rating | complemento |
+| 4° | **Mediana global do setor** | jogadores sem dados em nenhuma fonte |
 
 A conversão de valor de mercado para rating usa uma fórmula log-linear calibrada nos extremos:
 - €1M → 65 pontos
 - €180M → 91 pontos
 
-### 2.2 Atributos FIFA 22 por setor
+### 2.2 Atributos por setor (FC25 / FIFA 22)
 
 | Setor | Atributos usados |
 |-------|-----------------|
@@ -92,7 +93,7 @@ Os scores brutos são então normalizados com **min-max** entre as 48 seleções
 
 ### 2.4 Matching de nomes
 
-O matching entre nomes dos arquivos de convocação e os datasets (FIFA 22 / TM) usa:
+O matching entre nomes dos arquivos de convocação e os datasets (FC25 / FIFA 22 / TM) usa:
 - `SequenceMatcher` (ratio de similaridade de strings)
 - Token overlap (interseção de palavras)
 - Filtro por nacionalidade (pool da seleção nacional + cidadania)

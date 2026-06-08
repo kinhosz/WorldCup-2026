@@ -41,7 +41,28 @@ FALLBACK_SCORE = 0.5          # used in xG formula for None sector values
 
 FIFA_MATCH_THRESHOLD = 0.72   # minimum SequenceMatcher ratio for a valid FIFA match
 
-# Top-K players per sector used to compute team score (starter proxies)
+# Minimum plausible sector score — rejects cross-position FIFA mismatches
+# (e.g., a GK matched to a field player gets near-0 GK attrs → rating 7-15)
+# Any real GK in FIFA22 has avg GK attrs >> 30; any real outfield player >> 20.
+MIN_SECTOR_RATING = {
+    'goalkeepers': 30.0,
+    'defenders':   35.0,
+    'middle':      35.0,
+    'attackers':   35.0,
+}
+
+TRIM_PCT = 0.30               # bottom fraction of players discarded before log-mean
+
+# Manual overrides: (nation_key, squad_name) → FIFA22 short_name.
+# Used for players whose FIFA22 short_name cannot be fuzzy-matched because
+# their long_name is stored in non-Latin script (Korean, Japanese, Arabic, etc.)
+# or because FIFA22 uses a very different abbreviation.
+SQUAD_TO_FIFA_SHORTNAME = {
+    ('republic_of_korea', 'Son Heungmin'): 'H. Son',   # FIFA22: "H. Son" / long_name in Korean
+    ('spain', 'Mikel MERINO'):             'Merino',    # FIFA22: short_name="Merino"; fuzzy wrongly picks "Mikel Rico" (age 36)
+}
+
+# Sector keys (used for iteration and dict structure)
 TOP_K = {'goalkeepers': 1, 'defenders': 4, 'middle': 4, 'attackers': 3}
 
 # FIFA attributes used per squad sector
@@ -169,6 +190,62 @@ def load_fifa_index(csv_path: str) -> dict[str, list]:
                 key = normalize(row.get(field, ''))
                 if key:
                     idx[key].append(row)
+    return dict(idx)
+
+
+def load_fc25_akshay(csv_path: str) -> dict[str, list]:
+    """
+    Load the akshay FC25 dataset (players_info.csv) and return a name→rows
+    index compatible with the FIFA22 index format.
+
+    Column mapping for outfield players:
+      pac→pace, sho→shooting, pas→passing, dri→dribbling, def→defending, phy→physic
+
+    Column mapping for GKs (FC25 shows GK attrs in the 6 main slots):
+      pac→goalkeeping_diving, sho→goalkeeping_handling,
+      dri→goalkeeping_reflexes, phy→goalkeeping_positioning
+    """
+    idx: dict[str, list] = defaultdict(list)
+    with open(csv_path, encoding='utf-8') as f:
+        for i, row in enumerate(csv.DictReader(f)):
+            name = row.get('player_name', '').strip()
+            if not name:
+                continue
+            is_gk = row.get('position', '').strip().upper() == 'GK'
+
+            norm = {
+                'short_name':      name,
+                'long_name':       name,
+                'nationality_name': row.get('nationality', '').strip(),
+                'overall':         row.get('ovr', ''),
+                '_source':         'fc25',
+                'sofifa_id':       f'fc25_{i}',
+            }
+
+            if is_gk:
+                norm.update({
+                    'goalkeeping_diving':      row.get('pac', '0'),
+                    'goalkeeping_handling':    row.get('sho', '0'),
+                    'goalkeeping_reflexes':    row.get('dri', '0'),
+                    'goalkeeping_positioning': row.get('phy', '0'),
+                    'pace': '0', 'shooting': '0', 'passing': '0',
+                    'dribbling': '0', 'defending': '0', 'physic': '0',
+                })
+            else:
+                norm.update({
+                    'pace':      row.get('pac', ''),
+                    'shooting':  row.get('sho', ''),
+                    'passing':   row.get('pas', ''),
+                    'dribbling': row.get('dri', ''),
+                    'defending': row.get('def', ''),
+                    'physic':    row.get('phy', ''),
+                    'goalkeeping_diving': '0', 'goalkeeping_handling': '0',
+                    'goalkeeping_reflexes': '0', 'goalkeeping_positioning': '0',
+                })
+
+            key = normalize(name)
+            if key:
+                idx[key].append(norm)
     return dict(idx)
 
 
@@ -306,6 +383,13 @@ def top_k_log_mean(values: list, k: int) -> float | None:
     return log_mean(valid[:k])
 
 
+def trim_bottom_log_mean(values: list, trim_pct: float = TRIM_PCT) -> float | None:
+    """Log-mean after dropping the bottom trim_pct fraction (by rating). Keeps at least 1."""
+    valid = sorted([v for v in values if v and v > 0])
+    n_drop = min(round(len(valid) * trim_pct), len(valid) - 1)
+    return log_mean(valid[n_drop:])
+
+
 def minmax_normalize(values_by_nation: dict) -> dict:
     valid = {n: v for n, v in values_by_nation.items() if v is not None}
     if not valid:
@@ -338,30 +422,204 @@ def compute_xg(scores_a: dict, scores_b: dict) -> tuple[float, float]:
 
 # ── Main pipeline ─────────────────────────────────────────────────────────────
 
+_DISPLAY_NAMES = {
+    'united_states_of_america': 'USA',
+    'republic_of_korea':        'South Korea',
+    'bosnia_and_herzegovina':   'Bosnia-Herzegovina',
+    'cape_verte':               'Cape Verde',
+    'ivory_coast':              "Côte d'Ivoire",
+    'ira':                      'Iran',
+    'new_zealand':              'New Zealand',
+    'saudi_arabia':             'Saudi Arabia',
+    'south_africa':             'South Africa',
+    'czech_republic':           'Czech Republic',
+}
+
+_SECTOR_HEADER = {
+    'goalkeepers': 'Goalkeepers',
+    'defenders':   'Defenders',
+    'middle':      'Midfielders',
+    'attackers':   'Attackers',
+}
+
+_TIER_LABEL = {
+    'fc25':  'FC25',
+    'fifa22':'FIFA22',
+    'tm':    'TM',
+    'avg':   'median',
+}
+
+
+def _nation_display(nation: str) -> str:
+    return _DISPLAY_NAMES.get(nation, nation.replace('_', ' ').title())
+
+
+def write_audit_report(
+    player_details: dict,
+    raw_scores: dict,
+    normalized: dict,
+    sector_medians: dict,
+    result: dict,
+    audit_path: str,
+) -> None:
+    """
+    Write output/score_audit.md — per-player breakdown of data sources,
+    raw ratings, and which players are in the top-K that drives each sector score.
+    """
+    import datetime
+
+    lines: list[str] = []
+
+    lines += [
+        '# Score Audit — WorldCup 2026',
+        '',
+        f'Generated: {datetime.date.today().isoformat()}',
+        '',
+        'This report shows exactly how each team score was built:',
+        'which data tier (FIFA22 / TM / global-median) each player used,',
+        'the raw rating, and whether that player is in the top-K that feeds',
+        'the sector log-mean.',
+        '',
+    ]
+
+    # ── 1. Coverage summary ───────────────────────────────────────────────
+    lines += [
+        '## 1. Coverage Summary',
+        '',
+        'Sorted by median fallback rate (higher = less reliable data).',
+        '',
+        '| Nation | xG | FIFA | TM | Median | Fallback% |',
+        '|--------|----|------|----|--------|-----------|',
+    ]
+
+    summary_rows = []
+    for nation, sectors in player_details.items():
+        total  = sum(len(v) for v in sectors.values())
+        n_fifa = sum(sum(1 for p in v if p['tier'] in ('fc25', 'fifa22')) for v in sectors.values())
+        n_tm   = sum(sum(1 for p in v if p['tier'] == 'tm')               for v in sectors.values())
+        n_avg  = sum(sum(1 for p in v if p['tier'] == 'avg')              for v in sectors.values())
+        xg     = result.get(nation, {}).get('xg_vs_average_opponent', 0.0)
+        pct    = n_avg / total * 100 if total else 0.0
+        summary_rows.append((nation, xg, n_fifa, n_tm, n_avg, total, pct))
+
+    for nation, xg, n_fifa, n_tm, n_avg, total, pct in sorted(summary_rows, key=lambda x: -x[6]):
+        lines.append(
+            f'| {_nation_display(nation)} | {xg:.3f} | {n_fifa} | {n_tm} | {n_avg} | {pct:.1f}% |'
+        )
+
+    lines += ['']
+
+    # ── 2. Global medians ─────────────────────────────────────────────────
+    lines += [
+        '## 2. Global Sector Medians (Tier-4 fallback value)',
+        '',
+        'The value assigned to every player with no FIFA22 or TM data.',
+        '',
+        '| Sector | Median rating |',
+        '|--------|---------------|',
+    ]
+    for sector in ('goalkeepers', 'defenders', 'middle', 'attackers'):
+        med = sector_medians.get(sector)
+        val = f'{med:.2f}' if med is not None else '—'
+        lines.append(f'| {_SECTOR_HEADER[sector]} | {val} |')
+
+    lines += ['']
+
+    # ── 3. Per-nation breakdown ───────────────────────────────────────────
+    lines += [
+        '## 3. Per-nation Player Breakdown',
+        '',
+        '**Tier key:** FIFA22 = matched in FIFA 22 dataset · TM = Transfermarket market value'
+        ' · median = global sector median (no data found)',
+        '',
+        f'Score formula: `drop bottom {int(TRIM_PCT*100)}% by rating → log-mean of the rest'
+        ' → min-max normalize across 48 nations → [0,1]`.',
+        'Players marked **✗** were discarded (bottom 30%).',
+        '',
+    ]
+
+    for nation in sorted(player_details):
+        nat_result = result.get(nation, {})
+        xg = nat_result.get('xg_vs_average_opponent', 0.0)
+
+        lines += [
+            '---',
+            '',
+            f'### {_nation_display(nation)}',
+            '',
+            (
+                f'**xG vs avg opponent:** {xg:.4f} &nbsp;|&nbsp; '
+                f'GK={nat_result.get("goalkeeper", 0):.4f} &nbsp;|&nbsp; '
+                f'DEF={nat_result.get("defense", 0):.4f} &nbsp;|&nbsp; '
+                f'MID={nat_result.get("midfield", 0):.4f} &nbsp;|&nbsp; '
+                f'ATT={nat_result.get("attack", 0):.4f}'
+            ),
+            '',
+        ]
+
+        for sector in ('goalkeepers', 'defenders', 'middle', 'attackers'):
+            raw_val    = raw_scores.get(nation, {}).get(sector)
+            norm_val   = normalized.get(nation, {}).get(sector)
+            raw_str    = f'{raw_val:.2f}' if raw_val  is not None else '—'
+            norm_str   = f'{norm_val:.4f}' if norm_val is not None else '—'
+            all_p      = player_details[nation][sector]
+            n_total    = len(all_p)
+            n_dropped  = sum(1 for p in all_p if p.get('dropped'))
+            n_used     = n_total - n_dropped
+
+            lines += [
+                f'#### {_SECTOR_HEADER[sector]} &nbsp;({n_used}/{n_total} used · raw log-mean={raw_str} · normalized={norm_str})',
+                '',
+                '|   | Player | Tier | Matched as | Conf | Rating | MV (€) |',
+                '|---|--------|------|------------|------|--------|--------|',
+            ]
+
+            sorted_players = sorted(all_p, key=lambda p: -(p['raw_rating'] or 0))
+            for p in sorted_players:
+                flag    = '✗' if p.get('dropped') else ''
+                tier    = _TIER_LABEL.get(p['tier'], p['tier'] or '?')
+                matched = p['matched_name'] or '—'
+                conf    = f"{p['match_confidence']:.2f}" if p.get('match_confidence') else '—'
+                rating  = f"{p['raw_rating']:.1f}" if p['raw_rating'] is not None else '—'
+                mv      = f"{p['market_value_eur']:,}" if p.get('market_value_eur') else '—'
+                lines.append(f'| {flag} | {p["name"]} | {tier} | {matched} | {conf} | {rating} | {mv} |')
+
+            lines += ['']
+
+    with open(audit_path, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines))
+    print(f'\nAudit report saved to {audit_path}')
+
+
 def main():
-    squads_dir   = 'squads'
-    tm_path      = 'output/market_value_by_nation.json'
-    fifa22_path  = 'datasets/extracted/players_22.csv'
-    fc25_path    = 'datasets/extracted/players_25.csv'   # loaded if present
-    output_path  = 'output/team_scores.json'
+    squads_dir        = 'squads'
+    tm_path           = 'output/market_value_by_nation.json'
+    fifa22_path       = 'datasets/extracted/players_22.csv'
+    fc25_path         = 'datasets/extracted/players_25.csv'        # stefanoleone format (if present)
+    fc25_akshay_path  = 'datasets/extracted/fc25_akshay/players_info.csv'
+    output_path       = 'output/team_scores.json'
     os.makedirs('output', exist_ok=True)
 
     # ── Load FIFA data ──────────────────────────────────────────────────
+    # Cascade: FC25 akshay → FC25 stefanoleone → FIFA 22
+    # FC25 rows are prepended in the merged index so fuzzy matching prefers them.
     print('Loading FIFA data...')
-    fifa_index = load_fifa_index(fifa22_path)
+    fifa_index   = load_fifa_index(fifa22_path)
     source_label = 'FIFA 22'
 
     if os.path.exists(fc25_path):
-        print(f'  FC25 found — merging (FC25 takes priority for matched players)')
+        print(f'  FC25 (stefanoleone) found — merging...')
         fc25_index = load_fifa_index(fc25_path)
-        # Merge: FC25 entries override FIFA22 for the same key
         for key, rows in fc25_index.items():
-            if key in fifa_index:
-                # Keep FC25 rows first so they get picked as highest overall
-                fifa_index[key] = rows + fifa_index[key]
-            else:
-                fifa_index[key] = rows
-        source_label = 'FC25 + FIFA 22'
+            fifa_index[key] = rows + fifa_index.get(key, [])
+        source_label = 'FC25(stefan) + FIFA 22'
+
+    if os.path.exists(fc25_akshay_path):
+        print(f'  FC25 (akshay) found — merging (highest priority)...')
+        fc25_akshay_index = load_fc25_akshay(fc25_akshay_path)
+        for key, rows in fc25_akshay_index.items():
+            fifa_index[key] = rows + fifa_index.get(key, [])
+        source_label = 'FC25(akshay) + ' + source_label
 
     nat_pools = build_nationality_pools(fifa_index)
     print(f'  {source_label}: {sum(len(v) for v in nat_pools.values()):,} players indexed')
@@ -385,7 +643,8 @@ def main():
 
     # raw scores: {nation: {sector: [player_rating, ...]}}
     raw: dict[str, dict[str, list]] = {}
-    sources: dict[str, dict[str, dict]] = {}   # {nation: {sector: {fc25,fifa22,tm,avg}}}
+    sources: dict[str, dict[str, dict]] = {}        # {nation: {sector: {fc25,fifa22,tm,avg}}}
+    player_details: dict[str, dict[str, list]] = {} # {nation: {sector: [player_dict]}}
 
     all_sector_ratings: dict[str, list] = defaultdict(list)  # for Tier-4 global median
 
@@ -399,8 +658,9 @@ def main():
         nationality = NATIONALITY_MAP.get(nation, nation.replace('_', ' ').title())
         tm_lookup   = tm_by_nation.get(nation, {})
 
-        raw[nation]     = {s: [] for s in TOP_K}
-        sources[nation] = {s: {'fc25': 0, 'fifa22': 0, 'tm': 0, 'unmatched': 0} for s in TOP_K}
+        raw[nation]            = {s: [] for s in TOP_K}
+        sources[nation]        = {s: {'fc25': 0, 'fifa22': 0, 'tm': 0, 'unmatched': 0} for s in TOP_K}
+        player_details[nation] = {s: [] for s in TOP_K}
 
         for sector in TOP_K:
             players = squad.get(sector, [])
@@ -410,18 +670,37 @@ def main():
                 players = squad.get('forwards', [])
 
             for player_name in players:
-                rating = None
-                tier   = 'unmatched'
+                rating           = None
+                tier             = None
+                matched_name     = None
+                match_confidence = 0.0
+                market_value_eur = None
 
                 # ── Tier 1/2: FIFA match ────────────────────────────
-                fifa_row, fifa_score = find_fifa_match_fast(
-                    player_name, nationality, nat_pools
-                )
+                # Check manual override first (handles non-Latin FIFA22 names)
+                override_sname = SQUAD_TO_FIFA_SHORTNAME.get((nation, player_name))
+                if override_sname:
+                    nat_key = normalize(nationality)
+                    target  = normalize(override_sname)
+                    fifa_row = next(
+                        (r for r in nat_pools.get(nat_key, [])
+                         if normalize(r.get('short_name', '')) == target),
+                        None
+                    )
+                    fifa_score = 1.0 if fifa_row else 0.0
+                else:
+                    fifa_row, fifa_score = find_fifa_match_fast(
+                        player_name, nationality, nat_pools
+                    )
                 if fifa_row:
                     rating = _fifa_sector_score(fifa_row, sector)
-                    if rating is not None:
-                        is_fc25 = os.path.exists(fc25_path) and fifa_row.get('_source') == 'fc25'
-                        tier = 'fc25' if is_fc25 else 'fifa22'
+                    if rating is not None and rating >= MIN_SECTOR_RATING.get(sector, 0):
+                        is_fc25 = fifa_row.get('_source') == 'fc25'
+                        tier             = 'fc25' if is_fc25 else 'fifa22'
+                        matched_name     = fifa_row.get('short_name', player_name)
+                        match_confidence = fifa_score
+                    else:
+                        rating = None  # wrong match (cross-position or wrong person); fall through
 
                 # ── Tier 3: TM fallback ─────────────────────────────
                 if rating is None:
@@ -429,7 +708,17 @@ def main():
                     if mv:
                         rating = tm_to_rating(mv)
                         if rating is not None:
-                            tier = 'tm'
+                            tier             = 'tm'
+                            market_value_eur = int(mv)
+
+                player_details[nation][sector].append({
+                    'name':             player_name,
+                    'tier':             tier,           # None → filled with 'avg' in median pass
+                    'matched_name':     matched_name,
+                    'match_confidence': round(match_confidence, 3) if match_confidence else None,
+                    'raw_rating':       rating,
+                    'market_value_eur': market_value_eur,
+                })
 
                 if rating is not None:
                     raw[nation][sector].append(rating)
@@ -446,38 +735,36 @@ def main():
             mid = len(s) // 2
             sector_medians[sector] = s[mid] if len(s) % 2 else (s[mid-1] + s[mid]) / 2
 
-    # Re-process unmatched players in each sector
-    for squad_file in sorted(os.listdir(squads_dir)):
-        if not squad_file.endswith('.json'):
-            continue
-        nation = squad_file[:-5]
-        with open(os.path.join(squads_dir, squad_file), encoding='utf-8') as f:
-            squad = json.load(f)
-
-        nationality = NATIONALITY_MAP.get(nation, nation.replace('_', ' ').title())
-        tm_lookup   = tm_by_nation.get(nation, {})
-
+    # Fill median into player_details and raw for unmatched players
+    for nation in player_details:
         for sector in TOP_K:
-            players = squad.get(sector, [])
-            if not players and sector == 'middle':
-                players = squad.get('midfielders', [])
-            if not players and sector == 'attackers':
-                players = squad.get('forwards', [])
-
-            unmatched_count = sources[nation][sector].get('unmatched', 0)
-            if unmatched_count > 0 and sector_medians.get(sector):
+            unmatched = [p for p in player_details[nation][sector] if p['raw_rating'] is None]
+            if unmatched and sector_medians.get(sector):
                 median = sector_medians[sector]
-                for _ in range(unmatched_count):
+                for p in unmatched:
+                    p['tier']       = 'avg'
+                    p['raw_rating'] = round(median, 2)
                     raw[nation][sector].append(median)
-                sources[nation][sector]['avg'] = unmatched_count
-                del sources[nation][sector]['unmatched']
+                sources[nation][sector]['avg'] = len(unmatched)
+                sources[nation][sector].pop('unmatched', None)
 
-    # ── Compute top-K log-mean per sector per nation ─────────────────────
+    # ── Compute trimmed log-mean (drop bottom 30%) per sector per nation ──
     raw_scores: dict[str, dict[str, float | None]] = {}
     for nation in raw:
         raw_scores[nation] = {}
         for sector, ratings in raw[nation].items():
-            raw_scores[nation][sector] = top_k_log_mean(ratings, TOP_K[sector])
+            raw_scores[nation][sector] = trim_bottom_log_mean(ratings)
+
+    # ── Mark dropped players (bottom TRIM_PCT by rating) in player_details ─
+    for nation in player_details:
+        for sector in TOP_K:
+            players_list = player_details[nation][sector]
+            valid = [p for p in players_list if p['raw_rating'] is not None]
+            n_drop = min(round(len(valid) * TRIM_PCT), len(valid) - 1)
+            sorted_asc = sorted(valid, key=lambda p: p['raw_rating'])
+            dropped_names = {p['name'] for p in sorted_asc[:n_drop]}
+            for p in players_list:
+                p['dropped'] = p['name'] in dropped_names
 
     # ── Min-max normalise each sector across all nations ─────────────────
     normalized: dict[str, dict[str, float | None]] = {n: {} for n in raw_scores}
@@ -539,6 +826,17 @@ def main():
                 f'  TM={totals["tm"]:2}'
                 f'  avg={totals["avg"]:2}'
             )
+
+    # ── Audit report ──────────────────────────────────────────────────────
+    audit_path = 'output/score_audit.md'
+    write_audit_report(
+        player_details=player_details,
+        raw_scores=raw_scores,
+        normalized=normalized,
+        sector_medians=sector_medians,
+        result=result,
+        audit_path=audit_path,
+    )
 
 
 if __name__ == '__main__':

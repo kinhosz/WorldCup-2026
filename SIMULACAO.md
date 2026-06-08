@@ -1,6 +1,6 @@
 # Copa do Mundo 2026 — Simulação Monte Carlo
 
-**Data:** 06/06/2026
+**Data:** 08/06/2026
 **Simulações realizadas:** 1,000,000
 **Seed:** aleatória (resultados variam a cada execução)
 
@@ -111,19 +111,19 @@ python3 scripts/generate_report.py     # gera este documento
 
 | Seleção | xG vs médio | Ataque | Meio | Defesa | Goleiro |
 |---------|------------|--------|------|--------|---------|
-| France | 2.497 | 1.000 | 0.867 | 0.830 | 0.796 |
-| Portugal | 2.108 | 0.765 | 0.916 | 0.934 | 0.699 |
-| Argentina | 2.057 | 0.788 | 0.799 | 0.785 | 0.817 |
-| Brazil | 1.928 | 0.761 | 0.696 | 0.848 | 0.979 |
-| Senegal | 1.886 | 0.817 | 0.512 | 0.690 | 0.753 |
-| Netherlands | 1.885 | 0.680 | 0.829 | 1.000 | 0.376 |
-| Spain | 1.860 | 0.730 | 0.680 | 0.773 | 0.731 |
-| Belgium | 1.821 | 0.606 | 0.922 | 0.604 | 0.935 |
-| England | 1.821 | 0.669 | 0.774 | 0.890 | 0.720 |
-| Colombia | 1.748 | 0.625 | 0.782 | 0.605 | 0.591 |
-| Morocco | 1.742 | 0.598 | 0.838 | 0.520 | 0.710 |
-| Algeria | 1.556 | 0.600 | 0.595 | 0.638 | 0.150 |
-| Croatia | 1.510 | 0.404 | 0.993 | 0.465 | 0.688 |
+| Brazil | 2.344 | 0.960 | 0.763 | 0.967 | 1.000 |
+| Portugal | 2.296 | 0.833 | 1.000 | 0.760 | 0.752 |
+| Norway | 2.099 | 1.000 | 0.358 | 0.136 | 0.180 |
+| France | 2.074 | 0.823 | 0.738 | 1.000 | 0.838 |
+| England | 2.042 | 0.835 | 0.670 | 0.772 | 0.754 |
+| Colombia | 1.945 | 0.900 | 0.395 | 0.597 | 0.597 |
+| Netherlands | 1.893 | 0.795 | 0.572 | 0.949 | 0.278 |
+| Spain | 1.891 | 0.675 | 0.851 | 0.626 | 0.848 |
+| Argentina | 1.821 | 0.663 | 0.787 | 0.838 | 0.821 |
+| Belgium | 1.798 | 0.625 | 0.846 | 0.392 | 0.541 |
+| South Korea | 1.755 | 0.804 | 0.375 | 0.156 | 0.450 |
+| Egypt | 1.743 | 0.873 | 0.198 | 0.135 | 0.524 |
+| Congo | 1.653 | 0.833 | 0.176 | 0.470 | 0.190 |
 
 ---
 
@@ -131,43 +131,43 @@ python3 scripts/generate_report.py     # gera este documento
 
 | # | Seleção | Grupo | Campeão | Finalista | Semi | QF | R16 |
 |---|---------|-------|---------|-----------|------|----|-----|
-| 1 | France | I | 20.5% | 32.3% | 48.8% | 71.4% | 91.5% |
-| 2 | Portugal | K | 15.1% | 26.1% | 43.2% | 66.4% | 84.2% |
-| 3 | Argentina | J | 10.7% | 20.0% | 35.7% | 60.3% | 70.8% |
-| 4 | Brazil | C | 8.7% | 16.5% | 29.2% | 48.6% | 72.5% |
-| 5 | Netherlands | F | 7.9% | 15.2% | 26.6% | 49.9% | 60.3% |
-| 6 | England | L | 7.8% | 15.5% | 29.4% | 53.2% | 71.2% |
-| 7 | Belgium | G | 7.2% | 15.5% | 33.9% | 64.7% | 92.0% |
-| 8 | Spain | H | 4.9% | 10.3% | 21.6% | 38.5% | 62.5% |
-| 9 | Senegal | I | 4.7% | 11.2% | 23.4% | 42.9% | 74.7% |
-| 10 | Colombia | K | 2.9% | 7.5% | 17.8% | 36.3% | 59.4% |
-| 11 | Morocco | C | 2.6% | 6.6% | 15.1% | 34.1% | 54.7% |
-| 12 | Turkey | D | 1.4% | 4.2% | 12.4% | 31.6% | 80.0% |
-| 13 | Croatia | L | 1.4% | 4.0% | 11.1% | 26.9% | 49.4% |
-| 14 | Germany | E | 0.9% | 2.6% | 7.2% | 17.6% | 50.8% |
-| 15 | Algeria | J | 0.8% | 2.8% | 8.7% | 22.7% | 43.1% |
-| 16 | Switzerland | B | 0.7% | 2.7% | 8.6% | 23.8% | 78.3% |
-| 17 | Côte d'Ivoire | E | 0.6% | 2.0% | 6.2% | 16.8% | 61.1% |
-| 18 | Uruguay | H | 0.5% | 1.8% | 6.2% | 19.2% | 31.3% |
-| 19 | Czech Republic | A | 0.3% | 1.4% | 5.1% | 19.2% | 65.3% |
-| 20 | Congo | K | 0.1% | 0.7% | 2.9% | 11.1% | 23.8% |
+| 1 | Brazil | C | 20.8% | 32.0% | 48.0% | 68.1% | 84.0% |
+| 2 | Portugal | K | 17.1% | 28.5% | 49.9% | 71.3% | 88.8% |
+| 3 | France | I | 16.9% | 30.0% | 44.6% | 65.3% | 91.0% |
+| 4 | England | L | 9.3% | 17.9% | 33.1% | 63.5% | 76.2% |
+| 5 | Argentina | J | 8.2% | 15.8% | 31.9% | 55.6% | 66.7% |
+| 6 | Netherlands | F | 7.0% | 15.6% | 26.8% | 51.8% | 61.8% |
+| 7 | Spain | H | 7.0% | 15.4% | 32.0% | 47.4% | 73.7% |
+| 8 | Colombia | K | 3.5% | 9.4% | 23.7% | 41.9% | 68.3% |
+| 9 | Germany | E | 3.2% | 8.2% | 16.6% | 31.8% | 75.8% |
+| 10 | Belgium | G | 2.6% | 8.6% | 24.3% | 58.7% | 82.6% |
+| 11 | Morocco | C | 1.1% | 3.9% | 10.0% | 28.8% | 44.0% |
+| 12 | Uruguay | H | 0.9% | 3.0% | 9.8% | 24.6% | 43.5% |
+| 13 | Switzerland | B | 0.6% | 2.0% | 7.8% | 21.1% | 74.4% |
+| 14 | Senegal | I | 0.6% | 2.2% | 6.8% | 18.2% | 55.4% |
+| 15 | Côte d'Ivoire | E | 0.4% | 1.6% | 5.4% | 15.5% | 57.0% |
+| 16 | Croatia | L | 0.2% | 1.1% | 4.3% | 11.9% | 28.6% |
+| 17 | Turkey | D | 0.2% | 1.1% | 4.8% | 18.5% | 55.1% |
+| 18 | Czech Republic | A | 0.1% | 0.8% | 3.4% | 15.4% | 57.6% |
+| 19 | Congo | K | 0.1% | 0.7% | 3.4% | 12.2% | 26.1% |
+| 20 | Japan | F | 0.1% | 0.6% | 2.2% | 8.5% | 23.2% |
 
 ### Classificação por grupo (R32)
 
 | Grupo | 1° aprox. | 2° aprox. | 3° aprox. | 4° aprox. |
 |-------|-----------|-----------|-----------|-----------|
-| A | Czech Republic 99% | Mexico 95% | South Korea 46% | South Africa 24% |
-| B | Switzerland 100% | Canada 98% | Qatar 27% | Bosnia-Herzegovina 17% |
-| C | Brazil 100% | Morocco 99% | Scotland 64% | Haiti 3% |
-| D | Turkey 99% | Paraguay 86% | USA 74% | Australia 15% |
-| E | Côte d'Ivoire 100% | Germany 99% | Ecuador 68% | Curacao 5% |
-| F | Netherlands 100% | Japan 87% | Sweden 63% | Tunisia 17% |
-| G | Belgium 100% | Egypt 76% | Iran 54% | New Zealand 16% |
-| H | Spain 100% | Uruguay 100% | Cape Verde 70% | Saudi Arabia 0% |
-| I | France 100% | Senegal 100% | Norway 83% | Iraq 0% |
-| J | Argentina 100% | Algeria 99% | Austria 75% | Jordan 1% |
-| K | Portugal 99% | Colombia 96% | Congo 76% | Uzbekistan 7% |
-| L | England 100% | Croatia 99% | Ghana 62% | Panama 4% |
+| A | South Korea 92% | Czech Republic 90% | Mexico 65% | South Africa 26% |
+| B | Switzerland 100% | Qatar 81% | Bosnia-Herzegovina 49% | Canada 26% |
+| C | Brazil 100% | Morocco 98% | Scotland 59% | Haiti 2% |
+| D | Turkey 93% | USA 93% | Australia 63% | Paraguay 22% |
+| E | Germany 100% | Côte d'Ivoire 100% | Ecuador 85% | Curacao 0% |
+| F | Netherlands 100% | Japan 87% | Sweden 85% | Tunisia 6% |
+| G | Belgium 100% | Egypt 99% | Iran 51% | New Zealand 1% |
+| H | Spain 100% | Uruguay 100% | Cape Verde 58% | Saudi Arabia 1% |
+| I | France 100% | Senegal 96% | Norway 65% | Iraq 2% |
+| J | Argentina 100% | Algeria 76% | Austria 72% | Jordan 20% |
+| K | Portugal 100% | Colombia 98% | Congo 79% | Uzbekistan 2% |
+| L | England 100% | Croatia 90% | Ghana 58% | Panama 14% |
 
 ---
 
@@ -180,7 +180,7 @@ O vencedor de cada partida está em **negrito**. Placar sempre mandante–visita
 
 ### 7.1 Simulação aleatória
 
-**Campeão: France**
+**Campeão: Belgium**
 
 ### FASE DE GRUPOS
 
@@ -188,271 +188,271 @@ O vencedor de cada partida está em **negrito**. Placar sempre mandante–visita
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Mexico | 7 | +3 | 6 | → R32
-| 2 | Czech Republic | 5 | +1 | 3 | → R32
-| 3 | South Africa | 2 | -2 | 3 | → R32 (3°)
-| 4 | South Korea | 1 | -2 | 2 | ✗
+| 1 | Czech Republic | 7 | +4 | 5 | → R32
+| 2 | South Korea | 4 | +2 | 5 | → R32
+| 3 | Mexico | 4 | -1 | 2 | → R32 (3°)
+| 4 | South Africa | 1 | -5 | 2 | ✗
 
 Jogos:
-- Mexico 3–1 South Africa
-- Mexico 2–1 South Korea
-- Mexico 1–1 Czech Republic
-- South Africa 1–1 South Korea
-- South Africa 1–1 Czech Republic
-- South Korea 0–1 Czech Republic
+- Mexico 1–1 South Africa
+- Mexico 1–0 South Korea
+- Mexico 0–2 Czech Republic
+- South Africa 1–4 South Korea
+- South Africa 0–2 Czech Republic
+- South Korea 1–1 Czech Republic
 
 **Grupo B**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Canada | 9 | +8 | 9 | → R32
-| 2 | Switzerland | 6 | +6 | 9 | → R32
-| 3 | Qatar | 3 | -5 | 2 | → R32 (3°)
-| 4 | Bosnia-Herzegovina | 0 | -9 | 2 | ✗
+| 1 | Switzerland | 9 | +6 | 11 | → R32
+| 2 | Bosnia-Herzegovina | 6 | +2 | 9 | → R32
+| 3 | Qatar | 3 | +0 | 6 | → R32 (3°)
+| 4 | Canada | 0 | -8 | 5 | ✗
 
 Jogos:
-- Canada 4–0 Bosnia-Herzegovina
-- Canada 3–0 Qatar
-- Canada 2–1 Switzerland
-- Bosnia-Herzegovina 1–2 Qatar
-- Bosnia-Herzegovina 1–5 Switzerland
-- Qatar 0–3 Switzerland
+- Canada 2–4 Bosnia-Herzegovina
+- Canada 2–4 Qatar
+- Canada 1–5 Switzerland
+- Bosnia-Herzegovina 2–1 Qatar
+- Bosnia-Herzegovina 3–4 Switzerland
+- Qatar 1–2 Switzerland
 
 **Grupo C**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Brazil | 7 | +6 | 6 | → R32
-| 2 | Morocco | 7 | +4 | 5 | → R32
-| 3 | Scotland | 3 | -5 | 2 | → R32 (3°)
-| 4 | Haiti | 0 | -5 | 2 | ✗
+| 1 | Brazil | 9 | +5 | 5 | → R32
+| 2 | Morocco | 6 | +5 | 8 | → R32
+| 3 | Scotland | 3 | -1 | 4 | → R32 (3°)
+| 4 | Haiti | 0 | -9 | 1 | ✗
 
 Jogos:
-- Brazil 0–0 Morocco
-- Brazil 2–0 Haiti
-- Brazil 4–0 Scotland
-- Morocco 3–1 Haiti
-- Morocco 2–0 Scotland
-- Haiti 1–2 Scotland
+- Brazil 3–0 Morocco
+- Brazil 1–0 Haiti
+- Brazil 1–0 Scotland
+- Morocco 5–0 Haiti
+- Morocco 3–0 Scotland
+- Haiti 1–4 Scotland
 
 **Grupo D**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Paraguay | 7 | +3 | 6 | → R32
-| 2 | Turkey | 5 | +3 | 6 | → R32
-| 3 | USA | 4 | +0 | 6 | → R32 (3°)
-| 4 | Australia | 0 | -6 | 2 | ✗
+| 1 | Australia | 9 | +4 | 5 | → R32
+| 2 | USA | 4 | +3 | 4 | → R32
+| 3 | Turkey | 4 | +1 | 3 | → R32 (3°)
+| 4 | Paraguay | 0 | -8 | 0 | ✗
 
 Jogos:
-- USA 1–3 Paraguay
-- USA 3–1 Australia
-- USA 2–2 Turkey
-- Paraguay 2–1 Australia
-- Paraguay 1–1 Turkey
-- Australia 0–3 Turkey
+- USA 4–0 Paraguay
+- USA 0–1 Australia
+- USA 0–0 Turkey
+- Paraguay 0–2 Australia
+- Paraguay 0–2 Turkey
+- Australia 2–1 Turkey
 
 **Grupo E**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Germany | 9 | +6 | 8 | → R32
-| 2 | Côte d'Ivoire | 6 | +11 | 14 | → R32
-| 3 | Curacao | 3 | -12 | 4 | → R32 (3°)
-| 4 | Ecuador | 0 | -5 | 3 | ✗
+| 1 | Germany | 9 | +11 | 11 | → R32
+| 2 | Ecuador | 4 | +1 | 4 | → R32
+| 3 | Côte d'Ivoire | 4 | -2 | 2 | → R32 (3°)
+| 4 | Curacao | 0 | -10 | 0 | ✗
 
 Jogos:
-- Germany 4–1 Curacao
-- Germany 1–0 Côte d'Ivoire
-- Germany 3–1 Ecuador
-- Curacao 1–11 Côte d'Ivoire
-- Curacao 2–1 Ecuador
-- Côte d'Ivoire 3–1 Ecuador
+- Germany 4–0 Curacao
+- Germany 4–0 Côte d'Ivoire
+- Germany 3–0 Ecuador
+- Curacao 0–2 Côte d'Ivoire
+- Curacao 0–4 Ecuador
+- Côte d'Ivoire 0–0 Ecuador
 
 **Grupo F**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Netherlands | 9 | +11 | 13 | → R32
-| 2 | Japan | 6 | -1 | 4 | → R32
-| 3 | Sweden | 3 | +3 | 7 | → R32 (3°)
-| 4 | Tunisia | 0 | -13 | 0 | ✗
+| 1 | Netherlands | 7 | +9 | 10 | → R32
+| 2 | Japan | 5 | +1 | 4 | → R32
+| 3 | Sweden | 4 | +2 | 8 | → R32 (3°)
+| 4 | Tunisia | 0 | -12 | 2 | ✗
 
 Jogos:
-- Netherlands 4–1 Japan
-- Netherlands 2–1 Sweden
+- Netherlands 0–0 Japan
+- Netherlands 3–1 Sweden
 - Netherlands 7–0 Tunisia
-- Japan 2–1 Sweden
-- Japan 1–0 Tunisia
-- Sweden 5–0 Tunisia
+- Japan 2–2 Sweden
+- Japan 2–1 Tunisia
+- Sweden 5–1 Tunisia
 
 **Grupo G**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Belgium | 7 | +18 | 21 | → R32
-| 2 | Iran | 4 | -9 | 5 | → R32
-| 3 | New Zealand | 3 | -8 | 2 | → R32 (3°)
-| 4 | Egypt | 2 | -1 | 5 | ✗
+| 1 | Belgium | 9 | +19 | 23 | → R32
+| 2 | Egypt | 6 | +10 | 18 | → R32
+| 3 | Iran | 3 | -9 | 6 | → R32 (3°)
+| 4 | New Zealand | 0 | -20 | 3 | ✗
 
 Jogos:
-- Belgium 3–3 Egypt
-- Belgium 11–0 Iran
-- Belgium 7–0 New Zealand
-- Egypt 2–2 Iran
-- Egypt 0–1 New Zealand
-- Iran 3–1 New Zealand
+- Belgium 8–4 Egypt
+- Belgium 7–0 Iran
+- Belgium 8–0 New Zealand
+- Egypt 5–0 Iran
+- Egypt 9–0 New Zealand
+- Iran 6–3 New Zealand
 
 **Grupo H**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Uruguay | 9 | +17 | 17 | → R32
-| 2 | Spain | 6 | +8 | 10 | → R32
-| 3 | Cape Verde | 3 | -3 | 6 | → R32 (3°)
-| 4 | Saudi Arabia | 0 | -22 | 0 | ✗
+| 1 | Spain | 9 | +20 | 20 | → R32
+| 2 | Uruguay | 6 | +6 | 12 | → R32
+| 3 | Cape Verde | 3 | -3 | 3 | → R32 (3°)
+| 4 | Saudi Arabia | 0 | -23 | 1 | ✗
 
 Jogos:
 - Spain 3–0 Cape Verde
-- Spain 7–0 Saudi Arabia
-- Spain 0–2 Uruguay
-- Cape Verde 6–0 Saudi Arabia
-- Cape Verde 0–6 Uruguay
-- Saudi Arabia 0–9 Uruguay
+- Spain 14–0 Saudi Arabia
+- Spain 3–0 Uruguay
+- Cape Verde 1–0 Saudi Arabia
+- Cape Verde 2–3 Uruguay
+- Saudi Arabia 1–9 Uruguay
 
 **Grupo I**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Senegal | 9 | +10 | 15 | → R32
-| 2 | France | 6 | +12 | 14 | → R32
-| 3 | Norway | 3 | -4 | 7 | → R32 (3°)
-| 4 | Iraq | 0 | -18 | 1 | ✗
+| 1 | France | 9 | +12 | 13 | → R32
+| 2 | Norway | 4 | -2 | 5 | → R32
+| 3 | Senegal | 3 | +0 | 8 | → R32 (3°)
+| 4 | Iraq | 1 | -10 | 3 | ✗
 
 Jogos:
-- France 1–2 Senegal
-- France 7–0 Iraq
-- France 6–0 Norway
-- Senegal 8–1 Iraq
-- Senegal 5–3 Norway
-- Iraq 0–4 Norway
+- France 4–1 Senegal
+- France 6–0 Iraq
+- France 3–0 Norway
+- Senegal 5–1 Iraq
+- Senegal 2–3 Norway
+- Iraq 2–2 Norway
 
 **Grupo J**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Argentina | 9 | +13 | 13 | → R32
-| 2 | Austria | 6 | +1 | 4 | → R32
-| 3 | Algeria | 3 | +0 | 5 | → R32 (3°)
-| 4 | Jordan | 0 | -14 | 0 | ✗
+| 1 | Argentina | 6 | +6 | 8 | → R32
+| 2 | Algeria | 5 | +1 | 3 | → R32
+| 3 | Austria | 2 | -2 | 2 | → R32 (3°)
+| 4 | Jordan | 2 | -5 | 3 | ✗
 
 Jogos:
-- Argentina 3–0 Algeria
-- Argentina 2–0 Austria
-- Argentina 8–0 Jordan
-- Algeria 1–2 Austria
-- Algeria 4–0 Jordan
-- Austria 2–0 Jordan
+- Argentina 0–1 Algeria
+- Argentina 3–1 Austria
+- Argentina 5–0 Jordan
+- Algeria 0–0 Austria
+- Algeria 2–2 Jordan
+- Austria 1–1 Jordan
 
 **Grupo K**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Portugal | 9 | +6 | 9 | → R32
-| 2 | Colombia | 6 | +1 | 4 | → R32
-| 3 | Congo | 3 | -1 | 5 | → R32 (3°)
-| 4 | Uzbekistan | 0 | -6 | 0 | ✗
+| 1 | Portugal | 9 | +19 | 20 | → R32
+| 2 | Colombia | 6 | +0 | 6 | → R32
+| 3 | Uzbekistan | 3 | -11 | 3 | → R32 (3°)
+| 4 | Congo | 0 | -8 | 1 | ✗
 
 Jogos:
-- Portugal 4–2 Congo
-- Portugal 3–0 Uzbekistan
-- Portugal 2–1 Colombia
-- Congo 2–0 Uzbekistan
+- Portugal 6–0 Congo
+- Portugal 10–1 Uzbekistan
+- Portugal 4–0 Colombia
+- Congo 0–1 Uzbekistan
 - Congo 1–2 Colombia
-- Uzbekistan 0–1 Colombia
+- Uzbekistan 1–4 Colombia
 
 **Grupo L**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | England | 9 | +9 | 9 | → R32
-| 2 | Croatia | 6 | +5 | 7 | → R32
-| 3 | Ghana | 3 | -5 | 6 | → R32 (3°)
-| 4 | Panama | 0 | -9 | 3 | ✗
+| 1 | England | 9 | +7 | 7 | → R32
+| 2 | Croatia | 4 | +2 | 7 | → R32
+| 3 | Ghana | 4 | -1 | 3 | → R32 (3°)
+| 4 | Panama | 0 | -8 | 2 | ✗
 
 Jogos:
-- England 1–0 Croatia
-- England 6–0 Ghana
+- England 3–0 Croatia
+- England 2–0 Ghana
 - England 2–0 Panama
-- Croatia 2–1 Ghana
-- Croatia 5–0 Panama
-- Ghana 5–3 Panama
+- Croatia 1–1 Ghana
+- Croatia 6–1 Panama
+- Ghana 2–1 Panama
 
 **8 melhores 3ºs lugares classificados:**
-- USA (Grupo D)
 - Sweden (Grupo F)
-- Algeria (Grupo J)
-- Congo (Grupo K)
-- Cape Verde (Grupo H)
-- Norway (Grupo I)
+- Turkey (Grupo D)
 - Ghana (Grupo L)
+- Mexico (Grupo A)
+- Côte d'Ivoire (Grupo E)
+- Senegal (Grupo I)
+- Qatar (Grupo B)
 - Scotland (Grupo C)
 
 ### OITAVAS DE FINAL (Round of 32)
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M73 | Czech Republic | 2–4 | **Switzerland** | 90' |
-| M74 | **Germany** | 1–0 | USA | 90' |
-| M75 | **Netherlands** | 0–0 pen. | Morocco | PEN |
-| M76 | Brazil | 0–1 (0–0 AET) | **Japan** | AET |
-| M77 | Senegal | 3–4 (3–3 AET) | **Sweden** | AET |
-| M78 | Côte d'Ivoire | 0–1 | **France** | 90' |
-| M79 | Mexico | 0–0 pen. | **Scotland** | PEN |
-| M80 | **England** | 3–2 (2–2 AET) | Congo | AET |
-| M81 | Paraguay | 2–3 | **Algeria** | 90' |
-| M82 | **Belgium** | 3–0 | Cape Verde | 90' |
-| M83 | **Colombia** | 2–1 | Croatia | 90' |
-| M84 | Uruguay | 0–1 | **Austria** | 90' |
-| M85 | **Canada** | 5–2 | Norway | 90' |
-| M86 | **Argentina** | 3–1 | Spain | 90' |
+| M73 | **South Korea** | 8–0 | Bosnia-Herzegovina | 90' |
+| M74 | Germany | 1–2 | **Sweden** | 90' |
+| M75 | Netherlands | 1–2 | **Morocco** | 90' |
+| M76 | **Brazil** | 3–0 | Japan | 90' |
+| M77 | France | 1–1 pen. | **Turkey** | PEN |
+| M78 | Ecuador | 0–3 | **Norway** | 90' |
+| M79 | **Czech Republic** | 0–0 pen. | Scotland | PEN |
+| M80 | **England** | 2–0 | Côte d'Ivoire | 90' |
+| M81 | Australia | 0–2 | **Qatar** | 90' |
+| M82 | **Belgium** | 3–0 | Mexico | 90' |
+| M83 | **Colombia** | 2–1 (1–1 AET) | Croatia | AET |
+| M84 | Spain | 3–4 | **Algeria** | 90' |
+| M85 | Switzerland | 1–2 | **Senegal** | 90' |
+| M86 | Argentina | 0–2 | **Uruguay** | 90' |
 | M87 | **Portugal** | 6–1 | Ghana | 90' |
-| M88 | **Turkey** | 3–0 | Iran | 90' |
+| M88 | USA | 2–3 (1–1 AET) | **Egypt** | AET |
 
 ### ROUND OF 16
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M89 | **Germany** | 1–0 (0–0 AET) | Sweden | AET |
-| M90 | Switzerland | 0–3 | **Netherlands** | 90' |
-| M91 | Japan | 0–4 | **France** | 90' |
-| M92 | Scotland | 2–4 | **England** | 90' |
-| M93 | Colombia | 0–1 | **Austria** | 90' |
-| M94 | Algeria | 0–1 | **Belgium** | 90' |
-| M95 | Argentina | 0–1 | **Turkey** | 90' |
-| M96 | Canada | 1–4 | **Portugal** | 90' |
+| M89 | **Sweden** | 2–1 | Turkey | 90' |
+| M90 | South Korea | 1–2 | **Morocco** | 90' |
+| M91 | **Brazil** | 6–2 | Norway | 90' |
+| M92 | Czech Republic | 1–2 (1–1 AET) | **England** | AET |
+| M93 | **Colombia** | 3–2 (2–2 AET) | Algeria | AET |
+| M94 | Qatar | 0–3 | **Belgium** | 90' |
+| M95 | **Uruguay** | 3–2 | Egypt | 90' |
+| M96 | Senegal | 1–3 | **Portugal** | 90' |
 
 ### QUARTAS DE FINAL
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M97 | Germany | 0–1 | **Netherlands** | 90' |
-| M98 | Austria | 0–3 | **Belgium** | 90' |
-| M99 | **France** | 5–2 | England | 90' |
-| M100 | Turkey | 0–5 | **Portugal** | 90' |
+| M97 | Sweden | 0–1 | **Morocco** | 90' |
+| M98 | Colombia | 1–2 | **Belgium** | 90' |
+| M99 | Brazil | 0–2 | **England** | 90' |
+| M100 | Uruguay | 0–2 | **Portugal** | 90' |
 
 ### SEMIFINAIS
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M101 | Netherlands | 1–2 | **Belgium** | 90' |
-| M102 | **France** | 1–0 | Portugal | 90' |
+| M101 | Morocco | 2–2 pen. | **Belgium** | PEN |
+| M102 | England | 0–1 | **Portugal** | 90' |
 
 ### FINAL
 
-**Belgium** 1–2 **France**
+**Belgium** 3–2 (1–1 AET) **Portugal**
 
-🏆 **CAMPEÃO: FRANCE**
+🏆 **CAMPEÃO: BELGIUM**
 
 ---
 
@@ -466,269 +466,269 @@ Jogos:
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Mexico | 7 | +7 | 8 | → R32
-| 2 | Czech Republic | 7 | +5 | 6 | → R32
-| 3 | South Korea | 3 | -3 | 2 | → R32 (3°)
-| 4 | South Africa | 0 | -9 | 0 | ✗
+| 1 | South Korea | 9 | +8 | 13 | → R32
+| 2 | Mexico | 4 | -2 | 3 | → R32
+| 3 | Czech Republic | 2 | -2 | 3 | → R32 (3°)
+| 4 | South Africa | 1 | -4 | 2 | ✗
 
 Jogos:
-- Mexico 4–0 South Africa
-- Mexico 3–0 South Korea
-- Mexico 1–1 Czech Republic
-- South Africa 0–2 South Korea
-- South Africa 0–3 Czech Republic
-- South Korea 0–2 Czech Republic
+- Mexico 1–0 South Africa
+- Mexico 2–5 South Korea
+- Mexico 0–0 Czech Republic
+- South Africa 1–4 South Korea
+- South Africa 1–1 Czech Republic
+- South Korea 4–2 Czech Republic
 
 **Grupo B**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Switzerland | 9 | +13 | 14 | → R32
-| 2 | Canada | 6 | +5 | 10 | → R32
-| 3 | Bosnia-Herzegovina | 1 | -6 | 2 | → R32 (3°)
-| 4 | Qatar | 1 | -12 | 1 | ✗
+| 1 | Switzerland | 9 | +13 | 15 | → R32
+| 2 | Qatar | 3 | +0 | 6 | → R32
+| 3 | Canada | 3 | -5 | 8 | → R32 (3°)
+| 4 | Bosnia-Herzegovina | 3 | -8 | 6 | ✗
 
 Jogos:
-- Canada 4–1 Bosnia-Herzegovina
-- Canada 5–0 Qatar
-- Canada 1–4 Switzerland
-- Bosnia-Herzegovina 1–1 Qatar
-- Bosnia-Herzegovina 0–3 Switzerland
-- Qatar 0–7 Switzerland
+- Canada 3–5 Bosnia-Herzegovina
+- Canada 3–2 Qatar
+- Canada 2–6 Switzerland
+- Bosnia-Herzegovina 1–4 Qatar
+- Bosnia-Herzegovina 0–7 Switzerland
+- Qatar 0–2 Switzerland
 
 **Grupo C**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Morocco | 7 | +4 | 4 | → R32
-| 2 | Scotland | 6 | +1 | 3 | → R32
-| 3 | Brazil | 4 | +10 | 11 | → R32 (3°)
-| 4 | Haiti | 0 | -15 | 1 | ✗
+| 1 | Brazil | 9 | +8 | 9 | → R32
+| 2 | Morocco | 4 | +3 | 8 | → R32
+| 3 | Scotland | 4 | +1 | 5 | → R32 (3°)
+| 4 | Haiti | 0 | -12 | 0 | ✗
 
 Jogos:
-- Brazil 0–0 Morocco
-- Brazil 11–0 Haiti
-- Brazil 0–1 Scotland
-- Morocco 3–0 Haiti
-- Morocco 1–0 Scotland
-- Haiti 1–2 Scotland
+- Brazil 3–1 Morocco
+- Brazil 4–0 Haiti
+- Brazil 2–0 Scotland
+- Morocco 5–0 Haiti
+- Morocco 2–2 Scotland
+- Haiti 0–3 Scotland
 
 **Grupo D**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Turkey | 7 | +7 | 10 | → R32
-| 2 | Paraguay | 6 | +2 | 8 | → R32
-| 3 | USA | 3 | -3 | 4 | → R32 (3°)
-| 4 | Australia | 1 | -6 | 4 | ✗
+| 1 | USA | 9 | +9 | 9 | → R32
+| 2 | Turkey | 6 | +1 | 4 | → R32
+| 3 | Australia | 3 | -2 | 4 | → R32 (3°)
+| 4 | Paraguay | 0 | -8 | 0 | ✗
 
 Jogos:
-- USA 1–4 Paraguay
-- USA 3–1 Australia
-- USA 0–2 Turkey
-- Paraguay 4–0 Australia
-- Paraguay 0–5 Turkey
-- Australia 3–3 Turkey
+- USA 3–0 Paraguay
+- USA 4–0 Australia
+- USA 2–0 Turkey
+- Paraguay 0–3 Australia
+- Paraguay 0–2 Turkey
+- Australia 1–2 Turkey
 
 **Grupo E**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Côte d'Ivoire | 9 | +8 | 8 | → R32
-| 2 | Germany | 6 | +5 | 6 | → R32
-| 3 | Ecuador | 3 | -2 | 2 | → R32 (3°)
-| 4 | Curacao | 0 | -11 | 0 | ✗
+| 1 | Germany | 7 | +7 | 10 | → R32
+| 2 | Côte d'Ivoire | 6 | +7 | 10 | → R32
+| 3 | Ecuador | 4 | +1 | 5 | → R32 (3°)
+| 4 | Curacao | 0 | -15 | 0 | ✗
 
 Jogos:
-- Germany 5–0 Curacao
-- Germany 0–1 Côte d'Ivoire
-- Germany 1–0 Ecuador
-- Curacao 0–4 Côte d'Ivoire
+- Germany 6–0 Curacao
+- Germany 2–1 Côte d'Ivoire
+- Germany 2–2 Ecuador
+- Curacao 0–7 Côte d'Ivoire
 - Curacao 0–2 Ecuador
-- Côte d'Ivoire 3–0 Ecuador
+- Côte d'Ivoire 2–1 Ecuador
 
 **Grupo F**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Netherlands | 9 | +8 | 9 | → R32
-| 2 | Japan | 4 | -1 | 2 | → R32
-| 3 | Sweden | 3 | -3 | 3 | → R32 (3°)
-| 4 | Tunisia | 1 | -4 | 0 | ✗
+| 1 | Netherlands | 5 | +4 | 8 | → R32
+| 2 | Tunisia | 4 | -1 | 4 | → R32
+| 3 | Japan | 3 | +0 | 4 | → R32 (3°)
+| 4 | Sweden | 2 | -3 | 3 | ✗
 
 Jogos:
-- Netherlands 2–0 Japan
-- Netherlands 4–1 Sweden
-- Netherlands 3–0 Tunisia
-- Japan 2–1 Sweden
-- Japan 0–0 Tunisia
-- Sweden 1–0 Tunisia
+- Netherlands 2–2 Japan
+- Netherlands 2–2 Sweden
+- Netherlands 4–0 Tunisia
+- Japan 1–1 Sweden
+- Japan 1–1 Tunisia
+- Sweden 0–3 Tunisia
 
 **Grupo G**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Belgium | 9 | +15 | 16 | → R32
-| 2 | Egypt | 6 | +5 | 11 | → R32
-| 3 | New Zealand | 3 | -11 | 4 | → R32 (3°)
-| 4 | Iran | 0 | -9 | 3 | ✗
+| 1 | Egypt | 7 | +13 | 19 | → R32
+| 2 | Belgium | 7 | +12 | 15 | → R32
+| 3 | New Zealand | 3 | -13 | 5 | → R32 (3°)
+| 4 | Iran | 0 | -12 | 5 | ✗
 
 Jogos:
-- Belgium 2–1 Egypt
-- Belgium 5–0 Iran
+- Belgium 3–3 Egypt
+- Belgium 3–0 Iran
 - Belgium 9–0 New Zealand
-- Egypt 4–3 Iran
+- Egypt 10–2 Iran
 - Egypt 6–1 New Zealand
-- Iran 0–3 New Zealand
+- Iran 3–4 New Zealand
 
 **Grupo H**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Spain | 7 | +14 | 14 | → R32
-| 2 | Uruguay | 7 | +5 | 5 | → R32
-| 3 | Cape Verde | 3 | -2 | 2 | → R32 (3°)
-| 4 | Saudi Arabia | 0 | -17 | 0 | ✗
+| 1 | Spain | 7 | +15 | 18 | → R32
+| 2 | Uruguay | 7 | +11 | 14 | → R32
+| 3 | Cape Verde | 1 | -9 | 4 | → R32 (3°)
+| 4 | Saudi Arabia | 1 | -17 | 4 | ✗
 
 Jogos:
-- Spain 2–0 Cape Verde
-- Spain 12–0 Saudi Arabia
-- Spain 0–0 Uruguay
-- Cape Verde 2–0 Saudi Arabia
-- Cape Verde 0–2 Uruguay
-- Saudi Arabia 0–3 Uruguay
+- Spain 7–0 Cape Verde
+- Spain 9–1 Saudi Arabia
+- Spain 2–2 Uruguay
+- Cape Verde 3–3 Saudi Arabia
+- Cape Verde 1–3 Uruguay
+- Saudi Arabia 0–9 Uruguay
 
 **Grupo I**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | France | 9 | +16 | 17 | → R32
-| 2 | Senegal | 6 | +0 | 4 | → R32
-| 3 | Norway | 3 | -2 | 4 | → R32 (3°)
-| 4 | Iraq | 0 | -14 | 1 | ✗
+| 1 | France | 7 | +6 | 11 | → R32
+| 2 | Senegal | 7 | +5 | 11 | → R32
+| 3 | Norway | 3 | -2 | 7 | → R32 (3°)
+| 4 | Iraq | 0 | -9 | 0 | ✗
 
 Jogos:
-- France 3–0 Senegal
-- France 11–0 Iraq
-- France 3–1 Norway
-- Senegal 2–0 Iraq
-- Senegal 2–1 Norway
-- Iraq 1–2 Norway
+- France 3–3 Senegal
+- France 3–0 Iraq
+- France 5–2 Norway
+- Senegal 4–0 Iraq
+- Senegal 4–3 Norway
+- Iraq 0–2 Norway
 
 **Grupo J**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Argentina | 9 | +10 | 12 | → R32
-| 2 | Austria | 4 | -2 | 3 | → R32
-| 3 | Algeria | 3 | +2 | 7 | → R32 (3°)
-| 4 | Jordan | 1 | -10 | 2 | ✗
+| 1 | Austria | 6 | +5 | 7 | → R32
+| 2 | Argentina | 6 | +2 | 5 | → R32
+| 3 | Jordan | 3 | -3 | 3 | → R32 (3°)
+| 4 | Algeria | 3 | -4 | 3 | ✗
 
 Jogos:
-- Argentina 4–2 Algeria
-- Argentina 3–0 Austria
-- Argentina 5–0 Jordan
-- Algeria 0–1 Austria
-- Algeria 5–0 Jordan
-- Austria 2–2 Jordan
+- Argentina 3–1 Algeria
+- Argentina 1–0 Austria
+- Argentina 1–2 Jordan
+- Algeria 0–4 Austria
+- Algeria 2–0 Jordan
+- Austria 3–1 Jordan
 
 **Grupo K**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Portugal | 7 | +7 | 9 | → R32
-| 2 | Congo | 6 | +1 | 7 | → R32
-| 3 | Colombia | 4 | +0 | 5 | → R32 (3°)
-| 4 | Uzbekistan | 0 | -8 | 2 | ✗
+| 1 | Colombia | 7 | +5 | 8 | → R32
+| 2 | Portugal | 7 | +3 | 5 | → R32
+| 3 | Uzbekistan | 3 | -2 | 8 | → R32 (3°)
+| 4 | Congo | 0 | -6 | 4 | ✗
 
 Jogos:
-- Portugal 4–0 Congo
-- Portugal 4–1 Uzbekistan
-- Portugal 1–1 Colombia
-- Congo 4–0 Uzbekistan
-- Congo 3–2 Colombia
-- Uzbekistan 1–2 Colombia
+- Portugal 2–1 Congo
+- Portugal 3–1 Uzbekistan
+- Portugal 0–0 Colombia
+- Congo 2–5 Uzbekistan
+- Congo 1–3 Colombia
+- Uzbekistan 2–5 Colombia
 
 **Grupo L**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | England | 9 | +10 | 10 | → R32
-| 2 | Ghana | 6 | +1 | 5 | → R32
-| 3 | Croatia | 3 | -1 | 3 | → R32 (3°)
-| 4 | Panama | 0 | -10 | 0 | ✗
+| 1 | England | 7 | +4 | 7 | → R32
+| 2 | Croatia | 5 | +4 | 6 | → R32
+| 3 | Ghana | 2 | -1 | 6 | → R32 (3°)
+| 4 | Panama | 1 | -7 | 1 | ✗
 
 Jogos:
-- England 3–0 Croatia
-- England 4–0 Ghana
+- England 0–0 Croatia
+- England 4–3 Ghana
 - England 3–0 Panama
-- Croatia 0–1 Ghana
-- Croatia 3–0 Panama
-- Ghana 4–0 Panama
+- Croatia 2–2 Ghana
+- Croatia 4–0 Panama
+- Ghana 1–1 Panama
 
 **8 melhores 3ºs lugares classificados:**
-- Brazil (Grupo C)
-- Colombia (Grupo K)
-- Algeria (Grupo J)
-- Croatia (Grupo L)
-- Norway (Grupo I)
-- Cape Verde (Grupo H)
 - Ecuador (Grupo E)
-- USA (Grupo D)
+- Scotland (Grupo C)
+- Japan (Grupo F)
+- Uzbekistan (Grupo K)
+- Norway (Grupo I)
+- Australia (Grupo D)
+- Jordan (Grupo J)
+- Canada (Grupo B)
 
 ### OITAVAS DE FINAL (Round of 32)
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M73 | **Czech Republic** | 3–0 | Canada | 90' |
-| M74 | Côte d'Ivoire | 1–1 pen. | **Brazil** | PEN |
-| M75 | **Netherlands** | 6–1 | Scotland | 90' |
-| M76 | Morocco | 1–2 (1–1 AET) | **Japan** | AET |
-| M77 | **France** | 4–2 | USA | 90' |
-| M78 | Germany | 1–1 pen. | **Senegal** | PEN |
-| M79 | Mexico | 0–2 | **Norway** | 90' |
-| M80 | **England** | 1–0 | Colombia | 90' |
-| M81 | **Turkey** | 1–0 | Algeria | 90' |
-| M82 | **Belgium** | 6–0 | Cape Verde | 90' |
-| M83 | **Congo** | 6–1 | Ghana | 90' |
-| M84 | Spain | 2–2 pen. | **Austria** | PEN |
-| M85 | **Switzerland** | 2–0 | Ecuador | 90' |
-| M86 | **Argentina** | 3–0 | Uruguay | 90' |
-| M87 | **Portugal** | 1–0 (0–0 AET) | Croatia | AET |
-| M88 | Paraguay | 2–3 | **Egypt** | 90' |
+| M73 | Mexico | 0–2 | **Qatar** | 90' |
+| M74 | **Germany** | 3–1 | Scotland | 90' |
+| M75 | **Netherlands** | 2–1 | Morocco | 90' |
+| M76 | **Brazil** | 6–0 | Tunisia | 90' |
+| M77 | **France** | 3–1 | Japan | 90' |
+| M78 | Côte d'Ivoire | 1–2 (1–1 AET) | **Senegal** | AET |
+| M79 | South Korea | 2–2 pen. | **Ecuador** | PEN |
+| M80 | **England** | 2–0 | Uzbekistan | 90' |
+| M81 | **USA** | 12–3 | Canada | 90' |
+| M82 | **Egypt** | 7–5 | Norway | 90' |
+| M83 | **Portugal** | 4–1 | Croatia | 90' |
+| M84 | Spain | 0–2 | **Argentina** | 90' |
+| M85 | **Switzerland** | 2–1 | Jordan | 90' |
+| M86 | Austria | 0–3 | **Uruguay** | 90' |
+| M87 | **Colombia** | 6–2 | Australia | 90' |
+| M88 | **Turkey** | 1–0 | Belgium | 90' |
 
 ### ROUND OF 16
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M89 | **Brazil** | 1–0 (0–0 AET) | France | AET |
-| M90 | Czech Republic | 0–1 | **Netherlands** | 90' |
-| M91 | Japan | 0–4 | **Senegal** | 90' |
-| M92 | **Norway** | 2–1 | England | 90' |
-| M93 | **Congo** | 1–0 | Austria | 90' |
-| M94 | Turkey | 0–2 | **Belgium** | 90' |
-| M95 | **Argentina** | 8–1 | Egypt | 90' |
-| M96 | Switzerland | 2–3 (2–2 AET) | **Portugal** | AET |
+| M89 | Germany | 0–1 | **France** | 90' |
+| M90 | Qatar | 0–10 | **Netherlands** | 90' |
+| M91 | **Brazil** | 4–0 | Senegal | 90' |
+| M92 | Ecuador | 0–7 | **England** | 90' |
+| M93 | **Portugal** | 2–0 | Argentina | 90' |
+| M94 | **USA** | 3–2 | Egypt | 90' |
+| M95 | Uruguay | 0–1 | **Turkey** | 90' |
+| M96 | **Switzerland** | 3–2 | Colombia | 90' |
 
 ### QUARTAS DE FINAL
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M97 | **Brazil** | 3–2 | Netherlands | 90' |
-| M98 | Congo | 0–3 | **Belgium** | 90' |
-| M99 | **Senegal** | 5–1 | Norway | 90' |
-| M100 | Argentina | 1–2 | **Portugal** | 90' |
+| M97 | **France** | 1–1 pen. | Netherlands | PEN |
+| M98 | **Portugal** | 3–1 (1–1 AET) | USA | AET |
+| M99 | **Brazil** | 3–1 | England | 90' |
+| M100 | Turkey | 0–3 | **Switzerland** | 90' |
 
 ### SEMIFINAIS
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M101 | **Brazil** | 2–1 (0–0 AET) | Belgium | AET |
-| M102 | Senegal | 0–2 | **Portugal** | 90' |
+| M101 | France | 1–4 | **Portugal** | 90' |
+| M102 | **Brazil** | 2–1 | Switzerland | 90' |
 
 ### FINAL
 
-**Brazil** 2–1 **Portugal**
+**Portugal** 1–2 **Brazil**
 
 🏆 **CAMPEÃO: BRAZIL**
 
@@ -744,269 +744,269 @@ Jogos:
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Czech Republic | 9 | +12 | 12 | → R32
-| 2 | Mexico | 6 | +5 | 8 | → R32
-| 3 | South Africa | 3 | -8 | 4 | → R32 (3°)
-| 4 | South Korea | 0 | -9 | 0 | ✗
+| 1 | Mexico | 7 | +4 | 5 | → R32
+| 2 | Czech Republic | 5 | +2 | 6 | → R32
+| 3 | South Korea | 2 | -1 | 5 | → R32 (3°)
+| 4 | South Africa | 1 | -5 | 4 | ✗
 
 Jogos:
-- Mexico 6–1 South Africa
-- Mexico 2–0 South Korea
-- Mexico 0–2 Czech Republic
-- South Africa 3–0 South Korea
-- South Africa 0–6 Czech Republic
-- South Korea 0–4 Czech Republic
+- Mexico 3–0 South Africa
+- Mexico 2–1 South Korea
+- Mexico 0–0 Czech Republic
+- South Africa 2–2 South Korea
+- South Africa 2–4 Czech Republic
+- South Korea 2–2 Czech Republic
 
 **Grupo B**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Switzerland | 9 | +9 | 9 | → R32
-| 2 | Canada | 6 | +10 | 11 | → R32
-| 3 | Qatar | 3 | -4 | 4 | → R32 (3°)
-| 4 | Bosnia-Herzegovina | 0 | -15 | 1 | ✗
+| 1 | Qatar | 9 | +5 | 9 | → R32
+| 2 | Switzerland | 6 | +5 | 9 | → R32
+| 3 | Bosnia-Herzegovina | 1 | -4 | 5 | → R32 (3°)
+| 4 | Canada | 1 | -6 | 6 | ✗
 
 Jogos:
-- Canada 7–0 Bosnia-Herzegovina
-- Canada 4–0 Qatar
-- Canada 0–1 Switzerland
-- Bosnia-Herzegovina 1–4 Qatar
-- Bosnia-Herzegovina 0–5 Switzerland
-- Qatar 0–3 Switzerland
+- Canada 2–2 Bosnia-Herzegovina
+- Canada 3–5 Qatar
+- Canada 1–5 Switzerland
+- Bosnia-Herzegovina 1–3 Qatar
+- Bosnia-Herzegovina 2–4 Switzerland
+- Qatar 1–0 Switzerland
 
 **Grupo C**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Brazil | 9 | +7 | 9 | → R32
-| 2 | Morocco | 6 | +6 | 8 | → R32
-| 3 | Scotland | 1 | -4 | 3 | → R32 (3°)
-| 4 | Haiti | 1 | -9 | 2 | ✗
+| 1 | Brazil | 9 | +11 | 11 | → R32
+| 2 | Morocco | 6 | +5 | 6 | → R32
+| 3 | Scotland | 3 | -4 | 1 | → R32 (3°)
+| 4 | Haiti | 0 | -12 | 0 | ✗
 
 Jogos:
 - Brazil 1–0 Morocco
-- Brazil 4–0 Haiti
-- Brazil 4–2 Scotland
-- Morocco 6–1 Haiti
+- Brazil 7–0 Haiti
+- Brazil 3–0 Scotland
+- Morocco 4–0 Haiti
 - Morocco 2–0 Scotland
-- Haiti 1–1 Scotland
+- Haiti 0–1 Scotland
 
 **Grupo D**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Paraguay | 9 | +6 | 9 | → R32
-| 2 | Turkey | 4 | +2 | 4 | → R32
-| 3 | USA | 4 | -1 | 3 | → R32 (3°)
-| 4 | Australia | 0 | -7 | 2 | ✗
+| 1 | Turkey | 7 | +2 | 3 | → R32
+| 2 | Australia | 6 | +2 | 5 | → R32
+| 3 | USA | 4 | +3 | 6 | → R32 (3°)
+| 4 | Paraguay | 0 | -7 | 1 | ✗
 
 Jogos:
-- USA 1–3 Paraguay
-- USA 1–0 Australia
+- USA 4–0 Paraguay
+- USA 1–2 Australia
 - USA 1–1 Turkey
-- Paraguay 5–2 Australia
-- Paraguay 1–0 Turkey
-- Australia 0–3 Turkey
+- Paraguay 1–3 Australia
+- Paraguay 0–1 Turkey
+- Australia 0–1 Turkey
 
 **Grupo E**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Côte d'Ivoire | 9 | +11 | 12 | → R32
-| 2 | Ecuador | 4 | -3 | 1 | → R32
-| 3 | Germany | 3 | -1 | 3 | → R32 (3°)
-| 4 | Curacao | 1 | -7 | 1 | ✗
+| 1 | Côte d'Ivoire | 7 | +6 | 7 | → R32
+| 2 | Germany | 6 | +4 | 6 | → R32
+| 3 | Ecuador | 4 | +5 | 8 | → R32 (3°)
+| 4 | Curacao | 0 | -15 | 0 | ✗
 
 Jogos:
-- Germany 2–1 Curacao
-- Germany 1–2 Côte d'Ivoire
-- Germany 0–1 Ecuador
-- Curacao 0–6 Côte d'Ivoire
-- Curacao 0–0 Ecuador
-- Côte d'Ivoire 4–0 Ecuador
+- Germany 4–0 Curacao
+- Germany 0–2 Côte d'Ivoire
+- Germany 2–0 Ecuador
+- Curacao 0–4 Côte d'Ivoire
+- Curacao 0–7 Ecuador
+- Côte d'Ivoire 1–1 Ecuador
 
 **Grupo F**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Japan | 9 | +3 | 6 | → R32
-| 2 | Netherlands | 6 | +1 | 4 | → R32
-| 3 | Tunisia | 1 | -2 | 3 | → R32 (3°)
-| 4 | Sweden | 1 | -2 | 2 | ✗
+| 1 | Netherlands | 9 | +6 | 7 | → R32
+| 2 | Japan | 4 | +3 | 6 | → R32
+| 3 | Sweden | 4 | -1 | 4 | → R32 (3°)
+| 4 | Tunisia | 0 | -8 | 3 | ✗
 
 Jogos:
-- Netherlands 1–2 Japan
-- Netherlands 1–0 Sweden
-- Netherlands 2–1 Tunisia
-- Japan 2–1 Sweden
-- Japan 2–1 Tunisia
-- Sweden 1–1 Tunisia
+- Netherlands 2–0 Japan
+- Netherlands 2–0 Sweden
+- Netherlands 3–1 Tunisia
+- Japan 1–1 Sweden
+- Japan 5–0 Tunisia
+- Sweden 3–2 Tunisia
 
 **Grupo G**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Belgium | 9 | +17 | 17 | → R32
-| 2 | Iran | 3 | -3 | 4 | → R32
-| 3 | Egypt | 3 | -7 | 5 | → R32 (3°)
-| 4 | New Zealand | 3 | -7 | 4 | ✗
+| 1 | Belgium | 9 | +12 | 14 | → R32
+| 2 | Egypt | 6 | +8 | 12 | → R32
+| 3 | Iran | 3 | -7 | 3 | → R32 (3°)
+| 4 | New Zealand | 0 | -13 | 1 | ✗
 
 Jogos:
-- Belgium 6–0 Egypt
-- Belgium 4–0 Iran
-- Belgium 7–0 New Zealand
-- Egypt 1–4 Iran
-- Egypt 4–2 New Zealand
-- Iran 0–2 New Zealand
+- Belgium 3–1 Egypt
+- Belgium 6–0 Iran
+- Belgium 5–1 New Zealand
+- Egypt 4–1 Iran
+- Egypt 7–0 New Zealand
+- Iran 2–0 New Zealand
 
 **Grupo H**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Spain | 9 | +16 | 16 | → R32
-| 2 | Uruguay | 4 | +2 | 5 | → R32
-| 3 | Cape Verde | 2 | -9 | 1 | → R32 (3°)
-| 4 | Saudi Arabia | 1 | -9 | 1 | ✗
+| 1 | Uruguay | 9 | +6 | 8 | → R32
+| 2 | Spain | 6 | +10 | 14 | → R32
+| 3 | Cape Verde | 3 | -1 | 7 | → R32 (3°)
+| 4 | Saudi Arabia | 0 | -15 | 4 | ✗
 
 Jogos:
-- Spain 9–0 Cape Verde
-- Spain 6–0 Saudi Arabia
-- Spain 1–0 Uruguay
-- Cape Verde 0–0 Saudi Arabia
-- Cape Verde 1–1 Uruguay
-- Saudi Arabia 1–4 Uruguay
+- Spain 5–1 Cape Verde
+- Spain 8–1 Saudi Arabia
+- Spain 1–2 Uruguay
+- Cape Verde 6–2 Saudi Arabia
+- Cape Verde 0–1 Uruguay
+- Saudi Arabia 1–5 Uruguay
 
 **Grupo I**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | France | 9 | +13 | 14 | → R32
-| 2 | Senegal | 6 | +7 | 11 | → R32
-| 3 | Norway | 3 | -3 | 6 | → R32 (3°)
-| 4 | Iraq | 0 | -17 | 0 | ✗
+| 1 | France | 9 | +8 | 9 | → R32
+| 2 | Senegal | 6 | +6 | 9 | → R32
+| 3 | Norway | 3 | -4 | 9 | → R32 (3°)
+| 4 | Iraq | 0 | -10 | 2 | ✗
 
 Jogos:
-- France 4–1 Senegal
-- France 6–0 Iraq
-- France 4–0 Norway
-- Senegal 5–0 Iraq
-- Senegal 5–0 Norway
-- Iraq 0–6 Norway
+- France 3–0 Senegal
+- France 1–0 Iraq
+- France 5–1 Norway
+- Senegal 3–0 Iraq
+- Senegal 6–0 Norway
+- Iraq 2–8 Norway
 
 **Grupo J**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Argentina | 9 | +10 | 11 | → R32
-| 2 | Algeria | 6 | +7 | 9 | → R32
-| 3 | Austria | 3 | -1 | 1 | → R32 (3°)
-| 4 | Jordan | 0 | -16 | 0 | ✗
+| 1 | Argentina | 7 | +6 | 7 | → R32
+| 2 | Algeria | 6 | -3 | 3 | → R32
+| 3 | Jordan | 3 | -1 | 3 | → R32 (3°)
+| 4 | Austria | 1 | -2 | 0 | ✗
 
 Jogos:
-- Argentina 2–1 Algeria
-- Argentina 1–0 Austria
-- Argentina 8–0 Jordan
+- Argentina 5–0 Algeria
+- Argentina 0–0 Austria
+- Argentina 2–1 Jordan
 - Algeria 1–0 Austria
-- Algeria 7–0 Jordan
-- Austria 1–0 Jordan
+- Algeria 2–1 Jordan
+- Austria 0–1 Jordan
 
 **Grupo K**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Portugal | 9 | +9 | 11 | → R32
-| 2 | Colombia | 6 | +0 | 4 | → R32
-| 3 | Congo | 3 | +1 | 6 | → R32 (3°)
-| 4 | Uzbekistan | 0 | -10 | 2 | ✗
+| 1 | Portugal | 7 | +7 | 12 | → R32
+| 2 | Colombia | 6 | +6 | 13 | → R32
+| 3 | Congo | 4 | +2 | 13 | → R32 (3°)
+| 4 | Uzbekistan | 0 | -15 | 1 | ✗
 
 Jogos:
-- Portugal 3–1 Congo
-- Portugal 5–0 Uzbekistan
-- Portugal 3–1 Colombia
-- Congo 5–1 Uzbekistan
-- Congo 0–1 Colombia
-- Uzbekistan 1–2 Colombia
+- Portugal 4–4 Congo
+- Portugal 6–0 Uzbekistan
+- Portugal 2–1 Colombia
+- Congo 5–0 Uzbekistan
+- Congo 4–7 Colombia
+- Uzbekistan 1–5 Colombia
 
 **Grupo L**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | England | 7 | +10 | 12 | → R32
-| 2 | Ghana | 6 | -1 | 6 | → R32
-| 3 | Croatia | 4 | +5 | 9 | → R32 (3°)
-| 4 | Panama | 0 | -14 | 1 | ✗
+| 1 | England | 9 | +13 | 14 | → R32
+| 2 | Croatia | 6 | +1 | 5 | → R32
+| 3 | Ghana | 3 | -3 | 4 | → R32 (3°)
+| 4 | Panama | 0 | -11 | 1 | ✗
 
 Jogos:
-- England 1–1 Croatia
+- England 3–0 Croatia
 - England 4–1 Ghana
 - England 7–0 Panama
-- Croatia 2–3 Ghana
-- Croatia 6–0 Panama
+- Croatia 2–1 Ghana
+- Croatia 3–0 Panama
 - Ghana 2–1 Panama
 
 **8 melhores 3ºs lugares classificados:**
-- Croatia (Grupo L)
+- Ecuador (Grupo E)
 - USA (Grupo D)
 - Congo (Grupo K)
-- Germany (Grupo E)
-- Austria (Grupo J)
+- Sweden (Grupo F)
+- Cape Verde (Grupo H)
+- Jordan (Grupo J)
+- Ghana (Grupo L)
 - Norway (Grupo I)
-- Qatar (Grupo B)
-- Egypt (Grupo G)
 
 ### OITAVAS DE FINAL (Round of 32)
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M73 | **Mexico** | 2–0 | Canada | 90' |
-| M74 | Côte d'Ivoire | 2–3 | **USA** | 90' |
-| M75 | **Japan** | 2–0 | Morocco | 90' |
-| M76 | Brazil | 1–3 (1–1 AET) | **Netherlands** | AET |
-| M77 | **France** | 12–0 | Egypt | 90' |
-| M78 | Ecuador | 0–2 | **Senegal** | 90' |
-| M79 | Czech Republic | 0–1 | **Germany** | 90' |
-| M80 | **England** | 2–0 | Congo | 90' |
-| M81 | **Paraguay** | 5–1 | Qatar | 90' |
-| M82 | **Belgium** | 2–0 | Austria | 90' |
-| M83 | **Colombia** | 5–0 | Ghana | 90' |
-| M84 | Spain | 1–2 | **Algeria** | 90' |
-| M85 | **Switzerland** | 2–1 | Norway | 90' |
-| M86 | **Argentina** | 2–1 (1–1 AET) | Uruguay | AET |
-| M87 | **Portugal** | 2–1 | Croatia | 90' |
-| M88 | **Turkey** | 5–0 | Iran | 90' |
+| M73 | Czech Republic | 0–2 | **Switzerland** | 90' |
+| M74 | **Côte d'Ivoire** | 3–2 (2–2 AET) | USA | AET |
+| M75 | **Netherlands** | 5–1 | Morocco | 90' |
+| M76 | **Brazil** | 2–0 | Japan | 90' |
+| M77 | **France** | 6–2 | Sweden | 90' |
+| M78 | **Germany** | 3–2 (2–2 AET) | Senegal | AET |
+| M79 | **Mexico** | 1–0 | Ecuador | 90' |
+| M80 | **England** | 6–1 | Congo | 90' |
+| M81 | **Turkey** | 3–1 | Jordan | 90' |
+| M82 | **Belgium** | 1–0 (0–0 AET) | Cape Verde | AET |
+| M83 | **Colombia** | 1–0 | Croatia | 90' |
+| M84 | **Uruguay** | 2–1 (1–1 AET) | Algeria | AET |
+| M85 | Qatar | 2–5 | **Norway** | 90' |
+| M86 | **Argentina** | 1–0 | Spain | 90' |
+| M87 | **Portugal** | 5–3 | Ghana | 90' |
+| M88 | Australia | 3–5 | **Egypt** | 90' |
 
 ### ROUND OF 16
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M89 | USA | 0–6 | **France** | 90' |
-| M90 | **Mexico** | 2–1 (1–1 AET) | Japan | AET |
-| M91 | **Netherlands** | 3–1 | Senegal | 90' |
-| M92 | **Germany** | 0–0 pen. | England | PEN |
-| M93 | **Colombia** | 7–3 | Algeria | 90' |
-| M94 | Paraguay | 1–7 | **Belgium** | 90' |
-| M95 | **Argentina** | 3–2 (1–1 AET) | Turkey | AET |
-| M96 | **Switzerland** | 2–0 | Portugal | 90' |
+| M89 | Côte d'Ivoire | 1–2 | **France** | 90' |
+| M90 | Switzerland | 1–2 (1–1 AET) | **Netherlands** | AET |
+| M91 | Brazil | 2–2 pen. | **Germany** | PEN |
+| M92 | Mexico | 0–4 | **England** | 90' |
+| M93 | **Colombia** | 3–0 | Uruguay | 90' |
+| M94 | **Turkey** | 1–1 pen. | Belgium | PEN |
+| M95 | **Argentina** | 2–1 | Egypt | 90' |
+| M96 | Norway | 1–6 | **Portugal** | 90' |
 
 ### QUARTAS DE FINAL
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M97 | **France** | 2–1 | Mexico | 90' |
-| M98 | **Colombia** | 2–1 | Belgium | 90' |
-| M99 | **Netherlands** | 3–0 | Germany | 90' |
-| M100 | Argentina | 1–2 | **Switzerland** | 90' |
+| M97 | **France** | 2–0 | Netherlands | 90' |
+| M98 | **Colombia** | 3–2 | Turkey | 90' |
+| M99 | **Germany** | 1–0 | England | 90' |
+| M100 | Argentina | 0–2 | **Portugal** | 90' |
 
 ### SEMIFINAIS
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M101 | **France** | 3–1 | Colombia | 90' |
-| M102 | Netherlands | 0–0 pen. | **Switzerland** | PEN |
+| M101 | **France** | 1–0 | Colombia | 90' |
+| M102 | Germany | 2–3 (2–2 AET) | **Portugal** | AET |
 
 ### FINAL
 
-**France** 3–2 **Switzerland**
+**France** 2–1 (1–1 AET) **Portugal**
 
 🏆 **CAMPEÃO: FRANCE**
 
@@ -1014,7 +1014,7 @@ Jogos:
 
 ### 7.4 Azarão campeão
 
-**Campeão: Senegal**
+**Campeão: Morocco**
 
 ### FASE DE GRUPOS
 
@@ -1022,271 +1022,271 @@ Jogos:
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Czech Republic | 9 | +5 | 6 | → R32
-| 2 | Mexico | 6 | +4 | 5 | → R32
-| 3 | South Korea | 3 | -2 | 1 | → R32 (3°)
-| 4 | South Africa | 0 | -7 | 1 | ✗
+| 1 | Czech Republic | 9 | +3 | 3 | → R32
+| 2 | South Korea | 4 | +3 | 5 | → R32
+| 3 | Mexico | 4 | +0 | 2 | → R32 (3°)
+| 4 | South Africa | 0 | -6 | 0 | ✗
 
 Jogos:
-- Mexico 3–0 South Africa
-- Mexico 2–0 South Korea
+- Mexico 1–0 South Africa
+- Mexico 1–1 South Korea
 - Mexico 0–1 Czech Republic
-- South Africa 0–1 South Korea
-- South Africa 1–4 Czech Republic
+- South Africa 0–4 South Korea
+- South Africa 0–1 Czech Republic
 - South Korea 0–1 Czech Republic
 
 **Grupo B**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Switzerland | 9 | +11 | 14 | → R32
-| 2 | Canada | 6 | +6 | 10 | → R32
-| 3 | Qatar | 3 | -6 | 4 | → R32 (3°)
-| 4 | Bosnia-Herzegovina | 0 | -11 | 2 | ✗
+| 1 | Switzerland | 7 | +3 | 5 | → R32
+| 2 | Canada | 4 | +2 | 9 | → R32
+| 3 | Qatar | 4 | -1 | 4 | → R32 (3°)
+| 4 | Bosnia-Herzegovina | 1 | -4 | 3 | ✗
 
 Jogos:
-- Canada 3–0 Bosnia-Herzegovina
-- Canada 6–0 Qatar
-- Canada 1–4 Switzerland
-- Bosnia-Herzegovina 1–3 Qatar
-- Bosnia-Herzegovina 1–7 Switzerland
-- Qatar 1–3 Switzerland
+- Canada 5–2 Bosnia-Herzegovina
+- Canada 2–3 Qatar
+- Canada 2–2 Switzerland
+- Bosnia-Herzegovina 1–1 Qatar
+- Bosnia-Herzegovina 0–1 Switzerland
+- Qatar 0–2 Switzerland
 
 **Grupo C**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Brazil | 9 | +14 | 15 | → R32
-| 2 | Morocco | 6 | +3 | 7 | → R32
-| 3 | Scotland | 1 | -4 | 0 | → R32 (3°)
-| 4 | Haiti | 1 | -13 | 0 | ✗
+| 1 | Brazil | 9 | +12 | 13 | → R32
+| 2 | Scotland | 4 | -7 | 5 | → R32
+| 3 | Morocco | 3 | +5 | 11 | → R32 (3°)
+| 4 | Haiti | 1 | -10 | 1 | ✗
 
 Jogos:
-- Brazil 4–1 Morocco
-- Brazil 8–0 Haiti
-- Brazil 3–0 Scotland
-- Morocco 5–0 Haiti
-- Morocco 1–0 Scotland
-- Haiti 0–0 Scotland
+- Brazil 2–1 Morocco
+- Brazil 3–0 Haiti
+- Brazil 8–0 Scotland
+- Morocco 7–0 Haiti
+- Morocco 3–4 Scotland
+- Haiti 1–1 Scotland
 
 **Grupo D**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Turkey | 9 | +12 | 13 | → R32
-| 2 | USA | 4 | -4 | 3 | → R32
-| 3 | Paraguay | 3 | +0 | 4 | → R32 (3°)
-| 4 | Australia | 1 | -8 | 1 | ✗
+| 1 | Turkey | 7 | +6 | 7 | → R32
+| 2 | USA | 4 | -1 | 3 | → R32
+| 3 | Paraguay | 4 | -3 | 3 | → R32 (3°)
+| 4 | Australia | 1 | -2 | 3 | ✗
 
 Jogos:
-- USA 2–1 Paraguay
-- USA 1–1 Australia
-- USA 0–5 Turkey
-- Paraguay 2–0 Australia
-- Paraguay 1–2 Turkey
-- Australia 0–6 Turkey
+- USA 1–1 Paraguay
+- USA 2–1 Australia
+- USA 0–2 Turkey
+- Paraguay 2–1 Australia
+- Paraguay 0–4 Turkey
+- Australia 1–1 Turkey
 
 **Grupo E**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Germany | 7 | +5 | 5 | → R32
-| 2 | Côte d'Ivoire | 6 | +9 | 10 | → R32
-| 3 | Ecuador | 4 | +0 | 3 | → R32 (3°)
-| 4 | Curacao | 0 | -14 | 0 | ✗
+| 1 | Germany | 9 | +10 | 12 | → R32
+| 2 | Côte d'Ivoire | 6 | +6 | 9 | → R32
+| 3 | Ecuador | 3 | +0 | 2 | → R32 (3°)
+| 4 | Curacao | 0 | -16 | 0 | ✗
 
 Jogos:
-- Germany 4–0 Curacao
-- Germany 1–0 Côte d'Ivoire
-- Germany 0–0 Ecuador
-- Curacao 0–7 Côte d'Ivoire
-- Curacao 0–3 Ecuador
-- Côte d'Ivoire 3–0 Ecuador
+- Germany 8–0 Curacao
+- Germany 3–2 Côte d'Ivoire
+- Germany 1–0 Ecuador
+- Curacao 0–6 Côte d'Ivoire
+- Curacao 0–2 Ecuador
+- Côte d'Ivoire 1–0 Ecuador
 
 **Grupo F**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Netherlands | 9 | +8 | 11 | → R32
-| 2 | Sweden | 4 | +0 | 2 | → R32
-| 3 | Tunisia | 2 | -3 | 4 | → R32 (3°)
-| 4 | Japan | 1 | -5 | 4 | ✗
+| 1 | Netherlands | 6 | +5 | 9 | → R32
+| 2 | Japan | 6 | +4 | 6 | → R32
+| 3 | Sweden | 6 | -1 | 4 | → R32 (3°)
+| 4 | Tunisia | 0 | -8 | 2 | ✗
 
 Jogos:
-- Netherlands 5–1 Japan
-- Netherlands 1–0 Sweden
-- Netherlands 5–2 Tunisia
-- Japan 1–2 Sweden
-- Japan 2–2 Tunisia
-- Sweden 0–0 Tunisia
+- Netherlands 0–2 Japan
+- Netherlands 5–0 Sweden
+- Netherlands 4–2 Tunisia
+- Japan 0–2 Sweden
+- Japan 4–0 Tunisia
+- Sweden 2–0 Tunisia
 
 **Grupo G**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Belgium | 9 | +15 | 16 | → R32
-| 2 | Egypt | 6 | -1 | 7 | → R32
-| 3 | New Zealand | 1 | -4 | 2 | → R32 (3°)
-| 4 | Iran | 1 | -10 | 2 | ✗
+| 1 | Belgium | 9 | +13 | 16 | → R32
+| 2 | Egypt | 6 | +5 | 14 | → R32
+| 3 | Iran | 3 | +2 | 10 | → R32 (3°)
+| 4 | New Zealand | 0 | -20 | 2 | ✗
 
 Jogos:
-- Belgium 8–1 Egypt
-- Belgium 5–0 Iran
-- Belgium 3–0 New Zealand
-- Egypt 5–0 Iran
-- Egypt 1–0 New Zealand
-- Iran 2–2 New Zealand
+- Belgium 6–2 Egypt
+- Belgium 2–1 Iran
+- Belgium 8–0 New Zealand
+- Egypt 4–3 Iran
+- Egypt 8–0 New Zealand
+- Iran 6–2 New Zealand
 
 **Grupo H**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Uruguay | 9 | +7 | 10 | → R32
-| 2 | Spain | 6 | +14 | 15 | → R32
-| 3 | Cape Verde | 3 | -1 | 7 | → R32 (3°)
-| 4 | Saudi Arabia | 0 | -20 | 1 | ✗
+| 1 | Uruguay | 9 | +10 | 10 | → R32
+| 2 | Spain | 6 | +9 | 10 | → R32
+| 3 | Cape Verde | 3 | -3 | 5 | → R32 (3°)
+| 4 | Saudi Arabia | 0 | -16 | 3 | ✗
 
 Jogos:
-- Spain 5–0 Cape Verde
-- Spain 10–0 Saudi Arabia
+- Spain 3–0 Cape Verde
+- Spain 7–0 Saudi Arabia
 - Spain 0–1 Uruguay
-- Cape Verde 5–0 Saudi Arabia
-- Cape Verde 2–3 Uruguay
-- Saudi Arabia 1–6 Uruguay
+- Cape Verde 5–3 Saudi Arabia
+- Cape Verde 0–2 Uruguay
+- Saudi Arabia 0–7 Uruguay
 
 **Grupo I**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Senegal | 9 | +7 | 8 | → R32
-| 2 | France | 6 | +9 | 12 | → R32
-| 3 | Norway | 3 | -4 | 4 | → R32 (3°)
-| 4 | Iraq | 0 | -12 | 2 | ✗
+| 1 | Senegal | 7 | +5 | 9 | → R32
+| 2 | Norway | 4 | +2 | 9 | → R32
+| 3 | France | 4 | +2 | 6 | → R32 (3°)
+| 4 | Iraq | 1 | -9 | 2 | ✗
 
 Jogos:
 - France 1–2 Senegal
-- France 6–0 Iraq
-- France 5–1 Norway
-- Senegal 5–0 Iraq
-- Senegal 1–0 Norway
-- Iraq 2–3 Norway
+- France 3–0 Iraq
+- France 2–2 Norway
+- Senegal 2–2 Iraq
+- Senegal 5–1 Norway
+- Iraq 0–6 Norway
 
 **Grupo J**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Argentina | 9 | +7 | 8 | → R32
-| 2 | Austria | 4 | -1 | 1 | → R32
-| 3 | Algeria | 3 | +3 | 5 | → R32 (3°)
-| 4 | Jordan | 1 | -9 | 1 | ✗
+| 1 | Argentina | 9 | +6 | 7 | → R32
+| 2 | Austria | 6 | +1 | 2 | → R32
+| 3 | Algeria | 1 | -3 | 2 | → R32 (3°)
+| 4 | Jordan | 1 | -4 | 1 | ✗
 
 Jogos:
-- Argentina 1–0 Algeria
-- Argentina 2–0 Austria
-- Argentina 5–1 Jordan
+- Argentina 3–1 Algeria
+- Argentina 1–0 Austria
+- Argentina 3–0 Jordan
 - Algeria 0–1 Austria
-- Algeria 5–0 Jordan
-- Austria 0–0 Jordan
+- Algeria 1–1 Jordan
+- Austria 1–0 Jordan
 
 **Grupo K**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Colombia | 7 | +7 | 11 | → R32
-| 2 | Portugal | 7 | +7 | 10 | → R32
-| 3 | Uzbekistan | 1 | -7 | 1 | → R32 (3°)
-| 4 | Congo | 1 | -7 | 0 | ✗
+| 1 | Portugal | 9 | +10 | 14 | → R32
+| 2 | Colombia | 4 | +0 | 3 | → R32
+| 3 | Congo | 4 | -2 | 3 | → R32 (3°)
+| 4 | Uzbekistan | 0 | -8 | 4 | ✗
 
 Jogos:
-- Portugal 5–0 Congo
-- Portugal 2–0 Uzbekistan
-- Portugal 3–3 Colombia
-- Congo 0–0 Uzbekistan
-- Congo 0–2 Colombia
-- Uzbekistan 1–6 Colombia
+- Portugal 4–1 Congo
+- Portugal 8–2 Uzbekistan
+- Portugal 2–1 Colombia
+- Congo 2–1 Uzbekistan
+- Congo 0–0 Colombia
+- Uzbekistan 1–2 Colombia
 
 **Grupo L**
 
 | # | Seleção | Pts | GD | GP |
 |---|---------|-----|----|----|
-| 1 | Croatia | 9 | +7 | 9 | → R32
-| 2 | England | 6 | +7 | 9 | → R32
-| 3 | Ghana | 3 | -3 | 5 | → R32 (3°)
-| 4 | Panama | 0 | -11 | 1 | ✗
+| 1 | England | 9 | +13 | 13 | → R32
+| 2 | Ghana | 6 | -1 | 6 | → R32
+| 3 | Croatia | 3 | -2 | 5 | → R32 (3°)
+| 4 | Panama | 0 | -10 | 2 | ✗
 
 Jogos:
-- England 1–2 Croatia
-- England 6–0 Ghana
-- England 2–0 Panama
-- Croatia 2–0 Ghana
-- Croatia 5–1 Panama
-- Ghana 5–0 Panama
+- England 2–0 Croatia
+- England 4–0 Ghana
+- England 7–0 Panama
+- Croatia 2–4 Ghana
+- Croatia 3–1 Panama
+- Ghana 2–1 Panama
 
 **8 melhores 3ºs lugares classificados:**
-- Ecuador (Grupo E)
-- Algeria (Grupo J)
-- Paraguay (Grupo D)
-- Cape Verde (Grupo H)
-- South Korea (Grupo A)
-- Ghana (Grupo L)
-- Norway (Grupo I)
+- Sweden (Grupo F)
+- France (Grupo I)
+- Mexico (Grupo A)
 - Qatar (Grupo B)
+- Congo (Grupo K)
+- Paraguay (Grupo D)
+- Morocco (Grupo C)
+- Iran (Grupo G)
 
 ### OITAVAS DE FINAL (Round of 32)
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M73 | Mexico | 2–3 | **Canada** | 90' |
-| M74 | **Germany** | 3–0 | Paraguay | 90' |
-| M75 | Netherlands | 0–2 | **Morocco** | 90' |
-| M76 | **Brazil** | 3–1 | Sweden | 90' |
-| M77 | **Senegal** | 4–0 | Cape Verde | 90' |
-| M78 | Côte d'Ivoire | 3–6 | **France** | 90' |
-| M79 | **Czech Republic** | 3–1 (1–1 AET) | Ecuador | AET |
-| M80 | **Croatia** | 1–0 | Algeria | 90' |
-| M81 | **Turkey** | 5–0 | Qatar | 90' |
-| M82 | **Belgium** | 4–0 | South Korea | 90' |
-| M83 | **Portugal** | 1–0 | England | 90' |
-| M84 | Uruguay | 0–1 | **Austria** | 90' |
-| M85 | **Switzerland** | 1–0 | Norway | 90' |
-| M86 | Argentina | 1–2 | **Spain** | 90' |
-| M87 | **Colombia** | 5–0 | Ghana | 90' |
-| M88 | **USA** | 5–0 | Egypt | 90' |
+| M73 | **South Korea** | 7–1 | Canada | 90' |
+| M74 | **Germany** | 3–2 | Sweden | 90' |
+| M75 | Netherlands | 0–1 | **Scotland** | 90' |
+| M76 | **Brazil** | 2–1 | Japan | 90' |
+| M77 | **Senegal** | 7–0 | Paraguay | 90' |
+| M78 | **Côte d'Ivoire** | 3–2 | Norway | 90' |
+| M79 | Czech Republic | 1–2 (1–1 AET) | **Morocco** | AET |
+| M80 | **England** | 3–2 | Congo | 90' |
+| M81 | **Turkey** | 3–2 (1–1 AET) | Qatar | AET |
+| M82 | **Belgium** | 3–2 (1–1 AET) | Mexico | AET |
+| M83 | Colombia | 1–3 | **Ghana** | 90' |
+| M84 | Uruguay | 1–2 | **Austria** | 90' |
+| M85 | **Switzerland** | 3–1 | Iran | 90' |
+| M86 | Argentina | 0–1 (0–0 AET) | **Spain** | AET |
+| M87 | **Portugal** | 3–2 (1–1 AET) | France | AET |
+| M88 | USA | 2–6 | **Egypt** | 90' |
 
 ### ROUND OF 16
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M89 | Germany | 0–1 | **Senegal** | 90' |
-| M90 | **Canada** | 1–1 pen. | Morocco | PEN |
-| M91 | Brazil | 1–3 | **France** | 90' |
-| M92 | Czech Republic | 1–4 | **Croatia** | 90' |
-| M93 | **Portugal** | 1–0 | Austria | 90' |
-| M94 | Turkey | 2–3 | **Belgium** | 90' |
-| M95 | **Spain** | 3–2 | USA | 90' |
-| M96 | **Switzerland** | 2–1 (0–0 AET) | Colombia | AET |
+| M89 | **Germany** | 2–0 | Senegal | 90' |
+| M90 | **South Korea** | 2–1 | Scotland | 90' |
+| M91 | Brazil | 0–2 | **Côte d'Ivoire** | 90' |
+| M92 | **Morocco** | 2–0 | England | 90' |
+| M93 | Ghana | 1–2 (1–1 AET) | **Austria** | AET |
+| M94 | Turkey | 0–2 | **Belgium** | 90' |
+| M95 | **Spain** | 8–0 | Egypt | 90' |
+| M96 | Switzerland | 1–3 | **Portugal** | 90' |
 
 ### QUARTAS DE FINAL
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M97 | **Senegal** | 2–0 | Canada | 90' |
-| M98 | Portugal | 0–1 | **Belgium** | 90' |
-| M99 | France | 0–2 | **Croatia** | 90' |
-| M100 | **Spain** | 3–1 | Switzerland | 90' |
+| M97 | **Germany** | 2–1 | South Korea | 90' |
+| M98 | Austria | 1–2 (0–0 AET) | **Belgium** | AET |
+| M99 | Côte d'Ivoire | 0–1 | **Morocco** | 90' |
+| M100 | Spain | 1–2 | **Portugal** | 90' |
 
 ### SEMIFINAIS
 
 | Jogo | Mandante | Placar | Visitante | Obs |
 |------|----------|--------|-----------|-----|
-| M101 | **Senegal** | 3–0 | Belgium | 90' |
-| M102 | Croatia | 0–3 | **Spain** | 90' |
+| M101 | **Germany** | 1–0 | Belgium | 90' |
+| M102 | **Morocco** | 3–1 | Portugal | 90' |
 
 ### FINAL
 
-**Senegal** 3–1 **Spain**
+**Germany** 1–2 **Morocco**
 
-🏆 **CAMPEÃO: SENEGAL**
+🏆 **CAMPEÃO: MOROCCO**
 
 
 ---
