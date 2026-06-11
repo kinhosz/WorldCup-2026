@@ -1,6 +1,6 @@
 # Score Audit — WorldCup 2026
 
-Generated: 2026-06-08
+Generated: 2026-06-09
 
 This report shows exactly how each team score was built:
 which data tier (FIFA22 / TM / global-median) each player used,
