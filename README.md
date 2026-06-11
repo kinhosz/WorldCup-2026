@@ -15,6 +15,36 @@ A complete 2026 FIFA World Cup simulator using FC25 and FIFA22 player attributes
 | [SIMULACAO.md](SIMULACAO.md) | Portuguese | Full methodology + individual simulation traces |
 | [ANALISE.md](ANALISE.md) | Portuguese | Deep analysis (Portuguese version) |
 | [output/score_audit.md](output/score_audit.md) | — | Per-player breakdown: data source and rating for all 48 squads |
+| [output/megazord_report_en.md](output/megazord_report_en.md) | English | Megazord — consensus bracket: modal outcome for every match |
+| [output/megazord_report.md](output/megazord_report.md) | Portuguese | Megazord — bracket consenso: resultado modal de cada partida |
+
+---
+
+## Megazord — Consensus Bracket
+
+The Megazord is a single deterministic tournament built by extracting the **most likely (modal) outcome** from thousands of simulations rather than running one random draw.
+
+**How it works:**
+
+1. **Group stage — 50,000 simulations.** For each group, the script records every possible final standings order and every individual match score across all runs. It then picks the most frequent standings ranking and the most frequent score for each match.
+2. **Knockout rounds — 10,000 sub-simulations per match.** Once the bracket is set by the modal group results, each knockout match is resolved independently: 10k head-to-head simulations are run and the modal winner advances with the modal scoreline for that winner.
+3. The result is a single, fully-determined bracket — not a single random seed, but the **statistically most likely path** through the entire tournament.
+
+**Result:** Brazil beats France 1–0 in the final (54% win probability in that specific matchup).
+
+```bash
+python3 scripts/megazord.py          # runs 50k group sims (default)
+python3 scripts/megazord.py 100000   # more sims, more stable modes
+```
+
+### Visual Bracket
+
+| Stage | Image |
+|-------|-------|
+| Group Stage | ![Group Stage](images/group_stage.png) |
+| Round of 32 | ![Round of 32](images/round_of_32.png) |
+| Round of 16 | ![Round of 16](images/round_of_16.png) |
+| Quarterfinals → Final | ![Quarters to Final](images/quarters_to_final.png) |
 
 ---
 
