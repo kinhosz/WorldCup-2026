@@ -49,6 +49,73 @@ python3 scripts/megazord.py 100000   # more sims, more stable modes
 
 ---
 
+## Tracking Real Results
+
+As the tournament progresses, real match results are entered via `resultado.py` and saved to `output/copa_real_state.json`.
+
+```bash
+# List all games and their IDs
+python3 scripts/resultado.py --list
+
+# Filter by phase
+python3 scripts/resultado.py --list r1     # Rodada 1 (IDs 1–24)
+python3 scripts/resultado.py --list r2     # Rodada 2 (IDs 25–48)
+python3 scripts/resultado.py --list r3     # Rodada 3 (IDs 49–72)
+python3 scripts/resultado.py --list r32    # Round of 32 (IDs 73–88)
+python3 scripts/resultado.py --list r16    # Round of 16 (IDs 89–96)
+python3 scripts/resultado.py --list qf     # Quarterfinals (IDs 97–100)
+python3 scripts/resultado.py --list sf     # Semifinals (IDs 101–102)
+python3 scripts/resultado.py --list final  # 3rd place + Final (IDs 103–104)
+
+# Enter a result by game ID
+python3 scripts/resultado.py
+#  → Enter game ID: 5
+#  → Result (e.g. 2-1): 2-0
+```
+
+**Game ID layout — Group Stage:**
+
+| IDs | Phase | Groups covered |
+|-----|-------|----------------|
+| 1–24 | Rodada 1 | A–L (2 games each) |
+| 25–48 | Rodada 2 | A–L |
+| 49–72 | Rodada 3 | A–L |
+
+Within each rodada, groups run A → L in order (2 games per group). Example for Rodada 1:
+
+| ID | Group | Match |
+|----|-------|-------|
+| 1 | A | Mexico vs South Africa |
+| 2 | A | South Korea vs Czech Republic |
+| 3 | B | Canada vs Bosnia-Herz. |
+| 4 | B | Qatar vs Switzerland |
+| 5 | C | Brazil vs Morocco |
+| 6 | C | Haiti vs Scotland |
+| … | … | … |
+| 23 | L | England vs Croatia |
+| 24 | L | Ghana vs Panama |
+
+State is persisted across runs — `Ctrl+C` at any time to pause and resume later.
+
+---
+
+## Branch Structure
+
+Each branch captures the project state at a specific tournament phase, enabling easy auditing and calibration after real results come in:
+
+| Branch | Phase |
+|--------|-------|
+| `main` | Pre-tournament predictions (frozen) |
+| `fase-grupos/rodada-2` | After Rodada 1 results |
+| `fase-grupos/rodada-3` | After Rodada 2 results |
+| `rodada-de-32` | After group stage closes |
+| `oitavas-de-final` | After Round of 32 |
+| `quartas-de-final` | After Round of 16 |
+| `semifinal` | After Quarterfinals |
+| `final` | After Semifinals |
+
+---
+
 ## How to Run
 
 ```bash
