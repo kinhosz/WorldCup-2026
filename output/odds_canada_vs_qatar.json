@@ -1,0 +1,36 @@
+{
+  "team_a": "canada",
+  "team_b": "qatar",
+  "n_sims": 200000,
+  "xg": {
+    "canada": 1.319,
+    "qatar": 1.99
+  },
+  "odds": {
+    "canada": 25.2,
+    "draw": 21.8,
+    "qatar": 53.0
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 9.7
+    },
+    {
+      "score": "1-2",
+      "pct": 9.5
+    },
+    {
+      "score": "0-1",
+      "pct": 7.2
+    },
+    {
+      "score": "0-2",
+      "pct": 7.1
+    },
+    {
+      "score": "1-3",
+      "pct": 6.4
+    }
+  ]
+}

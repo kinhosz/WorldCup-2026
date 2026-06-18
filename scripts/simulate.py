@@ -106,15 +106,31 @@ THIRD_PLACE_SLOTS = {
     87: set('DEIJL'),
 }
 
-BASE_XG       = 1.3
 FALLBACK_SCORE = 0.5
 ET_FACTOR     = 0.35   # extra time: 30 min ≈ 35% of 90-min xG
-
-# Resistance floor prevents division-by-zero for teams with 0.0 normalized scores
-# (min-max normalization gives the weakest team in each sector exactly 0.0).
-# At RES_FLOOR = 0.1, max xG ≈ 1.3 × 1.0 / 0.1 = 13; capped further by MAX_XG.
 RES_FLOOR = 0.10
 MAX_XG    = 8.0
+
+# ── Pesos e biases calibrados (SA+biases, R1 com outliers) ───────────
+_SA_FILE = os.path.join(os.path.dirname(__file__), '..', 'output', 'calibrated_weights_sa.json')
+with open(_SA_FILE) as _f:
+    _SA = json.load(_f)
+
+# ── Resultados reais já jogados ───────────────────────────────────────
+_STATE_FILE = os.path.join(os.path.dirname(__file__), '..', 'output', 'copa_real_state.json')
+_REAL_GROUP_RESULTS = {}
+if os.path.exists(_STATE_FILE):
+    with open(_STATE_FILE) as _f:
+        _REAL_GROUP_RESULTS = json.load(_f).get('group_results', {})
+
+_W = _SA['weights']
+BASE_XG    = _W['BASE_XG']
+OFF_ATT_W  = _W['OFF_ATT_W']
+OFF_MID_W  = _W['OFF_MID_W']
+RES_DEF_W  = _W['RES_DEF_W']
+RES_GK_W   = _W['RES_GK_W']
+RES_MID_W  = _W['RES_MID_W']
+TEAM_BIASES = _SA.get('biases', {})
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -126,18 +142,16 @@ def _get(scores, key):
     return v if v is not None else FALLBACK_SCORE
 
 
-def compute_xg(s_a, s_b):
-    """
-    Return (xG_A, xG_B) for a match between teams with score dicts s_a and s_b.
-
-    RES_FLOOR prevents division-by-zero when a team has 0.0 normalized scores
-    (min-max normalization assigns 0.0 to the weakest team in each sector).
-    MAX_XG caps extreme values that would cause numpy Poisson overflow.
-    """
-    off_a = 0.7 * _get(s_a, 'attack')  + 0.3 * _get(s_a, 'midfield')
-    off_b = 0.7 * _get(s_b, 'attack')  + 0.3 * _get(s_b, 'midfield')
-    res_a = max(0.6 * _get(s_a, 'defense') + 0.2 * _get(s_a, 'goalkeeper') + 0.2 * _get(s_a, 'midfield'), RES_FLOOR)
-    res_b = max(0.6 * _get(s_b, 'defense') + 0.2 * _get(s_b, 'goalkeeper') + 0.2 * _get(s_b, 'midfield'), RES_FLOOR)
+def compute_xg(s_a, s_b, ta=None, tb=None):
+    """Return (xG_A, xG_B) applying team biases when team keys are provided."""
+    ab = TEAM_BIASES.get(ta, {}).get('att_bias', 1.0) if ta else 1.0
+    bb = TEAM_BIASES.get(tb, {}).get('att_bias', 1.0) if tb else 1.0
+    db = TEAM_BIASES.get(ta, {}).get('def_bias', 1.0) if ta else 1.0
+    eb = TEAM_BIASES.get(tb, {}).get('def_bias', 1.0) if tb else 1.0
+    off_a = ab * (OFF_ATT_W * _get(s_a, 'attack') + OFF_MID_W * _get(s_a, 'midfield'))
+    off_b = bb * (OFF_ATT_W * _get(s_b, 'attack') + OFF_MID_W * _get(s_b, 'midfield'))
+    res_a = max(db * (RES_DEF_W * _get(s_a, 'defense') + RES_GK_W * _get(s_a, 'goalkeeper') + RES_MID_W * _get(s_a, 'midfield')), RES_FLOOR)
+    res_b = max(eb * (RES_DEF_W * _get(s_b, 'defense') + RES_GK_W * _get(s_b, 'goalkeeper') + RES_MID_W * _get(s_b, 'midfield')), RES_FLOOR)
     return min(BASE_XG * off_a / res_b, MAX_XG), min(BASE_XG * off_b / res_a, MAX_XG)
 
 
@@ -147,7 +161,7 @@ def compute_xg(s_a, s_b):
 
 def sim_group_match(ta, tb, scores):
     """Group stage — draw allowed. Returns (goals_a, goals_b)."""
-    xg_a, xg_b = compute_xg(scores[ta], scores[tb])
+    xg_a, xg_b = compute_xg(scores[ta], scores[tb], ta, tb)
     return int(np.random.poisson(xg_a)), int(np.random.poisson(xg_b))
 
 
@@ -157,20 +171,14 @@ def sim_knockout_match(ta, tb, scores):
     Regulation → extra time (if draw) → penalties (if still level).
     Returns winner team key.
     """
-    xg_a, xg_b = compute_xg(scores[ta], scores[tb])
+    xg_a, xg_b = compute_xg(scores[ta], scores[tb], ta, tb)
     ga = int(np.random.poisson(xg_a))
     gb = int(np.random.poisson(xg_b))
 
     if ga != gb:
         return ta if ga > gb else tb
 
-    # Extra time
-    et_a = int(np.random.poisson(xg_a * ET_FACTOR))
-    et_b = int(np.random.poisson(xg_b * ET_FACTOR))
-    if et_a != et_b:
-        return ta if et_a > et_b else tb
-
-    # Penalties — 50 / 50
+    # Extra time + penalties — times play defensively, most go to shootout (50/50)
     return ta if random.random() < 0.5 else tb
 
 
@@ -178,15 +186,23 @@ def sim_knockout_match(ta, tb, scores):
 #  Group stage
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def simulate_group(teams, scores):
+def simulate_group(teams, scores, letter=None):
     """
     Simulate one group (round-robin). Returns list of (team, pts, gd, gf, wins)
     sorted 1st → 4th. Tiebreaker: pts → GD → GF → wins → random.
+    Already-played matches (in copa_real_state.json) use real scores.
     """
     stats = {t: {'pts': 0, 'gd': 0, 'gf': 0, 'wins': 0} for t in teams}
+    real_group = _REAL_GROUP_RESULTS.get(letter, {}) if letter else {}
 
     for ta, tb in combinations(teams, 2):
-        ga, gb = sim_group_match(ta, tb, scores)
+        key_ab, key_ba = f"{ta}|{tb}", f"{tb}|{ta}"
+        if key_ab in real_group:
+            ga, gb = real_group[key_ab]
+        elif key_ba in real_group:
+            gb, ga = real_group[key_ba]
+        else:
+            ga, gb = sim_group_match(ta, tb, scores)
         stats[ta]['gf'] += ga
         stats[tb]['gf'] += gb
         stats[ta]['gd'] += ga - gb
@@ -283,7 +299,7 @@ def simulate_tournament(scores):
     thirds         = []   # (group_letter, team, pts, gd, gf, wins)
 
     for letter, teams in GROUPS.items():
-        ranked = simulate_group(teams, scores)
+        ranked = simulate_group(teams, scores, letter=letter)
         group_rankings[letter] = ranked
         _, *third = ranked[2]
         thirds.append((letter, ranked[2][0], *third))

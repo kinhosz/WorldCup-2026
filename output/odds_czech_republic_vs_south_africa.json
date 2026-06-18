@@ -1,0 +1,36 @@
+{
+  "team_a": "czech_republic",
+  "team_b": "south_africa",
+  "n_sims": 200000,
+  "xg": {
+    "czech_republic": 1.653,
+    "south_africa": 0.664
+  },
+  "odds": {
+    "czech_republic": 61.3,
+    "draw": 24.0,
+    "south_africa": 14.7
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 16.2
+    },
+    {
+      "score": "2-0",
+      "pct": 13.4
+    },
+    {
+      "score": "1-1",
+      "pct": 10.9
+    },
+    {
+      "score": "0-0",
+      "pct": 9.8
+    },
+    {
+      "score": "2-1",
+      "pct": 9.0
+    }
+  ]
+}

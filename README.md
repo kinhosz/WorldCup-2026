@@ -15,19 +15,18 @@ A complete 2026 FIFA World Cup simulator using FC25 and FIFA22 player attributes
 | [SIMULACAO.md](SIMULACAO.md) | Portuguese | Full methodology + individual simulation traces |
 | [ANALISE.md](ANALISE.md) | Portuguese | Deep analysis (Portuguese version) |
 | [output/score_audit.md](output/score_audit.md) | — | Per-player breakdown: data source and rating for all 48 squads |
-| [output/megazord_report_en.md](output/megazord_report_en.md) | English | Megazord — consensus bracket: modal outcome for every match |
-| [output/megazord_report.md](output/megazord_report.md) | Portuguese | Megazord — bracket consenso: resultado modal de cada partida |
+| [output/megazord_report_en.md](output/megazord_report_en.md) | English | Megazord — consensus bracket: argmax predictions + advance probabilities |
 
 ---
 
 ## Megazord — Consensus Bracket
 
-The Megazord is a single deterministic tournament built by extracting the **most likely (modal) outcome** from thousands of simulations rather than running one random draw.
+The Megazord is a single deterministic tournament built from the **most likely outcome at every stage**, derived from thousands of simulations rather than a single random draw.
 
 **How it works:**
 
-1. **Group stage — 50,000 simulations.** For each group, the script records every possible final standings order and every individual match score across all runs. It then picks the most frequent standings ranking and the most frequent score for each match.
-2. **Knockout rounds — 10,000 sub-simulations per match.** Once the bracket is set by the modal group results, each knockout match is resolved independently: 10k head-to-head simulations are run and the modal winner advances with the modal scoreline for that winner.
+1. **Group stage — 50,000 simulations.** Each team's probability of finishing 1st, 2nd, 3rd, or 4th is computed across all runs, along with their probability of advancing to R32 (including the best-3rd-place rule across all 12 groups). Bracket positions are assigned by **greedy argmax**: the team most likely to finish 1st gets the 1st-place slot, the team most likely to finish 2nd among the remaining three gets 2nd, and so on.
+2. **Knockout rounds — 10,000 sub-simulations per match.** Each knockout match is resolved independently: 10k head-to-head simulations determine the modal winner, who advances with their modal scoreline.
 3. The result is a single, fully-determined bracket — not a single random seed, but the **statistically most likely path** through the entire tournament.
 
 **Result:** Brazil beats France 1–0 in the final (54% win probability in that specific matchup).
@@ -41,10 +40,79 @@ python3 scripts/megazord.py 100000   # more sims, more stable modes
 
 | Stage | Image |
 |-------|-------|
-| Group Stage | ![Group Stage](images/group_stage.png) |
+| Group Stage (A–F) | ![Group Stage 1](images/group_1.png) |
+| Group Stage (G–L) | ![Group Stage 2](images/group_2.png) |
+| Best Third-Place Qualifiers | ![Best 3rd](images/best_3.png) |
 | Round of 32 | ![Round of 32](images/round_of_32.png) |
 | Round of 16 | ![Round of 16](images/round_of_16.png) |
 | Quarterfinals → Final | ![Quarters to Final](images/quarters_to_final.png) |
+
+---
+
+## Tracking Real Results
+
+As the tournament progresses, real match results are entered via `resultado.py` and saved to `output/copa_real_state.json`.
+
+```bash
+# List all games and their IDs
+python3 scripts/resultado.py --list
+
+# Filter by phase
+python3 scripts/resultado.py --list r1     # Rodada 1 (IDs 1–24)
+python3 scripts/resultado.py --list r2     # Rodada 2 (IDs 25–48)
+python3 scripts/resultado.py --list r3     # Rodada 3 (IDs 49–72)
+python3 scripts/resultado.py --list r32    # Round of 32 (IDs 73–88)
+python3 scripts/resultado.py --list r16    # Round of 16 (IDs 89–96)
+python3 scripts/resultado.py --list qf     # Quarterfinals (IDs 97–100)
+python3 scripts/resultado.py --list sf     # Semifinals (IDs 101–102)
+python3 scripts/resultado.py --list final  # 3rd place + Final (IDs 103–104)
+
+# Enter a result by game ID
+python3 scripts/resultado.py
+#  → Enter game ID: 5
+#  → Result (e.g. 2-1): 2-0
+```
+
+**Game ID layout — Group Stage:**
+
+| IDs | Phase | Groups covered |
+|-----|-------|----------------|
+| 1–24 | Rodada 1 | A–L (2 games each) |
+| 25–48 | Rodada 2 | A–L |
+| 49–72 | Rodada 3 | A–L |
+
+Within each rodada, groups run A → L in order (2 games per group). Example for Rodada 1:
+
+| ID | Group | Match |
+|----|-------|-------|
+| 1 | A | Mexico vs South Africa |
+| 2 | A | South Korea vs Czech Republic |
+| 3 | B | Canada vs Bosnia-Herz. |
+| 4 | B | Qatar vs Switzerland |
+| 5 | C | Brazil vs Morocco |
+| 6 | C | Haiti vs Scotland |
+| … | … | … |
+| 23 | L | England vs Croatia |
+| 24 | L | Ghana vs Panama |
+
+State is persisted across runs — `Ctrl+C` at any time to pause and resume later.
+
+---
+
+## Branch Structure
+
+Each branch captures the project state at a specific tournament phase, enabling easy auditing and calibration after real results come in:
+
+| Branch | Phase |
+|--------|-------|
+| `main` | Pre-tournament predictions (frozen) |
+| `fase-grupos/rodada-2` | After Rodada 1 results |
+| `fase-grupos/rodada-3` | After Rodada 2 results |
+| `rodada-de-32` | After group stage closes |
+| `oitavas-de-final` | After Round of 32 |
+| `quartas-de-final` | After Round of 16 |
+| `semifinal` | After Quarterfinals |
+| `final` | After Semifinals |
 
 ---
 
@@ -104,6 +172,6 @@ Each seed produces a fully deterministic tournament — run it again and you get
 | `303` | Brazil | Brazil 2–1 France | [output/JOGO_303.md](output/JOGO_303.md) |
 
 ```bash
-python3 scripts/simulate_single.py 2026   # Netherlands lifts the trophy
-python3 scripts/simulate_single.py 303    # Brazil campeão
+python3 scripts/play_simulation.py 2026   # Netherlands lifts the trophy
+python3 scripts/play_simulation.py 303    # Brazil campeão
 ```
