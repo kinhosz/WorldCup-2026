@@ -1,0 +1,125 @@
+{
+  "group_results": {
+    "A": {
+      "mexico|south_africa": [
+        2,
+        0
+      ],
+      "republic_of_korea|czech_republic": [
+        2,
+        1
+      ]
+    },
+    "B": {
+      "canada|bosnia_and_herzegovina": [
+        1,
+        1
+      ],
+      "qatar|switzerland": [
+        1,
+        1
+      ]
+    },
+    "D": {
+      "united_states_of_america|paraguay": [
+        4,
+        1
+      ],
+      "australia|turkey": [
+        2,
+        0
+      ]
+    },
+    "C": {
+      "brazil|morocco": [
+        1,
+        1
+      ],
+      "haiti|scotland": [
+        0,
+        1
+      ]
+    },
+    "E": {
+      "germany|curacao": [
+        7,
+        1
+      ],
+      "ivory_coast|ecuador": [
+        1,
+        0
+      ]
+    },
+    "F": {
+      "netherlands|japan": [
+        2,
+        2
+      ],
+      "sweden|tunisia": [
+        5,
+        1
+      ]
+    },
+    "G": {
+      "belgium|egypt": [
+        1,
+        1
+      ],
+      "ira|new_zealand": [
+        2,
+        2
+      ]
+    },
+    "H": {
+      "spain|cape_verte": [
+        0,
+        0
+      ],
+      "saudi_arabia|uruguay": [
+        1,
+        1
+      ]
+    },
+    "I": {
+      "france|senegal": [
+        3,
+        1
+      ],
+      "iraq|norway": [
+        1,
+        4
+      ]
+    },
+    "J": {
+      "argentina|algeria": [
+        3,
+        0
+      ],
+      "austria|jordan": [
+        3,
+        1
+      ]
+    },
+    "K": {
+      "portugal|congo": [
+        1,
+        1
+      ],
+      "uzbekistan|colombia": [
+        1,
+        3
+      ]
+    },
+    "L": {
+      "england|croatia": [
+        4,
+        2
+      ],
+      "ghana|panama": [
+        1,
+        0
+      ]
+    }
+  },
+  "knockout_results": {}
+}

@@ -36,8 +36,16 @@ from difflib import SequenceMatcher
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-BASE_XG       = 1.3
+BASE_XG        = 1.1192  # calibrated R1 (was 1.3)
 FALLBACK_SCORE = 0.5          # used in xG formula for None sector values
+SECTOR_SCORE_MIN = 0.1        # floor for normalized sector scores — prevents DEF=0 collapsing resistance
+
+# xG formula weights — calibrated R1
+OFF_ATT_W = 0.90  # attack contribution to offensive power (was 0.7)
+OFF_MID_W = 0.10  # midfield contribution to offensive power (was 0.3)
+RES_DEF_W = 0.2922  # defense contribution to resistance (was 0.6)
+RES_GK_W  = 0.50    # goalkeeper contribution to resistance (was 0.2)
+RES_MID_W = 0.2078  # midfield contribution to resistance (was 0.2)
 
 FIFA_MATCH_THRESHOLD = 0.72   # minimum SequenceMatcher ratio for a valid FIFA match
 
@@ -60,6 +68,7 @@ TRIM_PCT = 0.30               # bottom fraction of players discarded before log-
 SQUAD_TO_FIFA_SHORTNAME = {
     ('republic_of_korea', 'Son Heungmin'): 'H. Son',   # FIFA22: "H. Son" / long_name in Korean
     ('spain', 'Mikel MERINO'):             'Merino',    # FIFA22: short_name="Merino"; fuzzy wrongly picks "Mikel Rico" (age 36)
+    ('portugal', 'Francisco Trincao'):     'Trincão',   # FC25: listed as "Trincão"; fuzzy picks "Francisco Ramos" instead
 }
 
 # Sector keys (used for iteration and dict structure)
@@ -400,9 +409,10 @@ def minmax_normalize(values_by_nation: dict) -> dict:
         if v is None:
             result[nation] = None
         elif hi == lo:
-            result[nation] = 0.5
+            result[nation] = (1.0 + SECTOR_SCORE_MIN) / 2
         else:
-            result[nation] = round((v - lo) / (hi - lo), 4)
+            t = (v - lo) / (hi - lo)
+            result[nation] = round(SECTOR_SCORE_MIN + (1.0 - SECTOR_SCORE_MIN) * t, 4)
     return result
 
 
@@ -413,10 +423,10 @@ def compute_xg(scores_a: dict, scores_b: dict) -> tuple[float, float]:
         v = s.get(key)
         return v if v is not None else FALLBACK_SCORE
 
-    off_a = 0.7 * get(scores_a, 'attack')  + 0.3 * get(scores_a, 'midfield')
-    off_b = 0.7 * get(scores_b, 'attack')  + 0.3 * get(scores_b, 'midfield')
-    res_a = 0.6 * get(scores_a, 'defense') + 0.2 * get(scores_a, 'goalkeeper') + 0.2 * get(scores_a, 'midfield')
-    res_b = 0.6 * get(scores_b, 'defense') + 0.2 * get(scores_b, 'goalkeeper') + 0.2 * get(scores_b, 'midfield')
+    off_a = OFF_ATT_W * get(scores_a, 'attack')  + OFF_MID_W * get(scores_a, 'midfield')
+    off_b = OFF_ATT_W * get(scores_b, 'attack')  + OFF_MID_W * get(scores_b, 'midfield')
+    res_a = RES_DEF_W * get(scores_a, 'defense') + RES_GK_W  * get(scores_a, 'goalkeeper') + RES_MID_W * get(scores_a, 'midfield')
+    res_b = RES_DEF_W * get(scores_b, 'defense') + RES_GK_W  * get(scores_b, 'goalkeeper') + RES_MID_W * get(scores_b, 'midfield')
     return round(BASE_XG * off_a / res_b, 4), round(BASE_XG * off_b / res_a, 4)
 
 

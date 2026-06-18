@@ -1,5 +1,5 @@
 {
-  "n_simulations": 1000000,
+  "n_simulations": 50000,
   "groups": {
     "A": [
       "mexico",
@@ -76,388 +76,388 @@
   },
   "results": {
     "algeria": {
-      "champion_pct": 0.02,
-      "finalist_pct": 0.17,
-      "semifinalist_pct": 1.23,
-      "quarterfinalist_pct": 5.44,
-      "r16_pct": 18.6,
-      "r32_pct": 75.55
+      "champion_pct": 0.09,
+      "finalist_pct": 0.38,
+      "semifinalist_pct": 1.94,
+      "quarterfinalist_pct": 6.41,
+      "r16_pct": 21.8,
+      "r32_pct": 56.75
     },
     "argentina": {
-      "champion_pct": 8.18,
-      "finalist_pct": 15.79,
-      "semifinalist_pct": 31.93,
-      "quarterfinalist_pct": 55.64,
-      "r16_pct": 66.65,
-      "r32_pct": 99.54
+      "champion_pct": 14.15,
+      "finalist_pct": 24.04,
+      "semifinalist_pct": 40.67,
+      "quarterfinalist_pct": 59.12,
+      "r16_pct": 77.78,
+      "r32_pct": 99.97
     },
     "australia": {
-      "champion_pct": 0.0,
-      "finalist_pct": 0.0,
-      "semifinalist_pct": 0.08,
-      "quarterfinalist_pct": 1.21,
-      "r16_pct": 11.82,
-      "r32_pct": 63.31
+      "champion_pct": 0.17,
+      "finalist_pct": 0.89,
+      "semifinalist_pct": 3.86,
+      "quarterfinalist_pct": 13.11,
+      "r16_pct": 41.06,
+      "r32_pct": 98.51
     },
     "austria": {
-      "champion_pct": 0.03,
-      "finalist_pct": 0.23,
-      "semifinalist_pct": 1.39,
-      "quarterfinalist_pct": 5.67,
-      "r16_pct": 19.03,
-      "r32_pct": 71.53
+      "champion_pct": 0.36,
+      "finalist_pct": 1.39,
+      "semifinalist_pct": 6.03,
+      "quarterfinalist_pct": 15.01,
+      "r16_pct": 42.38,
+      "r32_pct": 94.98
     },
     "belgium": {
-      "champion_pct": 2.65,
-      "finalist_pct": 8.63,
-      "semifinalist_pct": 24.26,
-      "quarterfinalist_pct": 58.66,
-      "r16_pct": 82.57,
-      "r32_pct": 99.99
+      "champion_pct": 2.26,
+      "finalist_pct": 5.81,
+      "semifinalist_pct": 15.61,
+      "quarterfinalist_pct": 32.32,
+      "r16_pct": 65.27,
+      "r32_pct": 99.13
     },
     "bosnia_and_herzegovina": {
       "champion_pct": 0.0,
-      "finalist_pct": 0.0,
-      "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.12,
-      "r16_pct": 5.22,
-      "r32_pct": 49.02
+      "finalist_pct": 0.02,
+      "semifinalist_pct": 0.19,
+      "quarterfinalist_pct": 1.44,
+      "r16_pct": 9.89,
+      "r32_pct": 39.46
     },
     "brazil": {
-      "champion_pct": 20.82,
-      "finalist_pct": 31.96,
-      "semifinalist_pct": 48.03,
-      "quarterfinalist_pct": 68.09,
-      "r16_pct": 84.03,
-      "r32_pct": 99.97
+      "champion_pct": 13.77,
+      "finalist_pct": 22.41,
+      "semifinalist_pct": 33.97,
+      "quarterfinalist_pct": 53.88,
+      "r16_pct": 72.16,
+      "r32_pct": 99.38
     },
     "canada": {
       "champion_pct": 0.0,
-      "finalist_pct": 0.0,
-      "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.01,
-      "r16_pct": 1.39,
-      "r32_pct": 25.89
+      "finalist_pct": 0.01,
+      "semifinalist_pct": 0.07,
+      "quarterfinalist_pct": 0.64,
+      "r16_pct": 7.06,
+      "r32_pct": 34.87
     },
     "cape_verte": {
-      "champion_pct": 0.0,
-      "finalist_pct": 0.0,
-      "semifinalist_pct": 0.04,
-      "quarterfinalist_pct": 0.61,
-      "r16_pct": 4.88,
-      "r32_pct": 57.77
+      "champion_pct": 0.01,
+      "finalist_pct": 0.11,
+      "semifinalist_pct": 0.74,
+      "quarterfinalist_pct": 3.2,
+      "r16_pct": 13.2,
+      "r32_pct": 63.7
     },
     "colombia": {
-      "champion_pct": 3.45,
-      "finalist_pct": 9.45,
-      "semifinalist_pct": 23.71,
-      "quarterfinalist_pct": 41.85,
-      "r16_pct": 68.31,
-      "r32_pct": 97.74
+      "champion_pct": 6.05,
+      "finalist_pct": 12.89,
+      "semifinalist_pct": 27.2,
+      "quarterfinalist_pct": 47.45,
+      "r16_pct": 67.52,
+      "r32_pct": 97.58
     },
     "congo": {
-      "champion_pct": 0.13,
-      "finalist_pct": 0.72,
-      "semifinalist_pct": 3.41,
-      "quarterfinalist_pct": 12.24,
-      "r16_pct": 26.11,
-      "r32_pct": 79.01
+      "champion_pct": 1.69,
+      "finalist_pct": 4.89,
+      "semifinalist_pct": 13.32,
+      "quarterfinalist_pct": 27.32,
+      "r16_pct": 45.5,
+      "r32_pct": 85.53
     },
     "croatia": {
-      "champion_pct": 0.22,
-      "finalist_pct": 1.05,
-      "semifinalist_pct": 4.32,
-      "quarterfinalist_pct": 11.87,
-      "r16_pct": 28.56,
-      "r32_pct": 90.37
+      "champion_pct": 0.2,
+      "finalist_pct": 0.86,
+      "semifinalist_pct": 3.59,
+      "quarterfinalist_pct": 8.92,
+      "r16_pct": 18.7,
+      "r32_pct": 68.75
     },
     "curacao": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
       "semifinalist_pct": 0.0,
       "quarterfinalist_pct": 0.0,
-      "r16_pct": 0.0,
-      "r32_pct": 0.23
+      "r16_pct": 0.05,
+      "r32_pct": 0.99
     },
     "czech_republic": {
-      "champion_pct": 0.15,
-      "finalist_pct": 0.84,
-      "semifinalist_pct": 3.38,
-      "quarterfinalist_pct": 15.39,
-      "r16_pct": 57.56,
-      "r32_pct": 89.64
+      "champion_pct": 0.39,
+      "finalist_pct": 1.37,
+      "semifinalist_pct": 4.3,
+      "quarterfinalist_pct": 13.69,
+      "r16_pct": 36.34,
+      "r32_pct": 72.44
     },
     "ecuador": {
-      "champion_pct": 0.0,
-      "finalist_pct": 0.05,
-      "semifinalist_pct": 0.51,
-      "quarterfinalist_pct": 3.89,
-      "r16_pct": 24.16,
-      "r32_pct": 84.79
+      "champion_pct": 0.15,
+      "finalist_pct": 0.61,
+      "semifinalist_pct": 2.37,
+      "quarterfinalist_pct": 8.81,
+      "r16_pct": 29.03,
+      "r32_pct": 77.41
     },
     "egypt": {
-      "champion_pct": 0.01,
-      "finalist_pct": 0.11,
-      "semifinalist_pct": 1.28,
-      "quarterfinalist_pct": 10.19,
-      "r16_pct": 52.21,
-      "r32_pct": 99.34
+      "champion_pct": 0.93,
+      "finalist_pct": 3.23,
+      "semifinalist_pct": 11.39,
+      "quarterfinalist_pct": 28.58,
+      "r16_pct": 60.66,
+      "r32_pct": 99.15
     },
     "england": {
-      "champion_pct": 9.32,
-      "finalist_pct": 17.88,
-      "semifinalist_pct": 33.11,
-      "quarterfinalist_pct": 63.48,
-      "r16_pct": 76.17,
-      "r32_pct": 99.83
+      "champion_pct": 9.46,
+      "finalist_pct": 17.33,
+      "semifinalist_pct": 29.84,
+      "quarterfinalist_pct": 50.48,
+      "r16_pct": 65.69,
+      "r32_pct": 99.9
     },
     "france": {
-      "champion_pct": 16.89,
-      "finalist_pct": 30.04,
-      "semifinalist_pct": 44.63,
-      "quarterfinalist_pct": 65.29,
-      "r16_pct": 91.03,
-      "r32_pct": 99.95
+      "champion_pct": 19.64,
+      "finalist_pct": 31.17,
+      "semifinalist_pct": 42.48,
+      "quarterfinalist_pct": 60.1,
+      "r16_pct": 84.07,
+      "r32_pct": 99.98
     },
     "germany": {
-      "champion_pct": 3.24,
-      "finalist_pct": 8.23,
-      "semifinalist_pct": 16.6,
-      "quarterfinalist_pct": 31.81,
-      "r16_pct": 75.79,
-      "r32_pct": 99.92
+      "champion_pct": 4.53,
+      "finalist_pct": 9.65,
+      "semifinalist_pct": 17.01,
+      "quarterfinalist_pct": 30.57,
+      "r16_pct": 67.65,
+      "r32_pct": 99.94
     },
     "ghana": {
-      "champion_pct": 0.0,
-      "finalist_pct": 0.02,
-      "semifinalist_pct": 0.19,
-      "quarterfinalist_pct": 1.13,
-      "r16_pct": 4.83,
-      "r32_pct": 57.63
+      "champion_pct": 0.11,
+      "finalist_pct": 0.65,
+      "semifinalist_pct": 2.87,
+      "quarterfinalist_pct": 8.29,
+      "r16_pct": 19.5,
+      "r32_pct": 81.03
     },
     "haiti": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
       "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.0,
-      "r16_pct": 0.09,
-      "r32_pct": 1.81
+      "quarterfinalist_pct": 0.01,
+      "r16_pct": 0.13,
+      "r32_pct": 1.36
     },
     "ira": {
-      "champion_pct": 0.0,
-      "finalist_pct": 0.0,
-      "semifinalist_pct": 0.01,
-      "quarterfinalist_pct": 0.18,
-      "r16_pct": 5.56,
-      "r32_pct": 50.91
+      "champion_pct": 0.01,
+      "finalist_pct": 0.01,
+      "semifinalist_pct": 0.06,
+      "quarterfinalist_pct": 0.47,
+      "r16_pct": 3.84,
+      "r32_pct": 16.96
     },
     "iraq": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
-      "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.01,
-      "r16_pct": 0.18,
-      "r32_pct": 2.44
+      "semifinalist_pct": 0.01,
+      "quarterfinalist_pct": 0.06,
+      "r16_pct": 0.45,
+      "r32_pct": 2.07
     },
     "ivory_coast": {
-      "champion_pct": 0.39,
-      "finalist_pct": 1.64,
-      "semifinalist_pct": 5.39,
-      "quarterfinalist_pct": 15.53,
-      "r16_pct": 56.96,
-      "r32_pct": 99.55
+      "champion_pct": 1.29,
+      "finalist_pct": 3.62,
+      "semifinalist_pct": 8.35,
+      "quarterfinalist_pct": 19.35,
+      "r16_pct": 54.34,
+      "r32_pct": 99.91
     },
     "japan": {
-      "champion_pct": 0.11,
-      "finalist_pct": 0.56,
-      "semifinalist_pct": 2.24,
-      "quarterfinalist_pct": 8.47,
-      "r16_pct": 23.25,
-      "r32_pct": 86.87
+      "champion_pct": 0.44,
+      "finalist_pct": 1.52,
+      "semifinalist_pct": 4.21,
+      "quarterfinalist_pct": 12.42,
+      "r16_pct": 30.38,
+      "r32_pct": 87.77
     },
     "jordan": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
-      "semifinalist_pct": 0.02,
-      "quarterfinalist_pct": 0.22,
-      "r16_pct": 2.02,
-      "r32_pct": 19.95
+      "semifinalist_pct": 0.06,
+      "quarterfinalist_pct": 0.41,
+      "r16_pct": 2.8,
+      "r32_pct": 11.47
     },
     "mexico": {
-      "champion_pct": 0.01,
-      "finalist_pct": 0.1,
-      "semifinalist_pct": 0.64,
-      "quarterfinalist_pct": 4.9,
-      "r16_pct": 27.59,
-      "r32_pct": 64.87
+      "champion_pct": 0.31,
+      "finalist_pct": 1.26,
+      "semifinalist_pct": 4.01,
+      "quarterfinalist_pct": 14.67,
+      "r16_pct": 47.36,
+      "r32_pct": 95.64
     },
     "morocco": {
-      "champion_pct": 1.07,
-      "finalist_pct": 3.9,
-      "semifinalist_pct": 10.02,
-      "quarterfinalist_pct": 28.77,
-      "r16_pct": 44.05,
-      "r32_pct": 97.67
+      "champion_pct": 3.03,
+      "finalist_pct": 7.44,
+      "semifinalist_pct": 14.32,
+      "quarterfinalist_pct": 32.74,
+      "r16_pct": 53.19,
+      "r32_pct": 97.53
     },
     "netherlands": {
-      "champion_pct": 7.0,
-      "finalist_pct": 15.56,
-      "semifinalist_pct": 26.8,
-      "quarterfinalist_pct": 51.82,
-      "r16_pct": 61.79,
-      "r32_pct": 99.69
+      "champion_pct": 3.95,
+      "finalist_pct": 8.35,
+      "semifinalist_pct": 14.77,
+      "quarterfinalist_pct": 31.31,
+      "r16_pct": 48.41,
+      "r32_pct": 97.54
     },
     "new_zealand": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
       "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.0,
-      "r16_pct": 0.02,
-      "r32_pct": 1.01
+      "quarterfinalist_pct": 0.04,
+      "r16_pct": 0.6,
+      "r32_pct": 4.87
     },
     "norway": {
-      "champion_pct": 0.0,
-      "finalist_pct": 0.03,
-      "semifinalist_pct": 0.37,
-      "quarterfinalist_pct": 3.11,
-      "r16_pct": 19.33,
-      "r32_pct": 65.13
+      "champion_pct": 0.3,
+      "finalist_pct": 1.18,
+      "semifinalist_pct": 4.32,
+      "quarterfinalist_pct": 13.43,
+      "r16_pct": 39.06,
+      "r32_pct": 84.92
     },
     "panama": {
       "champion_pct": 0.0,
-      "finalist_pct": 0.0,
-      "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.04,
-      "r16_pct": 0.35,
-      "r32_pct": 13.59
+      "finalist_pct": 0.02,
+      "semifinalist_pct": 0.12,
+      "quarterfinalist_pct": 0.58,
+      "r16_pct": 1.75,
+      "r32_pct": 12.85
     },
     "paraguay": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
-      "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.07,
-      "r16_pct": 1.42,
-      "r32_pct": 21.56
+      "semifinalist_pct": 0.01,
+      "quarterfinalist_pct": 0.09,
+      "r16_pct": 0.75,
+      "r32_pct": 12.92
     },
     "portugal": {
-      "champion_pct": 17.09,
-      "finalist_pct": 28.49,
-      "semifinalist_pct": 49.87,
-      "quarterfinalist_pct": 71.28,
-      "r16_pct": 88.84,
-      "r32_pct": 99.79
+      "champion_pct": 9.18,
+      "finalist_pct": 17.0,
+      "semifinalist_pct": 31.61,
+      "quarterfinalist_pct": 49.73,
+      "r16_pct": 68.38,
+      "r32_pct": 93.59
     },
     "qatar": {
-      "champion_pct": 0.0,
-      "finalist_pct": 0.0,
-      "semifinalist_pct": 0.03,
-      "quarterfinalist_pct": 0.88,
-      "r16_pct": 17.55,
-      "r32_pct": 81.09
+      "champion_pct": 0.03,
+      "finalist_pct": 0.15,
+      "semifinalist_pct": 0.94,
+      "quarterfinalist_pct": 5.61,
+      "r16_pct": 28.76,
+      "r32_pct": 80.93
     },
     "republic_of_korea": {
-      "champion_pct": 0.02,
-      "finalist_pct": 0.22,
-      "semifinalist_pct": 1.41,
-      "quarterfinalist_pct": 10.52,
-      "r16_pct": 58.43,
-      "r32_pct": 92.4
+      "champion_pct": 0.68,
+      "finalist_pct": 2.47,
+      "semifinalist_pct": 6.52,
+      "quarterfinalist_pct": 19.72,
+      "r16_pct": 62.95,
+      "r32_pct": 99.08
     },
     "saudi_arabia": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
-      "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.0,
-      "r16_pct": 0.01,
-      "r32_pct": 1.21
+      "semifinalist_pct": 0.05,
+      "quarterfinalist_pct": 0.43,
+      "r16_pct": 3.5,
+      "r32_pct": 35.63
     },
     "scotland": {
-      "champion_pct": 0.0,
-      "finalist_pct": 0.04,
-      "semifinalist_pct": 0.31,
-      "quarterfinalist_pct": 2.68,
-      "r16_pct": 14.64,
-      "r32_pct": 58.75
+      "champion_pct": 0.06,
+      "finalist_pct": 0.32,
+      "semifinalist_pct": 1.23,
+      "quarterfinalist_pct": 5.77,
+      "r16_pct": 22.1,
+      "r32_pct": 75.78
     },
     "senegal": {
-      "champion_pct": 0.55,
-      "finalist_pct": 2.18,
-      "semifinalist_pct": 6.76,
-      "quarterfinalist_pct": 18.2,
-      "r16_pct": 55.41,
-      "r32_pct": 96.33
+      "champion_pct": 1.08,
+      "finalist_pct": 3.1,
+      "semifinalist_pct": 7.87,
+      "quarterfinalist_pct": 19.06,
+      "r16_pct": 44.36,
+      "r32_pct": 85.2
     },
     "south_africa": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
-      "semifinalist_pct": 0.01,
-      "quarterfinalist_pct": 0.41,
-      "r16_pct": 6.55,
-      "r32_pct": 25.99
+      "semifinalist_pct": 0.05,
+      "quarterfinalist_pct": 0.34,
+      "r16_pct": 2.01,
+      "r32_pct": 9.5
     },
     "spain": {
-      "champion_pct": 6.95,
-      "finalist_pct": 15.45,
-      "semifinalist_pct": 32.05,
-      "quarterfinalist_pct": 47.38,
-      "r16_pct": 73.71,
-      "r32_pct": 99.99
+      "champion_pct": 2.72,
+      "finalist_pct": 6.31,
+      "semifinalist_pct": 15.28,
+      "quarterfinalist_pct": 26.42,
+      "r16_pct": 50.73,
+      "r32_pct": 92.59
     },
     "sweden": {
-      "champion_pct": 0.03,
-      "finalist_pct": 0.22,
-      "semifinalist_pct": 1.18,
-      "quarterfinalist_pct": 5.69,
-      "r16_pct": 19.51,
-      "r32_pct": 84.56
+      "champion_pct": 0.95,
+      "finalist_pct": 2.7,
+      "semifinalist_pct": 6.7,
+      "quarterfinalist_pct": 19.02,
+      "r16_pct": 38.67,
+      "r32_pct": 98.77
     },
     "switzerland": {
-      "champion_pct": 0.57,
-      "finalist_pct": 2.05,
-      "semifinalist_pct": 7.85,
-      "quarterfinalist_pct": 21.14,
-      "r16_pct": 74.44,
-      "r32_pct": 99.95
+      "champion_pct": 0.92,
+      "finalist_pct": 2.84,
+      "semifinalist_pct": 8.04,
+      "quarterfinalist_pct": 22.22,
+      "r16_pct": 55.63,
+      "r32_pct": 95.41
     },
     "tunisia": {
       "champion_pct": 0.0,
       "finalist_pct": 0.0,
       "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.02,
-      "r16_pct": 0.43,
-      "r32_pct": 5.84
+      "quarterfinalist_pct": 0.05,
+      "r16_pct": 0.63,
+      "r32_pct": 3.28
     },
     "turkey": {
-      "champion_pct": 0.2,
-      "finalist_pct": 1.07,
-      "semifinalist_pct": 4.79,
-      "quarterfinalist_pct": 18.51,
-      "r16_pct": 55.11,
-      "r32_pct": 93.39
+      "champion_pct": 0.04,
+      "finalist_pct": 0.25,
+      "semifinalist_pct": 0.98,
+      "quarterfinalist_pct": 3.54,
+      "r16_pct": 12.45,
+      "r32_pct": 55.06
     },
     "united_states_of_america": {
-      "champion_pct": 0.04,
-      "finalist_pct": 0.34,
-      "semifinalist_pct": 2.33,
-      "quarterfinalist_pct": 12.99,
-      "r16_pct": 50.27,
-      "r32_pct": 93.16
+      "champion_pct": 0.46,
+      "finalist_pct": 1.91,
+      "semifinalist_pct": 7.34,
+      "quarterfinalist_pct": 20.34,
+      "r16_pct": 51.09,
+      "r32_pct": 99.3
     },
     "uruguay": {
-      "champion_pct": 0.86,
-      "finalist_pct": 2.95,
-      "semifinalist_pct": 9.81,
-      "quarterfinalist_pct": 24.58,
-      "r16_pct": 43.51,
-      "r32_pct": 99.69
+      "champion_pct": 0.58,
+      "finalist_pct": 1.83,
+      "semifinalist_pct": 5.58,
+      "quarterfinalist_pct": 12.51,
+      "r16_pct": 29.36,
+      "r32_pct": 73.19
     },
     "uzbekistan": {
       "champion_pct": 0.0,
-      "finalist_pct": 0.0,
-      "semifinalist_pct": 0.0,
-      "quarterfinalist_pct": 0.01,
-      "r16_pct": 0.08,
-      "r32_pct": 1.79
+      "finalist_pct": 0.01,
+      "semifinalist_pct": 0.08,
+      "quarterfinalist_pct": 0.32,
+      "r16_pct": 1.02,
+      "r32_pct": 7.43
     }
   }
 }

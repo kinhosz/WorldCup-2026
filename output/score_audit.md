@@ -1,6 +1,6 @@
 # Score Audit — WorldCup 2026
 
-Generated: 2026-06-09
+Generated: 2026-06-17
 
 This report shows exactly how each team score was built:
 which data tier (FIFA22 / TM / global-median) each player used,
@@ -13,54 +13,54 @@ Sorted by median fallback rate (higher = less reliable data).
 
 | Nation | xG | FIFA | TM | Median | Fallback% |
 |--------|----|------|----|--------|-----------|
-| Jordan | 0.831 | 2 | 0 | 28 | 93.3% |
-| South Africa | 0.693 | 3 | 0 | 23 | 88.5% |
-| Qatar | 0.658 | 0 | 6 | 28 | 82.4% |
-| Cape Verde | 0.607 | 9 | 0 | 17 | 65.4% |
-| Iraq | 0.492 | 9 | 3 | 22 | 64.7% |
-| Uzbekistan | 0.663 | 7 | 5 | 18 | 60.0% |
-| Egypt | 1.743 | 6 | 5 | 16 | 59.3% |
-| Haiti | 0.236 | 8 | 9 | 9 | 34.6% |
-| Iran | 0.758 | 12 | 5 | 9 | 34.6% |
-| Panama | 0.809 | 15 | 2 | 9 | 34.6% |
-| Tunisia | 0.707 | 13 | 4 | 9 | 34.6% |
-| Bosnia-Herzegovina | 0.582 | 12 | 8 | 6 | 23.1% |
-| Paraguay | 0.392 | 18 | 2 | 6 | 23.1% |
-| Algeria | 1.196 | 17 | 4 | 5 | 19.2% |
-| Curacao | 0.167 | 12 | 10 | 4 | 15.4% |
-| Ghana | 1.272 | 18 | 4 | 4 | 15.4% |
-| Czech Republic | 0.935 | 25 | 0 | 4 | 13.8% |
-| Japan | 1.120 | 22 | 1 | 3 | 11.5% |
-| Mexico | 0.609 | 21 | 2 | 3 | 11.5% |
-| Australia | 0.795 | 22 | 2 | 2 | 7.7% |
-| Congo | 1.653 | 18 | 6 | 2 | 7.7% |
-| Morocco | 1.612 | 16 | 8 | 2 | 7.7% |
-| Uruguay | 1.199 | 24 | 0 | 2 | 7.7% |
-| Saudi Arabia | 0.634 | 28 | 0 | 2 | 6.7% |
-| Canada | 0.867 | 22 | 2 | 1 | 4.0% |
-| Austria | 0.849 | 23 | 2 | 1 | 3.8% |
-| Brazil | 2.344 | 25 | 0 | 1 | 3.8% |
-| Croatia | 1.159 | 25 | 0 | 1 | 3.8% |
-| Ecuador | 0.767 | 24 | 1 | 1 | 3.8% |
-| Côte d'Ivoire | 1.474 | 22 | 3 | 1 | 3.8% |
-| New Zealand | 0.571 | 25 | 0 | 1 | 3.8% |
-| Spain | 1.891 | 23 | 2 | 1 | 3.8% |
-| Turkey | 0.855 | 25 | 0 | 1 | 3.8% |
-| Senegal | 1.554 | 24 | 3 | 1 | 3.6% |
-| Argentina | 1.821 | 26 | 0 | 0 | 0.0% |
-| Belgium | 1.798 | 25 | 1 | 0 | 0.0% |
-| Colombia | 1.945 | 26 | 0 | 0 | 0.0% |
-| England | 2.042 | 25 | 1 | 0 | 0.0% |
-| France | 2.074 | 25 | 1 | 0 | 0.0% |
-| Germany | 1.540 | 25 | 1 | 0 | 0.0% |
-| Netherlands | 1.893 | 24 | 2 | 0 | 0.0% |
-| Norway | 2.099 | 26 | 0 | 0 | 0.0% |
-| Portugal | 2.296 | 27 | 0 | 0 | 0.0% |
-| South Korea | 1.755 | 25 | 1 | 0 | 0.0% |
-| Scotland | 0.812 | 23 | 3 | 0 | 0.0% |
-| Sweden | 1.427 | 24 | 1 | 0 | 0.0% |
-| Switzerland | 1.205 | 26 | 0 | 0 | 0.0% |
-| USA | 1.171 | 26 | 0 | 0 | 0.0% |
+| Jordan | 1.008 | 2 | 0 | 28 | 93.3% |
+| South Africa | 0.884 | 3 | 0 | 23 | 88.5% |
+| Qatar | 0.852 | 0 | 6 | 28 | 82.4% |
+| Cape Verde | 0.806 | 9 | 0 | 17 | 65.4% |
+| Iraq | 0.703 | 9 | 3 | 22 | 64.7% |
+| Uzbekistan | 0.857 | 7 | 5 | 18 | 60.0% |
+| Egypt | 1.829 | 6 | 5 | 16 | 59.3% |
+| Haiti | 0.472 | 8 | 9 | 9 | 34.6% |
+| Iran | 0.943 | 12 | 5 | 9 | 34.6% |
+| Panama | 0.988 | 15 | 2 | 9 | 34.6% |
+| Tunisia | 0.896 | 13 | 4 | 9 | 34.6% |
+| Bosnia-Herzegovina | 0.783 | 12 | 8 | 6 | 23.1% |
+| Paraguay | 0.613 | 18 | 2 | 6 | 23.1% |
+| Algeria | 1.337 | 17 | 4 | 5 | 19.2% |
+| Curacao | 0.410 | 12 | 10 | 4 | 15.4% |
+| Ghana | 1.405 | 18 | 4 | 4 | 15.4% |
+| Czech Republic | 1.102 | 25 | 0 | 4 | 13.8% |
+| Japan | 1.268 | 22 | 1 | 3 | 11.5% |
+| Mexico | 0.808 | 21 | 2 | 3 | 11.5% |
+| Australia | 0.976 | 22 | 2 | 2 | 7.7% |
+| Congo | 1.748 | 18 | 6 | 2 | 7.7% |
+| Morocco | 1.711 | 16 | 8 | 2 | 7.7% |
+| Uruguay | 1.339 | 24 | 0 | 2 | 7.7% |
+| Saudi Arabia | 0.831 | 28 | 0 | 2 | 6.7% |
+| Canada | 1.041 | 22 | 2 | 1 | 4.0% |
+| Austria | 1.024 | 23 | 2 | 1 | 3.8% |
+| Brazil | 2.369 | 25 | 0 | 1 | 3.8% |
+| Croatia | 1.304 | 25 | 0 | 1 | 3.8% |
+| Ecuador | 0.950 | 24 | 1 | 1 | 3.8% |
+| Côte d'Ivoire | 1.587 | 22 | 3 | 1 | 3.8% |
+| New Zealand | 0.774 | 25 | 0 | 1 | 3.8% |
+| Spain | 1.962 | 23 | 2 | 1 | 3.8% |
+| Turkey | 1.030 | 25 | 0 | 1 | 3.8% |
+| Senegal | 1.659 | 24 | 3 | 1 | 3.6% |
+| Argentina | 1.899 | 26 | 0 | 0 | 0.0% |
+| Belgium | 1.878 | 25 | 1 | 0 | 0.0% |
+| Colombia | 2.011 | 26 | 0 | 0 | 0.0% |
+| England | 2.098 | 25 | 1 | 0 | 0.0% |
+| France | 2.126 | 25 | 1 | 0 | 0.0% |
+| Germany | 1.646 | 25 | 1 | 0 | 0.0% |
+| Netherlands | 1.964 | 24 | 2 | 0 | 0.0% |
+| Norway | 2.150 | 26 | 0 | 0 | 0.0% |
+| Portugal | 2.338 | 27 | 0 | 0 | 0.0% |
+| South Korea | 1.840 | 25 | 1 | 0 | 0.0% |
+| Scotland | 0.991 | 23 | 3 | 0 | 0.0% |
+| Sweden | 1.544 | 24 | 1 | 0 | 0.0% |
+| Switzerland | 1.344 | 26 | 0 | 0 | 0.0% |
+| USA | 1.314 | 26 | 0 | 0 | 0.0% |
 
 ## 2. Global Sector Medians (Tier-4 fallback value)
 
@@ -84,9 +84,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Algeria
 
-**xG vs avg opponent:** 1.1964 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.2928 &nbsp;|&nbsp; MID=0.4887 &nbsp;|&nbsp; ATT=0.4479
+**xG vs avg opponent:** 1.3367 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.3636 &nbsp;|&nbsp; MID=0.5398 &nbsp;|&nbsp; ATT=0.5031
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -94,7 +94,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Melvin Mastil | median | — | — | 71.9 | — |
 | ✗ | Luca Zidane | TM | — | — | 68.5 | 2,000,000 |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=73.14 · normalized=0.2928)
+#### Defenders &nbsp;(6/9 used · raw log-mean=73.14 · normalized=0.3636)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -108,7 +108,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Rafik Belghali | FC25 | Rafik Belghali | 1.00 | 59.5 | — |
 | ✗ | Mohamed Tougai | FC25 | Mohamed Amoura | 0.79 | 50.5 | — |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=75.87 · normalized=0.4887)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=75.87 · normalized=0.5398)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -120,7 +120,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Yacine Titraoui | FC25 | Yacine Titraoui | 1.00 | 66.0 | — |
 | ✗ | Ibrahim Maza | TM | — | — | 65.0 | 600,000 |
 
-#### Attackers &nbsp;(5/7 used · raw log-mean=76.19 · normalized=0.4479)
+#### Attackers &nbsp;(5/7 used · raw log-mean=76.19 · normalized=0.5031)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -136,9 +136,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Argentina
 
-**xG vs avg opponent:** 1.8208 &nbsp;|&nbsp; GK=0.8208 &nbsp;|&nbsp; DEF=0.8381 &nbsp;|&nbsp; MID=0.7871 &nbsp;|&nbsp; ATT=0.6631
+**xG vs avg opponent:** 1.8987 &nbsp;|&nbsp; GK=0.8387 &nbsp;|&nbsp; DEF=0.8543 &nbsp;|&nbsp; MID=0.8084 &nbsp;|&nbsp; ATT=0.6968
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=82.21 · normalized=0.8208)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=82.21 · normalized=0.8387)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -146,7 +146,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Juan Musso | FC25 | Juan Musso | 1.00 | 79.8 | — |
 | ✗ | Geronimo Rulli | FIFA22 | G. Rulli | 1.00 | 79.5 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=80.14 · normalized=0.8381)
+#### Defenders &nbsp;(6/8 used · raw log-mean=80.14 · normalized=0.8543)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -159,7 +159,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Nahuel Molina | FC25 | Nahuel Molina | 1.00 | 74.5 | — |
 | ✗ | Gonzalo Montiel | FC25 | Gonzalo Montiel | 1.00 | 73.0 | — |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=81.39 · normalized=0.7871)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=81.39 · normalized=0.8084)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -171,7 +171,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Alexis Mac Allister | FIFA22 | A. Mac Allister | 1.00 | 75.5 | — |
 | ✗ | Valentin Barco | FIFA22 | V. Barco | 1.00 | 59.0 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=78.94 · normalized=0.6631)
+#### Attackers &nbsp;(6/8 used · raw log-mean=78.94 · normalized=0.6968)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -188,9 +188,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Australia
 
-**xG vs avg opponent:** 0.7953 &nbsp;|&nbsp; GK=0.4406 &nbsp;|&nbsp; DEF=0.2452 &nbsp;|&nbsp; MID=0.1505 &nbsp;|&nbsp; ATT=0.3725
+**xG vs avg opponent:** 0.9757 &nbsp;|&nbsp; GK=0.4966 &nbsp;|&nbsp; DEF=0.3207 &nbsp;|&nbsp; MID=0.2354 &nbsp;|&nbsp; ATT=0.4352
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=73.13 · normalized=0.4406)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=73.13 · normalized=0.4966)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -198,7 +198,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Paul Izzo | FC25 | Paul Izzo | 1.00 | 69.0 | — |
 | ✗ | Patrick Beach | FC25 | Patrick Beach | 1.00 | 55.5 | — |
 
-#### Defenders &nbsp;(7/10 used · raw log-mean=72.53 · normalized=0.2452)
+#### Defenders &nbsp;(7/10 used · raw log-mean=72.53 · normalized=0.3207)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -213,7 +213,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Jordan Bos | FIFA22 | J. Bos | 1.00 | 51.0 | — |
 | ✗ | Jacob Italiano | FC25 | Jacob Italiano | 1.00 | 45.5 | — |
 
-#### Midfielders &nbsp;(4/6 used · raw log-mean=69.62 · normalized=0.1505)
+#### Midfielders &nbsp;(4/6 used · raw log-mean=69.62 · normalized=0.2354)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -224,7 +224,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Cameron Devlin | FC25 | Cameron Devlin | 1.00 | 67.5 | — |
 | ✗ | Aiden O'Neill | FIFA22 | A. O'Neill | 1.00 | 64.0 | — |
 
-#### Attackers &nbsp;(5/7 used · raw log-mean=75.23 · normalized=0.3725)
+#### Attackers &nbsp;(5/7 used · raw log-mean=75.23 · normalized=0.4352)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -240,9 +240,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Austria
 
-**xG vs avg opponent:** 0.8490 &nbsp;|&nbsp; GK=0.4221 &nbsp;|&nbsp; DEF=0.4462 &nbsp;|&nbsp; MID=0.5875 &nbsp;|&nbsp; ATT=0.2147
+**xG vs avg opponent:** 1.0242 &nbsp;|&nbsp; GK=0.4799 &nbsp;|&nbsp; DEF=0.5016 &nbsp;|&nbsp; MID=0.6287 &nbsp;|&nbsp; ATT=0.2933
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=72.68 · normalized=0.4221)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=72.68 · normalized=0.4799)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -250,7 +250,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Florian Wiegele | median | — | — | 71.9 | — |
 | ✗ | Patrick Pentz | FIFA22 | P. Pentz | 1.00 | 71.0 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=75.11 · normalized=0.4462)
+#### Defenders &nbsp;(6/9 used · raw log-mean=75.11 · normalized=0.5016)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -264,7 +264,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Phillipp Mwene | FIFA22 | P. Mwene | 1.00 | 63.0 | — |
 | ✗ | Alexander Prass | FIFA22 | A. Prass | 1.00 | 59.5 | — |
 
-#### Midfielders &nbsp;(8/11 used · raw log-mean=77.70 · normalized=0.5875)
+#### Midfielders &nbsp;(8/11 used · raw log-mean=77.70 · normalized=0.6287)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -280,7 +280,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Nicolas Seiwald | FIFA22 | N. Seiwald | 1.00 | 67.5 | — |
 | ✗ | Patrick Wimmer | FIFA22 | P. Wimmer | 1.00 | 64.0 | — |
 
-#### Attackers &nbsp;(2/3 used · raw log-mean=73.21 · normalized=0.2147)
+#### Attackers &nbsp;(2/3 used · raw log-mean=73.21 · normalized=0.2933)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -292,9 +292,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Belgium
 
-**xG vs avg opponent:** 1.7979 &nbsp;|&nbsp; GK=0.5409 &nbsp;|&nbsp; DEF=0.3920 &nbsp;|&nbsp; MID=0.8455 &nbsp;|&nbsp; ATT=0.6255
+**xG vs avg opponent:** 1.8781 &nbsp;|&nbsp; GK=0.5868 &nbsp;|&nbsp; DEF=0.4528 &nbsp;|&nbsp; MID=0.8610 &nbsp;|&nbsp; ATT=0.6629
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=75.52 · normalized=0.5409)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=75.52 · normalized=0.5868)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -302,7 +302,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Mike Penders | FC25 | Mike Penders | 1.00 | 65.8 | — |
 | ✗ | Senne Lammens | FIFA22 | S. Lammens | 1.00 | 63.8 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=74.41 · normalized=0.3920)
+#### Defenders &nbsp;(6/9 used · raw log-mean=74.41 · normalized=0.4528)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -316,7 +316,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Nathan Ngoy | FIFA22 | N. Ngoy | 1.00 | 59.0 | — |
 | ✗ | Joaquin Seys | FC25 | Joaquin Seys | 1.00 | 54.0 | — |
 
-#### Midfielders &nbsp;(4/6 used · raw log-mean=82.48 · normalized=0.8455)
+#### Midfielders &nbsp;(4/6 used · raw log-mean=82.48 · normalized=0.8610)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -327,7 +327,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Nicolas Raskin | FC25 | Nicolas Raskin | 1.00 | 74.0 | — |
 | ✗ | Amadou Onana | FC25 | Amadou Onana | 1.00 | 71.5 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=78.46 · normalized=0.6255)
+#### Attackers &nbsp;(6/8 used · raw log-mean=78.46 · normalized=0.6629)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -344,9 +344,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Bosnia-Herzegovina
 
-**xG vs avg opponent:** 0.5816 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.1302 &nbsp;|&nbsp; MID=0.0778 &nbsp;|&nbsp; ATT=0.2862
+**xG vs avg opponent:** 0.7832 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.2172 &nbsp;|&nbsp; MID=0.1700 &nbsp;|&nbsp; ATT=0.3575
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -354,7 +354,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Osman Hadzikic | median | — | — | 71.9 | — |
 | ✗ | Nikola Vasilj | FIFA22 | N. Vasilj | 1.00 | 65.5 | — |
 
-#### Defenders &nbsp;(4/6 used · raw log-mean=71.05 · normalized=0.1302)
+#### Defenders &nbsp;(4/6 used · raw log-mean=71.05 · normalized=0.2172)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -365,7 +365,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Tarik Muharemovic | TM | — | — | 65.9 | 1,200,000 |
 | ✗ | Amar Dedic | FIFA22 | A. Dedić | 1.00 | 60.5 | — |
 
-#### Midfielders &nbsp;(8/11 used · raw log-mean=68.27 · normalized=0.0778)
+#### Midfielders &nbsp;(8/11 used · raw log-mean=68.27 · normalized=0.1700)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -381,7 +381,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Dennis Hadzikadunic | FC25 | Dennis Hadžikadunić | 1.00 | 51.5 | — |
 | ✗ | Ivan Sunjic | FIFA22 | T. Šunjić | 0.74 | 43.0 | — |
 
-#### Attackers &nbsp;(4/6 used · raw log-mean=74.12 · normalized=0.2862)
+#### Attackers &nbsp;(4/6 used · raw log-mean=74.12 · normalized=0.3575)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -396,7 +396,7 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Brazil
 
-**xG vs avg opponent:** 2.3435 &nbsp;|&nbsp; GK=1.0000 &nbsp;|&nbsp; DEF=0.9670 &nbsp;|&nbsp; MID=0.7635 &nbsp;|&nbsp; ATT=0.9604
+**xG vs avg opponent:** 2.3692 &nbsp;|&nbsp; GK=1.0000 &nbsp;|&nbsp; DEF=0.9703 &nbsp;|&nbsp; MID=0.7872 &nbsp;|&nbsp; ATT=0.9644
 
 #### Goalkeepers &nbsp;(2/3 used · raw log-mean=86.49 · normalized=1.0000)
 
@@ -406,7 +406,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Ederson | FC25 | Ederson | 1.00 | 85.5 | — |
 | ✗ | Weverton | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=81.79 · normalized=0.9670)
+#### Defenders &nbsp;(6/9 used · raw log-mean=81.79 · normalized=0.9703)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -420,7 +420,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Wesley | FIFA22 | Wesley | 1.00 | 60.0 | — |
 | ✗ | Léo Pereira | FIFA22 | Leandro Pereira | 0.85 | 58.5 | — |
 
-#### Midfielders &nbsp;(3/5 used · raw log-mean=80.96 · normalized=0.7635)
+#### Midfielders &nbsp;(3/5 used · raw log-mean=80.96 · normalized=0.7872)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -430,7 +430,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Casemiro | FC25 | Casemiro | 1.00 | 73.0 | — |
 | ✗ | Danilo Santos | FIFA22 | Adílio Santos | 0.85 | 63.5 | — |
 
-#### Attackers &nbsp;(6/9 used · raw log-mean=82.74 · normalized=0.9604)
+#### Attackers &nbsp;(6/9 used · raw log-mean=82.74 · normalized=0.9644)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -448,9 +448,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Canada
 
-**xG vs avg opponent:** 0.8673 &nbsp;|&nbsp; GK=0.3086 &nbsp;|&nbsp; DEF=0.0000 &nbsp;|&nbsp; MID=0.0883 &nbsp;|&nbsp; ATT=0.4387
+**xG vs avg opponent:** 1.0407 &nbsp;|&nbsp; GK=0.3777 &nbsp;|&nbsp; DEF=0.1000 &nbsp;|&nbsp; MID=0.1795 &nbsp;|&nbsp; ATT=0.4949
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=69.97 · normalized=0.3086)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=69.97 · normalized=0.3777)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -458,7 +458,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Dayne St. Clair | FIFA22 | D. St. Clair | 1.00 | 68.0 | — |
 | ✗ | Owen Goodman | TM | — | — | 65.0 | 150,000 |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=69.38 · normalized=0.0000)
+#### Defenders &nbsp;(6/9 used · raw log-mean=69.38 · normalized=0.1000)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -472,7 +472,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Niko Sigur | FC25 | Niko Sigur | 1.00 | 64.5 | — |
 | ✗ | Luc de Fougerolles | FC25 | Luc De Fougerolles | 1.00 | 59.0 | — |
 
-#### Midfielders &nbsp;(6/9 used · raw log-mean=68.47 · normalized=0.0883)
+#### Midfielders &nbsp;(6/9 used · raw log-mean=68.47 · normalized=0.1795)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -486,7 +486,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Jacob Shaffelburg | FIFA22 | J. Shaffelburg | 1.00 | 58.0 | — |
 | ✗ | Nathan-Dylan Saliba | FIFA22 | N. Saliba | 1.00 | 47.5 | — |
 
-#### Attackers &nbsp;(3/4 used · raw log-mean=76.07 · normalized=0.4387)
+#### Attackers &nbsp;(3/4 used · raw log-mean=76.07 · normalized=0.4949)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -499,9 +499,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Cape Verde
 
-**xG vs avg opponent:** 0.6066 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.2384 &nbsp;|&nbsp; MID=0.2704 &nbsp;|&nbsp; ATT=0.2174
+**xG vs avg opponent:** 0.8059 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.3146 &nbsp;|&nbsp; MID=0.3433 &nbsp;|&nbsp; ATT=0.2957
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -509,7 +509,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | MARCIO ROSA | median | — | — | 71.9 | — |
 |  | CJ DOS SANTOS | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=72.44 · normalized=0.2384)
+#### Defenders &nbsp;(6/8 used · raw log-mean=72.44 · normalized=0.3146)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -522,7 +522,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | STEVEN MOREIRA | FC25 | Steven Moreira | 1.00 | 71.0 | — |
 | ✗ | WAGNER PINA | FC25 | Wagner Pina | 1.00 | 57.5 | — |
 
-#### Midfielders &nbsp;(8/12 used · raw log-mean=71.84 · normalized=0.2704)
+#### Midfielders &nbsp;(8/12 used · raw log-mean=71.84 · normalized=0.3433)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -539,7 +539,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | NUNO DA COSTA | FC25 | Nuno da Costa | 1.00 | 67.5 | — |
 | ✗ | TELMO ARCANJO | FC25 | Telmo Arcanjo | 1.00 | 62.0 | — |
 
-#### Attackers &nbsp;(2/3 used · raw log-mean=73.25 · normalized=0.2174)
+#### Attackers &nbsp;(2/3 used · raw log-mean=73.25 · normalized=0.2957)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -551,9 +551,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Colombia
 
-**xG vs avg opponent:** 1.9453 &nbsp;|&nbsp; GK=0.5973 &nbsp;|&nbsp; DEF=0.5972 &nbsp;|&nbsp; MID=0.3949 &nbsp;|&nbsp; ATT=0.8996
+**xG vs avg opponent:** 2.0107 &nbsp;|&nbsp; GK=0.6375 &nbsp;|&nbsp; DEF=0.6375 &nbsp;|&nbsp; MID=0.4554 &nbsp;|&nbsp; ATT=0.9096
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=76.87 · normalized=0.5973)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=76.87 · normalized=0.6375)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -561,7 +561,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Alvaro Montero | FC25 | Álvaro Montero | 1.00 | 76.0 | — |
 | ✗ | Camilo Vargas | FIFA22 | C. Vargas | 0.76 | 75.2 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=77.05 · normalized=0.5972)
+#### Defenders &nbsp;(6/8 used · raw log-mean=77.05 · normalized=0.6375)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -574,7 +574,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Johan Mojica | FC25 | Johan Mojica | 1.00 | 71.0 | — |
 | ✗ | Willer Ditta | FIFA22 | W. Ditta | 0.74 | 70.0 | — |
 
-#### Midfielders &nbsp;(7/10 used · raw log-mean=74.14 · normalized=0.3949)
+#### Midfielders &nbsp;(7/10 used · raw log-mean=74.14 · normalized=0.4554)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -589,7 +589,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Kevin Castano | FIFA22 | M. Castaño | 0.73 | 59.5 | — |
 | ✗ | Jhon Arias | FIFA22 | J. Arias | 0.82 | 58.5 | — |
 
-#### Attackers &nbsp;(3/5 used · raw log-mean=81.96 · normalized=0.8996)
+#### Attackers &nbsp;(3/5 used · raw log-mean=81.96 · normalized=0.9096)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -603,9 +603,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Congo
 
-**xG vs avg opponent:** 1.6528 &nbsp;|&nbsp; GK=0.1895 &nbsp;|&nbsp; DEF=0.4699 &nbsp;|&nbsp; MID=0.1760 &nbsp;|&nbsp; ATT=0.8327
+**xG vs avg opponent:** 1.7475 &nbsp;|&nbsp; GK=0.2705 &nbsp;|&nbsp; DEF=0.5229 &nbsp;|&nbsp; MID=0.2584 &nbsp;|&nbsp; ATT=0.8494
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=67.12 · normalized=0.1895)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=67.12 · normalized=0.2705)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -613,7 +613,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Thimothy Fayulu | FC25 | Timothy Fayulu | 0.97 | 67.0 | — |
 | ✗ | Matthieu Epolo | TM | — | — | 65.0 | 800,000 |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=75.41 · normalized=0.4699)
+#### Defenders &nbsp;(6/9 used · raw log-mean=75.41 · normalized=0.5229)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -627,7 +627,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Joris Kayembe | FC25 | Joris Kayembe | 1.00 | 69.5 | — |
 | ✗ | Aaron Tshibola | TM | — | — | 65.0 | 450,000 |
 
-#### Midfielders &nbsp;(6/9 used · raw log-mean=70.09 · normalized=0.1760)
+#### Midfielders &nbsp;(6/9 used · raw log-mean=70.09 · normalized=0.2584)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -641,7 +641,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Noah Sadiki | FC25 | Noah Sadiki | 1.00 | 63.5 | — |
 | ✗ | Ngal'ayel Mukau | FC25 | Ngal'ayel Mukau | 1.00 | 61.0 | — |
 
-#### Attackers &nbsp;(3/5 used · raw log-mean=81.11 · normalized=0.8327)
+#### Attackers &nbsp;(3/5 used · raw log-mean=81.11 · normalized=0.8494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -655,9 +655,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Croatia
 
-**xG vs avg opponent:** 1.1594 &nbsp;|&nbsp; GK=0.6530 &nbsp;|&nbsp; DEF=0.4383 &nbsp;|&nbsp; MID=0.5851 &nbsp;|&nbsp; ATT=0.3863
+**xG vs avg opponent:** 1.3036 &nbsp;|&nbsp; GK=0.6877 &nbsp;|&nbsp; DEF=0.4945 &nbsp;|&nbsp; MID=0.6266 &nbsp;|&nbsp; ATT=0.4477
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=78.20 · normalized=0.6530)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=78.20 · normalized=0.6877)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -665,7 +665,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Dominik Kotarski | FC25 | Dominik Kotarski | 1.00 | 75.5 | — |
 | ✗ | Ivor Pandur | FIFA22 | I. Pandur | 1.00 | 71.5 | — |
 
-#### Defenders &nbsp;(5/7 used · raw log-mean=75.01 · normalized=0.4383)
+#### Defenders &nbsp;(5/7 used · raw log-mean=75.01 · normalized=0.4945)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -677,7 +677,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Luka Vuskovic | FC25 | Luka Vušković | 1.00 | 67.0 | — |
 | ✗ | Josip Stanisic | FIFA22 | J. Stanišić | 1.00 | 62.0 | — |
 
-#### Midfielders &nbsp;(7/10 used · raw log-mean=77.66 · normalized=0.5851)
+#### Midfielders &nbsp;(7/10 used · raw log-mean=77.66 · normalized=0.6266)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -692,7 +692,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Martin Baturina | FIFA22 | M. Baturina | 1.00 | 67.0 | — |
 | ✗ | Kristijan Jakic | FIFA22 | K. Jakić | 1.00 | 65.0 | — |
 
-#### Attackers &nbsp;(4/6 used · raw log-mean=75.40 · normalized=0.3863)
+#### Attackers &nbsp;(4/6 used · raw log-mean=75.40 · normalized=0.4477)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -707,9 +707,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Curacao
 
-**xG vs avg opponent:** 0.1665 &nbsp;|&nbsp; GK=0.4117 &nbsp;|&nbsp; DEF=0.0714 &nbsp;|&nbsp; MID=0.0660 &nbsp;|&nbsp; ATT=0.0632
+**xG vs avg opponent:** 0.4099 &nbsp;|&nbsp; GK=0.4705 &nbsp;|&nbsp; DEF=0.1642 &nbsp;|&nbsp; MID=0.1594 &nbsp;|&nbsp; ATT=0.1569
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=72.44 · normalized=0.4117)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=72.44 · normalized=0.4705)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -717,7 +717,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Tyrick Bodack | median | — | — | 71.9 | — |
 | ✗ | Trevor Doornbusch | TM | — | — | 65.0 | 100,000 |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=70.30 · normalized=0.0714)
+#### Defenders &nbsp;(6/8 used · raw log-mean=70.30 · normalized=0.1642)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -730,7 +730,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Jurien Gaari | FIFA22 | J. Gaari | 0.74 | 66.5 | — |
 | ✗ | Roshon van Eijma | FC25 | Roshon van Eijma | 1.00 | 64.0 | — |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=68.05 · normalized=0.0660)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=68.05 · normalized=0.1594)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -742,7 +742,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Godfried Roemeratoe | FC25 | Godfried Roemeratoe | 1.00 | 60.5 | — |
 | ✗ | Kevin Felida | FC25 | Kevin Felida | 1.00 | 59.0 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=71.28 · normalized=0.0632)
+#### Attackers &nbsp;(6/8 used · raw log-mean=71.28 · normalized=0.1569)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -759,9 +759,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Czech Republic
 
-**xG vs avg opponent:** 0.9354 &nbsp;|&nbsp; GK=0.5239 &nbsp;|&nbsp; DEF=0.5907 &nbsp;|&nbsp; MID=0.3272 &nbsp;|&nbsp; ATT=0.3737
+**xG vs avg opponent:** 1.1018 &nbsp;|&nbsp; GK=0.5715 &nbsp;|&nbsp; DEF=0.6316 &nbsp;|&nbsp; MID=0.3945 &nbsp;|&nbsp; ATT=0.4363
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=75.12 · normalized=0.5239)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=75.12 · normalized=0.5715)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -769,7 +769,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Jindrich Stanrk | FIFA22 | J. Staněk | 0.93 | 74.0 | — |
 | ✗ | Lukas Hornicek | FIFA22 | L. Hornicek | 1.00 | 64.8 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=76.96 · normalized=0.5907)
+#### Defenders &nbsp;(6/9 used · raw log-mean=76.96 · normalized=0.6316)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -783,7 +783,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | David Jurasek | FC25 | David Jurásek | 1.00 | 71.0 | — |
 | ✗ | David Doudera | FC25 | David Douděra | 1.00 | 66.0 | — |
 
-#### Midfielders &nbsp;(8/11 used · raw log-mean=72.89 · normalized=0.3272)
+#### Midfielders &nbsp;(8/11 used · raw log-mean=72.89 · normalized=0.3945)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -799,7 +799,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Lukas Cerv | FC25 | Lukáš Červ | 1.00 | 67.0 | — |
 | ✗ | Tomas Ladra | FIFA22 | T. Kalas | 0.73 | 59.0 | — |
 
-#### Attackers &nbsp;(4/6 used · raw log-mean=75.24 · normalized=0.3737)
+#### Attackers &nbsp;(4/6 used · raw log-mean=75.24 · normalized=0.4363)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -814,9 +814,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Ecuador
 
-**xG vs avg opponent:** 0.7671 &nbsp;|&nbsp; GK=0.4614 &nbsp;|&nbsp; DEF=0.4304 &nbsp;|&nbsp; MID=0.1460 &nbsp;|&nbsp; ATT=0.3589
+**xG vs avg opponent:** 0.9504 &nbsp;|&nbsp; GK=0.5152 &nbsp;|&nbsp; DEF=0.4874 &nbsp;|&nbsp; MID=0.2314 &nbsp;|&nbsp; ATT=0.4230
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=73.62 · normalized=0.4614)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=73.62 · normalized=0.5152)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -824,7 +824,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Moisés Ramírez | FC25 | Moisés Ramírez | 1.00 | 73.0 | — |
 | ✗ | Gonzalo Valle | FC25 | Gonzalo Valle | 1.00 | 65.2 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=74.91 · normalized=0.4304)
+#### Defenders &nbsp;(6/8 used · raw log-mean=74.91 · normalized=0.4874)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -837,7 +837,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Ángelo Preciado | FC25 | Ángelo Preciado | 1.00 | 69.0 | — |
 | ✗ | Yaimar Medina | FC25 | Yaimar Medina | 1.00 | 57.0 | — |
 
-#### Midfielders &nbsp;(7/10 used · raw log-mean=69.54 · normalized=0.1460)
+#### Midfielders &nbsp;(7/10 used · raw log-mean=69.54 · normalized=0.2314)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -852,7 +852,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Denil Castillo | FC25 | Denil Castillo | 1.00 | 53.5 | — |
 | ✗ | Nilson Angulo | FIFA22 | N. Angulo | 1.00 | 52.0 | — |
 
-#### Attackers &nbsp;(3/5 used · raw log-mean=75.05 · normalized=0.3589)
+#### Attackers &nbsp;(3/5 used · raw log-mean=75.05 · normalized=0.4230)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -866,9 +866,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Egypt
 
-**xG vs avg opponent:** 1.7430 &nbsp;|&nbsp; GK=0.5237 &nbsp;|&nbsp; DEF=0.1351 &nbsp;|&nbsp; MID=0.1981 &nbsp;|&nbsp; ATT=0.8728
+**xG vs avg opponent:** 1.8287 &nbsp;|&nbsp; GK=0.5713 &nbsp;|&nbsp; DEF=0.2216 &nbsp;|&nbsp; MID=0.2783 &nbsp;|&nbsp; ATT=0.8855
 
-#### Goalkeepers &nbsp;(3/4 used · raw log-mean=75.11 · normalized=0.5237)
+#### Goalkeepers &nbsp;(3/4 used · raw log-mean=75.11 · normalized=0.5713)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -877,7 +877,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | El Mahdy Soliman | median | — | — | 71.9 | — |
 | ✗ | Mostafa Shobeir | TM | — | — | 65.0 | 100,000 |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=71.12 · normalized=0.1351)
+#### Defenders &nbsp;(6/8 used · raw log-mean=71.12 · normalized=0.2216)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -890,7 +890,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Rami Rabia | TM | — | — | 65.0 | 400,000 |
 | ✗ | Mohamed Hany | FC25 | Mohamed Salah | 0.72 | 60.0 | — |
 
-#### Midfielders &nbsp;(7/10 used · raw log-mean=70.50 · normalized=0.1981)
+#### Midfielders &nbsp;(7/10 used · raw log-mean=70.50 · normalized=0.2783)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -905,7 +905,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Haitham Hassan | FIFA22 | A. Hassan | 0.73 | 63.0 | — |
 | ✗ | Mahmoud Hassan | FIFA22 | A. Hassan | 0.73 | 63.0 | — |
 
-#### Attackers &nbsp;(3/5 used · raw log-mean=81.62 · normalized=0.8728)
+#### Attackers &nbsp;(3/5 used · raw log-mean=81.62 · normalized=0.8855)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -919,9 +919,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### England
 
-**xG vs avg opponent:** 2.0424 &nbsp;|&nbsp; GK=0.7541 &nbsp;|&nbsp; DEF=0.7716 &nbsp;|&nbsp; MID=0.6696 &nbsp;|&nbsp; ATT=0.8352
+**xG vs avg opponent:** 2.0981 &nbsp;|&nbsp; GK=0.7787 &nbsp;|&nbsp; DEF=0.7944 &nbsp;|&nbsp; MID=0.7026 &nbsp;|&nbsp; ATT=0.8517
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=80.62 · normalized=0.7541)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=80.62 · normalized=0.7787)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -929,7 +929,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Dean Henderson | FIFA22 | D. Henderson | 1.00 | 79.5 | — |
 | ✗ | James TRAFFORD | FIFA22 | J. Trafford | 1.00 | 58.2 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=79.29 · normalized=0.7716)
+#### Defenders &nbsp;(6/9 used · raw log-mean=79.29 · normalized=0.7944)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -943,7 +943,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Marc GUEHI | FIFA22 | M. Guéhi | 1.00 | 73.0 | — |
 | ✗ | Djed SPENCE | FIFA22 | D. Spence | 1.00 | 58.5 | — |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=79.22 · normalized=0.6696)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=79.22 · normalized=0.7026)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -955,7 +955,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Declan RICE | FIFA22 | D. Rice | 1.00 | 72.5 | — |
 | ✗ | Morgan ROGERS | FIFA22 | M. Rogers | 1.00 | 62.5 | — |
 
-#### Attackers &nbsp;(5/7 used · raw log-mean=81.14 · normalized=0.8352)
+#### Attackers &nbsp;(5/7 used · raw log-mean=81.14 · normalized=0.8517)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -971,9 +971,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### France
 
-**xG vs avg opponent:** 2.0737 &nbsp;|&nbsp; GK=0.8379 &nbsp;|&nbsp; DEF=1.0000 &nbsp;|&nbsp; MID=0.7376 &nbsp;|&nbsp; ATT=0.8233
+**xG vs avg opponent:** 2.1264 &nbsp;|&nbsp; GK=0.8541 &nbsp;|&nbsp; DEF=1.0000 &nbsp;|&nbsp; MID=0.7638 &nbsp;|&nbsp; ATT=0.8410
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=82.62 · normalized=0.8379)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=82.62 · normalized=0.8541)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -995,7 +995,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Ibrahima Konate | FIFA22 | I. Konaté | 1.00 | 78.0 | — |
 | ✗ | Malo Gusto | FIFA22 | M. Gusto | 1.00 | 62.5 | — |
 
-#### Midfielders &nbsp;(3/5 used · raw log-mean=80.48 · normalized=0.7376)
+#### Midfielders &nbsp;(3/5 used · raw log-mean=80.48 · normalized=0.7638)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1005,7 +1005,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Adrien Rabiot | FIFA22 | A. Rabiot | 1.00 | 78.0 | — |
 | ✗ | Aurelien Tchouameni | FIFA22 | A. Tchouaméni | 1.00 | 76.0 | — |
 
-#### Attackers &nbsp;(6/9 used · raw log-mean=80.99 · normalized=0.8233)
+#### Attackers &nbsp;(6/9 used · raw log-mean=80.99 · normalized=0.8410)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1023,9 +1023,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Germany
 
-**xG vs avg opponent:** 1.5396 &nbsp;|&nbsp; GK=0.8165 &nbsp;|&nbsp; DEF=0.7326 &nbsp;|&nbsp; MID=0.6581 &nbsp;|&nbsp; ATT=0.5639
+**xG vs avg opponent:** 1.6456 &nbsp;|&nbsp; GK=0.8348 &nbsp;|&nbsp; DEF=0.7594 &nbsp;|&nbsp; MID=0.6923 &nbsp;|&nbsp; ATT=0.6075
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=82.11 · normalized=0.8165)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=82.11 · normalized=0.8348)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1033,7 +1033,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Oliver Baumann | FIFA22 | O. Baumann | 1.00 | 80.5 | — |
 | ✗ | Alexander Nübel | FIFA22 | A. Nübel | 1.00 | 75.2 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=78.78 · normalized=0.7326)
+#### Defenders &nbsp;(6/8 used · raw log-mean=78.78 · normalized=0.7594)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1046,7 +1046,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | David Raum | FIFA22 | D. Raum | 1.00 | 67.0 | — |
 | ✗ | Nathaniel Brown | FC25 | Nathaniel Brown | 1.00 | 55.0 | — |
 
-#### Midfielders &nbsp;(6/9 used · raw log-mean=79.01 · normalized=0.6581)
+#### Midfielders &nbsp;(6/9 used · raw log-mean=79.01 · normalized=0.6923)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1060,7 +1060,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Angelo Stiller | FIFA22 | A. Stiller | 1.00 | 69.5 | — |
 | ✗ | Jamie Leweling | FIFA22 | J. Leweling | 1.00 | 65.0 | — |
 
-#### Attackers &nbsp;(4/6 used · raw log-mean=77.67 · normalized=0.5639)
+#### Attackers &nbsp;(4/6 used · raw log-mean=77.67 · normalized=0.6075)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1075,9 +1075,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Ghana
 
-**xG vs avg opponent:** 1.2720 &nbsp;|&nbsp; GK=0.3435 &nbsp;|&nbsp; DEF=0.2145 &nbsp;|&nbsp; MID=0.2947 &nbsp;|&nbsp; ATT=0.5726
+**xG vs avg opponent:** 1.4049 &nbsp;|&nbsp; GK=0.4091 &nbsp;|&nbsp; DEF=0.2931 &nbsp;|&nbsp; MID=0.3652 &nbsp;|&nbsp; ATT=0.6154
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=70.80 · normalized=0.3435)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=70.80 · normalized=0.4091)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1085,7 +1085,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Lawrence Ati ZIGI | FIFA22 | L. Zigi | 1.00 | 69.8 | — |
 | ✗ | Joseph ANANG | TM | — | — | 65.0 | 300,000 |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=72.14 · normalized=0.2145)
+#### Defenders &nbsp;(6/9 used · raw log-mean=72.14 · normalized=0.2931)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1099,7 +1099,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Gideon MENSAH | FIFA22 | G. Mensah | 1.00 | 65.0 | — |
 | ✗ | Jonas ADJETEY | FC25 | Jonas Adjetey | 1.00 | 64.5 | — |
 
-#### Midfielders &nbsp;(4/6 used · raw log-mean=72.29 · normalized=0.2947)
+#### Midfielders &nbsp;(4/6 used · raw log-mean=72.29 · normalized=0.3652)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1110,7 +1110,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Kwasi SIBO | FC25 | Kwasi Sibo | 1.00 | 59.5 | — |
 | ✗ | Augustine BOAKYE | FIFA22 | A. Boakye | 1.00 | 55.5 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=77.79 · normalized=0.5726)
+#### Attackers &nbsp;(6/8 used · raw log-mean=77.79 · normalized=0.6154)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1127,9 +1127,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Haiti
 
-**xG vs avg opponent:** 0.2361 &nbsp;|&nbsp; GK=0.2408 &nbsp;|&nbsp; DEF=0.2066 &nbsp;|&nbsp; MID=0.3027 &nbsp;|&nbsp; ATT=0.0000
+**xG vs avg opponent:** 0.4725 &nbsp;|&nbsp; GK=0.3167 &nbsp;|&nbsp; DEF=0.2860 &nbsp;|&nbsp; MID=0.3724 &nbsp;|&nbsp; ATT=0.1000
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=68.35 · normalized=0.2408)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=68.35 · normalized=0.3167)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1137,7 +1137,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Alexandre Pierre | TM | — | — | 65.0 | 100,000 |
 |  | Johny Placide | FIFA22 | J. Placide | 1.00 | 65.0 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=72.03 · normalized=0.2066)
+#### Defenders &nbsp;(6/8 used · raw log-mean=72.03 · normalized=0.2860)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1150,7 +1150,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Keeto Thermoncy | median | — | — | 71.9 | — |
 | ✗ | Carlens Arcus | FC25 | Carlens Arcus | 1.00 | 67.0 | — |
 
-#### Midfielders &nbsp;(4/6 used · raw log-mean=72.43 · normalized=0.3027)
+#### Midfielders &nbsp;(4/6 used · raw log-mean=72.43 · normalized=0.3724)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1161,7 +1161,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Danley Jean Jacques | FC25 | Danley Jean Jacques | 1.00 | 66.0 | — |
 | ✗ | Leverton Pierre | FIFA22 | L. Pierre | 1.00 | 61.5 | — |
 
-#### Attackers &nbsp;(6/9 used · raw log-mean=70.47 · normalized=0.0000)
+#### Attackers &nbsp;(6/9 used · raw log-mean=70.47 · normalized=0.1000)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1179,9 +1179,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Iran
 
-**xG vs avg opponent:** 0.7583 &nbsp;|&nbsp; GK=0.2573 &nbsp;|&nbsp; DEF=0.1538 &nbsp;|&nbsp; MID=0.2738 &nbsp;|&nbsp; ATT=0.2993
+**xG vs avg opponent:** 0.9426 &nbsp;|&nbsp; GK=0.3316 &nbsp;|&nbsp; DEF=0.2384 &nbsp;|&nbsp; MID=0.3465 &nbsp;|&nbsp; ATT=0.3694
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=68.75 · normalized=0.2573)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=68.75 · normalized=0.3316)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1189,7 +1189,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Payam Niazmand | FIFA22 | S. Niazmand | 0.82 | 68.0 | — |
 | ✗ | Hossein Hosseini | TM | — | — | 65.0 | 700,000 |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=71.36 · normalized=0.1538)
+#### Defenders &nbsp;(6/8 used · raw log-mean=71.36 · normalized=0.2384)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1202,7 +1202,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Milad Mohammadi | TM | — | — | 66.3 | 1,300,000 |
 | ✗ | Ramin Rezaeian | TM | — | — | 65.0 | 450,000 |
 
-#### Midfielders &nbsp;(7/10 used · raw log-mean=71.90 · normalized=0.2738)
+#### Midfielders &nbsp;(7/10 used · raw log-mean=71.90 · normalized=0.3465)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1217,7 +1217,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Mohammad Mohebi | FIFA22 | M. Mohebi | 1.00 | 64.0 | — |
 | ✗ | Saeid Ezatolahi | FIFA22 | S. Ezatolahi | 0.85 | 61.0 | — |
 
-#### Attackers &nbsp;(3/5 used · raw log-mean=74.29 · normalized=0.2993)
+#### Attackers &nbsp;(3/5 used · raw log-mean=74.29 · normalized=0.3694)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1231,9 +1231,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Iraq
 
-**xG vs avg opponent:** 0.4918 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.1994 &nbsp;|&nbsp; MID=0.1396 &nbsp;|&nbsp; ATT=0.2104
+**xG vs avg opponent:** 0.7027 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.2795 &nbsp;|&nbsp; MID=0.2256 &nbsp;|&nbsp; ATT=0.2894
 
-#### Goalkeepers &nbsp;(3/4 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(3/4 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1242,7 +1242,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Kumel Saadi | median | — | — | 71.9 | — |
 |  | Fahad Talib | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(8/12 used · raw log-mean=71.94 · normalized=0.1994)
+#### Defenders &nbsp;(8/12 used · raw log-mean=71.94 · normalized=0.2795)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1259,7 +1259,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Hussein Ali | FC25 | Hussein Ali | 1.00 | 59.5 | — |
 | ✗ | Ahmed Yahya | FIFA22 | A. Yasin | 0.73 | 54.5 | — |
 
-#### Midfielders &nbsp;(10/14 used · raw log-mean=69.42 · normalized=0.1396)
+#### Midfielders &nbsp;(10/14 used · raw log-mean=69.42 · normalized=0.2256)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1278,7 +1278,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Aimar Sher | TM | — | — | 65.0 | 750,000 |
 | ✗ | Youssef Amyn | FC25 | Youssef Amyn | 1.00 | 64.0 | — |
 
-#### Attackers &nbsp;(3/4 used · raw log-mean=73.16 · normalized=0.2104)
+#### Attackers &nbsp;(3/4 used · raw log-mean=73.16 · normalized=0.2894)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1291,9 +1291,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Côte d'Ivoire
 
-**xG vs avg opponent:** 1.4742 &nbsp;|&nbsp; GK=0.3619 &nbsp;|&nbsp; DEF=0.5165 &nbsp;|&nbsp; MID=0.4314 &nbsp;|&nbsp; ATT=0.6251
+**xG vs avg opponent:** 1.5868 &nbsp;|&nbsp; GK=0.4257 &nbsp;|&nbsp; DEF=0.5649 &nbsp;|&nbsp; MID=0.4883 &nbsp;|&nbsp; ATT=0.6626
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.25 · normalized=0.3619)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.25 · normalized=0.4257)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1301,7 +1301,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Alban Lafont | TM | — | — | 70.5 | 3,000,000 |
 | ✗ | Mohamed Kone | FC25 | Mohamed Koné | 1.00 | 65.5 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=76.01 · normalized=0.5165)
+#### Defenders &nbsp;(6/8 used · raw log-mean=76.01 · normalized=0.5649)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1314,7 +1314,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Ghislain Konan | FIFA22 | G. Konan | 1.00 | 70.5 | — |
 | ✗ | Clement Akpa | FC25 | Clément Akpa | 1.00 | 61.0 | — |
 
-#### Midfielders &nbsp;(4/6 used · raw log-mean=74.81 · normalized=0.4314)
+#### Midfielders &nbsp;(4/6 used · raw log-mean=74.81 · normalized=0.4883)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1325,7 +1325,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Parfait Guiagon | FC25 | Parfait Guiagon | 1.00 | 69.5 | — |
 | ✗ | Christ Inao Oulai | FC25 | Christian Kouan Oulaï | 0.74 | 66.5 | — |
 
-#### Attackers &nbsp;(6/9 used · raw log-mean=78.46 · normalized=0.6251)
+#### Attackers &nbsp;(6/9 used · raw log-mean=78.46 · normalized=0.6626)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1343,9 +1343,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Japan
 
-**xG vs avg opponent:** 1.1196 &nbsp;|&nbsp; GK=0.3593 &nbsp;|&nbsp; DEF=0.4856 &nbsp;|&nbsp; MID=0.5601 &nbsp;|&nbsp; ATT=0.3751
+**xG vs avg opponent:** 1.2676 &nbsp;|&nbsp; GK=0.4234 &nbsp;|&nbsp; DEF=0.5370 &nbsp;|&nbsp; MID=0.6040 &nbsp;|&nbsp; ATT=0.4376
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.18 · normalized=0.3593)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.18 · normalized=0.4234)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1353,7 +1353,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Zion Suzuki | FC25 | Zion Suzuki | 1.00 | 70.5 | — |
 | ✗ | Tomoki Hayakawa | FIFA22 | T. Hayakawa | 0.80 | 55.8 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=75.61 · normalized=0.4856)
+#### Defenders &nbsp;(6/9 used · raw log-mean=75.61 · normalized=0.5370)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1367,7 +1367,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Ayumu Seko | FC25 | Ayumu Seko | 1.00 | 69.0 | — |
 | ✗ | Yuto Nagatomo | FIFA22 | Y. Nagatomo | 0.87 | 68.5 | — |
 
-#### Midfielders &nbsp;(6/8 used · raw log-mean=77.19 · normalized=0.5601)
+#### Midfielders &nbsp;(6/8 used · raw log-mean=77.19 · normalized=0.6040)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1380,7 +1380,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Ao Tanaka | FC25 | Ao Tanaka | 1.00 | 70.5 | — |
 | ✗ | Kaishu Sano | FC25 | Kaishū Sano | 1.00 | 67.0 | — |
 
-#### Attackers &nbsp;(4/6 used · raw log-mean=75.26 · normalized=0.3751)
+#### Attackers &nbsp;(4/6 used · raw log-mean=75.26 · normalized=0.4376)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1395,9 +1395,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Jordan
 
-**xG vs avg opponent:** 0.8312 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.1994 &nbsp;|&nbsp; MID=0.1981 &nbsp;|&nbsp; ATT=0.3718
+**xG vs avg opponent:** 1.0082 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.2795 &nbsp;|&nbsp; MID=0.2783 &nbsp;|&nbsp; ATT=0.4347
 
-#### Goalkeepers &nbsp;(3/4 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(3/4 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1406,7 +1406,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Ahmad Al Juaidi | median | — | — | 71.9 | — |
 |  | Nour Bani Attiah | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(9/13 used · raw log-mean=71.94 · normalized=0.1994)
+#### Defenders &nbsp;(9/13 used · raw log-mean=71.94 · normalized=0.2795)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1424,7 +1424,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Mohammad Taha | median | — | — | 71.9 | — |
 | ✗ | Yazan Al Arab | FC25 | Yazan Al-Arab | 1.00 | 66.5 | — |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=70.50 · normalized=0.1981)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=70.50 · normalized=0.2783)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1436,7 +1436,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Yousef Qashi | median | — | — | 70.5 | — |
 |  | Ibrahim Sadeh | median | — | — | 70.5 | — |
 
-#### Attackers &nbsp;(4/6 used · raw log-mean=75.22 · normalized=0.3718)
+#### Attackers &nbsp;(4/6 used · raw log-mean=75.22 · normalized=0.4347)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1451,9 +1451,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Mexico
 
-**xG vs avg opponent:** 0.6088 &nbsp;|&nbsp; GK=0.4734 &nbsp;|&nbsp; DEF=0.5204 &nbsp;|&nbsp; MID=0.2130 &nbsp;|&nbsp; ATT=0.2432
+**xG vs avg opponent:** 0.8077 &nbsp;|&nbsp; GK=0.5260 &nbsp;|&nbsp; DEF=0.5684 &nbsp;|&nbsp; MID=0.2917 &nbsp;|&nbsp; ATT=0.3188
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=73.91 · normalized=0.4734)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=73.91 · normalized=0.5260)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1461,7 +1461,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Raul Rangel | median | — | — | 71.9 | — |
 | ✗ | Guillermo Ochoa | TM | — | — | 65.0 | 1,000,000 |
 
-#### Defenders &nbsp;(5/7 used · raw log-mean=76.06 · normalized=0.5204)
+#### Defenders &nbsp;(5/7 used · raw log-mean=76.06 · normalized=0.5684)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1473,7 +1473,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Israel Reyes | FIFA22 | I. Reyes | 0.77 | 61.5 | — |
 | ✗ | Mateo Chavez | FIFA22 | O. Chávez | 0.80 | 60.5 | — |
 
-#### Midfielders &nbsp;(6/8 used · raw log-mean=70.77 · normalized=0.2130)
+#### Midfielders &nbsp;(6/8 used · raw log-mean=70.77 · normalized=0.2917)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1486,7 +1486,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Erik Lira | FIFA22 | E. Lira | 0.80 | 66.0 | — |
 | ✗ | Luis Romo | FIFA22 | L. Romo | 0.80 | 65.0 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=73.58 · normalized=0.2432)
+#### Attackers &nbsp;(6/8 used · raw log-mean=73.58 · normalized=0.3188)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1503,9 +1503,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Morocco
 
-**xG vs avg opponent:** 1.6119 &nbsp;|&nbsp; GK=0.5833 &nbsp;|&nbsp; DEF=0.4746 &nbsp;|&nbsp; MID=0.5594 &nbsp;|&nbsp; ATT=0.6459
+**xG vs avg opponent:** 1.7107 &nbsp;|&nbsp; GK=0.6250 &nbsp;|&nbsp; DEF=0.5272 &nbsp;|&nbsp; MID=0.6035 &nbsp;|&nbsp; ATT=0.6813
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=76.54 · normalized=0.5833)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=76.54 · normalized=0.6250)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1513,7 +1513,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Reda Tagnaouti | median | — | — | 71.9 | — |
 | ✗ | Munir El Kajoui | TM | — | — | 65.0 | 1,000,000 |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=75.47 · normalized=0.4746)
+#### Defenders &nbsp;(6/9 used · raw log-mean=75.47 · normalized=0.5272)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1527,7 +1527,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Zakaria El Ouahdi | FC25 | Zakaria El Ouahdi | 1.00 | 60.0 | — |
 | ✗ | Youssef Belammari | FIFA22 | Y. El Arabi | 0.79 | 53.5 | — |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=77.18 · normalized=0.5594)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=77.18 · normalized=0.6035)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1539,7 +1539,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Neil El Aynaoui | FC25 | Neil El Aynaoui | 1.00 | 72.0 | — |
 | ✗ | Azzedine Ounahi | FIFA22 | A. Ounahi | 1.00 | 57.0 | — |
 
-#### Attackers &nbsp;(5/7 used · raw log-mean=78.72 · normalized=0.6459)
+#### Attackers &nbsp;(5/7 used · raw log-mean=78.72 · normalized=0.6813)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1555,9 +1555,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Netherlands
 
-**xG vs avg opponent:** 1.8930 &nbsp;|&nbsp; GK=0.2779 &nbsp;|&nbsp; DEF=0.9492 &nbsp;|&nbsp; MID=0.5721 &nbsp;|&nbsp; ATT=0.7949
+**xG vs avg opponent:** 1.9637 &nbsp;|&nbsp; GK=0.3501 &nbsp;|&nbsp; DEF=0.9543 &nbsp;|&nbsp; MID=0.6149 &nbsp;|&nbsp; ATT=0.8154
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=69.24 · normalized=0.2779)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=69.24 · normalized=0.3501)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1565,7 +1565,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Bart Verbruggen | FIFA22 | B. Verbruggen | 1.00 | 65.0 | — |
 | ✗ | Robin Roefs | FIFA22 | R. Roefs | 1.00 | 56.2 | — |
 
-#### Defenders &nbsp;(5/7 used · raw log-mean=81.57 · normalized=0.9492)
+#### Defenders &nbsp;(5/7 used · raw log-mean=81.57 · normalized=0.9543)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1577,7 +1577,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Jan Paul van Hecke | FIFA22 | J. van Hecke | 1.00 | 71.0 | — |
 | ✗ | Micky van de Ven | FIFA22 | M. van de Ven | 1.00 | 70.0 | — |
 
-#### Midfielders &nbsp;(6/8 used · raw log-mean=77.42 · normalized=0.5721)
+#### Midfielders &nbsp;(6/8 used · raw log-mean=77.42 · normalized=0.6149)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1590,7 +1590,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Tijjani Reijnders | FIFA22 | T. Reijnders | 1.00 | 68.5 | — |
 | ✗ | Quinten Timber | FIFA22 | Q. Timber | 0.73 | 68.5 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=80.63 · normalized=0.7949)
+#### Attackers &nbsp;(6/8 used · raw log-mean=80.63 · normalized=0.8154)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1607,9 +1607,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### New Zealand
 
-**xG vs avg opponent:** 0.5709 &nbsp;|&nbsp; GK=0.0000 &nbsp;|&nbsp; DEF=0.1042 &nbsp;|&nbsp; MID=0.0000 &nbsp;|&nbsp; ATT=0.3137
+**xG vs avg opponent:** 0.7738 &nbsp;|&nbsp; GK=0.1000 &nbsp;|&nbsp; DEF=0.1938 &nbsp;|&nbsp; MID=0.1000 &nbsp;|&nbsp; ATT=0.3823
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=62.60 · normalized=0.0000)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=62.60 · normalized=0.1000)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1617,7 +1617,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Michael WOUD | FC25 | Michael Woud | 1.00 | 60.8 | — |
 | ✗ | Alex PAULSEN | FIFA22 | A. Paulsen | 1.00 | 56.5 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=70.72 · normalized=0.1042)
+#### Defenders &nbsp;(6/9 used · raw log-mean=70.72 · normalized=0.1938)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1631,7 +1631,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Tommy SMITH | FC25 | Tommy Smith | 1.00 | 63.5 | — |
 | ✗ | Callan ELLIOT | FC25 | Callan Elliot | 1.00 | 59.0 | — |
 
-#### Midfielders &nbsp;(7/10 used · raw log-mean=66.83 · normalized=0.0000)
+#### Midfielders &nbsp;(7/10 used · raw log-mean=66.83 · normalized=0.1000)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1646,7 +1646,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Elijah JUST | FIFA22 | E. Just | 0.79 | 63.5 | — |
 | ✗ | Lachlan BAYLISS | FC25 | Lachlan Bayliss | 1.00 | 55.5 | — |
 
-#### Attackers &nbsp;(3/4 used · raw log-mean=74.48 · normalized=0.3137)
+#### Attackers &nbsp;(3/4 used · raw log-mean=74.48 · normalized=0.3823)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1659,9 +1659,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Norway
 
-**xG vs avg opponent:** 2.0995 &nbsp;|&nbsp; GK=0.1799 &nbsp;|&nbsp; DEF=0.1355 &nbsp;|&nbsp; MID=0.3583 &nbsp;|&nbsp; ATT=1.0000
+**xG vs avg opponent:** 2.1496 &nbsp;|&nbsp; GK=0.2619 &nbsp;|&nbsp; DEF=0.2220 &nbsp;|&nbsp; MID=0.4225 &nbsp;|&nbsp; ATT=1.0000
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=66.89 · normalized=0.1799)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=66.89 · normalized=0.2619)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1669,7 +1669,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Egil Selvik | FIFA22 | E. Selvik | 1.00 | 63.2 | — |
 | ✗ | Sander Tangvik | FIFA22 | S. Tangvik | 1.00 | 52.8 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=71.12 · normalized=0.1355)
+#### Defenders &nbsp;(6/9 used · raw log-mean=71.12 · normalized=0.2220)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1683,7 +1683,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | David Moller Wolfe | FIFA22 | D. Wolfe | 1.00 | 54.0 | — |
 | ✗ | Henrik Falchener | FIFA22 | H. Falchener | 0.81 | 45.0 | — |
 
-#### Midfielders &nbsp;(8/11 used · raw log-mean=73.46 · normalized=0.3583)
+#### Midfielders &nbsp;(8/11 used · raw log-mean=73.46 · normalized=0.4225)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1711,9 +1711,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Panama
 
-**xG vs avg opponent:** 0.8093 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.1954 &nbsp;|&nbsp; MID=0.1240 &nbsp;|&nbsp; ATT=0.3915
+**xG vs avg opponent:** 0.9882 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.2758 &nbsp;|&nbsp; MID=0.2116 &nbsp;|&nbsp; ATT=0.4523
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1721,7 +1721,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Cesar Samudio | median | — | — | 71.9 | — |
 | ✗ | Luis Mejia | FC25 | Luis Mejía | 1.00 | 69.5 | — |
 
-#### Defenders &nbsp;(7/10 used · raw log-mean=71.89 · normalized=0.1954)
+#### Defenders &nbsp;(7/10 used · raw log-mean=71.89 · normalized=0.2758)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1736,7 +1736,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Edgardo Farina | TM | — | — | 65.0 | 1,000,000 |
 | ✗ | Roderick Miller | TM | — | — | 65.0 | 200,000 |
 
-#### Midfielders &nbsp;(6/9 used · raw log-mean=69.13 · normalized=0.1240)
+#### Midfielders &nbsp;(6/9 used · raw log-mean=69.13 · normalized=0.2116)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1750,7 +1750,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Cesar Yanis | FIFA22 | C. Yanis | 1.00 | 63.0 | — |
 | ✗ | Carlos Harvey | FC25 | Carlos Harvey | 1.00 | 53.0 | — |
 
-#### Attackers &nbsp;(3/4 used · raw log-mean=75.47 · normalized=0.3915)
+#### Attackers &nbsp;(3/4 used · raw log-mean=75.47 · normalized=0.4523)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1763,9 +1763,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Paraguay
 
-**xG vs avg opponent:** 0.3915 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.2637 &nbsp;|&nbsp; MID=0.1109 &nbsp;|&nbsp; ATT=0.1676
+**xG vs avg opponent:** 0.6125 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.3373 &nbsp;|&nbsp; MID=0.1998 &nbsp;|&nbsp; ATT=0.2509
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1773,7 +1773,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Roberto Fernández | median | — | — | 71.9 | — |
 |  | Gastón Olveira | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=72.77 · normalized=0.2637)
+#### Defenders &nbsp;(6/8 used · raw log-mean=72.77 · normalized=0.3373)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1786,7 +1786,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Junior Alonso | FC25 | Wildo Alonso | 0.72 | 59.0 | — |
 | ✗ | Juan Cáceres | FIFA22 | A. Cáceres | 0.86 | 49.0 | — |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=68.89 · normalized=0.1109)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=68.89 · normalized=0.1998)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1798,7 +1798,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Matías Galarza | FC25 | Matías Galarza | 1.00 | 62.5 | — |
 | ✗ | Alejandro Gamarra | FIFA22 | M. Gamarra | 0.73 | 47.0 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=72.61 · normalized=0.1676)
+#### Attackers &nbsp;(6/8 used · raw log-mean=72.61 · normalized=0.2509)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1815,9 +1815,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Portugal
 
-**xG vs avg opponent:** 2.2962 &nbsp;|&nbsp; GK=0.7520 &nbsp;|&nbsp; DEF=0.7605 &nbsp;|&nbsp; MID=1.0000 &nbsp;|&nbsp; ATT=0.8331
+**xG vs avg opponent:** 2.3377 &nbsp;|&nbsp; GK=0.7768 &nbsp;|&nbsp; DEF=0.7844 &nbsp;|&nbsp; MID=1.0000 &nbsp;|&nbsp; ATT=0.8559
 
-#### Goalkeepers &nbsp;(3/4 used · raw log-mean=80.57 · normalized=0.7520)
+#### Goalkeepers &nbsp;(3/4 used · raw log-mean=80.57 · normalized=0.7768)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1826,7 +1826,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Jose Sa | FC25 | José Sá | 1.00 | 78.5 | — |
 | ✗ | Ricardo Velho | FC25 | Ricardo Velho | 1.00 | 73.2 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=79.14 · normalized=0.7605)
+#### Defenders &nbsp;(6/9 used · raw log-mean=79.14 · normalized=0.7844)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1851,7 +1851,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Joao Neves | FC25 | João Neves | 1.00 | 77.5 | — |
 | ✗ | Samuel Costa | FC25 | Samú Costa | 0.91 | 67.5 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=81.11 · normalized=0.8331)
+#### Attackers &nbsp;(6/8 used · raw log-mean=81.20 · normalized=0.8559)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1860,17 +1860,17 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Goncalo Guedes | FC25 | Gonçalo Guedes | 1.00 | 81.0 | — |
 |  | Pedro Neto | FC25 | Pedro Neto | 1.00 | 81.0 | — |
 |  | Joao Felix | FC25 | João Félix | 1.00 | 79.0 | — |
-|  | Francisco Conceicao | FC25 | Francisco Conceição | 1.00 | 77.0 | — |
+|  | Francisco Trincao | FC25 | Trincão | 1.00 | 77.5 | — |
+| ✗ | Francisco Conceicao | FC25 | Francisco Conceição | 1.00 | 77.0 | — |
 | ✗ | Goncalo Ramos | FC25 | Gonçalo Ramos | 1.00 | 76.5 | — |
-| ✗ | Francisco Trincao | FC25 | Francisco Ramos | 0.81 | 60.5 | — |
 
 ---
 
 ### Qatar
 
-**xG vs avg opponent:** 0.6576 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.1994 &nbsp;|&nbsp; MID=0.1981 &nbsp;|&nbsp; ATT=0.2764
+**xG vs avg opponent:** 0.8519 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.2795 &nbsp;|&nbsp; MID=0.2783 &nbsp;|&nbsp; ATT=0.3488
 
-#### Goalkeepers &nbsp;(3/4 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(3/4 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1879,7 +1879,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Meshaal Barsham | median | — | — | 71.9 | — |
 |  | Salah Zakaria | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(8/11 used · raw log-mean=71.94 · normalized=0.1994)
+#### Defenders &nbsp;(8/11 used · raw log-mean=71.94 · normalized=0.2795)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1895,7 +1895,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Niall Mason | TM | — | — | 65.0 | 150,000 |
 | ✗ | Lucas Mendes | TM | — | — | 65.0 | 500,000 |
 
-#### Midfielders &nbsp;(6/9 used · raw log-mean=70.50 · normalized=0.1981)
+#### Midfielders &nbsp;(6/9 used · raw log-mean=70.50 · normalized=0.2783)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1909,7 +1909,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Mohammed Waad | median | — | — | 70.5 | — |
 | ✗ | Assim Madibo | TM | — | — | 65.0 | 300,000 |
 
-#### Attackers &nbsp;(7/10 used · raw log-mean=74.00 · normalized=0.2764)
+#### Attackers &nbsp;(7/10 used · raw log-mean=74.00 · normalized=0.3488)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1928,9 +1928,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### South Korea
 
-**xG vs avg opponent:** 1.7552 &nbsp;|&nbsp; GK=0.4503 &nbsp;|&nbsp; DEF=0.1561 &nbsp;|&nbsp; MID=0.3750 &nbsp;|&nbsp; ATT=0.8037
+**xG vs avg opponent:** 1.8398 &nbsp;|&nbsp; GK=0.5052 &nbsp;|&nbsp; DEF=0.2405 &nbsp;|&nbsp; MID=0.4375 &nbsp;|&nbsp; ATT=0.8234
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=73.36 · normalized=0.4503)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=73.36 · normalized=0.5052)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1938,7 +1938,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Kim Seung-gyu | FC25 | Kim Seung Gyu | 1.00 | 71.8 | — |
 | ✗ | Song Bumkeun | FIFA22 | Song Bum Keun | 0.96 | 66.8 | — |
 
-#### Defenders &nbsp;(7/10 used · raw log-mean=71.39 · normalized=0.1561)
+#### Defenders &nbsp;(7/10 used · raw log-mean=71.39 · normalized=0.2405)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1953,7 +1953,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Kim Taehyeon | FIFA22 | Kim Tae Hyeon | 0.96 | 59.5 | — |
 | ✗ | Seol Youngwoo | FIFA22 | Seol Young Woo | 0.96 | 59.5 | — |
 
-#### Midfielders &nbsp;(7/10 used · raw log-mean=73.77 · normalized=0.3750)
+#### Midfielders &nbsp;(7/10 used · raw log-mean=73.77 · normalized=0.4375)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1968,7 +1968,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Kim Jingyu | FC25 | Kim Jin Kyu | 0.86 | 68.5 | — |
 | ✗ | Hwang Inbeom | FIFA22 | An Jin Beom | 0.78 | 60.5 | — |
 
-#### Attackers &nbsp;(2/3 used · raw log-mean=80.74 · normalized=0.8037)
+#### Attackers &nbsp;(2/3 used · raw log-mean=80.74 · normalized=0.8234)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1980,9 +1980,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Saudi Arabia
 
-**xG vs avg opponent:** 0.6345 &nbsp;|&nbsp; GK=0.1783 &nbsp;|&nbsp; DEF=0.0969 &nbsp;|&nbsp; MID=0.0043 &nbsp;|&nbsp; ATT=0.3468
+**xG vs avg opponent:** 0.8310 &nbsp;|&nbsp; GK=0.2605 &nbsp;|&nbsp; DEF=0.1872 &nbsp;|&nbsp; MID=0.1038 &nbsp;|&nbsp; ATT=0.4121
 
-#### Goalkeepers &nbsp;(3/4 used · raw log-mean=66.86 · normalized=0.1783)
+#### Goalkeepers &nbsp;(3/4 used · raw log-mean=66.86 · normalized=0.2605)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -1991,7 +1991,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Ahmed Al Kassar | FC25 | Ahmed Al Kassar | 1.00 | 63.2 | — |
 | ✗ | Abdulqudus Attia | FC25 | Abdulquddus Attiah | 0.94 | 60.8 | — |
 
-#### Defenders &nbsp;(8/12 used · raw log-mean=70.62 · normalized=0.0969)
+#### Defenders &nbsp;(8/12 used · raw log-mean=70.62 · normalized=0.1872)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2008,7 +2008,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Moteb Al Harbi | FIFA22 | M. Al Harbi | 0.93 | 52.0 | — |
 | ✗ | Khalid Al Ghannam | FC25 | Khalid Al Ghannam | 1.00 | 36.5 | — |
 
-#### Midfielders &nbsp;(6/9 used · raw log-mean=66.91 · normalized=0.0043)
+#### Midfielders &nbsp;(6/9 used · raw log-mean=66.91 · normalized=0.1038)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2022,7 +2022,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Ziyad Al Johani | FIFA22 | Z. Al Johani | 1.00 | 54.5 | — |
 | ✗ | Musab Al Juwayr | FIFA22 | M. Al Juwair | 0.93 | 51.0 | — |
 
-#### Attackers &nbsp;(3/5 used · raw log-mean=74.90 · normalized=0.3468)
+#### Attackers &nbsp;(3/5 used · raw log-mean=74.90 · normalized=0.4121)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2036,9 +2036,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Scotland
 
-**xG vs avg opponent:** 0.8118 &nbsp;|&nbsp; GK=0.3824 &nbsp;|&nbsp; DEF=0.3654 &nbsp;|&nbsp; MID=0.3903 &nbsp;|&nbsp; ATT=0.2788
+**xG vs avg opponent:** 0.9907 &nbsp;|&nbsp; GK=0.4441 &nbsp;|&nbsp; DEF=0.4289 &nbsp;|&nbsp; MID=0.4513 &nbsp;|&nbsp; ATT=0.3509
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.73 · normalized=0.3824)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.73 · normalized=0.4441)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2046,7 +2046,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Craig Gordon | FC25 | Craig Gordon | 1.00 | 70.2 | — |
 | ✗ | Liam Kelly | TM | — | — | 65.0 | 200,000 |
 
-#### Defenders &nbsp;(7/10 used · raw log-mean=74.07 · normalized=0.3654)
+#### Defenders &nbsp;(7/10 used · raw log-mean=74.07 · normalized=0.4289)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2061,7 +2061,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Anthony Ralston | FIFA22 | A. Ralston | 1.00 | 64.0 | — |
 | ✗ | Aaron Hickey | FIFA22 | A. Hickey | 1.00 | 61.0 | — |
 
-#### Midfielders &nbsp;(6/8 used · raw log-mean=74.06 · normalized=0.3903)
+#### Midfielders &nbsp;(6/8 used · raw log-mean=74.06 · normalized=0.4513)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2074,7 +2074,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Lewis Ferguson | FIFA22 | L. Ferguson | 1.00 | 69.5 | — |
 | ✗ | Findlay Curtis | TM | — | — | 65.0 | 750,000 |
 
-#### Attackers &nbsp;(3/5 used · raw log-mean=74.03 · normalized=0.2788)
+#### Attackers &nbsp;(3/5 used · raw log-mean=74.03 · normalized=0.3509)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2088,9 +2088,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Senegal
 
-**xG vs avg opponent:** 1.5545 &nbsp;|&nbsp; GK=0.6812 &nbsp;|&nbsp; DEF=0.4752 &nbsp;|&nbsp; MID=0.2782 &nbsp;|&nbsp; ATT=0.7349
+**xG vs avg opponent:** 1.6591 &nbsp;|&nbsp; GK=0.7131 &nbsp;|&nbsp; DEF=0.5277 &nbsp;|&nbsp; MID=0.3504 &nbsp;|&nbsp; ATT=0.7614
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=78.88 · normalized=0.6812)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=78.88 · normalized=0.7131)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2098,7 +2098,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Yehvann Diouf | TM | — | — | 75.4 | 8,000,000 |
 | ✗ | Mory Diaw | FC25 | Mory Diaw | 1.00 | 75.2 | — |
 
-#### Defenders &nbsp;(7/10 used · raw log-mean=75.48 · normalized=0.4752)
+#### Defenders &nbsp;(7/10 used · raw log-mean=75.48 · normalized=0.5277)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2113,7 +2113,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Ilay Camara | FC25 | Lamine Camara | 0.75 | 58.0 | — |
 | ✗ | Krepin Diatta | FIFA22 | K. Diatta | 1.00 | 58.0 | — |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=71.98 · normalized=0.2782)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=71.98 · normalized=0.3504)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2125,7 +2125,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Pape Matar Sarr | FIFA22 | P. Sarr | 1.00 | 69.5 | — |
 | ✗ | Pathe Ciss | FC25 | Pathé Ciss | 1.00 | 62.0 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=79.86 · normalized=0.7349)
+#### Attackers &nbsp;(6/8 used · raw log-mean=79.86 · normalized=0.7614)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2142,9 +2142,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### South Africa
 
-**xG vs avg opponent:** 0.6929 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.1994 &nbsp;|&nbsp; MID=0.1981 &nbsp;|&nbsp; ATT=0.2958
+**xG vs avg opponent:** 0.8836 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.2795 &nbsp;|&nbsp; MID=0.2783 &nbsp;|&nbsp; ATT=0.3662
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2152,7 +2152,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Ricardo Goss | median | — | — | 71.9 | — |
 |  | Sipho Chaine | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(8/11 used · raw log-mean=71.94 · normalized=0.1994)
+#### Defenders &nbsp;(8/11 used · raw log-mean=71.94 · normalized=0.2795)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2168,7 +2168,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Mbekezeli Mbokazi | median | — | — | 71.9 | — |
 | ✗ | Olwethu Makhanya | FC25 | Olwethu Makhanya | 1.00 | 52.0 | — |
 
-#### Midfielders &nbsp;(3/4 used · raw log-mean=70.50 · normalized=0.1981)
+#### Midfielders &nbsp;(3/4 used · raw log-mean=70.50 · normalized=0.2783)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2177,7 +2177,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Thalente Mbatha | median | — | — | 70.5 | — |
 | ✗ | Sphephelo Sithole | FC25 | Sphephelo Sithole | 1.00 | 61.5 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=74.25 · normalized=0.2958)
+#### Attackers &nbsp;(6/8 used · raw log-mean=74.25 · normalized=0.3662)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2194,9 +2194,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Spain
 
-**xG vs avg opponent:** 1.8915 &nbsp;|&nbsp; GK=0.8481 &nbsp;|&nbsp; DEF=0.6257 &nbsp;|&nbsp; MID=0.8509 &nbsp;|&nbsp; ATT=0.6746
+**xG vs avg opponent:** 1.9622 &nbsp;|&nbsp; GK=0.8633 &nbsp;|&nbsp; DEF=0.6632 &nbsp;|&nbsp; MID=0.8658 &nbsp;|&nbsp; ATT=0.7071
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=82.86 · normalized=0.8481)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=82.86 · normalized=0.8633)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2204,7 +2204,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | David RAYA | FC25 | David Raya | 1.00 | 81.5 | — |
 | ✗ | Joan GARCIA | FC25 | Joan García | 1.00 | 75.2 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=77.41 · normalized=0.6257)
+#### Defenders &nbsp;(6/8 used · raw log-mean=77.41 · normalized=0.6632)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2217,7 +2217,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Pau CUBARSI | FC25 | Pau Cubarsí | 1.00 | 68.5 | — |
 | ✗ | Alex GRIMALDO | TM | — | — | 65.0 | 100,000 |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=82.58 · normalized=0.8509)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=82.58 · normalized=0.8658)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2229,7 +2229,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Alex BAENA | FC25 | Álex Baena | 1.00 | 79.0 | — |
 | ✗ | Martin ZUBIMENDI | FIFA22 | Zubimendi | 0.82 | 71.0 | — |
 
-#### Attackers &nbsp;(6/8 used · raw log-mean=79.09 · normalized=0.6746)
+#### Attackers &nbsp;(6/8 used · raw log-mean=79.09 · normalized=0.7071)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2246,9 +2246,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Sweden
 
-**xG vs avg opponent:** 1.4272 &nbsp;|&nbsp; GK=0.3486 &nbsp;|&nbsp; DEF=0.4000 &nbsp;|&nbsp; MID=0.1215 &nbsp;|&nbsp; ATT=0.7321
+**xG vs avg opponent:** 1.5445 &nbsp;|&nbsp; GK=0.4137 &nbsp;|&nbsp; DEF=0.4600 &nbsp;|&nbsp; MID=0.2093 &nbsp;|&nbsp; ATT=0.7589
 
-#### Goalkeepers &nbsp;(3/4 used · raw log-mean=70.93 · normalized=0.3486)
+#### Goalkeepers &nbsp;(3/4 used · raw log-mean=70.93 · normalized=0.4137)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2257,7 +2257,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Kristoffer Nordfeldt | FC25 | Kristoffer Nordfeldt | 1.00 | 66.0 | — |
 | ✗ | Jacob Zetterström | FIFA22 | J. Zetterström | 0.87 | 58.2 | — |
 
-#### Defenders &nbsp;(5/7 used · raw log-mean=74.51 · normalized=0.4000)
+#### Defenders &nbsp;(5/7 used · raw log-mean=74.51 · normalized=0.4600)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2269,7 +2269,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Hjalmar Ekdal | FIFA22 | H. Ekdal | 1.00 | 65.0 | — |
 | ✗ | Daniel Svensson | FIFA22 | D. Svensson | 1.00 | 54.0 | — |
 
-#### Midfielders &nbsp;(6/8 used · raw log-mean=69.08 · normalized=0.1215)
+#### Midfielders &nbsp;(6/8 used · raw log-mean=69.08 · normalized=0.2093)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2282,7 +2282,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Elliot Stroud | FC25 | Elliot Stroud | 1.00 | 63.0 | — |
 | ✗ | Besfort Zeneli | FC25 | Besfort Zeneli | 1.00 | 57.5 | — |
 
-#### Attackers &nbsp;(4/6 used · raw log-mean=79.82 · normalized=0.7321)
+#### Attackers &nbsp;(4/6 used · raw log-mean=79.82 · normalized=0.7589)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2297,9 +2297,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Switzerland
 
-**xG vs avg opponent:** 1.2049 &nbsp;|&nbsp; GK=0.6391 &nbsp;|&nbsp; DEF=0.5883 &nbsp;|&nbsp; MID=0.4178 &nbsp;|&nbsp; ATT=0.4830
+**xG vs avg opponent:** 1.3444 &nbsp;|&nbsp; GK=0.6752 &nbsp;|&nbsp; DEF=0.6295 &nbsp;|&nbsp; MID=0.4760 &nbsp;|&nbsp; ATT=0.5347
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=77.87 · normalized=0.6391)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=77.87 · normalized=0.6752)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2307,7 +2307,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Yvon Mvogo | FC25 | Yvon Mvogo | 1.00 | 77.0 | — |
 | ✗ | Marvin Keller | FC25 | Marvin Keller | 1.00 | 70.5 | — |
 
-#### Defenders &nbsp;(6/8 used · raw log-mean=76.93 · normalized=0.5883)
+#### Defenders &nbsp;(6/8 used · raw log-mean=76.93 · normalized=0.6295)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2320,7 +2320,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Miro Muheim | FC25 | Miro Muheim | 1.00 | 70.0 | — |
 | ✗ | Luca Jaquez | FC25 | Luca Jaquez | 1.00 | 69.0 | — |
 
-#### Midfielders &nbsp;(6/9 used · raw log-mean=74.56 · normalized=0.4178)
+#### Midfielders &nbsp;(6/9 used · raw log-mean=74.56 · normalized=0.4760)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2334,7 +2334,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Cedric Itten | FC25 | Cedric Itten | 1.00 | 64.5 | — |
 | ✗ | Ardon Jashari | FIFA22 | A. Jashari | 1.00 | 57.5 | — |
 
-#### Attackers &nbsp;(4/6 used · raw log-mean=76.64 · normalized=0.4830)
+#### Attackers &nbsp;(4/6 used · raw log-mean=76.64 · normalized=0.5347)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2349,9 +2349,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Tunisia
 
-**xG vs avg opponent:** 0.7071 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.1467 &nbsp;|&nbsp; MID=0.1893 &nbsp;|&nbsp; ATT=0.3074
+**xG vs avg opponent:** 0.8962 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.2321 &nbsp;|&nbsp; MID=0.2703 &nbsp;|&nbsp; ATT=0.3766
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2359,7 +2359,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Sabri Ben Hassen | median | — | — | 71.9 | — |
 |  | Abdelmouhib Chamakh | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=71.26 · normalized=0.1467)
+#### Defenders &nbsp;(6/9 used · raw log-mean=71.26 · normalized=0.2321)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2373,7 +2373,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Raed Chikhaoui | TM | — | — | 65.0 | 1,000,000 |
 | ✗ | Mohamed Ben Hmida | TM | — | — | 65.0 | 100,000 |
 
-#### Midfielders &nbsp;(5/7 used · raw log-mean=70.34 · normalized=0.1893)
+#### Midfielders &nbsp;(5/7 used · raw log-mean=70.34 · normalized=0.2703)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2385,7 +2385,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Mohamed Hadj-Mahmoud | FC25 | Mohamed Belhadj Mahmoud | 0.93 | 64.0 | — |
 | ✗ | Mortadha Ben Ouanes | FIFA22 | M. Ben Ouanes | 1.00 | 55.5 | — |
 
-#### Attackers &nbsp;(5/7 used · raw log-mean=74.40 · normalized=0.3074)
+#### Attackers &nbsp;(5/7 used · raw log-mean=74.40 · normalized=0.3766)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2401,9 +2401,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Turkey
 
-**xG vs avg opponent:** 0.8553 &nbsp;|&nbsp; GK=0.6549 &nbsp;|&nbsp; DEF=0.5506 &nbsp;|&nbsp; MID=0.5666 &nbsp;|&nbsp; ATT=0.2271
+**xG vs avg opponent:** 1.0298 &nbsp;|&nbsp; GK=0.6894 &nbsp;|&nbsp; DEF=0.5955 &nbsp;|&nbsp; MID=0.6100 &nbsp;|&nbsp; ATT=0.3044
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=78.25 · normalized=0.6549)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=78.25 · normalized=0.6894)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2411,7 +2411,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Altay Bayindir | FIFA22 | A. Bayındır | 1.00 | 77.5 | — |
 | ✗ | Mert Günok | FC25 | Mert Günok | 1.00 | 76.2 | — |
 
-#### Defenders &nbsp;(6/9 used · raw log-mean=76.45 · normalized=0.5506)
+#### Defenders &nbsp;(6/9 used · raw log-mean=76.45 · normalized=0.5955)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2425,7 +2425,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Mert Müldür | FIFA22 | M. Müldür | 1.00 | 69.5 | — |
 | ✗ | Akaydin | FIFA22 | S. Akaydin | 0.88 | 64.5 | — |
 
-#### Midfielders &nbsp;(3/5 used · raw log-mean=77.32 · normalized=0.5666)
+#### Midfielders &nbsp;(3/5 used · raw log-mean=77.32 · normalized=0.6100)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2435,7 +2435,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Salih Ozcan | FC25 | Salih Özcan | 1.00 | 71.0 | — |
 | ✗ | Kaan Ayhan | FIFA22 | K. Ayhan | 1.00 | 69.5 | — |
 
-#### Attackers &nbsp;(6/9 used · raw log-mean=73.37 · normalized=0.2271)
+#### Attackers &nbsp;(6/9 used · raw log-mean=73.37 · normalized=0.3044)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2453,9 +2453,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### USA
 
-**xG vs avg opponent:** 1.1713 &nbsp;|&nbsp; GK=0.3501 &nbsp;|&nbsp; DEF=0.3192 &nbsp;|&nbsp; MID=0.4675 &nbsp;|&nbsp; ATT=0.4432
+**xG vs avg opponent:** 1.3141 &nbsp;|&nbsp; GK=0.4151 &nbsp;|&nbsp; DEF=0.3873 &nbsp;|&nbsp; MID=0.5207 &nbsp;|&nbsp; ATT=0.4989
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=70.96 · normalized=0.3501)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=70.96 · normalized=0.4151)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2463,7 +2463,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Chris Brady | FC25 | Chris Brady | 1.00 | 68.8 | — |
 | ✗ | Matt Freese | FC25 | Matt Freese | 1.00 | 67.8 | — |
 
-#### Defenders &nbsp;(7/10 used · raw log-mean=73.48 · normalized=0.3192)
+#### Defenders &nbsp;(7/10 used · raw log-mean=73.48 · normalized=0.3873)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2478,7 +2478,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Max Arfsten | FC25 | Maximilian Arfsten | 0.76 | 55.5 | — |
 | ✗ | Alex Freeman | FC25 | Alexander Freeman | 0.83 | 54.5 | — |
 
-#### Midfielders &nbsp;(7/10 used · raw log-mean=75.48 · normalized=0.4675)
+#### Midfielders &nbsp;(7/10 used · raw log-mean=75.48 · normalized=0.5207)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2493,7 +2493,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Cristian Roldan | FC25 | Cristian Roldan | 1.00 | 70.0 | — |
 | ✗ | Sebastian Berhalter | FIFA22 | S. Berhalter | 1.00 | 59.5 | — |
 
-#### Attackers &nbsp;(2/3 used · raw log-mean=76.13 · normalized=0.4432)
+#### Attackers &nbsp;(2/3 used · raw log-mean=76.13 · normalized=0.4989)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2505,9 +2505,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Uruguay
 
-**xG vs avg opponent:** 1.1993 &nbsp;|&nbsp; GK=0.6800 &nbsp;|&nbsp; DEF=0.6647 &nbsp;|&nbsp; MID=0.4477 &nbsp;|&nbsp; ATT=0.4671
+**xG vs avg opponent:** 1.3394 &nbsp;|&nbsp; GK=0.7120 &nbsp;|&nbsp; DEF=0.6983 &nbsp;|&nbsp; MID=0.5029 &nbsp;|&nbsp; ATT=0.5204
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=78.85 · normalized=0.6800)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=78.85 · normalized=0.7120)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2515,7 +2515,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Sergio ROCHET | FIFA22 | S. Rochet | 0.76 | 76.8 | — |
 | ✗ | Santiago MELE | FC25 | Santiago Mele | 1.00 | 72.2 | — |
 
-#### Defenders &nbsp;(5/7 used · raw log-mean=77.91 · normalized=0.6647)
+#### Defenders &nbsp;(5/7 used · raw log-mean=77.91 · normalized=0.6983)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2527,7 +2527,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Matias VINA | FIFA22 | M. Viña | 1.00 | 69.0 | — |
 | ✗ | Guillermo VARELA | FIFA22 | G. Pereira | 0.79 | 54.0 | — |
 
-#### Midfielders &nbsp;(8/11 used · raw log-mean=75.12 · normalized=0.4477)
+#### Midfielders &nbsp;(8/11 used · raw log-mean=75.12 · normalized=0.5029)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2543,7 +2543,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Juan Manuel SANABRIA | FIFA22 | J. Sanabria | 0.85 | 64.0 | — |
 | ✗ | Maxi ARAUJO | FIFA22 | M. Araújo | 0.84 | 58.5 | — |
 
-#### Attackers &nbsp;(3/5 used · raw log-mean=76.44 · normalized=0.4671)
+#### Attackers &nbsp;(3/5 used · raw log-mean=76.44 · normalized=0.5204)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2557,9 +2557,9 @@ Players marked **✗** were discarded (bottom 30%).
 
 ### Uzbekistan
 
-**xG vs avg opponent:** 0.6635 &nbsp;|&nbsp; GK=0.3882 &nbsp;|&nbsp; DEF=0.1994 &nbsp;|&nbsp; MID=0.1243 &nbsp;|&nbsp; ATT=0.3113
+**xG vs avg opponent:** 0.8572 &nbsp;|&nbsp; GK=0.4494 &nbsp;|&nbsp; DEF=0.2795 &nbsp;|&nbsp; MID=0.2119 &nbsp;|&nbsp; ATT=0.3802
 
-#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.3882)
+#### Goalkeepers &nbsp;(2/3 used · raw log-mean=71.88 · normalized=0.4494)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2567,7 +2567,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Abduvohid Nematov | median | — | — | 71.9 | — |
 |  | Utkir Yusupov | median | — | — | 71.9 | — |
 
-#### Defenders &nbsp;(8/12 used · raw log-mean=71.94 · normalized=0.1994)
+#### Defenders &nbsp;(8/12 used · raw log-mean=71.94 · normalized=0.2795)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2584,7 +2584,7 @@ Players marked **✗** were discarded (bottom 30%).
 | ✗ | Umaraali Rakhmonaliev | TM | — | — | 65.0 | 600,000 |
 | ✗ | Ruslanbek Yiyanov | TM | — | — | 65.0 | 400,000 |
 
-#### Midfielders &nbsp;(6/8 used · raw log-mean=69.13 · normalized=0.1243)
+#### Midfielders &nbsp;(6/8 used · raw log-mean=69.13 · normalized=0.2119)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|
@@ -2597,7 +2597,7 @@ Players marked **✗** were discarded (bottom 30%).
 |  | Jashur Jaloliddinov | TM | — | — | 65.0 | 700,000 |
 | ✗ | Jamshid Iskanderov | FIFA22 | J. Iskanderov | 1.00 | 61.5 | — |
 
-#### Attackers &nbsp;(5/7 used · raw log-mean=74.45 · normalized=0.3113)
+#### Attackers &nbsp;(5/7 used · raw log-mean=74.45 · normalized=0.3802)
 
 |   | Player | Tier | Matched as | Conf | Rating | MV (€) |
 |---|--------|------|------------|------|--------|--------|

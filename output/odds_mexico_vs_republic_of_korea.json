@@ -1,0 +1,36 @@
+{
+  "team_a": "mexico",
+  "team_b": "republic_of_korea",
+  "n_sims": 200000,
+  "xg": {
+    "mexico": 1.102,
+    "republic_of_korea": 1.679
+  },
+  "odds": {
+    "mexico": 25.1,
+    "draw": 24.0,
+    "republic_of_korea": 51.0
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 11.4
+    },
+    {
+      "score": "0-1",
+      "pct": 10.4
+    },
+    {
+      "score": "1-2",
+      "pct": 9.7
+    },
+    {
+      "score": "0-2",
+      "pct": 8.7
+    },
+    {
+      "score": "1-0",
+      "pct": 6.9
+    }
+  ]
+}
