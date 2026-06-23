@@ -1,0 +1,36 @@
+{
+  "team_a": "spain",
+  "team_b": "saudi_arabia",
+  "n_sims": 1000000,
+  "xg": {
+    "spain": 2.527,
+    "saudi_arabia": 0.56
+  },
+  "odds": {
+    "spain": 80.1,
+    "draw": 13.8,
+    "saudi_arabia": 6.2
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 14.5
+    },
+    {
+      "score": "3-0",
+      "pct": 12.3
+    },
+    {
+      "score": "1-0",
+      "pct": 11.5
+    },
+    {
+      "score": "2-1",
+      "pct": 8.2
+    },
+    {
+      "score": "4-0",
+      "pct": 7.7
+    }
+  ]
+}

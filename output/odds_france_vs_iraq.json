@@ -1,0 +1,36 @@
+{
+  "team_a": "france",
+  "team_b": "iraq",
+  "n_sims": 1000000,
+  "xg": {
+    "france": 3.56,
+    "iraq": 0.352
+  },
+  "odds": {
+    "france": 93.1,
+    "draw": 5.4,
+    "iraq": 1.5
+  },
+  "top_scores": [
+    {
+      "score": "3-0",
+      "pct": 15.1
+    },
+    {
+      "score": "4-0",
+      "pct": 13.4
+    },
+    {
+      "score": "2-0",
+      "pct": 12.7
+    },
+    {
+      "score": "5-0",
+      "pct": 9.5
+    },
+    {
+      "score": "1-0",
+      "pct": 7.1
+    }
+  ]
+}

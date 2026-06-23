@@ -1,0 +1,36 @@
+{
+  "team_a": "belgium",
+  "team_b": "ira",
+  "n_sims": 1000000,
+  "xg": {
+    "belgium": 2.567,
+    "ira": 0.66
+  },
+  "odds": {
+    "belgium": 78.5,
+    "draw": 14.2,
+    "ira": 7.4
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 13.1
+    },
+    {
+      "score": "3-0",
+      "pct": 11.2
+    },
+    {
+      "score": "1-0",
+      "pct": 10.2
+    },
+    {
+      "score": "2-1",
+      "pct": 8.6
+    },
+    {
+      "score": "3-1",
+      "pct": 7.4
+    }
+  ]
+}

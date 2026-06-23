@@ -218,17 +218,31 @@ Gerador: **Gemini**. Formato: **4:5 retrato, 1080×1350 px**. Arquivo de prompts
 
 ### Convenção de temas por tipo de post
 
-| Tipo | Tema | Fundo | Accent |
-|------|------|-------|--------|
-| Pós-rodada (resultados/classificação) | Dark navy | `#080C18` | verde `#00E676` |
-| Pré-rodada (previsões) | Branco | `#FFFFFF` | azul `#2563EB` / coral `#FB923C` |
+**Todos os slides sempre off-white (#F0F4F8).** Não usar dark navy em nenhum slide.
 
-### Estrutura — Post de Previsões (pré-rodada) ✅ VALIDADO R2
-3 slides: Hook → 1 slide por grupo (2 jogos por slide). Cada slide de grupo tem 2 match cards elevados empilhados. Cada card contém:
-- xG dos dois times (pequeno, centralizado)
+| Tipo | Fundo | Accent |
+|------|-------|--------|
+| Hook | `#F0F4F8` | azul `#2563EB` |
+| Pré-rodada (previsões) | `#F0F4F8` | azul `#2563EB` / coral `#FB923C` |
+| Técnico (performance do modelo) | `#F0F4F8` | — |
+| Destaque de placar exato | `#F0F4F8` | azul `#2563EB` |
+
+### Estrutura padrão do carrossel por rodada (decidida R2)
+
+**Slides de placar real NÃO são padrão.** Resultados servem apenas como insumo para o slide técnico.
+**Exceção:** adicionar slide de destaque de resultado apenas se o modelo acertou um placar exato — e somente aquele jogo.
+
+**Carrossel padrão (N grupos por rodada):**
+1. **Hook** — off-white. Menciona grupos concluídos e grupos com previsões a seguir.
+2. **Slide técnico** — off-white. Probabilidade média que o modelo atribuiu ao resultado real dos jogos já disputados. Comparação com baseline aleatório (33.3%). Detalhamento: uma linha com os % individuais + resultado real abaixo de cada um. Sem barrinhas por jogo.
+3–N. **Slide de previsões por grupo** — off-white. 2 match cards empilhados por slide. Cada card: xG · pill bar (azul/cinza/coral) · `TOP:` 3 score chips.
+
+### Slide de Previsões — Detalhes ✅ VALIDADO R2
+- xG dos dois times (pequeno, centralizado, acima dos nomes)
 - Flag emoji + nome · "vs" · flag + nome
-- Barra pill arredondada (azul=favorito / cinza=empate / coral=azarão) com % dentro em bold
-- `"TOP:"` + 3 score chips inline (rounded dark rectangle, texto branco)
+- Barra pill arredondada (azul=favorito / cinza=empate / coral=azarão) com % em bold branco
+- `"TOP:"` + 3 score chips inline (rounded dark rectangle `#0F172A`, texto branco)
+- Footer: "1.000.000 simulações · Modelo Monte Carlo"
 
 **Framing de prompt Gemini:** `"Professional sports editorial infographic"` + `"Inter or equivalent"` + `"white elevated card with subtle drop shadow"` — NÃO descrever como HTML.
 
@@ -239,8 +253,9 @@ Gerador: **Gemini**. Formato: **4:5 retrato, 1080×1350 px**. Arquivo de prompts
 **Regra obrigatória nos prompts:** todo texto, número e nome que aparece na imagem deve estar explicitamente dentro do bloco `>`. Gemini inventa valores se ficarem fora.
 
 ### Fluxo por rodada
-1. **Pré-rodada:** `match_odds.py` para cada jogo → gerar `image_prompts_post{N}_previsoes_r{X}.md`
-2. **Pós-rodada:** `resultado.py` → `group_projection.py` → `simulate.py` → gerar `image_prompts_post{N}_classificacao.md`
+1. **Pré-rodada:** `match_odds.py <a> <b> 1000000` para cada jogo → gerar arquivo `image_prompts_post{N}_r{X}.md`
+2. **Pós-rodada:** `resultado.py` → calcular probabilidade média do modelo nos resultados reais → slide técnico
+3. **Classificação geral:** `group_projection.py` → `simulate.py` → post separado de classificação
 
 ---
 

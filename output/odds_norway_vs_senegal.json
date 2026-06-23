@@ -1,0 +1,36 @@
+{
+  "team_a": "norway",
+  "team_b": "senegal",
+  "n_sims": 1000000,
+  "xg": {
+    "norway": 2.376,
+    "senegal": 3.033
+  },
+  "odds": {
+    "norway": 30.7,
+    "draw": 17.0,
+    "senegal": 52.3
+  },
+  "top_scores": [
+    {
+      "score": "2-3",
+      "pct": 5.9
+    },
+    {
+      "score": "2-2",
+      "pct": 5.8
+    },
+    {
+      "score": "1-3",
+      "pct": 5.0
+    },
+    {
+      "score": "1-2",
+      "pct": 4.9
+    },
+    {
+      "score": "3-3",
+      "pct": 4.7
+    }
+  ]
+}

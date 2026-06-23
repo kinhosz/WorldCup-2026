@@ -1,0 +1,36 @@
+{
+  "team_a": "paraguay",
+  "team_b": "turkey",
+  "n_sims": 1000000,
+  "xg": {
+    "paraguay": 0.588,
+    "turkey": 1.366
+  },
+  "odds": {
+    "paraguay": 16.0,
+    "draw": 28.1,
+    "turkey": 55.9
+  },
+  "top_scores": [
+    {
+      "score": "0-1",
+      "pct": 19.3
+    },
+    {
+      "score": "0-0",
+      "pct": 14.2
+    },
+    {
+      "score": "0-2",
+      "pct": 13.2
+    },
+    {
+      "score": "1-1",
+      "pct": 11.4
+    },
+    {
+      "score": "1-0",
+      "pct": 8.3
+    }
+  ]
+}

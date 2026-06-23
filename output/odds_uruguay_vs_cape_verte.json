@@ -1,0 +1,36 @@
+{
+  "team_a": "uruguay",
+  "team_b": "cape_verte",
+  "n_sims": 1000000,
+  "xg": {
+    "uruguay": 1.098,
+    "cape_verte": 0.515
+  },
+  "odds": {
+    "uruguay": 49.9,
+    "draw": 32.9,
+    "cape_verte": 17.2
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 21.9
+    },
+    {
+      "score": "0-0",
+      "pct": 19.9
+    },
+    {
+      "score": "2-0",
+      "pct": 12.0
+    },
+    {
+      "score": "1-1",
+      "pct": 11.3
+    },
+    {
+      "score": "0-1",
+      "pct": 10.3
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "morocco",
+  "team_b": "scotland",
+  "n_sims": 1000000,
+  "xg": {
+    "morocco": 1.737,
+    "scotland": 0.661
+  },
+  "odds": {
+    "morocco": 63.3,
+    "draw": 23.0,
+    "scotland": 13.7
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 15.7
+    },
+    {
+      "score": "2-0",
+      "pct": 13.7
+    },
+    {
+      "score": "1-1",
+      "pct": 10.5
+    },
+    {
+      "score": "2-1",
+      "pct": 9.1
+    },
+    {
+      "score": "0-0",
+      "pct": 9.1
+    }
+  ]
+}

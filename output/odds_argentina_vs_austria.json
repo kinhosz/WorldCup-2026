@@ -1,0 +1,36 @@
+{
+  "team_a": "argentina",
+  "team_b": "austria",
+  "n_sims": 1000000,
+  "xg": {
+    "argentina": 1.773,
+    "austria": 0.507
+  },
+  "odds": {
+    "argentina": 68.4,
+    "draw": 21.7,
+    "austria": 9.9
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 18.2
+    },
+    {
+      "score": "2-0",
+      "pct": 16.1
+    },
+    {
+      "score": "0-0",
+      "pct": 10.2
+    },
+    {
+      "score": "3-0",
+      "pct": 9.5
+    },
+    {
+      "score": "1-1",
+      "pct": 9.2
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "england",
+  "team_b": "ghana",
+  "n_sims": 1000000,
+  "xg": {
+    "england": 2.952,
+    "ghana": 0.951
+  },
+  "odds": {
+    "england": 77.8,
+    "draw": 13.1,
+    "ghana": 9.1
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 8.8
+    },
+    {
+      "score": "3-0",
+      "pct": 8.7
+    },
+    {
+      "score": "2-1",
+      "pct": 8.4
+    },
+    {
+      "score": "3-1",
+      "pct": 8.3
+    },
+    {
+      "score": "4-0",
+      "pct": 6.4
+    }
+  ]
+}

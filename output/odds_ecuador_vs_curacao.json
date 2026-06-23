@@ -1,0 +1,36 @@
+{
+  "team_a": "ecuador",
+  "team_b": "curacao",
+  "n_sims": 1000000,
+  "xg": {
+    "ecuador": 2.568,
+    "curacao": 0.423
+  },
+  "odds": {
+    "ecuador": 83.6,
+    "draw": 12.1,
+    "curacao": 4.3
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 16.6
+    },
+    {
+      "score": "3-0",
+      "pct": 14.2
+    },
+    {
+      "score": "1-0",
+      "pct": 12.9
+    },
+    {
+      "score": "4-0",
+      "pct": 9.1
+    },
+    {
+      "score": "2-1",
+      "pct": 7.0
+    }
+  ]
+}

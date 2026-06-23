@@ -1,0 +1,36 @@
+{
+  "team_a": "new_zealand",
+  "team_b": "egypt",
+  "n_sims": 1000000,
+  "xg": {
+    "new_zealand": 1.148,
+    "egypt": 5.317
+  },
+  "odds": {
+    "new_zealand": 2.4,
+    "draw": 4.0,
+    "egypt": 93.6
+  },
+  "top_scores": [
+    {
+      "score": "1-5",
+      "pct": 6.3
+    },
+    {
+      "score": "1-4",
+      "pct": 6.0
+    },
+    {
+      "score": "1-6",
+      "pct": 5.6
+    },
+    {
+      "score": "0-5",
+      "pct": 5.5
+    },
+    {
+      "score": "0-4",
+      "pct": 5.2
+    }
+  ]
+}

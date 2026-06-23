@@ -1,0 +1,36 @@
+{
+  "team_a": "portugal",
+  "team_b": "uzbekistan",
+  "n_sims": 1000000,
+  "xg": {
+    "portugal": 2.674,
+    "uzbekistan": 0.521
+  },
+  "odds": {
+    "portugal": 82.8,
+    "draw": 12.1,
+    "uzbekistan": 5.1
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 14.7
+    },
+    {
+      "score": "3-0",
+      "pct": 13.0
+    },
+    {
+      "score": "1-0",
+      "pct": 11.0
+    },
+    {
+      "score": "4-0",
+      "pct": 8.7
+    },
+    {
+      "score": "2-1",
+      "pct": 7.6
+    }
+  ]
+}
