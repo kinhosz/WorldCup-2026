@@ -5,7 +5,7 @@ Estilo: **Fundo deep indigo (#1E1B4B) · Cards brancos (#FFFFFF) · Accent laran
 
 **REGRA OBRIGATÓRIA:** Cada prompt abaixo é autossuficiente. Todo texto, número e nome que deve aparecer na imagem está listado explicitamente dentro do prompt. Não inventar. Não alterar números. Renderizar exatamente o que está escrito.
 
-Estrutura: 5 slides.
+Estrutura: 4 slides.
 
 ---
 
@@ -42,74 +42,18 @@ Grupos A, B e C fecham hoje. México já classificado, Coreia do Sul em campo pa
 > "Canada · Switzerland · Bosnia · Qatar"
 > "Brazil · Morocco · Scotland · Haiti"
 >
-> One line below in medium white (#F8FAFC): "Previsões a seguir →"
+> A thin horizontal line in (#312E81), ~40% width, centered.
+>
+> Below, a small index list in muted (#A5B4FC), left-aligned inside a ~70% width block, centered on the page:
+> "2 · Grupo A — South Africa vs South Korea · Mexico vs Czech Rep."
+> "3 · Grupo B — Canada vs Switzerland · Bosnia vs Qatar"
+> "4 · Grupo C — Scotland vs Brazil · Morocco vs Haiti"
 >
 > BOTTOM — small uppercase muted (#A5B4FC): "COPA 2026 · SIMULAÇÃO MONTE CARLO"
 
 ---
 
-## SLIDE 2 — Performance do Modelo R2 (técnico)
-
-> Professional sports data analysis infographic. Portrait, 4:5, 1080x1350px. Background: deep indigo (#1E1B4B). Typography: modern bold sans-serif (Inter or equivalent).
->
-> At the very top, centered: small uppercase muted (#A5B4FC): "PERFORMANCE DO MODELO · RODADA 2 · 24 JOGOS"
-> Below: thin full-width line (#312E81).
->
-> A bright white elevated card (#FFFFFF) with strong drop shadow, centered, ~88% width, rounded corners.
->
-> Inside the card:
->
-> Small uppercase gray (#64748B): "PROBABILIDADE MÉDIA NO RESULTADO REAL"
->
-> Very large bold dark (#0F172A): "52.5%"
-> Below in small gray (#94A3B8): "24 jogos · Rodada 2 · baseline aleatório 33.3%"
->
-> Thin divider line (#E2E8F0).
->
-> Two comparison lines, centered:
-> Small gray (#64748B): "Modelo Monte Carlo" · bold dark (#0F172A): "52.5%"
-> Small gray (#64748B): "Baseline aleatório" · gray (#94A3B8): "33.3%"
->
-> Thin divider line (#E2E8F0).
->
-> Small gray (#94A3B8): "Probabilidades atribuídas ao resultado real — Rodada 2:"
->
-> Eight values in two rows of four, evenly spaced, small bold dark text:
-> "14%   15%   12%   94%"
-> "12%    6%   98%   22%"
->
-> Below each value, very small muted gray (#94A3B8) — first row labels:
-> "Bel–Egy   Irã–NZ   Bel–Irã   NZ–Egy"
-> Second row labels:
-> "Esp–CV   Sau–Uru   Esp–Sau   Uru–CV"
->
-> Thin divider line (#E2E8F0).
->
-> Another two rows of four values:
-> "66%   86%   93%   37%"
-> "64%   56%   60%   62%"
->
-> Below each value, very small muted gray (#94A3B8) — first row labels:
-> "Fra–Sen   Ira–Nor   Fra–Ira   Nor–Sen"
-> Second row labels:
-> "Arg–Alg   Aut–Jor   Arg–Aut   Alg–Jor"
->
-> Thin divider line (#E2E8F0).
->
-> Another two rows of four values:
-> "14%   88%   95%   58%"
-> "58%   63%   14%   71%"
->
-> Below each value, very small muted gray (#94A3B8) — first row labels:
-> "Por–Con   Uzb–Col   Por–Uzb   Con–Col"
-> Second row labels:
-> "Eng–Cro   Gha–Pan   Eng–Gha   Cro–Pan"
->
-> BOTTOM outside card: small muted (#A5B4FC): "1.000.000 simulações · Modelo Monte Carlo"
-
----
-
-## SLIDE 3 — Grupo A: Previsões
+## SLIDE 2 — Grupo A: Previsões
 
 > Professional sports editorial infographic. Portrait, 4:5, 1080x1350px. Background: deep indigo (#1E1B4B). The layout has two elevated white match cards (#FFFFFF), each with a strong drop shadow, stacked vertically with comfortable spacing. Typography: modern bold sans-serif (Inter or equivalent). No borders on the outer image.
 >
@@ -160,7 +104,7 @@ Grupos A, B e C fecham hoje. México já classificado, Coreia do Sul em campo pa
 
 ---
 
-## SLIDE 4 — Grupo B: Previsões
+## SLIDE 3 — Grupo B: Previsões
 
 > Professional sports editorial infographic. Portrait, 4:5, 1080x1350px. Background: deep indigo (#1E1B4B). The layout has two elevated white match cards (#FFFFFF), each with a strong drop shadow, stacked vertically with comfortable spacing. Typography: modern bold sans-serif (Inter or equivalent). No borders on the outer image.
 >
@@ -211,7 +155,7 @@ Grupos A, B e C fecham hoje. México já classificado, Coreia do Sul em campo pa
 
 ---
 
-## SLIDE 5 — Grupo C: Previsões
+## SLIDE 4 — Grupo C: Previsões
 
 > Professional sports editorial infographic. Portrait, 4:5, 1080x1350px. Background: deep indigo (#1E1B4B). The layout has two elevated white match cards (#FFFFFF), each with a strong drop shadow, stacked vertically with comfortable spacing. Typography: modern bold sans-serif (Inter or equivalent). No borders on the outer image.
 >
@@ -259,3 +203,4 @@ Grupos A, B e C fecham hoje. México já classificado, Coreia do Sul em campo pa
 > Chip 1: "2–0  20.6%"   Chip 2: "1–0  20.2%"   Chip 3: "3–0  13.9%"
 >
 > At the very bottom of the image, centered small muted (#A5B4FC): "1.000.000 simulações · Modelo Monte Carlo"
+
