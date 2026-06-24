@@ -1,0 +1,36 @@
+{
+  "team_a": "curacao",
+  "team_b": "ivory_coast",
+  "n_sims": 1000000,
+  "xg": {
+    "curacao": 0.369,
+    "ivory_coast": 3.293
+  },
+  "odds": {
+    "curacao": 2.0,
+    "draw": 6.8,
+    "ivory_coast": 91.3
+  },
+  "top_scores": [
+    {
+      "score": "0-3",
+      "pct": 15.3
+    },
+    {
+      "score": "0-2",
+      "pct": 13.9
+    },
+    {
+      "score": "0-4",
+      "pct": 12.6
+    },
+    {
+      "score": "0-1",
+      "pct": 8.4
+    },
+    {
+      "score": "0-5",
+      "pct": 8.3
+    }
+  ]
+}

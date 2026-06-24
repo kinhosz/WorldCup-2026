@@ -1,0 +1,36 @@
+{
+  "team_a": "senegal",
+  "team_b": "iraq",
+  "n_sims": 1000000,
+  "xg": {
+    "senegal": 2.772,
+    "iraq": 0.64
+  },
+  "odds": {
+    "senegal": 81.6,
+    "draw": 12.3,
+    "iraq": 6.0
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 12.7
+    },
+    {
+      "score": "3-0",
+      "pct": 11.7
+    },
+    {
+      "score": "1-0",
+      "pct": 9.1
+    },
+    {
+      "score": "2-1",
+      "pct": 8.1
+    },
+    {
+      "score": "4-0",
+      "pct": 8.1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "spain",
+  "team_b": "uruguay",
+  "n_sims": 1000000,
+  "xg": {
+    "spain": 0.813,
+    "uruguay": 0.491
+  },
+  "odds": {
+    "spain": 40.4,
+    "draw": 39.1,
+    "uruguay": 20.6
+  },
+  "top_scores": [
+    {
+      "score": "0-0",
+      "pct": 27.0
+    },
+    {
+      "score": "1-0",
+      "pct": 22.1
+    },
+    {
+      "score": "0-1",
+      "pct": 13.4
+    },
+    {
+      "score": "1-1",
+      "pct": 10.9
+    },
+    {
+      "score": "2-0",
+      "pct": 9.0
+    }
+  ]
+}

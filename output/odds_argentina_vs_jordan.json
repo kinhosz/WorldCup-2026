@@ -1,0 +1,36 @@
+{
+  "team_a": "argentina",
+  "team_b": "jordan",
+  "n_sims": 1000000,
+  "xg": {
+    "argentina": 3.6,
+    "jordan": 0.563
+  },
+  "odds": {
+    "argentina": 90.6,
+    "draw": 6.7,
+    "jordan": 2.7
+  },
+  "top_scores": [
+    {
+      "score": "3-0",
+      "pct": 12.1
+    },
+    {
+      "score": "4-0",
+      "pct": 10.9
+    },
+    {
+      "score": "2-0",
+      "pct": 10.1
+    },
+    {
+      "score": "5-0",
+      "pct": 7.9
+    },
+    {
+      "score": "3-1",
+      "pct": 6.8
+    }
+  ]
+}

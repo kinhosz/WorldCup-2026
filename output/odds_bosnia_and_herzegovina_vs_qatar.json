@@ -1,0 +1,36 @@
+{
+  "team_a": "bosnia_and_herzegovina",
+  "team_b": "qatar",
+  "n_sims": 1000000,
+  "xg": {
+    "bosnia_and_herzegovina": 1.011,
+    "qatar": 1.022
+  },
+  "odds": {
+    "bosnia_and_herzegovina": 34.5,
+    "draw": 30.5,
+    "qatar": 35.0
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 13.5
+    },
+    {
+      "score": "0-1",
+      "pct": 13.4
+    },
+    {
+      "score": "1-0",
+      "pct": 13.3
+    },
+    {
+      "score": "0-0",
+      "pct": 13.1
+    },
+    {
+      "score": "1-2",
+      "pct": 6.9
+    }
+  ]
+}

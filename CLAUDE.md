@@ -6,15 +6,18 @@ Simulador Monte Carlo da Copa do Mundo 2026. Usa atributos de jogadores (FC25/FI
 
 ---
 
-## Estado Atual (18 jun 2026)
+## Estado Atual (24 jun 2026)
 
-- **Branch:** `fase-grupos/rodada-2` — pronta para trancar, próxima será `rodada-3`
+- **Branch:** `group-phase/round-2` — R2 completa, aguardando R3
 - **Rodada 1:** 24/24 jogos completos ✅
-- **Rodada 2:** 4 jogos iniciados (Grupos A e B), previsões geradas ✅
-- **Calibração:** SA+biases com 24 jogos (λ=3.0, com outliers) — **aplicada em `simulate.py`**
+- **Rodada 2:** 24/24 jogos completos ✅ (todos os 12 grupos)
+- **Calibração:** SA+att_only com 48 jogos (λ=1.5) — **aplicada**
+  - Método: `--att-only` (um bias de ataque por seleção, 52 parâmetros)
+  - NLL=45.67, Brier=0.4327; SA e L-BFGS-B convergiram para o mesmo mínimo
   - Pesos lidos dinamicamente de `output/calibrated_weights_sa.json`
-  - Performance R1: 6/24 placares exatos (25%), 18/24 resultados (75%)
-- **Próximo passo (R3):** re-calibrar com 44 jogos, comparar SA vs L-BFGS-B
+  - Performance R1+R2: 49.8% prob score, 29/48 resultado (60%), 10/48 top score (21%)
+- **Backup pré-R3:** `output/simulation_results_pre_r3.json` (odds de campeão após R1)
+- **Próximo passo (R3):** entrar 24 resultados, retreinar com 72 jogos, gerar odds playoffs
 
 ---
 
@@ -48,20 +51,20 @@ resistance_B = RES_DEF_W × defense_B + RES_GK_W  × goalkeeper_B + RES_MID_W ×
 xG_A = min(BASE_XG × offense_A / max(resistance_B, 0.10), 8.0)
 ```
 
-**Constantes atuais** — SA+biases calibrado R1 com 24 jogos (inclui outliers), aplicado em `simulate.py`:
+**Constantes atuais** — SA+att_only calibrado com 48 jogos (R1+R2), λ=1.5:
 
-| Constante | Valor aplicado | Anterior |
-|-----------|----------------|----------|
-| `BASE_XG` | **1.172** | 1.1192 |
-| `OFF_ATT_W` | **0.8527** | 0.90 |
-| `OFF_MID_W` | **0.1473** | 0.10 |
-| `RES_DEF_W` | **0.5496** | 0.2922 |
-| `RES_GK_W` | **0.2804** | 0.50 |
-| `RES_MID_W` | **0.17** | 0.2078 |
+| Constante | Valor aplicado | Anterior (R1) |
+|-----------|----------------|---------------|
+| `BASE_XG` | **1.1438** | 1.172 |
+| `OFF_ATT_W` | **0.7146** | 0.8527 |
+| `OFF_MID_W` | **0.2854** | 0.1473 |
+| `RES_DEF_W` | **0.4474** | 0.5496 |
+| `RES_GK_W` | **0.05** | 0.2804 |
+| `RES_MID_W` | **0.5026** | 0.17 |
 
-**Biases por seleção:** carregados dinamicamente de `output/calibrated_weights_sa.json` (λ=3.0). Biases notáveis: Spain att=0.66, Portugal att=0.83, Belgium att=0.83, England att=1.17, USA att=1.17, Germany att=1.20, Croatia def=0.72, Paraguay def=0.72.
+**Biases por seleção (att_only):** carregados dinamicamente de `output/calibrated_weights_sa.json`. Notáveis altos: Japan=1.44, Canada=1.39, Germany=1.37, Netherlands=1.35. Notáveis baixos: Ecuador=0.20, Turkey=0.20, Belgium=0.27, Panama=0.31.
 
-**Performance R1 com modelo SA+biases:** 6/24 placares exatos (25%), 18/24 resultados corretos (75%). Erros justificados por fatores extra-modelo (Brazil-Morocco, Spain-Cape Verde, Iran-NZ, Saudi-Uruguay, Qatar-Switzerland, Czech-South Korea).
+**Performance R1+R2 com modelo SA+att_only:** 49.8% prob score, 29/48 resultado (60%), 10/48 top score (21%).
 
 ---
 
@@ -178,14 +181,18 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 
 ## Performance Histórica
 
-### Rodada 1 — modelo SA+biases (24 jogos)
+### Modelo SA+att_only (48 jogos R1+R2, λ=1.5)
 
-| Métrica | Valor |
-|---------|-------|
-| Placar exato | 6/24 = 25% |
-| Resultado correto | 18/24 = 75% |
+| Métrica | R1 | R2 | R1+R2 |
+|---------|----|----|--------|
+| Probability score | 47.1% | 52.5% | 49.8% |
+| Resultado certo | 14/24 (58%) | 15/24 (62%) | 29/48 (60%) |
+| Top score correto | 5/24 (21%) | 5/24 (21%) | 10/48 (21%) |
+| Baseline (aleatório) | — | — | 33.3% |
 
-**Ponto fraco principal:** empates — difíceis com Poisson puro.
+**Modelo anterior R1 (SA+biases, 24 jogos):** 6/24 top (25%), 18/24 resultado (75%) — métricas diferentes (top=placar exato, resultado=vit/emp/der).
+
+**Ponto fraco principal:** empates — difíceis com Poisson puro. Poisson com xG>1.5 gera baixa P(empate).
 
 ---
 
@@ -251,6 +258,8 @@ Gerador: **Gemini**. Formato: **4:5 retrato, 1080×1350 px**. Arquivo de prompts
 **Regra de neutralidade:** sem labels de julgamento ("ZEBRA?", "SURPRESA"). Dados apenas.
 
 **Regra obrigatória nos prompts:** todo texto, número e nome que aparece na imagem deve estar explicitamente dentro do bloco `>`. Gemini inventa valores se ficarem fora.
+
+**Regra de autossuficiência:** cada slide deve ser um prompt completo e standalone — o usuário copia e cola direto no Gemini. Incluir dimensões, fonte, fundo, estilo e a instrução "All text, numbers, and names shown in the image must appear in the content block below — do not invent any values." em CADA slide.
 
 ### Fluxo por rodada
 1. **Pré-rodada:** `match_odds.py <a> <b> 1000000` para cada jogo → gerar arquivo `image_prompts_post{N}_r{X}.md`

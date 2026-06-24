@@ -1,239 +1,217 @@
 {
-  "n_matches": 24,
-  "nll_baseline": 35.3468,
-  "nll_calibrated_insample": 35.0005,
-  "loo_cv_nll_default": 1.4728,
-  "loo_cv_nll_calibrated": 1.6733,
-  "loo_cv_nll_delta": 0.2006,
-  "loo_cv_brier_default": 0.6339,
-  "loo_cv_brier_calibrated": 0.648,
-  "loo_cv_brier_delta": 0.0141,
-  "nll_verdict": "\u2717 PIORA",
-  "brier_verdict": "\u2717 PIORA",
+  "n_matches": 48,
+  "att_only": true,
+  "lambda": 1.5,
+  "nll_baseline": 69.0628,
+  "nll_calibrated_insample": 45.6691,
+  "loo_cv_nll_default": null,
+  "loo_cv_nll_calibrated": null,
+  "loo_cv_nll_delta": null,
+  "loo_cv_brier_default": null,
+  "loo_cv_brier_calibrated": null,
+  "loo_cv_brier_delta": null,
+  "nll_verdict": "N/A (biases ativos)",
+  "brier_verdict": "N/A (biases ativos)",
   "weights": {
-    "BASE_XG": 1.1547,
-    "OFF_ATT_W": 0.8179,
-    "OFF_MID_W": 0.1821,
-    "RES_DEF_W": 0.659,
-    "RES_GK_W": 0.1394,
-    "RES_MID_W": 0.2016
+    "BASE_XG": 1.1439,
+    "OFF_ATT_W": 0.7146,
+    "OFF_MID_W": 0.2854,
+    "RES_DEF_W": 0.4475,
+    "RES_GK_W": 0.05,
+    "RES_MID_W": 0.5025
   },
-  "per_game": [
-    {
-      "match": "Mexico vs South Africa",
-      "result": "2-0",
-      "outcome": "a",
-      "nll_default": 1.6566,
-      "nll_calibrated": 1.6596,
-      "brier_default": 0.4361,
-      "brier_calibrated": 0.4606
+  "biases": {
+    "algeria": {
+      "att_bias": 0.859,
+      "def_bias": 1.0
     },
-    {
-      "match": "South Korea vs Czech Rep.",
-      "result": "2-1",
-      "outcome": "a",
-      "nll_default": 1.8093,
-      "nll_calibrated": 1.8419,
-      "brier_default": 0.6007,
-      "brier_calibrated": 0.6578
+    "argentina": {
+      "att_bias": 1.2415,
+      "def_bias": 1.0
     },
-    {
-      "match": "Canada vs Bosnia",
-      "result": "1-1",
-      "outcome": "draw",
-      "nll_default": 2.7889,
-      "nll_calibrated": 3.4346,
-      "brier_default": 0.9708,
-      "brier_calibrated": 1.0512
+    "australia": {
+      "att_bias": 1.0696,
+      "def_bias": 1.0
     },
-    {
-      "match": "Qatar vs Switzerland",
-      "result": "1-1",
-      "outcome": "draw",
-      "nll_default": 2.4388,
-      "nll_calibrated": 2.4011,
-      "brier_default": 1.1778,
-      "brier_calibrated": 1.1475
+    "austria": {
+      "att_bias": 1.1642,
+      "def_bias": 1.0
     },
-    {
-      "match": "USA vs Paraguay",
-      "result": "4-1",
-      "outcome": "a",
-      "nll_default": 0.2946,
-      "nll_calibrated": 0.7042,
-      "brier_default": 0.1687,
-      "brier_calibrated": 0.2271
+    "belgium": {
+      "att_bias": 0.2731,
+      "def_bias": 1.0
     },
-    {
-      "match": "Australia vs Turkey",
-      "result": "2-0",
-      "outcome": "a",
-      "nll_default": 2.7805,
-      "nll_calibrated": 2.8554,
-      "brier_default": 1.0136,
-      "brier_calibrated": 1.0455
+    "bosnia_and_herzegovina": {
+      "att_bias": 0.8355,
+      "def_bias": 1.0
     },
-    {
-      "match": "Brazil vs Morocco",
-      "result": "1-1",
-      "outcome": "draw",
-      "nll_default": 2.3664,
-      "nll_calibrated": 2.3096,
-      "brier_default": 1.087,
-      "brier_calibrated": 1.0594
+    "brazil": {
+      "att_bias": 0.8696,
+      "def_bias": 1.0
     },
-    {
-      "match": "Haiti vs Scotland",
-      "result": "0-1",
-      "outcome": "b",
-      "nll_default": 1.6716,
-      "nll_calibrated": 1.5622,
-      "brier_default": 0.2082,
-      "brier_calibrated": 0.2206
+    "canada": {
+      "att_bias": 1.3895,
+      "def_bias": 1.0
     },
-    {
-      "match": "Germany vs Curacao",
-      "result": "7-1",
-      "outcome": "a",
-      "nll_default": -3.8457,
-      "nll_calibrated": -2.1067,
-      "brier_default": 0.0049,
-      "brier_calibrated": 0.0327
+    "cape_verte": {
+      "att_bias": 1.2049,
+      "def_bias": 1.0
     },
-    {
-      "match": "C\u00f4te d'Ivoire vs Ecuador",
-      "result": "1-0",
-      "outcome": "a",
-      "nll_default": 2.1212,
-      "nll_calibrated": 2.076,
-      "brier_default": 0.2624,
-      "brier_calibrated": 0.2733
+    "colombia": {
+      "att_bias": 0.7709,
+      "def_bias": 1.0
     },
-    {
-      "match": "Netherlands vs Japan",
-      "result": "2-2",
-      "outcome": "draw",
-      "nll_default": 1.8245,
-      "nll_calibrated": 2.3261,
-      "brier_default": 1.0152,
-      "brier_calibrated": 0.9515
+    "congo": {
+      "att_bias": 0.706,
+      "def_bias": 1.0
     },
-    {
-      "match": "Sweden vs Tunisia",
-      "result": "5-1",
-      "outcome": "a",
-      "nll_default": -1.2823,
-      "nll_calibrated": -1.0397,
-      "brier_default": 0.1246,
-      "brier_calibrated": 0.141
+    "croatia": {
+      "att_bias": 0.9958,
+      "def_bias": 1.0
     },
-    {
-      "match": "Belgium vs Egypt",
-      "result": "1-1",
-      "outcome": "draw",
-      "nll_default": 3.1099,
-      "nll_calibrated": 3.2469,
-      "brier_default": 1.1965,
-      "brier_calibrated": 1.2242
+    "curacao": {
+      "att_bias": 1.064,
+      "def_bias": 1.0
     },
-    {
-      "match": "Iran vs New Zealand",
-      "result": "2-2",
-      "outcome": "draw",
-      "nll_default": 1.5401,
-      "nll_calibrated": 1.4744,
-      "brier_default": 1.2388,
-      "brier_calibrated": 1.1667
+    "czech_republic": {
+      "att_bias": 0.8057,
+      "def_bias": 1.0
     },
-    {
-      "match": "Spain vs Cape Verde",
-      "result": "0-0",
-      "outcome": "draw",
-      "nll_default": 3.3668,
-      "nll_calibrated": 3.2779,
-      "brier_default": 1.5007,
-      "brier_calibrated": 1.4799
+    "ecuador": {
+      "att_bias": 0.2,
+      "def_bias": 1.0
     },
-    {
-      "match": "Saudi Arabia vs Uruguay",
-      "result": "1-1",
-      "outcome": "draw",
-      "nll_default": 3.4244,
-      "nll_calibrated": 3.4199,
-      "brier_default": 1.6716,
-      "brier_calibrated": 1.67
+    "egypt": {
+      "att_bias": 0.6697,
+      "def_bias": 1.0
     },
-    {
-      "match": "France vs Senegal",
-      "result": "3-1",
-      "outcome": "a",
-      "nll_default": 0.9219,
-      "nll_calibrated": 1.0604,
-      "brier_default": 0.2042,
-      "brier_calibrated": 0.2407
+    "england": {
+      "att_bias": 0.9468,
+      "def_bias": 1.0
     },
-    {
-      "match": "Iraq vs Norway",
-      "result": "1-4",
-      "outcome": "b",
-      "nll_default": -0.48,
-      "nll_calibrated": -0.4807,
-      "brier_default": 0.0669,
-      "brier_calibrated": 0.0669
+    "france": {
+      "att_bias": 1.0362,
+      "def_bias": 1.0
     },
-    {
-      "match": "Argentina vs Algeria",
-      "result": "3-0",
-      "outcome": "a",
-      "nll_default": 0.6006,
-      "nll_calibrated": 0.6439,
-      "brier_default": 0.1284,
-      "brier_calibrated": 0.1679
+    "germany": {
+      "att_bias": 1.3685,
+      "def_bias": 1.0
     },
-    {
-      "match": "Austria vs Jordan",
-      "result": "3-1",
-      "outcome": "a",
-      "nll_default": 1.1609,
-      "nll_calibrated": 1.6727,
-      "brier_default": 0.3305,
-      "brier_calibrated": 0.4878
+    "ghana": {
+      "att_bias": 0.5296,
+      "def_bias": 1.0
     },
-    {
-      "match": "Portugal vs Congo",
-      "result": "1-1",
-      "outcome": "draw",
-      "nll_default": 2.7631,
-      "nll_calibrated": 2.6693,
-      "brier_default": 1.2755,
-      "brier_calibrated": 1.2287
+    "haiti": {
+      "att_bias": 0.7692,
+      "def_bias": 1.0
     },
-    {
-      "match": "Uzbekistan vs Colombia",
-      "result": "1-3",
-      "outcome": "b",
-      "nll_default": 0.7745,
-      "nll_calibrated": 0.7893,
-      "brier_default": 0.0286,
-      "brier_calibrated": 0.0275
+    "ira": {
+      "att_bias": 0.7302,
+      "def_bias": 1.0
     },
-    {
-      "match": "England vs Croatia",
-      "result": "4-2",
-      "outcome": "a",
-      "nll_default": 0.545,
-      "nll_calibrated": 1.2696,
-      "brier_default": 0.2216,
-      "brier_calibrated": 0.2415
+    "iraq": {
+      "att_bias": 0.924,
+      "def_bias": 1.0
     },
-    {
-      "match": "Ghana vs Panama",
-      "result": "1-0",
-      "outcome": "a",
-      "nll_default": 2.9952,
-      "nll_calibrated": 3.0924,
-      "brier_default": 0.28,
-      "brier_calibrated": 0.2807
+    "ivory_coast": {
+      "att_bias": 0.8321,
+      "def_bias": 1.0
+    },
+    "japan": {
+      "att_bias": 1.4389,
+      "def_bias": 1.0
+    },
+    "jordan": {
+      "att_bias": 1.0472,
+      "def_bias": 1.0
+    },
+    "mexico": {
+      "att_bias": 1.1334,
+      "def_bias": 1.0
+    },
+    "morocco": {
+      "att_bias": 0.8919,
+      "def_bias": 1.0
+    },
+    "netherlands": {
+      "att_bias": 1.3479,
+      "def_bias": 1.0
+    },
+    "new_zealand": {
+      "att_bias": 1.0958,
+      "def_bias": 1.0
+    },
+    "norway": {
+      "att_bias": 1.1312,
+      "def_bias": 1.0
+    },
+    "panama": {
+      "att_bias": 0.3072,
+      "def_bias": 1.0
+    },
+    "paraguay": {
+      "att_bias": 1.2065,
+      "def_bias": 1.0
+    },
+    "portugal": {
+      "att_bias": 0.9203,
+      "def_bias": 1.0
+    },
+    "qatar": {
+      "att_bias": 0.5574,
+      "def_bias": 1.0
+    },
+    "republic_of_korea": {
+      "att_bias": 0.7357,
+      "def_bias": 1.0
+    },
+    "saudi_arabia": {
+      "att_bias": 0.9763,
+      "def_bias": 1.0
+    },
+    "scotland": {
+      "att_bias": 0.7522,
+      "def_bias": 1.0
+    },
+    "senegal": {
+      "att_bias": 0.9816,
+      "def_bias": 1.0
+    },
+    "south_africa": {
+      "att_bias": 0.838,
+      "def_bias": 1.0
+    },
+    "spain": {
+      "att_bias": 0.5678,
+      "def_bias": 1.0
+    },
+    "sweden": {
+      "att_bias": 1.327,
+      "def_bias": 1.0
+    },
+    "switzerland": {
+      "att_bias": 1.0062,
+      "def_bias": 1.0
+    },
+    "tunisia": {
+      "att_bias": 0.7902,
+      "def_bias": 1.0
+    },
+    "turkey": {
+      "att_bias": 0.2,
+      "def_bias": 1.0
+    },
+    "united_states_of_america": {
+      "att_bias": 1.2389,
+      "def_bias": 1.0
+    },
+    "uruguay": {
+      "att_bias": 0.6452,
+      "def_bias": 1.0
+    },
+    "uzbekistan": {
+      "att_bias": 0.9698,
+      "def_bias": 1.0
     }
-  ]
+  }
 }

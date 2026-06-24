@@ -83,49 +83,75 @@ def sim_game(ta, tb):
     return int(np.random.poisson(xg_a)), int(np.random.poisson(xg_b))
 
 
-def parse_r1_results(group_letter, teams):
-    """Retorna stats iniciais (pts, gd, gf, wins) de cada time com resultados reais da R1."""
-    stats = {t: {'pts': 0, 'gd': 0, 'gf': 0, 'wins': 0} for t in teams}
-    group_results = STATE.get('group_results', {}).get(group_letter, {})
-    for key, scores in group_results.items():
-        ta_key, tb_key = key.split('|')
-        # Encontra os times correspondentes
-        ta = next((t for t in teams if t == ta_key), None)
-        tb = next((t for t in teams if t == tb_key), None)
-        if ta is None or tb is None:
+def _h2h_key(team, tied_teams, match_results):
+    """Head-to-head sub-table for `team` among `tied_teams`."""
+    pts = gd = gf = 0
+    for opp in tied_teams:
+        if opp == team:
             continue
-        ga, gb = scores[0], scores[1]
-        stats[ta]['gf'] += ga
-        stats[tb]['gf'] += gb
-        stats[ta]['gd'] += ga - gb
-        stats[tb]['gd'] += gb - ga
-        if ga > gb:
-            stats[ta]['pts'] += 3
-            stats[ta]['wins'] += 1
-        elif gb > ga:
-            stats[tb]['pts'] += 3
-            stats[tb]['wins'] += 1
+        key  = f"{team}|{opp}"
+        rkey = f"{opp}|{team}"
+        if key in match_results:
+            ga, gb = match_results[key]
+        elif rkey in match_results:
+            gb, ga = match_results[rkey]
         else:
-            stats[ta]['pts'] += 1
-            stats[tb]['pts'] += 1
-    return stats
+            continue
+        gf += ga
+        gd += ga - gb
+        if ga > gb:
+            pts += 3
+        elif ga == gb:
+            pts += 1
+    return (-pts, -gd, -gf)
 
 
-def rank_group(teams, stats):
-    return sorted(
-        teams,
-        key=lambda t: (-stats[t]['pts'], -stats[t]['gd'], -stats[t]['gf'],
-                       -stats[t]['wins'], random.random()),
-    )
+def rank_group(teams, stats, match_results=None):
+    """Tiebreaker FIFA 2026: pts → H2H pts → H2H GD → H2H GF → GD → GF → wins → random."""
+    pts_groups = {}
+    for t in teams:
+        pts_groups.setdefault(stats[t]['pts'], []).append(t)
+
+    def sort_key(t):
+        tied = pts_groups[stats[t]['pts']]
+        if len(tied) > 1 and match_results:
+            h2h = _h2h_key(t, tied, match_results)
+        else:
+            h2h = (0, 0, 0)
+        return (
+            -stats[t]['pts'],
+            h2h[0], h2h[1], h2h[2],
+            -stats[t]['gd'],
+            -stats[t]['gf'],
+            -stats[t]['wins'],
+            random.random(),
+        )
+
+    return sorted(teams, key=sort_key)
 
 
 def simulate_group_once(group_letter, teams):
-    """Simula R2+R3 partindo dos resultados reais da R1. Retorna ranking final."""
-    stats = parse_r1_results(group_letter, teams)
+    """Simula jogos pendentes do grupo usando resultados reais quando disponíveis.
+    Respeita R1 e R2 reais; simula apenas os jogos ainda não disputados."""
+    real_group = STATE.get('group_results', {}).get(group_letter, {})
+    stats = {t: {'pts': 0, 'gd': 0, 'gf': 0, 'wins': 0} for t in teams}
+    match_results = {}
 
-    for i, j in R2_PAIRS + R3_PAIRS:
-        ta, tb = teams[i], teams[j]
-        ga, gb = sim_game(ta, tb)
+    all_pairs = [(teams[0], teams[1]), (teams[2], teams[3]),   # R1
+                 (teams[0], teams[2]), (teams[1], teams[3]),   # R2
+                 (teams[0], teams[3]), (teams[1], teams[2])]   # R3
+
+    for ta, tb in all_pairs:
+        key_ab = f"{ta}|{tb}"
+        key_ba = f"{tb}|{ta}"
+        if key_ab in real_group:
+            ga, gb = real_group[key_ab]
+        elif key_ba in real_group:
+            gb, ga = real_group[key_ba]
+        else:
+            ga, gb = sim_game(ta, tb)
+
+        match_results[f"{ta}|{tb}"] = (ga, gb)
         stats[ta]['gf'] += ga
         stats[tb]['gf'] += gb
         stats[ta]['gd'] += ga - gb
@@ -140,8 +166,7 @@ def simulate_group_once(group_letter, teams):
             stats[ta]['pts'] += 1
             stats[tb]['pts'] += 1
 
-    ranked = rank_group(teams, stats)
-    # Retorna (team, pos, pts, gd, gf) para cada time
+    ranked = rank_group(teams, stats, match_results)
     return [(ranked[pos], pos + 1, stats[ranked[pos]]['pts'],
              stats[ranked[pos]]['gd'], stats[ranked[pos]]['gf'])
             for pos in range(4)]

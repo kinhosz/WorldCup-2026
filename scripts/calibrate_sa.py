@@ -4,10 +4,14 @@ calibrate_sa.py — calibrar constantes xG via Simulated Annealing.
 
 Modo padrão (4 parâmetros livres):
   θ = [BASE_XG, w_att, w_def, w_gk]
-  OFF_MID_W = 1 − w_att
-  RES_MID_W = max(1 − w_def − w_gk, 0.05)
 
-Modo biases (--biases, útil a partir da R3 com ~48+ jogos):
+Modo att-only (--att-only, recomendado para ~44 jogos / R2-R3):
+  θ = [BASE_XG, w_att, w_def, w_gk, att_bias_t1..tN]
+  xG_A = BASE_XG × (off_A × att_bias_A) / res_B      (def_bias fixo em 1.0)
+  loss  = NLL + λ × Σ (att_bias − 1)²
+  52 parâmetros para 88 observações — ratio aceitável com regularização.
+
+Modo biases completo (--biases, recomendado a partir da R3 com ~72+ jogos):
   θ = [BASE_XG, w_att, w_def, w_gk, att_bias_t1..tN, def_bias_t1..tN]
   xG_A = BASE_XG × (off_A × att_bias_A) / (res_B × def_bias_B)
   loss  = NLL + λ × Σ (bias − 1)²
@@ -15,13 +19,14 @@ Modo biases (--biases, útil a partir da R3 com ~48+ jogos):
 SA schedule:
   T(k) = T0 × alpha^k
   Aceita solução pior com P = exp(−Δloss / T)
-  Perturbação: 50% parâmetros globais, 50% biases (quando --biases ativo)
+  Perturbação: 50% parâmetros globais, 50% biases (quando ativo)
 
 Uso:
   python3 scripts/calibrate_sa.py
   python3 scripts/calibrate_sa.py --exclude-outliers
-  python3 scripts/calibrate_sa.py --biases --lambda 0.5
-  python3 scripts/calibrate_sa.py --restarts 10 --iters 500000
+  python3 scripts/calibrate_sa.py --att-only --lambda 1.5
+  python3 scripts/calibrate_sa.py --att-only --iters 500000 --restarts 5
+  python3 scripts/calibrate_sa.py --biases --lambda 2.0
   python3 scripts/calibrate_sa.py --seed 42
 """
 
@@ -60,17 +65,17 @@ STEP_GLOBAL  = [0.04,       0.03,     0.03,    0.02]
 
 # ── Biases ────────────────────────────────────────────────────────────────────
 
-BIAS_BOUNDS  = (0.20, 5.00)   # cada bias multiplicativo
+BIAS_BOUNDS  = (0.20, 5.00)
 BIAS_STEP    = 0.05
 BIAS_DEFAULT = 1.0
 
 # ── SA defaults ───────────────────────────────────────────────────────────────
 
 DEFAULT_T0       = 3.0
-DEFAULT_ALPHA    = 0.99996    # T_final ≈ T0 × alpha^300k ≈ 0.005
+DEFAULT_ALPHA    = 0.99996
 DEFAULT_ITERS    = 300_000
 DEFAULT_RESTARTS = 5
-DEFAULT_LAMBDA   = 1.0        # força da regularização L2 nos biases
+DEFAULT_LAMBDA   = 1.0
 LOG_EVERY        = 10_000
 
 
@@ -96,9 +101,10 @@ def compute_xg(s_a, s_b, theta):
     return min(base_xg * off_a / res_b, MAX_XG), min(base_xg * off_b / res_a, MAX_XG)
 
 
-def compute_xg_biased(s_a, s_b, theta, idx_a, idx_b, n_teams):
+def compute_xg_biased(s_a, s_b, theta, idx_a, idx_b, n_teams, att_only=False):
     """Com biases por seleção.
-    θ = [BASE_XG, w_att, w_def, w_gk, att_bias_0..N-1, def_bias_0..N-1]
+    att_only=True: só att_bias (def_bias fixo em 1.0) — recomendado para 44 jogos.
+    att_only=False: att_bias + def_bias completos — recomendado para 72+ jogos.
     """
     base_xg, w_att, w_def, w_gk = theta[:N_GLOBAL]
     w_mid_off = 1.0 - w_att
@@ -106,8 +112,12 @@ def compute_xg_biased(s_a, s_b, theta, idx_a, idx_b, n_teams):
 
     att_bias_a = theta[N_GLOBAL + idx_a]
     att_bias_b = theta[N_GLOBAL + idx_b]
-    def_bias_a = theta[N_GLOBAL + n_teams + idx_a]
-    def_bias_b = theta[N_GLOBAL + n_teams + idx_b]
+
+    if att_only:
+        def_bias_a = def_bias_b = 1.0
+    else:
+        def_bias_a = theta[N_GLOBAL + n_teams + idx_a]
+        def_bias_b = theta[N_GLOBAL + n_teams + idx_b]
 
     off_a = (w_att * _get(s_a, 'attack') + w_mid_off * _get(s_a, 'midfield')) * att_bias_a
     off_b = (w_att * _get(s_b, 'attack') + w_mid_off * _get(s_b, 'midfield')) * att_bias_b
@@ -120,10 +130,11 @@ def compute_xg_biased(s_a, s_b, theta, idx_a, idx_b, n_teams):
 #  Loss functions
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def poisson_nll(theta, matches, scores, teams_idx=None, lam=0.0):
+def poisson_nll(theta, matches, scores, teams_idx=None, lam=0.0, att_only=False):
     """
     NLL = Σ [ xg − k × log(xg) ].
     Se teams_idx fornecido, usa compute_xg_biased + regularização L2.
+    att_only=True: só att_bias (def fixo em 1.0), regulariza apenas N biases.
     """
     total = 0.0
     if teams_idx is not None:
@@ -132,11 +143,12 @@ def poisson_nll(theta, matches, scores, teams_idx=None, lam=0.0):
             xg_a, xg_b = compute_xg_biased(
                 scores[m['team_a']], scores[m['team_b']], theta,
                 teams_idx[m['team_a']], teams_idx[m['team_b']], n_teams,
+                att_only=att_only,
             )
             total += xg_a - m['goals_a'] * math.log(max(xg_a, 1e-9))
             total += xg_b - m['goals_b'] * math.log(max(xg_b, 1e-9))
-        # regularização L2: penaliza desvio de 1.0
-        biases = theta[N_GLOBAL:]
+        n_biases = n_teams if att_only else 2 * n_teams
+        biases = theta[N_GLOBAL:N_GLOBAL + n_biases]
         total += lam * sum((b - 1.0) ** 2 for b in biases)
     else:
         for m in matches:
@@ -166,7 +178,7 @@ def brier_score(probs, outcome):
 #  SA — vizinhança e perturbação
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def build_initial_theta(rng, use_biases, n_teams, is_first_restart):
+def build_initial_theta(rng, use_biases, n_teams, is_first_restart, att_only=False):
     if is_first_restart:
         global_part = DEFAULTS[:]
     else:
@@ -175,12 +187,11 @@ def build_initial_theta(rng, use_biases, n_teams, is_first_restart):
     if not use_biases:
         return global_part
 
-    # biases começam todos em 1.0 (neutro) — SA vai explorar desvios
-    bias_part = [BIAS_DEFAULT] * (2 * n_teams)
-    return global_part + bias_part
+    n_biases = n_teams if att_only else 2 * n_teams
+    return global_part + [BIAS_DEFAULT] * n_biases
 
 
-def neighbor(theta, rng, use_biases, n_teams):
+def neighbor(theta, rng, use_biases, n_teams, att_only=False):
     """
     Seleciona um parâmetro para perturbar.
     Com biases: 50% chance de mexer num global, 50% num bias.
@@ -188,12 +199,11 @@ def neighbor(theta, rng, use_biases, n_teams):
     new_theta = theta[:]
 
     if use_biases and rng.random() >= 0.50:
-        # perturba um bias
-        i = N_GLOBAL + rng.randint(0, 2 * n_teams - 1)
+        n_biases = n_teams if att_only else 2 * n_teams
+        i = N_GLOBAL + rng.randint(0, n_biases - 1)
         delta = rng.gauss(0, BIAS_STEP)
         lo, hi = BIAS_BOUNDS
     else:
-        # perturba um parâmetro global
         i = rng.randint(0, N_GLOBAL - 1)
         delta = rng.gauss(0, STEP_GLOBAL[i])
         lo, hi = BOUNDS[i]
@@ -210,16 +220,19 @@ def format_globals(theta):
     return "  ".join(f"{n}={theta[i]:.4f}" for i, n in enumerate(PARAM_NAMES))
 
 
-def format_top_biases(theta, teams_list, n_top=5):
+def format_top_biases(theta, teams_list, n_top=5, att_only=False):
     """Mostra os biases com maior desvio de 1.0."""
     n_teams = len(teams_list)
     entries = []
     for i, team in enumerate(teams_list):
         att = theta[N_GLOBAL + i]
-        dfb = theta[N_GLOBAL + n_teams + i]
+        dfb = 1.0 if att_only else theta[N_GLOBAL + n_teams + i]
         entries.append((abs(att - 1.0) + abs(dfb - 1.0), team, att, dfb))
     entries.sort(reverse=True)
-    parts = [f"{t}(att={a:.2f},def={d:.2f})" for _, t, a, d in entries[:n_top]]
+    if att_only:
+        parts = [f"{t}(att={a:.2f})" for _, t, a, _ in entries[:n_top]]
+    else:
+        parts = [f"{t}(att={a:.2f},def={d:.2f})" for _, t, a, d in entries[:n_top]]
     return "  ".join(parts)
 
 
@@ -229,10 +242,10 @@ def format_top_biases(theta, teams_list, n_top=5):
 
 def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
                         restart_idx, n_restarts, use_biases,
-                        teams_idx, teams_list, lam):
+                        teams_idx, teams_list, lam, att_only=False):
     n_teams   = len(teams_list)
-    theta     = build_initial_theta(rng, use_biases, n_teams, restart_idx == 0)
-    curr_loss = poisson_nll(theta, matches, scores, teams_idx if use_biases else None, lam)
+    theta     = build_initial_theta(rng, use_biases, n_teams, restart_idx == 0, att_only)
+    curr_loss = poisson_nll(theta, matches, scores, teams_idx if use_biases else None, lam, att_only)
     best_theta = theta[:]
     best_loss  = curr_loss
 
@@ -241,7 +254,13 @@ def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
     total_window   = 0
     t_start = time.time()
 
-    mode_str = f"biases λ={lam}" if use_biases else "sem biases"
+    if att_only:
+        mode_str = f"att-only λ={lam}"
+    elif use_biases:
+        mode_str = f"biases λ={lam}"
+    else:
+        mode_str = "sem biases"
+
     n_params = len(theta)
     print(f"\n{'━'*72}")
     print(f"  Restart {restart_idx+1}/{n_restarts}  |  {n_iter:,} iters  |  T0={T0}  |  {mode_str}  |  θ={n_params}")
@@ -250,14 +269,14 @@ def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
     print(f"{'━'*72}")
 
     for k in range(1, n_iter + 1):
-        new_theta = neighbor(theta, rng, use_biases, n_teams)
-        new_loss  = poisson_nll(new_theta, matches, scores, teams_idx if use_biases else None, lam)
+        new_theta = neighbor(theta, rng, use_biases, n_teams, att_only)
+        new_loss  = poisson_nll(new_theta, matches, scores, teams_idx if use_biases else None, lam, att_only)
 
-        delta       = new_loss - curr_loss
+        delta        = new_loss - curr_loss
         total_window += 1
 
         if delta < 0 or rng.random() < math.exp(-delta / max(T, 1e-10)):
-            theta    = new_theta
+            theta     = new_theta
             curr_loss = new_loss
             accepts_window += 1
             if new_loss < best_loss:
@@ -278,7 +297,7 @@ def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
             )
             print(f"    globals: {format_globals(best_theta)}")
             if use_biases:
-                print(f"    top bias: {format_top_biases(best_theta, teams_list)}")
+                print(f"    top bias: {format_top_biases(best_theta, teams_list, att_only=att_only)}")
 
             accepts_window = 0
             total_window   = 0
@@ -290,12 +309,12 @@ def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#  Avaliação final (NLL puro sem regularização, para comparar com L-BFGS-B)
+#  Avaliação final
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def evaluate(theta, matches, scores, teams_idx=None):
+def evaluate(theta, matches, scores, teams_idx=None, att_only=False):
     """Retorna (nll_puro, brier_medio) — sem regularização para comparação justa."""
-    nll = poisson_nll(theta, matches, scores, teams_idx, lam=0.0)
+    nll = poisson_nll(theta, matches, scores, teams_idx, lam=0.0, att_only=att_only)
     brier_sum = 0.0
     for m in matches:
         if teams_idx is not None:
@@ -303,6 +322,7 @@ def evaluate(theta, matches, scores, teams_idx=None):
             xg_a, xg_b = compute_xg_biased(
                 scores[m['team_a']], scores[m['team_b']], theta,
                 teams_idx[m['team_a']], teams_idx[m['team_b']], n_teams,
+                att_only=att_only,
             )
         else:
             xg_a, xg_b = compute_xg(scores[m['team_a']], scores[m['team_b']], theta)
@@ -335,7 +355,6 @@ def load_data(exclude_outliers):
         matches = [m for m in matches if abs(m['goals_a'] - m['goals_b']) < OUTLIER_MIN_GOAL_DIFF]
         print(f"  --exclude-outliers: {before - len(matches)} jogo(s) removido(s)")
 
-    # índice de times presentes no treino
     teams = sorted({m['team_a'] for m in matches} | {m['team_b'] for m in matches})
     teams_idx = {t: i for i, t in enumerate(teams)}
 
@@ -349,10 +368,14 @@ def load_data(exclude_outliers):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--exclude-outliers', action='store_true')
-    parser.add_argument('--biases',  action='store_true',
-                        help='Ativa biases por seleção (útil com 48+ jogos)')
-    parser.add_argument('--lambda',  dest='lam', type=float, default=DEFAULT_LAMBDA,
-                        help=f'Força L2 nos biases (default: {DEFAULT_LAMBDA})')
+
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument('--att-only', action='store_true',
+                            help='Biases somente de ataque por seleção (recomendado para ~44 jogos)')
+    mode_group.add_argument('--biases', action='store_true',
+                            help='Biases att+def por seleção (recomendado para 72+ jogos)')
+
+    parser.add_argument('--lambda',  dest='lam', type=float, default=DEFAULT_LAMBDA)
     parser.add_argument('--iters',    type=int,   default=DEFAULT_ITERS)
     parser.add_argument('--restarts', type=int,   default=DEFAULT_RESTARTS)
     parser.add_argument('--T0',       type=float, default=DEFAULT_T0)
@@ -360,7 +383,17 @@ def main():
     parser.add_argument('--seed',     type=int,   default=2026)
     args = parser.parse_args()
 
-    T_final  = args.T0 * (args.alpha ** args.iters)
+    use_biases = args.biases or args.att_only
+    att_only   = args.att_only
+
+    T_final = args.T0 * (args.alpha ** args.iters)
+
+    if att_only:
+        mode_label = f"att-only  (λ={args.lam})"
+    elif use_biases:
+        mode_label = f"biases att+def  (λ={args.lam})"
+    else:
+        mode_label = "sem biases"
 
     print("=" * 72)
     print("  Simulated Annealing — Calibração xG  |  Copa do Mundo 2026")
@@ -371,15 +404,17 @@ def main():
     print(f"  alpha         : {args.alpha}")
     print(f"  Seed          : {args.seed}")
     print(f"  Outliers      : {'excluídos' if args.exclude_outliers else 'incluídos'}")
-    print(f"  Modo biases   : {'SIM  (λ=' + str(args.lam) + ')' if args.biases else 'NÃO'}")
+    print(f"  Modo          : {mode_label}")
     print("=" * 72)
 
     print("\nCarregando dados...")
     matches, scores, teams_list, teams_idx = load_data(args.exclude_outliers)
     print(f"  {len(matches)} jogos  |  {len(teams_list)} seleções")
-    if args.biases:
-        n_params = N_GLOBAL + 2 * len(teams_list)
-        print(f"  Parâmetros totais: {n_params}  ({N_GLOBAL} globais + {2*len(teams_list)} biases)")
+    if use_biases:
+        n_biases = len(teams_list) if att_only else 2 * len(teams_list)
+        n_params = N_GLOBAL + n_biases
+        print(f"  Parâmetros totais: {n_params}  ({N_GLOBAL} globais + {n_biases} biases)")
+        print(f"  Ratio params/dados: {n_params}/{len(matches)*2} = {n_params/(len(matches)*2):.2f}")
 
     # ── Baselines ─────────────────────────────────────────────────────────────
 
@@ -412,10 +447,11 @@ def main():
             rng         = rng,
             restart_idx = r,
             n_restarts  = args.restarts,
-            use_biases  = args.biases,
+            use_biases  = use_biases,
             teams_idx   = teams_idx,
             teams_list  = teams_list,
             lam         = args.lam,
+            att_only    = att_only,
         )
         if loss < global_best_loss:
             global_best_loss  = loss
@@ -426,8 +462,8 @@ def main():
 
     # ── Resultado final ───────────────────────────────────────────────────────
 
-    eval_idx = teams_idx if args.biases else None
-    nll_sa, brier_sa = evaluate(global_best_theta, matches, scores, eval_idx)
+    eval_idx = teams_idx if use_biases else None
+    nll_sa, brier_sa = evaluate(global_best_theta, matches, scores, eval_idx, att_only)
 
     print(f"\n{'=' * 72}")
     print(f"  RESULTADO FINAL  ({elapsed:.1f}s total)")
@@ -440,29 +476,30 @@ def main():
         print(f"  {'L-BFGS-B':<22} {lbfgs_nll:>8.4f}  {lbfgs_nll-nll_default:>+10.4f}  {lbfgs_brier:>8.4f}")
     print(f"  {'SA':<22} {nll_sa:>8.4f}  {nll_sa-nll_default:>+10.4f}  {brier_sa:>8.4f}")
 
-    # globais
     print(f"\n  Parâmetros globais SA:")
     orig = dict(zip(PARAM_NAMES, DEFAULTS))
     for i, name in enumerate(PARAM_NAMES):
         print(f"    {name:<12} = {global_best_theta[i]:.4f}  (era {orig[name]})")
 
-    # biases
-    if args.biases:
+    if use_biases:
         n_teams = len(teams_list)
-        print(f"\n  Biases por seleção (λ={args.lam}):")
+        print(f"\n  Biases por seleção ({mode_label}):")
         bias_rows = []
         for i, team in enumerate(teams_list):
             att = global_best_theta[N_GLOBAL + i]
-            dfb = global_best_theta[N_GLOBAL + n_teams + i]
+            dfb = 1.0 if att_only else global_best_theta[N_GLOBAL + n_teams + i]
             bias_rows.append((team, att, dfb))
         bias_rows.sort(key=lambda x: -(abs(x[1]-1) + abs(x[2]-1)))
-        print(f"  {'Seleção':<28} {'att_bias':>10}  {'def_bias':>10}")
-        print(f"  {'-'*28} {'-'*10}  {'-'*10}")
+        header = f"  {'Seleção':<28} {'att_bias':>10}" + ("" if att_only else f"  {'def_bias':>10}")
+        print(header)
+        print(f"  {'-'*28} {'-'*10}" + ("" if att_only else f"  {'-'*10}"))
         for team, att, dfb in bias_rows:
-            flag = " ←" if abs(att-1) > 0.15 or abs(dfb-1) > 0.15 else ""
-            print(f"  {team:<28} {att:>10.4f}  {dfb:>10.4f}{flag}")
+            flag = " ←" if abs(att-1) > 0.15 or (not att_only and abs(dfb-1) > 0.15) else ""
+            if att_only:
+                print(f"  {team:<28} {att:>10.4f}{flag}")
+            else:
+                print(f"  {team:<28} {att:>10.4f}  {dfb:>10.4f}{flag}")
 
-    # veredicto vs L-BFGS-B
     if lbfgs_nll is not None:
         if nll_sa < lbfgs_nll - 0.01:
             verdict = "SA encontrou mínimo MELHOR que L-BFGS-B"
@@ -487,7 +524,8 @@ def main():
         'method':           'simulated_annealing',
         'n_matches':        len(matches),
         'exclude_outliers': args.exclude_outliers,
-        'use_biases':       args.biases,
+        'use_biases':       use_biases,
+        'att_only':         att_only,
         'sa_params': {
             'n_iter':     args.iters,
             'n_restarts': args.restarts,
@@ -495,7 +533,7 @@ def main():
             'alpha':      args.alpha,
             'T_final':    round(T_final, 6),
             'seed':       args.seed,
-            'lambda':     args.lam if args.biases else None,
+            'lambda':     args.lam if use_biases else None,
         },
         'nll_default': round(nll_default, 4),
         'nll_sa':      round(nll_sa,      4),
@@ -506,12 +544,12 @@ def main():
         'weights': w_global,
     }
 
-    if args.biases:
+    if use_biases:
         n_teams = len(teams_list)
         out['biases'] = {
             team: {
                 'att_bias': round(global_best_theta[N_GLOBAL + i], 4),
-                'def_bias': round(global_best_theta[N_GLOBAL + n_teams + i], 4),
+                'def_bias': 1.0 if att_only else round(global_best_theta[N_GLOBAL + n_teams + i], 4),
             }
             for i, team in enumerate(teams_list)
         }

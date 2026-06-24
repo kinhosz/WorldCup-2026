@@ -1,0 +1,36 @@
+{
+  "team_a": "netherlands",
+  "team_b": "tunisia",
+  "n_sims": 1000000,
+  "xg": {
+    "netherlands": 4.459,
+    "tunisia": 0.415
+  },
+  "odds": {
+    "netherlands": 96.2,
+    "draw": 3.0,
+    "tunisia": 0.8
+  },
+  "top_scores": [
+    {
+      "score": "4-0",
+      "pct": 12.6
+    },
+    {
+      "score": "3-0",
+      "pct": 11.3
+    },
+    {
+      "score": "5-0",
+      "pct": 11.2
+    },
+    {
+      "score": "6-0",
+      "pct": 8.3
+    },
+    {
+      "score": "2-0",
+      "pct": 7.6
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "mexico",
+  "team_b": "czech_republic",
+  "n_sims": 1000000,
+  "xg": {
+    "mexico": 0.792,
+    "czech_republic": 0.915
+  },
+  "odds": {
+    "mexico": 29.6,
+    "draw": 33.8,
+    "czech_republic": 36.6
+  },
+  "top_scores": [
+    {
+      "score": "0-0",
+      "pct": 18.2
+    },
+    {
+      "score": "0-1",
+      "pct": 16.7
+    },
+    {
+      "score": "1-0",
+      "pct": 14.3
+    },
+    {
+      "score": "1-1",
+      "pct": 13.1
+    },
+    {
+      "score": "0-2",
+      "pct": 7.6
+    }
+  ]
+}

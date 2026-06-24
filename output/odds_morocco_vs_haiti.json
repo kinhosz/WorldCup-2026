@@ -1,0 +1,36 @@
+{
+  "team_a": "morocco",
+  "team_b": "haiti",
+  "n_sims": 1000000,
+  "xg": {
+    "morocco": 2.032,
+    "haiti": 0.274
+  },
+  "odds": {
+    "morocco": 79.6,
+    "draw": 16.3,
+    "haiti": 4.0
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 20.6
+    },
+    {
+      "score": "1-0",
+      "pct": 20.2
+    },
+    {
+      "score": "3-0",
+      "pct": 13.9
+    },
+    {
+      "score": "0-0",
+      "pct": 10.0
+    },
+    {
+      "score": "4-0",
+      "pct": 7.1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "paraguay",
+  "team_b": "australia",
+  "n_sims": 1000000,
+  "xg": {
+    "paraguay": 1.138,
+    "australia": 1.69
+  },
+  "odds": {
+    "paraguay": 25.6,
+    "draw": 24.1,
+    "australia": 50.4
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 11.4
+    },
+    {
+      "score": "0-1",
+      "pct": 10.0
+    },
+    {
+      "score": "1-2",
+      "pct": 9.7
+    },
+    {
+      "score": "0-2",
+      "pct": 8.5
+    },
+    {
+      "score": "1-0",
+      "pct": 6.7
+    }
+  ]
+}

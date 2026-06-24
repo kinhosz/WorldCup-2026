@@ -1,0 +1,36 @@
+{
+  "team_a": "congo",
+  "team_b": "uzbekistan",
+  "n_sims": 1000000,
+  "xg": {
+    "congo": 2.164,
+    "uzbekistan": 0.976
+  },
+  "odds": {
+    "congo": 64.5,
+    "draw": 19.6,
+    "uzbekistan": 15.9
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 10.1
+    },
+    {
+      "score": "2-1",
+      "pct": 9.9
+    },
+    {
+      "score": "1-0",
+      "pct": 9.3
+    },
+    {
+      "score": "1-1",
+      "pct": 9.1
+    },
+    {
+      "score": "3-0",
+      "pct": 7.3
+    }
+  ]
+}

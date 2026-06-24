@@ -186,14 +186,39 @@ def sim_knockout_match(ta, tb, scores):
 #  Group stage
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+def _h2h_key(team, tied_teams, match_results):
+    """Head-to-head sub-table for `team` among `tied_teams`."""
+    pts = gd = gf = 0
+    for opp in tied_teams:
+        if opp == team:
+            continue
+        key = f"{team}|{opp}"
+        rkey = f"{opp}|{team}"
+        if key in match_results:
+            ga, gb = match_results[key]
+        elif rkey in match_results:
+            gb, ga = match_results[rkey]
+        else:
+            continue
+        gf += ga
+        gd += ga - gb
+        if ga > gb:
+            pts += 3
+        elif ga == gb:
+            pts += 1
+    return (-pts, -gd, -gf)
+
+
 def simulate_group(teams, scores, letter=None):
     """
     Simulate one group (round-robin). Returns list of (team, pts, gd, gf, wins)
-    sorted 1st → 4th. Tiebreaker: pts → GD → GF → wins → random.
+    sorted 1st → 4th.
+    Tiebreaker (FIFA 2026): pts → H2H pts → H2H GD → H2H GF → overall GD → GF → wins → random.
     Already-played matches (in copa_real_state.json) use real scores.
     """
     stats = {t: {'pts': 0, 'gd': 0, 'gf': 0, 'wins': 0} for t in teams}
     real_group = _REAL_GROUP_RESULTS.get(letter, {}) if letter else {}
+    match_results = {}   # "ta|tb" → (ga, gb) — all matches this group
 
     for ta, tb in combinations(teams, 2):
         key_ab, key_ba = f"{ta}|{tb}", f"{tb}|{ta}"
@@ -203,6 +228,7 @@ def simulate_group(teams, scores, letter=None):
             gb, ga = real_group[key_ba]
         else:
             ga, gb = sim_group_match(ta, tb, scores)
+        match_results[f"{ta}|{tb}"] = (ga, gb)
         stats[ta]['gf'] += ga
         stats[tb]['gf'] += gb
         stats[ta]['gd'] += ga - gb
@@ -217,11 +243,25 @@ def simulate_group(teams, scores, letter=None):
             stats[ta]['pts'] += 1
             stats[tb]['pts'] += 1
 
-    ranked = sorted(
-        teams,
-        key=lambda t: (-stats[t]['pts'], -stats[t]['gd'], -stats[t]['gf'],
-                       -stats[t]['wins'], random.random()),
-    )
+    # Group teams by point total for head-to-head computation
+    pts_groups = {}
+    for t in teams:
+        p = stats[t]['pts']
+        pts_groups.setdefault(p, []).append(t)
+
+    def sort_key(t):
+        tied = pts_groups[stats[t]['pts']]
+        h2h = _h2h_key(t, tied, match_results) if len(tied) > 1 else (0, 0, 0)
+        return (
+            -stats[t]['pts'],
+            h2h[0], h2h[1], h2h[2],          # H2H pts, GD, GF (negated inside _h2h_key)
+            -stats[t]['gd'],
+            -stats[t]['gf'],
+            -stats[t]['wins'],
+            random.random(),
+        )
+
+    ranked = sorted(teams, key=sort_key)
     return [(t, stats[t]['pts'], stats[t]['gd'], stats[t]['gf'], stats[t]['wins'])
             for t in ranked]
 

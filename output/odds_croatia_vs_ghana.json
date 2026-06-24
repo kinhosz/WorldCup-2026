@@ -1,0 +1,36 @@
+{
+  "team_a": "croatia",
+  "team_b": "ghana",
+  "n_sims": 1000000,
+  "xg": {
+    "croatia": 1.695,
+    "ghana": 0.578
+  },
+  "odds": {
+    "croatia": 64.7,
+    "draw": 23.1,
+    "ghana": 12.2
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 17.5
+    },
+    {
+      "score": "2-0",
+      "pct": 14.7
+    },
+    {
+      "score": "0-0",
+      "pct": 10.3
+    },
+    {
+      "score": "1-1",
+      "pct": 10.0
+    },
+    {
+      "score": "2-1",
+      "pct": 8.6
+    }
+  ]
+}

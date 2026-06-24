@@ -1,0 +1,36 @@
+{
+  "team_a": "egypt",
+  "team_b": "ira",
+  "n_sims": 1000000,
+  "xg": {
+    "egypt": 1.834,
+    "ira": 1.133
+  },
+  "odds": {
+    "egypt": 53.7,
+    "draw": 22.9,
+    "ira": 23.4
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 10.7
+    },
+    {
+      "score": "2-1",
+      "pct": 9.8
+    },
+    {
+      "score": "1-0",
+      "pct": 9.4
+    },
+    {
+      "score": "2-0",
+      "pct": 8.6
+    },
+    {
+      "score": "1-2",
+      "pct": 6.1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "belgium",
+  "team_b": "new_zealand",
+  "n_sims": 1000000,
+  "xg": {
+    "belgium": 1.583,
+    "new_zealand": 0.569
+  },
+  "odds": {
+    "belgium": 62.2,
+    "draw": 24.7,
+    "new_zealand": 13.1
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 18.4
+    },
+    {
+      "score": "2-0",
+      "pct": 14.6
+    },
+    {
+      "score": "0-0",
+      "pct": 11.6
+    },
+    {
+      "score": "1-1",
+      "pct": 10.5
+    },
+    {
+      "score": "2-1",
+      "pct": 8.3
+    }
+  ]
+}

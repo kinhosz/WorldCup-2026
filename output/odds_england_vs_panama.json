@@ -1,0 +1,36 @@
+{
+  "team_a": "england",
+  "team_b": "panama",
+  "n_sims": 1000000,
+  "xg": {
+    "england": 3.475,
+    "panama": 0.18
+  },
+  "odds": {
+    "england": 94.8,
+    "draw": 4.5,
+    "panama": 0.7
+  },
+  "top_scores": [
+    {
+      "score": "3-0",
+      "pct": 18.1
+    },
+    {
+      "score": "4-0",
+      "pct": 15.7
+    },
+    {
+      "score": "2-0",
+      "pct": 15.7
+    },
+    {
+      "score": "5-0",
+      "pct": 10.9
+    },
+    {
+      "score": "1-0",
+      "pct": 9.0
+    }
+  ]
+}

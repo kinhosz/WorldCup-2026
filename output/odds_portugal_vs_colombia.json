@@ -1,0 +1,36 @@
+{
+  "team_a": "portugal",
+  "team_b": "colombia",
+  "n_sims": 1000000,
+  "xg": {
+    "portugal": 1.729,
+    "colombia": 0.771
+  },
+  "odds": {
+    "portugal": 60.2,
+    "draw": 23.3,
+    "colombia": 16.4
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 14.2
+    },
+    {
+      "score": "2-0",
+      "pct": 12.3
+    },
+    {
+      "score": "1-1",
+      "pct": 10.9
+    },
+    {
+      "score": "2-1",
+      "pct": 9.4
+    },
+    {
+      "score": "0-0",
+      "pct": 8.2
+    }
+  ]
+}

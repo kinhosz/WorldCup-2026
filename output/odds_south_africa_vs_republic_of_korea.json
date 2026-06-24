@@ -1,0 +1,36 @@
+{
+  "team_a": "south_africa",
+  "team_b": "republic_of_korea",
+  "n_sims": 1000000,
+  "xg": {
+    "south_africa": 0.927,
+    "republic_of_korea": 2.088
+  },
+  "odds": {
+    "south_africa": 15.7,
+    "draw": 20.1,
+    "republic_of_korea": 64.2
+  },
+  "top_scores": [
+    {
+      "score": "0-2",
+      "pct": 10.7
+    },
+    {
+      "score": "0-1",
+      "pct": 10.3
+    },
+    {
+      "score": "1-2",
+      "pct": 9.9
+    },
+    {
+      "score": "1-1",
+      "pct": 9.5
+    },
+    {
+      "score": "0-3",
+      "pct": 7.4
+    }
+  ]
+}
