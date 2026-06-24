@@ -204,67 +204,66 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 | `output/copa_real_state.json` | Resultados reais (24 jogos R1) |
 | `output/calibrated_weights_sa.json` | Pesos SA+biases ativos (lidos por simulate.py e match_odds.py) |
 | `output/calibrated_weights.json` | Pesos L-BFGS-B (referência, não aplicado) |
-| `output/simulation_results.json` | Última simulação (50k, pós-R1) |
-| `output/group_projection.json` | Probabilidades de classificação por grupo (pós-R1) |
-| `output/champion_odds_original.json` | Odds de campeão pré-R1 (baseline histórico) |
-| `output/model_eval.json` | Avaliação formal R1 |
+| `output/simulation_results.json` | Última simulação 1M (pós-R2, Model3) |
+| `output/simulation_results_pre_r3.json` | Backup odds campeão pré-R3 (para comparação futura) |
+| `output/group_projection.json` | Probabilidades de classificação por grupo (pós-R2) |
+| `output/model_eval.json` | Avaliação formal R1+R2 (48 jogos, Model3) |
 | `output/score_audit.md` | Breakdown por jogador (tier, rating, dropped?) |
-| `output/round_1_comparison.md` | Previsão vs real R1 (20 jogos) |
-| `output/calibration_report_r1.md` | Relatório completo calibração R1 |
 | `output/calibration_report.png` | Gráfico da calibração |
-| `output/odds_czech_republic_vs_south_africa.json` | Odds R2 — Grupo A |
-| `output/odds_mexico_vs_republic_of_korea.json` | Odds R2 — Grupo A |
-| `output/odds_switzerland_vs_bosnia_and_herzegovina.json` | Odds R2 — Grupo B |
-| `output/odds_canada_vs_qatar.json` | Odds R2 — Grupo B |
+| `output/odds_*.json` | Odds R3 — todos os 24 jogos (1M sims, Model3) |
+| `r2_tecnico.md` | Prompts Instagram post técnico R2 (dark navy, 6 slides) |
+| `r3_grupos_abc.md` | Prompts Instagram previsões R3 Grupos A+B+C (midnight blue, 5 slides) |
 
 ---
 
 ## Social Media — Posts Instagram
 
-Gerador: **Gemini**. Formato: **4:5 retrato, 1080×1350 px**. Arquivo de prompts por post.
+Gerador: **Gemini**. Formato: **4:5 retrato, 1080×1350 px**.
+Arquivos de prompts: `r{N}_{descricao}.md` na raiz do projeto (ex: `r3_grupos_abc.md`).
 
-### Convenção de temas por tipo de post
+### Identidade visual por rodada
 
-**Todos os slides sempre off-white (#F0F4F8).** Não usar dark navy em nenhum slide.
+| Rodada | Fundo | Cards | Accent favorito | Accent azarão |
+|--------|-------|-------|-----------------|---------------|
+| R1 | dark navy `#080C18` | dark `#1E293B` | verde neon `#00E676` | — |
+| R2 | off-white `#F0F4F8` | branco `#FFFFFF` | azul `#2563EB` | coral `#F97316` |
+| R3 | midnight blue `#1A2E4A` | branco `#FFFFFF` | laranja `#E95420` | cinza `#94A3B8` |
 
-| Tipo | Fundo | Accent |
-|------|-------|--------|
-| Hook | `#F0F4F8` | azul `#2563EB` |
-| Pré-rodada (previsões) | `#F0F4F8` | azul `#2563EB` / coral `#FB923C` |
-| Técnico (performance do modelo) | `#F0F4F8` | — |
-| Destaque de placar exato | `#F0F4F8` | azul `#2563EB` |
+**R3 — detalhes do design (validado):**
+- Fundo: `#1A2E4A` (midnight steel blue)
+- Card: `#FFFFFF` branco com drop shadow forte — contraste nítido contra o fundo
+- Accent favorito: `#E95420` (laranja) — usado na pill bar e no label do favorito
+- Pill bar: seção favorito em `#E95420` · empate em `#94A3B8` · azarão em `#CBD5E1`
+- Score chips: fundo `#0F172A`, texto branco bold
+- Labels fora dos cards (footer, header): `#93C5FD` (azul claro muted)
+- Texto dentro dos cards: dark `#0F172A`, labels `#64748B`, muted `#94A3B8`
+- Framing: `"Professional sports editorial infographic"` + `"Inter or equivalent"` + `"bright white elevated card with strong drop shadow on midnight blue background"`
 
-### Estrutura padrão do carrossel por rodada (decidida R2)
+### Estrutura padrão do carrossel de previsões
 
-**Slides de placar real NÃO são padrão.** Resultados servem apenas como insumo para o slide técnico.
-**Exceção:** adicionar slide de destaque de resultado apenas se o modelo acertou um placar exato — e somente aquele jogo.
+**Carrossel padrão (N grupos):**
+1. **Hook** — grupos que fecham + times listados + "Previsões a seguir →"
+2. **Slide técnico** — prob média do modelo nos resultados reais da rodada anterior. Comparação com baseline 33.3%. Lista individual de todos os jogos com %. Sem barrinhas.
+3–N. **Slide de previsões por grupo** — 2 match cards empilhados. Cada card: `xG A · · · xG B` · nomes · pill bar proporcional · `TOP:` 3 score chips.
 
-**Carrossel padrão (N grupos por rodada):**
-1. **Hook** — off-white. Menciona grupos concluídos e grupos com previsões a seguir.
-2. **Slide técnico** — off-white. Probabilidade média que o modelo atribuiu ao resultado real dos jogos já disputados. Comparação com baseline aleatório (33.3%). Detalhamento: uma linha com os % individuais + resultado real abaixo de cada um. Sem barrinhas por jogo.
-3–N. **Slide de previsões por grupo** — off-white. 2 match cards empilhados por slide. Cada card: xG · pill bar (azul/cinza/coral) · `TOP:` 3 score chips.
+### Slide de Previsões — Regras do match card ✅ VALIDADO R3
+- xG centralizado acima dos nomes: `"xG X.XX · · · Y.YY xG"`
+- Pill bar: **CRITICAL — seção proporcional ao valor exato**. Seção < 7% → sem texto dentro, mostrar % no label abaixo.
+- Labels abaixo da pill bar **em uma única linha** (nunca quebrar em duas linhas).
+- `"TOP:"` + 3 score chips inline (fundo `#0F172A`, texto branco bold, formato `"X–Y  ZZ.Z%"`)
+- Footer: `"1.000.000 simulações · Modelo Monte Carlo"`
 
-### Slide de Previsões — Detalhes ✅ VALIDADO R2
-- xG dos dois times (pequeno, centralizado, acima dos nomes)
-- Flag emoji + nome · "vs" · flag + nome
-- Barra pill arredondada (azul=favorito / cinza=empate / coral=azarão) com % em bold branco
-- `"TOP:"` + 3 score chips inline (rounded dark rectangle `#0F172A`, texto branco)
-- Footer: "1.000.000 simulações · Modelo Monte Carlo"
-
-**Framing de prompt Gemini:** `"Professional sports editorial infographic"` + `"Inter or equivalent"` + `"white elevated card with subtle drop shadow"` — NÃO descrever como HTML.
-
-**Referência validada:** `image_prompts_post3_previsoes_r2.md` ✅
-
-**Regra de neutralidade:** sem labels de julgamento ("ZEBRA?", "SURPRESA"). Dados apenas.
-
-**Regra obrigatória nos prompts:** todo texto, número e nome que aparece na imagem deve estar explicitamente dentro do bloco `>`. Gemini inventa valores se ficarem fora.
-
-**Regra de autossuficiência:** cada slide deve ser um prompt completo e standalone — o usuário copia e cola direto no Gemini. Incluir dimensões, fonte, fundo, estilo e a instrução "All text, numbers, and names shown in the image must appear in the content block below — do not invent any values." em CADA slide.
+### Regras gerais de prompt Gemini
+- **Autossuficiência:** cada slide é standalone — copiar e colar direto no Gemini sem contexto externo
+- **Dados explícitos:** todo texto, número e nome que aparece na imagem dentro do bloco `>`
+- **Sem inventar:** incluir instrução "do not invent any values" em cada slide
+- **Sem julgamento:** sem labels como "ZEBRA?", "SURPRESA", "FAVORITO" — dados apenas
+- **Não descrever como HTML**
 
 ### Fluxo por rodada
-1. **Pré-rodada:** `match_odds.py <a> <b> 1000000` para cada jogo → gerar arquivo `image_prompts_post{N}_r{X}.md`
-2. **Pós-rodada:** `resultado.py` → calcular probabilidade média do modelo nos resultados reais → slide técnico
-3. **Classificação geral:** `group_projection.py` → `simulate.py` → post separado de classificação
+1. `match_odds.py <a> <b> 1000000` para cada jogo → arquivo `r{N}_{grupos}.md`
+2. `resultado.py` + `model_eval.py` → métricas para slide técnico
+3. `group_projection.py` + `simulate.py` → post de classificação (arquivo separado)
 
 ---
 
