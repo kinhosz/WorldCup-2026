@@ -1,18 +1,18 @@
-# Image Prompts — Post 11: R3 Grupos B e C — Previsões
+# Image Prompts — Post 11: R3 Grupos A, B e C — Previsões
 
 Gerador: **Gemini**. Formato: **4:5 retrato, 1080×1350 px**.
 Estilo: **Todos os slides off-white (#F0F4F8).**
 
 **REGRA OBRIGATÓRIA:** Cada prompt abaixo é autossuficiente. Todo texto, número e nome que deve aparecer na imagem está listado explicitamente dentro do prompt. Não inventar. Não alterar números. Renderizar exatamente o que está escrito.
 
-Estrutura: 4 slides.
+Estrutura: 5 slides.
 
 ---
 
 ## LEGENDA ÚNICA
 
 ```
-Grupos B e C fecham hoje. Suíça praticamente classificada. Canada x Catar — o grande equilíbrio. Brasil favorito, mas Marrocos também quer a vaga.
+Grupos A, B e C fecham hoje. México já classificado, Coreia do Sul em campo para confirmar. Suíça é grande favorita, mas Canada x Catar pode surpreender. Brasil e Marrocos devem passar, mas a ordem ainda está em aberto.
 
 1.000.000 de simulações por jogo.
 
@@ -32,13 +32,14 @@ Grupos B e C fecham hoje. Suíça praticamente classificada. Canada x Catar — 
 > A thin horizontal line in light gray (#CBD5E1), full width.
 >
 > CENTER (stacked, generous vertical spacing):
-> Large bold dark (#0F172A): "Grupos B e C"
+> Large bold dark (#0F172A): "Grupos A, B e C"
 > Very large bold vibrant blue (#2563EB) with subtle shadow: "Rodada Final"
 >
 > A thin horizontal line in light gray (#CBD5E1), ~40% card width, centered.
 >
-> Below, two lines in medium bold dark (#0F172A):
-> "Switzerland · Canada · Qatar · Bosnia"
+> Below, stacked in medium bold dark (#0F172A):
+> "South Africa · South Korea · Mexico · Czech Rep."
+> "Canada · Switzerland · Bosnia · Qatar"
 > "Brazil · Morocco · Scotland · Haiti"
 >
 > Below, one line in medium bold dark (#0F172A):
@@ -71,16 +72,16 @@ Grupos B e C fecham hoje. Suíça praticamente classificada. Canada x Catar — 
 >
 > Below, a thin light gray (#CBD5E1) dividing line, ~40% card width, centered.
 >
-> Small gray (#94A3B8): "Probabilidades atribuídas ao resultado real de cada jogo:"
+> Small gray (#94A3B8): "Probabilidades atribuídas ao resultado real — Rodada 2:"
 >
 > Eight values in two rows of four, evenly spaced, each as small bold dark text:
 > "14%   15%   12%   94%"
 > "12%    6%   98%   22%"
 >
-> Below each value, very small muted gray (#94A3B8) — first row:
-> "Bel–Egy  Irã–NZ  Bel–Irã  NZ–Egy"
-> Second row:
-> "Esp–CV  Sau–Uru  Esp–Sau  Uru–CV"
+> Below each value, very small muted gray (#94A3B8) — first row labels:
+> "Bel–Egy   Irã–NZ   Bel–Irã   NZ–Egy"
+> Second row labels:
+> "Esp–CV   Sau–Uru   Esp–Sau   Uru–CV"
 >
 > Below, a thin light gray (#CBD5E1) dividing line, ~40% card width, centered.
 >
@@ -88,10 +89,10 @@ Grupos B e C fecham hoje. Suíça praticamente classificada. Canada x Catar — 
 > "66%   86%   93%   37%"
 > "64%   56%   60%   62%"
 >
-> Below each value, very small muted gray (#94A3B8) — first row:
-> "Fra–Sen  Ira–Nor  Fra–Ira  Nor–Sen"
-> Second row:
-> "Arg–Alg  Aut–Jor  Arg–Aut  Alg–Jor"
+> Below each value, very small muted gray (#94A3B8) — first row labels:
+> "Fra–Sen   Ira–Nor   Fra–Ira   Nor–Sen"
+> Second row labels:
+> "Arg–Alg   Aut–Jor   Arg–Aut   Alg–Jor"
 >
 > Below, a thin light gray (#CBD5E1) dividing line, ~40% card width, centered.
 >
@@ -99,16 +100,67 @@ Grupos B e C fecham hoje. Suíça praticamente classificada. Canada x Catar — 
 > "14%   88%   95%   58%"
 > "58%   63%   14%   71%"
 >
-> Below each value, very small muted gray (#94A3B8) — first row:
-> "Por–Con  Uzb–Col  Por–Uzb  Con–Col"
-> Second row:
-> "Eng–Cro  Gha–Pan  Eng–Gha  Cro–Pan"
+> Below each value, very small muted gray (#94A3B8) — first row labels:
+> "Por–Con   Uzb–Col   Por–Uzb   Con–Col"
+> Second row labels:
+> "Eng–Cro   Gha–Pan   Eng–Gha   Cro–Pan"
 >
 > BOTTOM: small gray (#94A3B8): "1.000.000 simulações · Modelo Monte Carlo"
 
 ---
 
-## SLIDE 3 — Grupo B: Previsões (off-white)
+## SLIDE 3 — Grupo A: Previsões (off-white)
+
+> Professional sports editorial infographic. Portrait, 4:5, 1080x1350px. Background: soft off-white (#F0F4F8). The layout has two elevated white match cards (#FFFFFF), each with a subtle drop shadow, stacked vertically with comfortable spacing between them. Typography uses a modern bold sans-serif (Inter or equivalent). No dark backgrounds. No borders on the outer image.
+>
+> At the very top of the image, centered: small uppercase medium gray (#64748B) bold text: "GRUPO A · RODADA 3 · PREVISÕES"
+> Below it, a full-width thin light gray (#CBD5E1) dividing line.
+>
+> --- MATCH CARD 1 (top half of image, white elevated card with shadow) ---
+>
+> Inside the card, top line centered in small uppercase gray (#94A3B8): "xG 0.93 · · · 2.09 xG"
+>
+> Below, team names on the same line:
+> Left — bold dark (#0F172A), large: "🇿🇦 South Africa"
+> Center — small muted gray: "vs"
+> Right — bold dark (#0F172A), large: "South Korea 🇰🇷"
+>
+> Below the names, a full-width rounded pill probability bar. CRITICAL: each section width must be STRICTLY proportional to its value — width = total_bar_width × (value ÷ 100). Never widen a section just to fit text.
+> — Section 1: coral (#F97316), occupies 15.7% of the bar. White bold text inside: "15.7%"
+> — Section 2: gray (#94A3B8), occupies 20.1% of the bar. White bold text inside: "20.1%"
+> — Section 3: blue (#2563EB), occupies 64.2% of the bar. White bold text inside: "64.2%"
+>
+> Below the bar, three labels evenly spaced: left bold coral "South Africa" · center gray "Empate" · right bold blue "South Korea"
+>
+> Below a thin gray divider, a compact top-scores row in one line:
+> Small gray label: "TOP:" then three score chips side by side — each chip is a small rounded rectangle with dark background (#0F172A) and white bold text:
+> Chip 1: "0–2  10.7%"   Chip 2: "0–1  10.3%"   Chip 3: "1–2  9.9%"
+>
+> --- MATCH CARD 2 (bottom half of image, white elevated card with shadow) ---
+>
+> Inside the card, top line centered in small uppercase gray (#94A3B8): "xG 0.79 · · · 0.92 xG"
+>
+> Below, team names on the same line:
+> Left — bold dark (#0F172A), large: "🇲🇽 Mexico"
+> Center — small muted gray: "vs"
+> Right — bold dark (#0F172A), large: "Czech Republic 🇨🇿"
+>
+> Below the names, a full-width rounded pill probability bar. CRITICAL: each section width must be STRICTLY proportional to its value — width = total_bar_width × (value ÷ 100). Never widen a section just to fit text.
+> — Section 1: coral (#F97316), occupies 29.6% of the bar. White bold text inside: "29.6%"
+> — Section 2: gray (#94A3B8), occupies 33.8% of the bar. White bold text inside: "33.8%"
+> — Section 3: blue (#2563EB), occupies 36.6% of the bar. White bold text inside: "36.6%"
+>
+> Below the bar, three labels: left bold coral "Mexico" · center gray "Empate" · right bold blue "Czech Republic"
+>
+> Below a thin gray divider, a compact top-scores row in one line:
+> Small gray label: "TOP:" then three score chips side by side — each chip is a small rounded rectangle with dark background (#0F172A) and white bold text:
+> Chip 1: "0–0  18.2%"   Chip 2: "0–1  16.7%"   Chip 3: "1–0  14.3%"
+>
+> At the very bottom of the image, centered small gray (#94A3B8): "1.000.000 simulações · Modelo Monte Carlo"
+
+---
+
+## SLIDE 4 — Grupo B: Previsões (off-white)
 
 > Professional sports editorial infographic. Portrait, 4:5, 1080x1350px. Background: soft off-white (#F0F4F8). The layout has two elevated white match cards (#FFFFFF), each with a subtle drop shadow, stacked vertically with comfortable spacing between them. Typography uses a modern bold sans-serif (Inter or equivalent). No dark backgrounds. No borders on the outer image.
 >
@@ -159,7 +211,7 @@ Grupos B e C fecham hoje. Suíça praticamente classificada. Canada x Catar — 
 
 ---
 
-## SLIDE 4 — Grupo C: Previsões (off-white)
+## SLIDE 5 — Grupo C: Previsões (off-white)
 
 > Professional sports editorial infographic. Portrait, 4:5, 1080x1350px. Background: soft off-white (#F0F4F8). The layout has two elevated white match cards (#FFFFFF), each with a subtle drop shadow, stacked vertically with comfortable spacing between them. Typography uses a modern bold sans-serif (Inter or equivalent). No dark backgrounds. No borders on the outer image.
 >
@@ -168,23 +220,23 @@ Grupos B e C fecham hoje. Suíça praticamente classificada. Canada x Catar — 
 >
 > --- MATCH CARD 1 (top half of image, white elevated card with shadow) ---
 >
-> Inside the card, top line centered in small uppercase gray (#94A3B8): "xG 2.06 · · · 0.37 xG"
+> Inside the card, top line centered in small uppercase gray (#94A3B8): "xG 0.37 · · · 2.06 xG"
 >
 > Below, team names on the same line:
-> Left — bold dark (#0F172A), large: "🇧🇷 Brazil"
+> Left — bold dark (#0F172A), large: "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland"
 > Center — small muted gray: "vs"
-> Right — bold dark (#0F172A), large: "Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+> Right — bold dark (#0F172A), large: "Brazil 🇧🇷"
 >
 > Below the names, a full-width rounded pill probability bar. CRITICAL: each section width must be STRICTLY proportional to its value — width = total_bar_width × (value ÷ 100). Never widen a section just to fit text.
-> — Section 1: blue (#2563EB), occupies 77.5% of the bar. White bold text inside: "77.5%"
+> — Section 1: coral (#F97316), occupies 5.6% of the bar (thin sliver). No text inside — too narrow.
 > — Section 2: gray (#94A3B8), occupies 16.9% of the bar. White bold text inside: "16.9%"
-> — Section 3: coral (#F97316), occupies 5.6% of the bar (thin sliver). No text inside — too narrow.
+> — Section 3: blue (#2563EB), occupies 77.5% of the bar. White bold text inside: "77.5%"
 >
-> Below the bar, three labels evenly spaced: left bold blue "Brazil" · center gray "Empate" · right bold coral "Scotland 5.6%"
+> Below the bar, three labels evenly spaced: left bold coral "Scotland 5.6%" · center gray "Empate" · right bold blue "Brazil"
 >
 > Below a thin gray divider, a compact top-scores row in one line:
 > Small gray label: "TOP:" then three score chips side by side — each chip is a small rounded rectangle with dark background (#0F172A) and white bold text:
-> Chip 1: "2–0  18.6%"   Chip 2: "1–0  18.1%"   Chip 3: "3–0  12.8%"
+> Chip 1: "0–2  18.6%"   Chip 2: "0–1  18.1%"   Chip 3: "0–3  12.8%"
 >
 > --- MATCH CARD 2 (bottom half of image, white elevated card with shadow) ---
 >
