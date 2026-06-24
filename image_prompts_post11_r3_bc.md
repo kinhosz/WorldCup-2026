@@ -117,43 +117,43 @@ Grupos B e C fecham hoje. Suíça praticamente classificada. Canada x Catar — 
 >
 > --- MATCH CARD 1 (top half of image, white elevated card with shadow) ---
 >
-> Inside the card, top line centered in small uppercase gray (#94A3B8): "xG 2.91 · · · 0.52 xG"
->
-> Below, team names on the same line:
-> Left — bold dark (#0F172A), large: "🇨🇭 Switzerland"
-> Center — small muted gray: "vs"
-> Right — bold dark (#0F172A), large: "Bosnia 🇧🇦"
->
-> Below the names, a full-width rounded pill probability bar. CRITICAL: each section width must be STRICTLY proportional to its value — width = total_bar_width × (value ÷ 100). Never widen a section just to fit text.
-> — Section 1: blue (#2563EB), occupies 85.4% of the bar. White bold text inside: "85.4%"
-> — Section 2: gray (#94A3B8), occupies 10.4% of the bar. White bold tiny text inside: "10.4%"
-> — Section 3: coral (#F97316), occupies 4.2% of the bar (thin sliver). No text inside — too narrow.
->
-> Below the bar, three labels evenly spaced: left bold blue "Switzerland" · center gray "Empate" · right bold coral "Bosnia 4.2%"
->
-> Below a thin gray divider, a compact top-scores row in one line:
-> Small gray label: "TOP:" then three score chips side by side — each chip is a small rounded rectangle with dark background (#0F172A) and white bold text:
-> Chip 1: "2–0  13.7%"   Chip 2: "3–0  13.2%"   Chip 3: "4–0  9.6%"
->
-> --- MATCH CARD 2 (bottom half of image, white elevated card with shadow) ---
->
-> Inside the card, top line centered in small uppercase gray (#94A3B8): "xG 2.24 · · · 1.36 xG"
+> Inside the card, top line centered in small uppercase gray (#94A3B8): "xG 1.16 · · · 3.88 xG"
 >
 > Below, team names on the same line:
 > Left — bold dark (#0F172A), large: "🇨🇦 Canada"
 > Center — small muted gray: "vs"
-> Right — bold dark (#0F172A), large: "Qatar 🇶🇦"
+> Right — bold dark (#0F172A), large: "Switzerland 🇨🇭"
 >
 > Below the names, a full-width rounded pill probability bar. CRITICAL: each section width must be STRICTLY proportional to its value — width = total_bar_width × (value ÷ 100). Never widen a section just to fit text.
-> — Section 1: blue (#2563EB), occupies 57.3% of the bar. White bold text inside: "57.3%"
-> — Section 2: gray (#94A3B8), occupies 19.9% of the bar. White bold text inside: "19.9%"
-> — Section 3: coral (#F97316), occupies 22.8% of the bar. White bold text inside: "22.8%"
+> — Section 1: coral (#F97316), occupies 6.5% of the bar (thin sliver). No text inside — too narrow.
+> — Section 2: gray (#94A3B8), occupies 9.1% of the bar. White bold tiny text inside: "9.1%"
+> — Section 3: blue (#2563EB), occupies 84.3% of the bar. White bold text inside: "84.3%"
 >
-> Below the bar, three labels: left bold blue "Canada" · center gray "Empate" · right bold coral "Qatar"
+> Below the bar, three labels evenly spaced: left bold coral "Canada 6.5%" · center gray "Empate" · right bold blue "Switzerland"
 >
 > Below a thin gray divider, a compact top-scores row in one line:
 > Small gray label: "TOP:" then three score chips side by side — each chip is a small rounded rectangle with dark background (#0F172A) and white bold text:
-> Chip 1: "2–1  9.3%"   Chip 2: "1–1  8.3%"   Chip 3: "3–1  6.9%"
+> Chip 1: "1–3  7.3%"   Chip 2: "1–4  7.1%"   Chip 3: "0–3  6.3%"
+>
+> --- MATCH CARD 2 (bottom half of image, white elevated card with shadow) ---
+>
+> Inside the card, top line centered in small uppercase gray (#94A3B8): "xG 1.01 · · · 1.02 xG"
+>
+> Below, team names on the same line:
+> Left — bold dark (#0F172A), large: "🇧🇦 Bosnia"
+> Center — small muted gray: "vs"
+> Right — bold dark (#0F172A), large: "Qatar 🇶🇦"
+>
+> Below the names, a full-width rounded pill probability bar. CRITICAL: each section width must be STRICTLY proportional to its value — width = total_bar_width × (value ÷ 100). Never widen a section just to fit text.
+> — Section 1: coral (#F97316), occupies 34.5% of the bar. White bold text inside: "34.5%"
+> — Section 2: gray (#94A3B8), occupies 30.5% of the bar. White bold text inside: "30.5%"
+> — Section 3: blue (#2563EB), occupies 35.0% of the bar. White bold text inside: "35.0%"
+>
+> Below the bar, three labels: left bold coral "Bosnia" · center gray "Empate" · right bold blue "Qatar"
+>
+> Below a thin gray divider, a compact top-scores row in one line:
+> Small gray label: "TOP:" then three score chips side by side — each chip is a small rounded rectangle with dark background (#0F172A) and white bold text:
+> Chip 1: "1–1  13.5%"   Chip 2: "0–1  13.4%"   Chip 3: "1–0  13.3%"
 >
 > At the very bottom of the image, centered small gray (#94A3B8): "1.000.000 simulações · Modelo Monte Carlo"
 
