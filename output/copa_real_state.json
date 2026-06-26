@@ -68,6 +68,14 @@
       "paraguay|turkey": [
         1,
         0
+      ],
+      "united_states_of_america|turkey": [
+        2,
+        3
+      ],
+      "paraguay|australia": [
+        0,
+        0
       ]
     },
     "C": {
@@ -112,6 +120,14 @@
       "ecuador|curacao": [
         0,
         0
+      ],
+      "germany|ecuador": [
+        1,
+        2
+      ],
+      "curacao|ivory_coast": [
+        0,
+        2
       ]
     },
     "F": {
@@ -130,6 +146,14 @@
       "tunisia|japan": [
         0,
         4
+      ],
+      "netherlands|tunisia": [
+        3,
+        1
+      ],
+      "japan|sweden": [
+        1,
+        1
       ]
     },
     "G": {

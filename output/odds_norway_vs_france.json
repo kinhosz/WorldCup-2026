@@ -1,0 +1,36 @@
+{
+  "team_a": "norway",
+  "team_b": "france",
+  "n_sims": 1000000,
+  "xg": {
+    "norway": 1.236,
+    "france": 2.988
+  },
+  "odds": {
+    "norway": 12.7,
+    "draw": 14.5,
+    "france": 72.8
+  },
+  "top_scores": [
+    {
+      "score": "1-2",
+      "pct": 8.1
+    },
+    {
+      "score": "1-3",
+      "pct": 8.1
+    },
+    {
+      "score": "0-2",
+      "pct": 6.6
+    },
+    {
+      "score": "0-3",
+      "pct": 6.5
+    },
+    {
+      "score": "1-4",
+      "pct": 6.0
+    }
+  ]
+}

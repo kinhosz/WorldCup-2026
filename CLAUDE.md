@@ -245,20 +245,6 @@ Arquivos de prompts: `r{N}_{descricao}.md` na raiz do projeto (ex: `r3_grupos_ab
 1. **Hook** — grupos que fecham + times listados + "Previsões a seguir →"
 2. **Slide técnico** — prob média do modelo nos resultados reais da rodada anterior. Comparação com baseline 33.3%. Lista individual de todos os jogos com %. Sem barrinhas.
 3–N. **Slide de previsões por grupo** — 2 match cards empilhados. Cada card: `xG A · · · xG B` · nomes · pill bar proporcional · `TOP:` 3 score chips.
-N+1. **Slide Top-10 Campeão** ← **NOVO, obrigatório a partir de R3** — ranking top-10 favoritos ao título (Model-3, pós-rodada atual). Sempre o ÚLTIMO slide do carrossel.
-
-### Slide Top-10 Campeão — Spec de Design ✅
-
-Gerar via `python3 scripts/generate_champion_slide.py <rodada>` — saída é o prompt pronto para copiar no Gemini.
-
-**Paleta:** deep indigo `#1E1B4B` de fundo · card escuro `#1E293B` com borda `#334155` · labels externos `#93C5FD`  
-**Estrutura do card:**
-- Header: `"Top 10"` bold branco + `"Pós-R{N} · 1M sims"` muted à direita
-- 10 linhas de dados: badge de rank `#0F172A` | flag emoji + nome bold branco | barra horizontal + percentual
-- Barra: rank 1 = laranja `#E95420`, ranks 2–3 = índigo `#6366F1`, ranks 4–10 = slate `#475569`
-- Largura da barra **estritamente proporcional** ao valor. Rank 1 = 100% da coluna direita.
-- Rank 1: número do rank e percentual em laranja `#E95420`
-- Footer externo: `"1.000.000 simulações · Modelo Monte Carlo · Pós-Rodada N"`
 
 ### Slide de Previsões — Regras do match card ✅ VALIDADO R3
 - xG centralizado acima dos nomes: `"xG X.XX · · · Y.YY xG"`
@@ -278,7 +264,6 @@ Gerar via `python3 scripts/generate_champion_slide.py <rodada>` — saída é o 
 1. `match_odds.py <a> <b> 1000000` para cada jogo → arquivo `r{N}_{grupos}.md`
 2. `resultado.py` + `model_eval.py` → métricas para slide técnico
 3. `group_projection.py` + `simulate.py 1000000` → post de classificação (arquivo separado)
-4. `generate_champion_slide.py <N>` → prompt do slide top-10 campeão (último slide de cada post)
 
 ---
 
