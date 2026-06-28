@@ -6,18 +6,16 @@ Simulador Monte Carlo da Copa do Mundo 2026. Usa atributos de jogadores (FC25/FI
 
 ---
 
-## Estado Atual (24 jun 2026)
+## Estado Atual (28 jun 2026)
 
-- **Branch:** `group-phase/round-2` — R2 completa, aguardando R3
-- **Rodada 1:** 24/24 jogos completos ✅
-- **Rodada 2:** 24/24 jogos completos ✅ (todos os 12 grupos)
-- **Calibração:** SA+att_only com 48 jogos (λ=1.5) — **aplicada**
-  - Método: `--att-only` (um bias de ataque por seleção, 52 parâmetros)
-  - NLL=45.67, Brier=0.4327; SA e L-BFGS-B convergiram para o mesmo mínimo
+- **Branch:** `group-phase/round-2` — fase de grupos ENCERRADA (72/72 jogos)
+- **Fase de grupos:** ✅ completa — bracket R32 salvo em `output/r32_bracket.json`
+- **Modelo ativo: Model4 (S14)** — SA+biases att+def, λ=2.0, treinado com 72 jogos
+  - Método: `--biases` att+def (att_bias + def_bias por seleção, 100 parâmetros)
+  - NLL=64.55, RankScore=+241; escolhido após comparação de 21 estratégias (S01–S21)
   - Pesos lidos dinamicamente de `output/calibrated_weights_sa.json`
-  - Performance R1+R2: 49.8% prob score, 29/48 resultado (60%), 10/48 top score (21%)
-- **Backup pré-R3:** `output/simulation_results_pre_r3.json` (odds de campeão após R1)
-- **Próximo passo (R3):** entrar 24 resultados, retreinar com 72 jogos, gerar odds playoffs
+  - Performance fase de grupos: 46/72 W/D/L (64%), ≥70% de confiança → 97% de acerto
+- **Próximo passo:** odds R32 com Model4, posts Instagram R32
 
 ---
 
@@ -51,20 +49,22 @@ resistance_B = RES_DEF_W × defense_B + RES_GK_W  × goalkeeper_B + RES_MID_W ×
 xG_A = min(BASE_XG × offense_A / max(resistance_B, 0.10), 8.0)
 ```
 
-**Constantes atuais** — SA+att_only calibrado com 48 jogos (R1+R2), λ=1.5:
+**Constantes atuais — Model4 (S14)** — SA+biases att+def, 72 jogos, λ=2.0:
 
-| Constante | Valor aplicado | Anterior (R1) |
-|-----------|----------------|---------------|
-| `BASE_XG` | **1.1438** | 1.172 |
-| `OFF_ATT_W` | **0.7146** | 0.8527 |
-| `OFF_MID_W` | **0.2854** | 0.1473 |
-| `RES_DEF_W` | **0.4474** | 0.5496 |
-| `RES_GK_W` | **0.05** | 0.2804 |
-| `RES_MID_W` | **0.5026** | 0.17 |
+| Constante | Model4 (ativo) | Model3 (R1+R2) |
+|-----------|----------------|----------------|
+| `BASE_XG` | **1.1438** | 1.1438 |
+| `OFF_ATT_W` | **0.7146** | 0.7146 |
+| `OFF_MID_W` | **0.2854** | 0.2854 |
+| `RES_DEF_W` | **0.4474** | 0.4474 |
+| `RES_GK_W` | **0.05** | 0.05 |
+| `RES_MID_W` | **0.5026** | 0.5026 |
 
-**Biases por seleção (att_only):** carregados dinamicamente de `output/calibrated_weights_sa.json`. Notáveis altos: Japan=1.44, Canada=1.39, Germany=1.37, Netherlands=1.35. Notáveis baixos: Ecuador=0.20, Turkey=0.20, Belgium=0.27, Panama=0.31.
+Pesos globais convergiram ao mesmo mínimo; diferença principal em relação ao Model3: biases att+def treinados com 72 jogos (antes: att_only, 48 jogos).
 
-**Performance R1+R2 com modelo SA+att_only:** 49.8% prob score, 29/48 resultado (60%), 10/48 top score (21%).
+**Biases por seleção (att+def):** carregados de `output/calibrated_weights_sa.json` (= `output/weights_s14.json`).
+
+**Performance fase de grupos com Model4:** 46/72 W/D/L (64%) — vitórias: 37/41 (90%), empates: 0/20 (0% — limitação estrutural Poisson), derrotas: 9/11 (82%). Acima de 70% de confiança: 97% de acerto, 0 zebras.
 
 ---
 
@@ -139,14 +139,17 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
   - `xG_A = BASE_XG × (off_A × att_bias_A) / (res_B × def_bias_B)`
   - `loss = NLL + λ × Σ(bias − 1)²`
   - Perturbação: 50% globais, 50% biases
-  - Útil a partir da R3 (~48 jogos)
+- **`--att-only`:** só `att_bias` por seleção (sem def_bias), 52 parâmetros
+- **`--unconstrained`:** remove restrições de soma (w_mid_off = 1−w_att etc.), libera 5 pesos independentes com BASE_XG fixo em 1.0. Testado em S19–S21; convergiu ao mesmo mínimo que constrained → não muda resultado na prática.
 - Logs a cada 10k iterações: temperatura, taxa de aceitação, NLL, pesos
 
-### Plano de calibração
-- **R1 → R2:** pesos globais calibrados — **feito** ✅
-- **R2 → R3:** re-calibrar com 44 jogos, comparar SA vs L-BFGS-B
-- **R3 em diante:** biases por seleção com `calibrate_sa.py --biases`
-  - Candidatos a bias: Saudi Arabia, Qatar, Australia, Iran (erros sistemáticos R1)
+### Histórico de calibração
+- **R1 → R2:** pesos globais — ✅
+- **R2 → R3:** att_only 48 jogos λ=1.5 (Model3) — ✅
+- **R3 → R32:** att+def 72 jogos λ=2.0 → **Model4 (S14)** — ✅ ativo
+
+### Comparação de estratégias (`model_compare.py`)
+21 estratégias testadas (S01–S21) com RankScore como métrica principal. Vencedor: **S14** (SA+biases att+def, λ=2.0, 72 jogos, RankScore=+241). Resultado salvo em `output/model_comparison.md`.
 
 ---
 
@@ -158,7 +161,8 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 | `simulate.py` | Monte Carlo N simulações | `output/simulation_results.json` |
 | `resultado.py` | Entrar resultados reais (interativo) | `output/copa_real_state.json` |
 | `calibrate.py` | Calibrar via Poisson NLL + L-BFGS-B | `output/calibrated_weights.json` |
-| `calibrate_sa.py` | Calibrar via Simulated Annealing (com suporte a biases) | `output/calibrated_weights_sa.json` |
+| `calibrate_sa.py` | Calibrar via Simulated Annealing (com suporte a biases, --unconstrained) | `output/calibrated_weights_sa.json` |
+| `model_compare.py` | Comparar N estratégias de calibração via RankScore | `output/model_comparison.md` |
 | `model_eval.py` | Avaliar modelo (Brier, acurácia) | `output/model_eval.json` |
 | `match_odds.py` | Odds de um jogo específico (usa biases) | `output/odds_{a}_vs_{b}.json` |
 | `group_projection.py` | Probabilidade de classificação por grupo | `output/group_projection.json` |
@@ -181,18 +185,29 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 
 ## Performance Histórica
 
-### Modelo SA+att_only (48 jogos R1+R2, λ=1.5)
+### Model4 — SA+biases att+def (72 jogos, λ=2.0) — ATIVO
+
+| Métrica | R1 | R2 | R3 | Total |
+|---------|----|----|-----|-------|
+| W/D/L correto | 14/24 (58%) | 17/24 (71%) | 15/24 (62%) | 46/72 (64%) |
+| Baseline (aleatório) | — | — | — | 33.3% |
+
+**Análise de confiança (curva de calibração):**
+- Modelo deu ≥70% → acerto em 28/29 jogos (97%), 0 erros de direção
+- Modelo deu 60–69% → 81% de acerto, 0 erros de direção
+- Modelo deu <60% → 44% de acerto (zona de incerteza)
+- Modelo NUNCA previu empate como resultado mais provável (limitação estrutural Poisson)
+- 20 empates em 72 jogos = 20 erros automáticos; sem empates: 46/52 (88%)
+
+### Model3 — SA+att_only (48 jogos R1+R2, λ=1.5) — histórico
 
 | Métrica | R1 | R2 | R1+R2 |
 |---------|----|----|--------|
 | Probability score | 47.1% | 52.5% | 49.8% |
 | Resultado certo | 14/24 (58%) | 15/24 (62%) | 29/48 (60%) |
 | Top score correto | 5/24 (21%) | 5/24 (21%) | 10/48 (21%) |
-| Baseline (aleatório) | — | — | 33.3% |
 
-**Modelo anterior R1 (SA+biases, 24 jogos):** 6/24 top (25%), 18/24 resultado (75%) — métricas diferentes (top=placar exato, resultado=vit/emp/der).
-
-**Ponto fraco principal:** empates — difíceis com Poisson puro. Poisson com xG>1.5 gera baixa P(empate).
+**Ponto fraco estrutural (ambos os modelos):** empates — Poisson puro com xG>1.3 gera P(empate) sistematicamente abaixo do real.
 
 ---
 
@@ -201,18 +216,23 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 | Arquivo | Conteúdo |
 |---------|----------|
 | `output/team_scores.json` | Scores GK/DEF/MID/ATT por seleção |
-| `output/copa_real_state.json` | Resultados reais (24 jogos R1) |
-| `output/calibrated_weights_sa.json` | Pesos SA+biases ativos (lidos por simulate.py e match_odds.py) |
+| `output/copa_real_state.json` | Resultados reais — 72 jogos fase de grupos |
+| `output/calibrated_weights_sa.json` | **Model4 (S14)** — pesos ativos (lidos por simulate.py e match_odds.py) |
+| `output/weights_s14.json` | Cópia de referência do Model4 |
 | `output/calibrated_weights.json` | Pesos L-BFGS-B (referência, não aplicado) |
-| `output/simulation_results.json` | Última simulação 1M (pós-R2, Model3) |
-| `output/simulation_results_pre_r3.json` | Backup odds campeão pré-R3 (para comparação futura) |
-| `output/group_projection.json` | Probabilidades de classificação por grupo (pós-R2) |
+| `output/simulation_results.json` | Última simulação 1M (pós-R3, Model3 — recalcular com Model4) |
+| `output/simulation_results_pre_r3.json` | Backup odds campeão pré-R3 |
+| `output/r32_bracket.json` | 32 times classificados para o mata-mata |
+| `output/model_comparison.md` | Tabela completa 21 estratégias (S01–S21) com RankScore |
+| `output/model4_vs_reality.md` | Top-3 predições vs resultado real — 72 jogos |
+| `output/model4_report.md` | Análise por time: acertos, erros, classificados, placares exatos |
+| `output/model4_wdl_report.md` | Análise W/D/L: matriz de confusão, calibração, zebras |
+| `output/weights_s08.json` … `output/weights_s21.json` | Pesos de cada estratégia treinada |
 | `output/model_eval.json` | Avaliação formal R1+R2 (48 jogos, Model3) |
 | `output/score_audit.md` | Breakdown por jogador (tier, rating, dropped?) |
 | `output/calibration_report.png` | Gráfico da calibração |
-| `output/odds_*.json` | Odds R3 — todos os 24 jogos (1M sims, Model3) |
-| `r2_tecnico.md` | Prompts Instagram post técnico R2 (dark navy, 6 slides) |
-| `r3_grupos_abc.md` | Prompts Instagram previsões R3 Grupos A+B+C (midnight blue, 5 slides) |
+| `output/odds_*.json` | Odds R32 — 16 jogos (Model4) |
+| `r3_grupos_jkl.md` | Prompts Instagram previsões R3 Grupos J+K+L |
 
 ---
 

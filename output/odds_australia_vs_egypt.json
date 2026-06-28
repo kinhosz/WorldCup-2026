@@ -1,0 +1,36 @@
+{
+  "team_a": "australia",
+  "team_b": "egypt",
+  "n_sims": 1000000,
+  "xg": {
+    "australia": 1.729,
+    "egypt": 1.903
+  },
+  "odds": {
+    "australia": 35.6,
+    "draw": 21.7,
+    "egypt": 42.7
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 8.7
+    },
+    {
+      "score": "1-2",
+      "pct": 8.3
+    },
+    {
+      "score": "2-1",
+      "pct": 7.5
+    },
+    {
+      "score": "2-2",
+      "pct": 7.1
+    },
+    {
+      "score": "1-3",
+      "pct": 5.3
+    }
+  ]
+}

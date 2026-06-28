@@ -1,0 +1,36 @@
+{
+  "team_a": "united_states_of_america",
+  "team_b": "bosnia_and_herzegovina",
+  "n_sims": 1000000,
+  "xg": {
+    "united_states_of_america": 3.491,
+    "bosnia_and_herzegovina": 0.638
+  },
+  "odds": {
+    "united_states_of_america": 88.8,
+    "draw": 7.8,
+    "bosnia_and_herzegovina": 3.5
+  },
+  "top_scores": [
+    {
+      "score": "3-0",
+      "pct": 11.4
+    },
+    {
+      "score": "4-0",
+      "pct": 10.0
+    },
+    {
+      "score": "2-0",
+      "pct": 9.8
+    },
+    {
+      "score": "3-1",
+      "pct": 7.2
+    },
+    {
+      "score": "5-0",
+      "pct": 6.9
+    }
+  ]
+}

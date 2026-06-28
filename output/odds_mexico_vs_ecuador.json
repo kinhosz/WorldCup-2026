@@ -1,0 +1,36 @@
+{
+  "team_a": "mexico",
+  "team_b": "ecuador",
+  "n_sims": 1000000,
+  "xg": {
+    "mexico": 1.12,
+    "ecuador": 0.197
+  },
+  "odds": {
+    "mexico": 60.5,
+    "draw": 33.0,
+    "ecuador": 6.5
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 30.0
+    },
+    {
+      "score": "0-0",
+      "pct": 26.7
+    },
+    {
+      "score": "2-0",
+      "pct": 16.8
+    },
+    {
+      "score": "3-0",
+      "pct": 6.3
+    },
+    {
+      "score": "1-1",
+      "pct": 5.9
+    }
+  ]
+}

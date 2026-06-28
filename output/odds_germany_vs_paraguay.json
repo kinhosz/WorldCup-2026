@@ -1,36 +1,36 @@
 {
-  "team_a": "england",
-  "team_b": "panama",
+  "team_a": "germany",
+  "team_b": "paraguay",
   "n_sims": 1000000,
   "xg": {
-    "england": 3.475,
-    "panama": 0.18
+    "germany": 3.611,
+    "paraguay": 0.447
   },
   "odds": {
-    "england": 94.8,
-    "draw": 4.5,
-    "panama": 0.7
+    "germany": 92.3,
+    "draw": 5.8,
+    "paraguay": 1.9
   },
   "top_scores": [
     {
       "score": "3-0",
-      "pct": 18.0
+      "pct": 13.5
     },
     {
       "score": "4-0",
-      "pct": 15.7
+      "pct": 12.2
     },
     {
       "score": "2-0",
-      "pct": 15.6
+      "pct": 11.3
     },
     {
       "score": "5-0",
-      "pct": 10.9
+      "pct": 8.9
     },
     {
       "score": "1-0",
-      "pct": 9.0
+      "pct": 6.3
     }
   ]
 }

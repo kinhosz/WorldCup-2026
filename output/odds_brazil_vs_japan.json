@@ -1,0 +1,36 @@
+{
+  "team_a": "brazil",
+  "team_b": "japan",
+  "n_sims": 1000000,
+  "xg": {
+    "brazil": 1.609,
+    "japan": 0.907
+  },
+  "odds": {
+    "brazil": 53.9,
+    "draw": 24.9,
+    "japan": 21.2
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 12.9
+    },
+    {
+      "score": "1-1",
+      "pct": 11.7
+    },
+    {
+      "score": "2-0",
+      "pct": 10.5
+    },
+    {
+      "score": "2-1",
+      "pct": 9.5
+    },
+    {
+      "score": "0-0",
+      "pct": 8.1
+    }
+  ]
+}

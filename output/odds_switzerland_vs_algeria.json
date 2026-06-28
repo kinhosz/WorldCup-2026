@@ -1,0 +1,36 @@
+{
+  "team_a": "switzerland",
+  "team_b": "algeria",
+  "n_sims": 1000000,
+  "xg": {
+    "switzerland": 1.306,
+    "algeria": 0.91
+  },
+  "odds": {
+    "switzerland": 45.7,
+    "draw": 28.3,
+    "algeria": 26.0
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 14.2
+    },
+    {
+      "score": "1-1",
+      "pct": 13.0
+    },
+    {
+      "score": "0-0",
+      "pct": 10.9
+    },
+    {
+      "score": "0-1",
+      "pct": 9.9
+    },
+    {
+      "score": "2-0",
+      "pct": 9.3
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "portugal",
+  "team_b": "croatia",
+  "n_sims": 1000000,
+  "xg": {
+    "portugal": 1.655,
+    "croatia": 0.637
+  },
+  "odds": {
+    "portugal": 62.0,
+    "draw": 23.9,
+    "croatia": 14.1
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 16.7
+    },
+    {
+      "score": "2-0",
+      "pct": 13.9
+    },
+    {
+      "score": "1-1",
+      "pct": 10.7
+    },
+    {
+      "score": "0-0",
+      "pct": 10.1
+    },
+    {
+      "score": "2-1",
+      "pct": 8.8
+    }
+  ]
+}

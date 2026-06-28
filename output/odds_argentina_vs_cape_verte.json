@@ -1,0 +1,36 @@
+{
+  "team_a": "argentina",
+  "team_b": "cape_verte",
+  "n_sims": 1000000,
+  "xg": {
+    "argentina": 3.082,
+    "cape_verte": 0.513
+  },
+  "odds": {
+    "argentina": 87.3,
+    "draw": 9.1,
+    "cape_verte": 3.6
+  },
+  "top_scores": [
+    {
+      "score": "3-0",
+      "pct": 13.4
+    },
+    {
+      "score": "2-0",
+      "pct": 13.0
+    },
+    {
+      "score": "4-0",
+      "pct": 10.3
+    },
+    {
+      "score": "1-0",
+      "pct": 8.5
+    },
+    {
+      "score": "3-1",
+      "pct": 6.9
+    }
+  ]
+}

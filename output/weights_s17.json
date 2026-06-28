@@ -1,0 +1,224 @@
+{
+  "method": "simulated_annealing",
+  "n_matches": 63,
+  "exclude_outliers": true,
+  "use_biases": true,
+  "att_only": false,
+  "sa_params": {
+    "n_iter": 500000,
+    "n_restarts": 5,
+    "T0": 3.0,
+    "alpha": 0.99996,
+    "T_final": 0.0,
+    "seed": 2026,
+    "lambda": 2.0
+  },
+  "nll_default": 117.6657,
+  "nll_sa": 79.5074,
+  "nll_lbfgs": 118.2335,
+  "brier_default": 0.6006,
+  "brier_sa": 0.4529,
+  "brier_lbfgs": 0.6001,
+  "weights": {
+    "BASE_XG": 1.1114,
+    "OFF_ATT_W": 0.4323,
+    "OFF_MID_W": 0.5677,
+    "RES_DEF_W": 0.45,
+    "RES_GK_W": 0.5,
+    "RES_MID_W": 0.05
+  },
+  "biases": {
+    "algeria": {
+      "att_bias": 1.0903,
+      "def_bias": 0.7314
+    },
+    "argentina": {
+      "att_bias": 0.9959,
+      "def_bias": 1.1562
+    },
+    "australia": {
+      "att_bias": 0.813,
+      "def_bias": 1.2071
+    },
+    "austria": {
+      "att_bias": 1.2024,
+      "def_bias": 0.7252
+    },
+    "belgium": {
+      "att_bias": 0.3863,
+      "def_bias": 1.0901
+    },
+    "bosnia_and_herzegovina": {
+      "att_bias": 1.3083,
+      "def_bias": 0.7355
+    },
+    "brazil": {
+      "att_bias": 0.9655,
+      "def_bias": 1.0774
+    },
+    "canada": {
+      "att_bias": 0.9693,
+      "def_bias": 1.1194
+    },
+    "cape_verte": {
+      "att_bias": 0.8665,
+      "def_bias": 1.1149
+    },
+    "colombia": {
+      "att_bias": 0.8098,
+      "def_bias": 1.2008
+    },
+    "congo": {
+      "att_bias": 1.011,
+      "def_bias": 1.1126
+    },
+    "croatia": {
+      "att_bias": 1.1652,
+      "def_bias": 0.5728
+    },
+    "curacao": {
+      "att_bias": 0.8389,
+      "def_bias": 1.134
+    },
+    "czech_republic": {
+      "att_bias": 0.8265,
+      "def_bias": 0.3554
+    },
+    "ecuador": {
+      "att_bias": 0.9372,
+      "def_bias": 1.1525
+    },
+    "egypt": {
+      "att_bias": 0.822,
+      "def_bias": 0.9076
+    },
+    "england": {
+      "att_bias": 0.9622,
+      "def_bias": 0.9306
+    },
+    "france": {
+      "att_bias": 1.0939,
+      "def_bias": 0.9931
+    },
+    "germany": {
+      "att_bias": 1.0479,
+      "def_bias": 0.5825
+    },
+    "ghana": {
+      "att_bias": 0.7678,
+      "def_bias": 1.3099
+    },
+    "haiti": {
+      "att_bias": 1.1053,
+      "def_bias": 0.873
+    },
+    "ira": {
+      "att_bias": 0.8237,
+      "def_bias": 1.1135
+    },
+    "iraq": {
+      "att_bias": 0.9206,
+      "def_bias": 0.8231
+    },
+    "ivory_coast": {
+      "att_bias": 0.9741,
+      "def_bias": 1.0781
+    },
+    "japan": {
+      "att_bias": 1.0605,
+      "def_bias": 0.9692
+    },
+    "jordan": {
+      "att_bias": 1.0398,
+      "def_bias": 0.7931
+    },
+    "mexico": {
+      "att_bias": 1.3011,
+      "def_bias": 1.2853
+    },
+    "morocco": {
+      "att_bias": 1.1253,
+      "def_bias": 0.9459
+    },
+    "netherlands": {
+      "att_bias": 1.1021,
+      "def_bias": 0.716
+    },
+    "new_zealand": {
+      "att_bias": 1.2424,
+      "def_bias": 1.0793
+    },
+    "norway": {
+      "att_bias": 1.2603,
+      "def_bias": 1.0205
+    },
+    "panama": {
+      "att_bias": 0.4345,
+      "def_bias": 1.1493
+    },
+    "paraguay": {
+      "att_bias": 0.9881,
+      "def_bias": 0.9892
+    },
+    "portugal": {
+      "att_bias": 0.5224,
+      "def_bias": 1.0828
+    },
+    "qatar": {
+      "att_bias": 0.9769,
+      "def_bias": 0.79
+    },
+    "republic_of_korea": {
+      "att_bias": 0.5011,
+      "def_bias": 0.9846
+    },
+    "saudi_arabia": {
+      "att_bias": 0.899,
+      "def_bias": 1.3321
+    },
+    "scotland": {
+      "att_bias": 0.6473,
+      "def_bias": 1.0757
+    },
+    "senegal": {
+      "att_bias": 1.0104,
+      "def_bias": 0.618
+    },
+    "south_africa": {
+      "att_bias": 0.8251,
+      "def_bias": 1.0234
+    },
+    "spain": {
+      "att_bias": 0.3812,
+      "def_bias": 1.1862
+    },
+    "sweden": {
+      "att_bias": 0.9882,
+      "def_bias": 1.0837
+    },
+    "switzerland": {
+      "att_bias": 1.0686,
+      "def_bias": 0.73
+    },
+    "tunisia": {
+      "att_bias": 1.0457,
+      "def_bias": 0.9232
+    },
+    "turkey": {
+      "att_bias": 0.8375,
+      "def_bias": 0.5096
+    },
+    "united_states_of_america": {
+      "att_bias": 1.3671,
+      "def_bias": 0.742
+    },
+    "uruguay": {
+      "att_bias": 0.8807,
+      "def_bias": 0.421
+    },
+    "uzbekistan": {
+      "att_bias": 1.146,
+      "def_bias": 0.6355
+    }
+  }
+}

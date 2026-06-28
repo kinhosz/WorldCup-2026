@@ -1,0 +1,36 @@
+{
+  "team_a": "england",
+  "team_b": "congo",
+  "n_sims": 1000000,
+  "xg": {
+    "england": 2.322,
+    "congo": 0.735
+  },
+  "odds": {
+    "england": 73.1,
+    "draw": 16.9,
+    "congo": 10.1
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 12.7
+    },
+    {
+      "score": "1-0",
+      "pct": 10.9
+    },
+    {
+      "score": "3-0",
+      "pct": 9.8
+    },
+    {
+      "score": "2-1",
+      "pct": 9.3
+    },
+    {
+      "score": "1-1",
+      "pct": 8.0
+    }
+  ]
+}

@@ -8,8 +8,8 @@
   },
   "odds": {
     "portugal": 60.2,
-    "draw": 23.3,
-    "colombia": 16.4
+    "draw": 23.4,
+    "colombia": 16.3
   },
   "top_scores": [
     {
@@ -22,7 +22,7 @@
     },
     {
       "score": "1-1",
-      "pct": 10.9
+      "pct": 11.0
     },
     {
       "score": "2-1",

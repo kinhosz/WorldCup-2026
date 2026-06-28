@@ -172,6 +172,14 @@
       "new_zealand|egypt": [
         1,
         3
+      ],
+      "belgium|new_zealand": [
+        5,
+        1
+      ],
+      "egypt|ira": [
+        1,
+        1
       ]
     },
     "H": {
@@ -190,6 +198,14 @@
       "uruguay|cape_verte": [
         2,
         2
+      ],
+      "spain|uruguay": [
+        1,
+        0
+      ],
+      "cape_verte|saudi_arabia": [
+        0,
+        0
       ]
     },
     "I": {
@@ -208,6 +224,14 @@
       "norway|senegal": [
         3,
         2
+      ],
+      "france|norway": [
+        4,
+        1
+      ],
+      "senegal|iraq": [
+        5,
+        0
       ]
     },
     "J": {
@@ -226,6 +250,14 @@
       "algeria|jordan": [
         2,
         1
+      ],
+      "argentina|jordan": [
+        3,
+        1
+      ],
+      "algeria|austria": [
+        3,
+        3
       ]
     },
     "K": {
@@ -243,6 +275,14 @@
       ],
       "congo|colombia": [
         0,
+        1
+      ],
+      "portugal|colombia": [
+        0,
+        0
+      ],
+      "congo|uzbekistan": [
+        3,
         1
       ]
     },
@@ -262,6 +302,14 @@
       "croatia|panama": [
         1,
         0
+      ],
+      "england|panama": [
+        2,
+        0
+      ],
+      "croatia|ghana": [
+        2,
+        1
       ]
     }
   },

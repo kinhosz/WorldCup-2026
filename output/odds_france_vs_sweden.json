@@ -1,0 +1,36 @@
+{
+  "team_a": "france",
+  "team_b": "sweden",
+  "n_sims": 1000000,
+  "xg": {
+    "france": 2.926,
+    "sweden": 1.045
+  },
+  "odds": {
+    "france": 75.6,
+    "draw": 13.9,
+    "sweden": 10.5
+  },
+  "top_scores": [
+    {
+      "score": "2-1",
+      "pct": 8.4
+    },
+    {
+      "score": "3-1",
+      "pct": 8.2
+    },
+    {
+      "score": "2-0",
+      "pct": 8.1
+    },
+    {
+      "score": "3-0",
+      "pct": 7.9
+    },
+    {
+      "score": "4-1",
+      "pct": 6.0
+    }
+  ]
+}

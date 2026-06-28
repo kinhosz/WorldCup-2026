@@ -1,0 +1,36 @@
+{
+  "team_a": "spain",
+  "team_b": "austria",
+  "n_sims": 1000000,
+  "xg": {
+    "spain": 0.866,
+    "austria": 0.668
+  },
+  "odds": {
+    "spain": 37.7,
+    "draw": 36.0,
+    "austria": 26.3
+  },
+  "top_scores": [
+    {
+      "score": "0-0",
+      "pct": 21.6
+    },
+    {
+      "score": "1-0",
+      "pct": 18.7
+    },
+    {
+      "score": "0-1",
+      "pct": 14.4
+    },
+    {
+      "score": "1-1",
+      "pct": 12.5
+    },
+    {
+      "score": "2-0",
+      "pct": 8.1
+    }
+  ]
+}
