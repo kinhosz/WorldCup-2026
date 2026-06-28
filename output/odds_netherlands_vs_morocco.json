@@ -3,34 +3,34 @@
   "team_b": "morocco",
   "n_sims": 1000000,
   "xg": {
-    "netherlands": 2.049,
-    "morocco": 0.892
+    "netherlands": 1.709,
+    "morocco": 1.592
   },
   "odds": {
-    "netherlands": 64.2,
-    "draw": 20.3,
-    "morocco": 15.5
+    "netherlands": 41.0,
+    "draw": 23.0,
+    "morocco": 36.0
   },
   "top_scores": [
     {
-      "score": "2-0",
-      "pct": 11.1
-    },
-    {
-      "score": "1-0",
-      "pct": 10.8
+      "score": "1-1",
+      "pct": 10.0
     },
     {
       "score": "2-1",
-      "pct": 9.9
+      "pct": 8.6
     },
     {
-      "score": "1-1",
-      "pct": 9.6
+      "score": "1-2",
+      "pct": 7.9
     },
     {
-      "score": "3-0",
-      "pct": 7.6
+      "score": "2-2",
+      "pct": 6.8
+    },
+    {
+      "score": "1-0",
+      "pct": 6.3
     }
   ]
 }

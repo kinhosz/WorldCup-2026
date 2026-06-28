@@ -3,34 +3,34 @@
   "team_b": "congo",
   "n_sims": 1000000,
   "xg": {
-    "england": 2.322,
-    "congo": 0.735
+    "england": 1.809,
+    "congo": 0.789
   },
   "odds": {
-    "england": 73.1,
-    "draw": 16.9,
-    "congo": 10.1
+    "england": 61.6,
+    "draw": 22.4,
+    "congo": 15.9
   },
   "top_scores": [
     {
-      "score": "2-0",
-      "pct": 12.7
-    },
-    {
       "score": "1-0",
-      "pct": 10.9
+      "pct": 13.5
     },
     {
-      "score": "3-0",
-      "pct": 9.8
-    },
-    {
-      "score": "2-1",
-      "pct": 9.3
+      "score": "2-0",
+      "pct": 12.2
     },
     {
       "score": "1-1",
-      "pct": 8.0
+      "pct": 10.6
+    },
+    {
+      "score": "2-1",
+      "pct": 9.6
+    },
+    {
+      "score": "0-0",
+      "pct": 7.4
     }
   ]
 }

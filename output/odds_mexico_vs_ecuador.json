@@ -3,34 +3,34 @@
   "team_b": "ecuador",
   "n_sims": 1000000,
   "xg": {
-    "mexico": 1.12,
-    "ecuador": 0.197
+    "mexico": 0.796,
+    "ecuador": 0.422
   },
   "odds": {
-    "mexico": 60.5,
-    "draw": 33.0,
-    "ecuador": 6.5
+    "mexico": 41.6,
+    "draw": 40.3,
+    "ecuador": 18.1
   },
   "top_scores": [
     {
-      "score": "1-0",
-      "pct": 30.0
-    },
-    {
       "score": "0-0",
-      "pct": 26.7
+      "pct": 29.6
     },
     {
-      "score": "2-0",
-      "pct": 16.8
+      "score": "1-0",
+      "pct": 23.6
     },
     {
-      "score": "3-0",
-      "pct": 6.3
+      "score": "0-1",
+      "pct": 12.5
     },
     {
       "score": "1-1",
-      "pct": 5.9
+      "pct": 9.9
+    },
+    {
+      "score": "2-0",
+      "pct": 9.4
     }
   ]
 }

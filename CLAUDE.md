@@ -280,6 +280,37 @@ Arquivos de prompts: `r{N}_{descricao}.md` na raiz do projeto (ex: `r3_grupos_ab
 - **Sem julgamento:** sem labels como "ZEBRA?", "SURPRESA", "FAVORITO" — dados apenas
 - **Não descrever como HTML**
 
+### Slide R32 — Template de jogo individual ✅ VALIDADO
+
+Cada jogo do mata-mata tem slide próprio. Estrutura em 3 camadas:
+
+**LAYER 1 — foto base:** stadium shot from behind the goal line, looking through goal posts and net towards pitch. Full bleed.
+
+**LAYER 2 — bandeiras transparentes:** top half = bandeira do time A (28% opacity), bottom half = bandeira do time B (28% opacity). Cobrem o canvas inteiro (não o gol). A foto do campo deve ser visível através das bandeiras.
+
+**LAYER 3 — conteúdo:** centralizado, começa ~15% do topo, drop shadows em todo texto.
+
+```
+Top label (small caps, wide letter-spacing, white): R32 · MATA-MATA · COPA DO MUNDO 2026
+Team row (large bold white, single line): 🏳 TeamA  vs  TeamB 🏳
+xG line (muted white, centered, once only): xG X.XX · · · Y.YY xG
+Probability bar (proportional rounded pill, neon glow on green segment):
+  left = win% TeamA (green #4ADE80 neon glow)
+  center = draw% (grey #64748B)
+  right = win% TeamB (muted #94A3B8)
+  labels below each segment
+TOP SCORES label (small caps muted)
+3 chips dark #1E293B: "G–G  XX.X%" each
+[se confiança ≥ 70%] green pill: ★ MODEL CONFIDENCE XX.X%
+insight line bold white (from model data, not invented)
+small muted: Above 70% confidence, the model was correct in 97% of group stage games.
+Footer (very small muted): Model4 · SA+biases att+def · 1.000.000 simulations
+```
+
+**Regras de insight:** só incluir quando o modelo tiver algo real para dizer — bias extremo (att ou def), confidence ≥ 70%, ou contexto de bracket (ex: "apenas 0.0% de odds de campeão nas simulações"). Nunca inventar.
+
+**Bandeiras com brasão:** Paraguay, Brazil, Argentina, Mexico, Colombia e outras têm emblema no centro da faixa branca — mencionar no prompt.
+
 ### Fluxo por rodada
 1. `match_odds.py <a> <b> 1000000` para cada jogo → arquivo `r{N}_{grupos}.md`
 2. `resultado.py` + `model_eval.py` → métricas para slide técnico

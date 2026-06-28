@@ -3,34 +3,34 @@
   "team_b": "sweden",
   "n_sims": 1000000,
   "xg": {
-    "france": 2.926,
-    "sweden": 1.045
+    "france": 3.114,
+    "sweden": 0.728
   },
   "odds": {
-    "france": 75.6,
-    "draw": 13.9,
-    "sweden": 10.5
+    "france": 83.9,
+    "draw": 10.6,
+    "sweden": 5.6
   },
   "top_scores": [
     {
-      "score": "2-1",
+      "score": "3-0",
+      "pct": 10.7
+    },
+    {
+      "score": "2-0",
+      "pct": 10.4
+    },
+    {
+      "score": "4-0",
       "pct": 8.4
     },
     {
       "score": "3-1",
-      "pct": 8.2
-    },
-    {
-      "score": "2-0",
-      "pct": 8.1
-    },
-    {
-      "score": "3-0",
       "pct": 7.9
     },
     {
-      "score": "4-1",
-      "pct": 6.0
+      "score": "2-1",
+      "pct": 7.6
     }
   ]
 }

@@ -3,34 +3,34 @@
   "team_b": "senegal",
   "n_sims": 1000000,
   "xg": {
-    "belgium": 0.502,
-    "senegal": 1.088
+    "belgium": 1.32,
+    "senegal": 1.371
   },
   "odds": {
-    "belgium": 16.9,
-    "draw": 33.1,
-    "senegal": 50.0
+    "belgium": 35.8,
+    "draw": 25.9,
+    "senegal": 38.3
   },
   "top_scores": [
     {
-      "score": "0-1",
-      "pct": 22.2
-    },
-    {
-      "score": "0-0",
-      "pct": 20.4
-    },
-    {
-      "score": "0-2",
-      "pct": 12.1
-    },
-    {
       "score": "1-1",
-      "pct": 11.1
+      "pct": 12.3
+    },
+    {
+      "score": "0-1",
+      "pct": 9.3
     },
     {
       "score": "1-0",
-      "pct": 10.2
+      "pct": 9.0
+    },
+    {
+      "score": "1-2",
+      "pct": 8.5
+    },
+    {
+      "score": "2-1",
+      "pct": 8.1
     }
   ]
 }

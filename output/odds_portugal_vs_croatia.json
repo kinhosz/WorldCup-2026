@@ -3,34 +3,34 @@
   "team_b": "croatia",
   "n_sims": 1000000,
   "xg": {
-    "portugal": 1.655,
-    "croatia": 0.637
+    "portugal": 2.265,
+    "croatia": 0.759
   },
   "odds": {
-    "portugal": 62.0,
-    "draw": 23.9,
-    "croatia": 14.1
+    "portugal": 71.5,
+    "draw": 17.6,
+    "croatia": 11.0
   },
   "top_scores": [
     {
-      "score": "1-0",
-      "pct": 16.7
-    },
-    {
       "score": "2-0",
-      "pct": 13.9
+      "pct": 12.5
     },
     {
-      "score": "1-1",
-      "pct": 10.7
+      "score": "1-0",
+      "pct": 11.1
     },
     {
-      "score": "0-0",
-      "pct": 10.1
+      "score": "3-0",
+      "pct": 9.4
     },
     {
       "score": "2-1",
-      "pct": 8.8
+      "pct": 9.4
+    },
+    {
+      "score": "1-1",
+      "pct": 8.3
     }
   ]
 }

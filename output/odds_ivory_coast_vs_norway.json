@@ -3,33 +3,33 @@
   "team_b": "norway",
   "n_sims": 1000000,
   "xg": {
-    "ivory_coast": 1.796,
-    "norway": 2.08
+    "ivory_coast": 1.783,
+    "norway": 1.675
   },
   "odds": {
-    "ivory_coast": 34.0,
-    "draw": 20.9,
-    "norway": 45.1
+    "ivory_coast": 41.1,
+    "draw": 22.4,
+    "norway": 36.6
   },
   "top_scores": [
     {
-      "score": "1-2",
-      "pct": 8.0
-    },
-    {
       "score": "1-1",
-      "pct": 7.8
-    },
-    {
-      "score": "2-2",
-      "pct": 7.2
+      "pct": 9.4
     },
     {
       "score": "2-1",
-      "pct": 6.9
+      "pct": 8.4
     },
     {
-      "score": "1-3",
+      "score": "1-2",
+      "pct": 7.9
+    },
+    {
+      "score": "2-2",
+      "pct": 7.0
+    },
+    {
+      "score": "1-0",
       "pct": 5.6
     }
   ]
