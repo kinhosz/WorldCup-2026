@@ -1,0 +1,36 @@
+{
+  "team_a": "mexico",
+  "team_b": "england",
+  "n_sims": 1000000,
+  "xg": {
+    "mexico": 0.615,
+    "england": 1.227
+  },
+  "odds": {
+    "mexico": 18.6,
+    "draw": 30.3,
+    "england": 51.1
+  },
+  "top_scores": [
+    {
+      "score": "0-1",
+      "pct": 19.4
+    },
+    {
+      "score": "0-0",
+      "pct": 15.9
+    },
+    {
+      "score": "1-1",
+      "pct": 12.0
+    },
+    {
+      "score": "0-2",
+      "pct": 11.9
+    },
+    {
+      "score": "1-0",
+      "pct": 9.7
+    }
+  ]
+}

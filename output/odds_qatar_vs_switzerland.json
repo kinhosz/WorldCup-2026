@@ -1,0 +1,36 @@
+{
+  "team_a": "qatar",
+  "team_b": "switzerland",
+  "n_sims": 1000000,
+  "xg": {
+    "qatar": 0.562,
+    "switzerland": 3.387
+  },
+  "odds": {
+    "qatar": 3.1,
+    "draw": 7.8,
+    "switzerland": 89.1
+  },
+  "top_scores": [
+    {
+      "score": "0-3",
+      "pct": 12.5
+    },
+    {
+      "score": "0-2",
+      "pct": 11.0
+    },
+    {
+      "score": "0-4",
+      "pct": 10.6
+    },
+    {
+      "score": "0-5",
+      "pct": 7.1
+    },
+    {
+      "score": "1-3",
+      "pct": 7.0
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "england",
+  "team_b": "croatia",
+  "n_sims": 1000000,
+  "xg": {
+    "england": 2.404,
+    "croatia": 0.969
+  },
+  "odds": {
+    "england": 69.0,
+    "draw": 17.5,
+    "croatia": 13.4
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 9.9
+    },
+    {
+      "score": "2-1",
+      "pct": 9.6
+    },
+    {
+      "score": "1-0",
+      "pct": 8.3
+    },
+    {
+      "score": "1-1",
+      "pct": 8.0
+    },
+    {
+      "score": "3-0",
+      "pct": 8.0
+    }
+  ]
+}

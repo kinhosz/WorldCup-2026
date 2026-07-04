@@ -1,0 +1,36 @@
+{
+  "team_a": "brazil",
+  "team_b": "norway",
+  "n_sims": 1000000,
+  "xg": {
+    "brazil": 3.435,
+    "norway": 0.909
+  },
+  "odds": {
+    "brazil": 84.1,
+    "draw": 9.9,
+    "norway": 6.1
+  },
+  "top_scores": [
+    {
+      "score": "3-0",
+      "pct": 8.8
+    },
+    {
+      "score": "3-1",
+      "pct": 8.0
+    },
+    {
+      "score": "2-0",
+      "pct": 7.7
+    },
+    {
+      "score": "4-0",
+      "pct": 7.5
+    },
+    {
+      "score": "2-1",
+      "pct": 6.9
+    }
+  ]
+}

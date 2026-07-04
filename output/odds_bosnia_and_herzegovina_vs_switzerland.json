@@ -1,0 +1,36 @@
+{
+  "team_a": "bosnia_and_herzegovina",
+  "team_b": "switzerland",
+  "n_sims": 1000000,
+  "xg": {
+    "bosnia_and_herzegovina": 0.712,
+    "switzerland": 2.122
+  },
+  "odds": {
+    "bosnia_and_herzegovina": 11.2,
+    "draw": 18.7,
+    "switzerland": 70.0
+  },
+  "top_scores": [
+    {
+      "score": "0-2",
+      "pct": 13.2
+    },
+    {
+      "score": "0-1",
+      "pct": 12.5
+    },
+    {
+      "score": "1-2",
+      "pct": 9.5
+    },
+    {
+      "score": "0-3",
+      "pct": 9.3
+    },
+    {
+      "score": "1-1",
+      "pct": 8.9
+    }
+  ]
+}

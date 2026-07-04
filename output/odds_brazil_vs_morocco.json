@@ -1,0 +1,36 @@
+{
+  "team_a": "brazil",
+  "team_b": "morocco",
+  "n_sims": 1000000,
+  "xg": {
+    "brazil": 1.723,
+    "morocco": 0.781
+  },
+  "odds": {
+    "brazil": 59.8,
+    "draw": 23.5,
+    "morocco": 16.7
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 14.1
+    },
+    {
+      "score": "2-0",
+      "pct": 12.1
+    },
+    {
+      "score": "1-1",
+      "pct": 11.0
+    },
+    {
+      "score": "2-1",
+      "pct": 9.5
+    },
+    {
+      "score": "0-0",
+      "pct": 8.2
+    }
+  ]
+}

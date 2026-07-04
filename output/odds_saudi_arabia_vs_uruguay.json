@@ -1,0 +1,36 @@
+{
+  "team_a": "saudi_arabia",
+  "team_b": "uruguay",
+  "n_sims": 1000000,
+  "xg": {
+    "saudi_arabia": 0.63,
+    "uruguay": 1.968
+  },
+  "odds": {
+    "saudi_arabia": 10.9,
+    "draw": 20.0,
+    "uruguay": 69.0
+  },
+  "top_scores": [
+    {
+      "score": "0-1",
+      "pct": 14.7
+    },
+    {
+      "score": "0-2",
+      "pct": 14.4
+    },
+    {
+      "score": "0-3",
+      "pct": 9.4
+    },
+    {
+      "score": "1-1",
+      "pct": 9.3
+    },
+    {
+      "score": "1-2",
+      "pct": 9.1
+    }
+  ]
+}

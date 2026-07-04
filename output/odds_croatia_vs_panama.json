@@ -1,0 +1,36 @@
+{
+  "team_a": "croatia",
+  "team_b": "panama",
+  "n_sims": 1000000,
+  "xg": {
+    "croatia": 1.764,
+    "panama": 0.427
+  },
+  "odds": {
+    "croatia": 70.3,
+    "draw": 21.3,
+    "panama": 8.3
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 19.7
+    },
+    {
+      "score": "2-0",
+      "pct": 17.4
+    },
+    {
+      "score": "0-0",
+      "pct": 11.2
+    },
+    {
+      "score": "3-0",
+      "pct": 10.2
+    },
+    {
+      "score": "1-1",
+      "pct": 8.4
+    }
+  ]
+}

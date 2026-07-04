@@ -1,0 +1,36 @@
+{
+  "team_a": "mexico",
+  "team_b": "south_africa",
+  "n_sims": 1000000,
+  "xg": {
+    "mexico": 1.225,
+    "south_africa": 0.441
+  },
+  "odds": {
+    "mexico": 56.1,
+    "draw": 30.6,
+    "south_africa": 13.3
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 23.2
+    },
+    {
+      "score": "0-0",
+      "pct": 18.9
+    },
+    {
+      "score": "2-0",
+      "pct": 14.2
+    },
+    {
+      "score": "1-1",
+      "pct": 10.2
+    },
+    {
+      "score": "0-1",
+      "pct": 8.3
+    }
+  ]
+}

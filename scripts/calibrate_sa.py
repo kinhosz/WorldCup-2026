@@ -87,6 +87,34 @@ DEFAULT_RESTARTS = 5
 DEFAULT_LAMBDA   = 1.0
 LOG_EVERY        = 10_000
 
+# ── Grupos e pesos por rodada ─────────────────────────────────────────────────
+
+GROUPS = {
+    "A": ["mexico", "south_africa", "republic_of_korea", "czech_republic"],
+    "B": ["canada", "bosnia_and_herzegovina", "qatar", "switzerland"],
+    "C": ["brazil", "morocco", "haiti", "scotland"],
+    "D": ["united_states_of_america", "paraguay", "australia", "turkey"],
+    "E": ["germany", "curacao", "ivory_coast", "ecuador"],
+    "F": ["netherlands", "japan", "sweden", "tunisia"],
+    "G": ["belgium", "egypt", "ira", "new_zealand"],
+    "H": ["spain", "cape_verte", "saudi_arabia", "uruguay"],
+    "I": ["france", "senegal", "iraq", "norway"],
+    "J": ["argentina", "algeria", "austria", "jordan"],
+    "K": ["portugal", "congo", "uzbekistan", "colombia"],
+    "L": ["england", "croatia", "ghana", "panama"],
+}
+
+ROUND_WEIGHTS = {
+    'r1':    1.0,
+    'r2':    1.0,
+    'r3':    0.7,
+    'r32':   2.0,
+    'r16':   3.0,
+    'qf':    4.0,
+    'sf':    5.0,
+    'final': 6.0,
+}
+
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #  Fórmula xG
@@ -95,6 +123,38 @@ LOG_EVERY        = 10_000
 def _get(s, key):
     v = s.get(key)
     return v if v is not None else FALLBACK
+
+
+def _group_round(ta, tb):
+    """Determina rodada (1/2/3) de um jogo da fase de grupos pelo padrão round-robin."""
+    for members in GROUPS.values():
+        if ta in members and tb in members:
+            ia, ib = members.index(ta), members.index(tb)
+            pair = frozenset([ia, ib])
+            if pair in (frozenset([0, 1]), frozenset([2, 3])):
+                return 1
+            elif pair in (frozenset([0, 2]), frozenset([1, 3])):
+                return 2
+            else:
+                return 3
+    return 1
+
+
+def _knockout_round(match_id):
+    """Mapeia ID de jogo do mata-mata para fase (r32/r16/qf/sf/final)."""
+    mid = int(match_id)
+    if mid <= 88:  return 'r32'
+    if mid <= 96:  return 'r16'
+    if mid <= 100: return 'qf'
+    if mid <= 102: return 'sf'
+    return 'final'
+
+
+def _parse_score(score_str):
+    """Extrai (gols_a, gols_b) de score_str como '1–1' ou '2-0'."""
+    s = score_str.replace('–', '-').replace('—', '-')
+    a, b = s.split('-')
+    return int(a.strip()), int(b.strip())
 
 
 def compute_xg(s_a, s_b, theta, uc=False):
@@ -167,16 +227,18 @@ def poisson_nll(theta, matches, scores, teams_idx=None, lam=0.0, att_only=False,
                 teams_idx[m['team_a']], teams_idx[m['team_b']], n_teams,
                 att_only=att_only, uc=uc,
             )
-            total += xg_a - m['goals_a'] * math.log(max(xg_a, 1e-9))
-            total += xg_b - m['goals_b'] * math.log(max(xg_b, 1e-9))
+            w = m.get('weight', 1.0)
+            total += w * (xg_a - m['goals_a'] * math.log(max(xg_a, 1e-9)))
+            total += w * (xg_b - m['goals_b'] * math.log(max(xg_b, 1e-9)))
         n_biases = n_teams if att_only else 2 * n_teams
         biases = theta[ng:ng + n_biases]
         total += lam * sum((b - 1.0) ** 2 for b in biases)
     else:
         for m in matches:
             xg_a, xg_b = compute_xg(scores[m['team_a']], scores[m['team_b']], theta, uc=uc)
-            total += xg_a - m['goals_a'] * math.log(max(xg_a, 1e-9))
-            total += xg_b - m['goals_b'] * math.log(max(xg_b, 1e-9))
+            w = m.get('weight', 1.0)
+            total += w * (xg_a - m['goals_a'] * math.log(max(xg_a, 1e-9)))
+            total += w * (xg_b - m['goals_b'] * math.log(max(xg_b, 1e-9)))
     return total
 
 
@@ -376,10 +438,24 @@ def load_data(exclude_outliers):
             ta, tb = key.split('|')
             if ta not in scores or tb not in scores:
                 continue
+            rnd = _group_round(ta, tb)
+            w   = ROUND_WEIGHTS[f'r{rnd}']
             out = 'a' if ga > gb else ('b' if ga < gb else 'draw')
             matches.append({'team_a': ta, 'team_b': tb,
                             'goals_a': ga, 'goals_b': gb,
-                            'outcome': out})
+                            'outcome': out, 'weight': w, 'round': f'r{rnd}'})
+
+    for mid, game in state.get('knockout_results', {}).items():
+        ta, tb = game['home'], game['away']
+        if ta not in scores or tb not in scores:
+            continue
+        ga, gb = _parse_score(game['score_str'])
+        out = 'a' if ga > gb else ('b' if ga < gb else 'draw')
+        rnd = _knockout_round(mid)
+        w   = ROUND_WEIGHTS[rnd]
+        matches.append({'team_a': ta, 'team_b': tb,
+                        'goals_a': ga, 'goals_b': gb,
+                        'outcome': out, 'weight': w, 'round': rnd})
 
     if exclude_outliers:
         before  = len(matches)
@@ -448,7 +524,11 @@ def main():
     print("\nCarregando dados...")
     matches, scores, teams_list, teams_idx = load_data(args.exclude_outliers)
     ng = N_GLOBAL_UC if uc else N_GLOBAL
+    from collections import Counter
+    round_counts = Counter(m['round'] for m in matches)
     print(f"  {len(matches)} jogos  |  {len(teams_list)} seleções")
+    print(f"  Jogos por rodada: { {r: round_counts[r] for r in ['r1','r2','r3','r32','r16','qf','sf','final'] if round_counts[r]} }")
+    print(f"  Pesos (Opção B): r1=1.0  r2=1.0  r3=0.7  r32=2.0  r16=3.0  qf=4.0  sf=5.0  final=6.0")
     if uc:
         print(f"  Modo unconstrained: {ng} pesos livres, BASE_XG={FIXED_BASE_XG}")
     if use_biases:
@@ -580,6 +660,7 @@ def main():
     out = {
         'method':           'simulated_annealing',
         'n_matches':        len(matches),
+        'round_weights':    ROUND_WEIGHTS,
         'exclude_outliers': args.exclude_outliers,
         'use_biases':       use_biases,
         'att_only':         att_only,

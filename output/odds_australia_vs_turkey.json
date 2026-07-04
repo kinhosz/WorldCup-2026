@@ -1,0 +1,36 @@
+{
+  "team_a": "australia",
+  "team_b": "turkey",
+  "n_sims": 1000000,
+  "xg": {
+    "australia": 0.901,
+    "turkey": 0.929
+  },
+  "odds": {
+    "australia": 32.9,
+    "draw": 32.5,
+    "turkey": 34.5
+  },
+  "top_scores": [
+    {
+      "score": "0-0",
+      "pct": 15.9
+    },
+    {
+      "score": "0-1",
+      "pct": 14.9
+    },
+    {
+      "score": "1-0",
+      "pct": 14.4
+    },
+    {
+      "score": "1-1",
+      "pct": 13.5
+    },
+    {
+      "score": "0-2",
+      "pct": 7.0
+    }
+  ]
+}

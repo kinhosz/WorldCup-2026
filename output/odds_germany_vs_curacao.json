@@ -1,0 +1,36 @@
+{
+  "team_a": "germany",
+  "team_b": "curacao",
+  "n_sims": 1000000,
+  "xg": {
+    "germany": 4.629,
+    "curacao": 0.553
+  },
+  "odds": {
+    "germany": 95.6,
+    "draw": 3.3,
+    "curacao": 1.2
+  },
+  "top_scores": [
+    {
+      "score": "4-0",
+      "pct": 10.8
+    },
+    {
+      "score": "5-0",
+      "pct": 9.9
+    },
+    {
+      "score": "3-0",
+      "pct": 9.3
+    },
+    {
+      "score": "6-0",
+      "pct": 7.7
+    },
+    {
+      "score": "2-0",
+      "pct": 6.0
+    }
+  ]
+}

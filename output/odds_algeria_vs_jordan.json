@@ -1,0 +1,36 @@
+{
+  "team_a": "algeria",
+  "team_b": "jordan",
+  "n_sims": 1000000,
+  "xg": {
+    "algeria": 2.24,
+    "jordan": 1.359
+  },
+  "odds": {
+    "algeria": 57.3,
+    "draw": 20.0,
+    "jordan": 22.7
+  },
+  "top_scores": [
+    {
+      "score": "2-1",
+      "pct": 9.3
+    },
+    {
+      "score": "1-1",
+      "pct": 8.3
+    },
+    {
+      "score": "3-1",
+      "pct": 7.0
+    },
+    {
+      "score": "2-0",
+      "pct": 6.8
+    },
+    {
+      "score": "2-2",
+      "pct": 6.4
+    }
+  ]
+}

@@ -313,5 +313,118 @@
       ]
     }
   },
-  "knockout_results": {}
+  "knockout_results": {
+    "73": {
+      "home": "south_africa",
+      "away": "canada",
+      "score_str": "0–1",
+      "note": "90'",
+      "winner": "canada"
+    },
+    "74": {
+      "home": "netherlands",
+      "away": "morocco",
+      "score_str": "1–1",
+      "note": "PEN",
+      "winner": "morocco"
+    },
+    "75": {
+      "home": "germany",
+      "away": "paraguay",
+      "score_str": "1–1",
+      "note": "PEN",
+      "winner": "paraguay"
+    },
+    "76": {
+      "home": "france",
+      "away": "sweden",
+      "score_str": "3–0",
+      "note": "90'",
+      "winner": "france"
+    },
+    "81": {
+      "home": "brazil",
+      "away": "japan",
+      "score_str": "2–1",
+      "note": "90+4'",
+      "winner": "brazil"
+    },
+    "82": {
+      "home": "ivory_coast",
+      "away": "norway",
+      "score_str": "1–2",
+      "note": "90'",
+      "winner": "norway"
+    },
+    "83": {
+      "home": "mexico",
+      "away": "ecuador",
+      "score_str": "2–0",
+      "note": "90'",
+      "winner": "mexico"
+    },
+    "84": {
+      "home": "england",
+      "away": "congo",
+      "score_str": "2–1",
+      "note": "90'",
+      "winner": "england"
+    },
+    "77": {
+      "home": "belgium",
+      "away": "senegal",
+      "score_str": "3–2 (2–2 AET)",
+      "note": "AET",
+      "winner": "belgium"
+    },
+    "78": {
+      "home": "united_states_of_america",
+      "away": "bosnia_and_herzegovina",
+      "score_str": "2–0",
+      "note": "90'",
+      "winner": "united_states_of_america"
+    },
+    "79": {
+      "home": "spain",
+      "away": "austria",
+      "score_str": "3–0",
+      "note": "90'",
+      "winner": "spain"
+    },
+    "80": {
+      "home": "portugal",
+      "away": "croatia",
+      "score_str": "2–1",
+      "note": "90'",
+      "winner": "portugal"
+    },
+    "85": {
+      "home": "switzerland",
+      "away": "algeria",
+      "score_str": "2–0",
+      "note": "90'",
+      "winner": "switzerland"
+    },
+    "86": {
+      "home": "colombia",
+      "away": "ghana",
+      "score_str": "1–0",
+      "note": "90'",
+      "winner": "colombia"
+    },
+    "87": {
+      "home": "australia",
+      "away": "egypt",
+      "score_str": "1–1",
+      "note": "PEN",
+      "winner": "egypt"
+    },
+    "88": {
+      "home": "argentina",
+      "away": "cape_verte",
+      "score_str": "3–2 (1–1 AET)",
+      "note": "AET",
+      "winner": "argentina"
+    }
+  }
 }

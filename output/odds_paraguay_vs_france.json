@@ -1,0 +1,36 @@
+{
+  "team_a": "paraguay",
+  "team_b": "france",
+  "n_sims": 1000000,
+  "xg": {
+    "paraguay": 0.266,
+    "france": 2.575
+  },
+  "odds": {
+    "paraguay": 2.5,
+    "draw": 10.6,
+    "france": 87.0
+  },
+  "top_scores": [
+    {
+      "score": "0-2",
+      "pct": 19.4
+    },
+    {
+      "score": "0-3",
+      "pct": 16.7
+    },
+    {
+      "score": "0-1",
+      "pct": 15.0
+    },
+    {
+      "score": "0-4",
+      "pct": 10.7
+    },
+    {
+      "score": "0-0",
+      "pct": 5.8
+    }
+  ]
+}

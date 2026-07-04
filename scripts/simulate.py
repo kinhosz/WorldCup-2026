@@ -119,9 +119,12 @@ with open(_SA_FILE) as _f:
 # ── Resultados reais já jogados ───────────────────────────────────────
 _STATE_FILE = os.path.join(os.path.dirname(__file__), '..', 'output', 'copa_real_state.json')
 _REAL_GROUP_RESULTS = {}
+_REAL_KNOCKOUT_RESULTS = {}
 if os.path.exists(_STATE_FILE):
     with open(_STATE_FILE) as _f:
-        _REAL_GROUP_RESULTS = json.load(_f).get('group_results', {})
+        _real_state = json.load(_f)
+        _REAL_GROUP_RESULTS = _real_state.get('group_results', {})
+        _REAL_KNOCKOUT_RESULTS = _real_state.get('knockout_results', {})
 
 _W = _SA['weights']
 BASE_XG    = _W['BASE_XG']
@@ -371,7 +374,11 @@ def simulate_tournament(scores):
 
     def play(mid):
         ta, tb = match_teams[mid]
-        w = sim_knockout_match(ta, tb, scores)
+        real = _REAL_KNOCKOUT_RESULTS.get(str(mid))
+        if real and real['winner'] in (ta, tb):
+            w = real['winner']
+        else:
+            w = sim_knockout_match(ta, tb, scores)
         winners[mid] = w
         return w
 

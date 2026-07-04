@@ -1,0 +1,36 @@
+{
+  "team_a": "sweden",
+  "team_b": "tunisia",
+  "n_sims": 1000000,
+  "xg": {
+    "sweden": 3.33,
+    "tunisia": 1.086
+  },
+  "odds": {
+    "sweden": 79.9,
+    "draw": 11.6,
+    "tunisia": 8.5
+  },
+  "top_scores": [
+    {
+      "score": "3-1",
+      "pct": 8.1
+    },
+    {
+      "score": "3-0",
+      "pct": 7.4
+    },
+    {
+      "score": "2-1",
+      "pct": 7.3
+    },
+    {
+      "score": "4-1",
+      "pct": 6.7
+    },
+    {
+      "score": "2-0",
+      "pct": 6.7
+    }
+  ]
+}

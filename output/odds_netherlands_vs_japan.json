@@ -1,0 +1,36 @@
+{
+  "team_a": "netherlands",
+  "team_b": "japan",
+  "n_sims": 1000000,
+  "xg": {
+    "netherlands": 1.675,
+    "japan": 1.27
+  },
+  "odds": {
+    "netherlands": 46.9,
+    "draw": 24.1,
+    "japan": 29.1
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 11.2
+    },
+    {
+      "score": "2-1",
+      "pct": 9.4
+    },
+    {
+      "score": "1-0",
+      "pct": 8.9
+    },
+    {
+      "score": "2-0",
+      "pct": 7.4
+    },
+    {
+      "score": "1-2",
+      "pct": 7.1
+    }
+  ]
+}

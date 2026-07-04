@@ -1,0 +1,36 @@
+{
+  "team_a": "ivory_coast",
+  "team_b": "ecuador",
+  "n_sims": 1000000,
+  "xg": {
+    "ivory_coast": 0.876,
+    "ecuador": 0.501
+  },
+  "odds": {
+    "ivory_coast": 42.4,
+    "draw": 37.6,
+    "ecuador": 19.9
+  },
+  "top_scores": [
+    {
+      "score": "0-0",
+      "pct": 25.3
+    },
+    {
+      "score": "1-0",
+      "pct": 22.1
+    },
+    {
+      "score": "0-1",
+      "pct": 12.6
+    },
+    {
+      "score": "1-1",
+      "pct": 11.1
+    },
+    {
+      "score": "2-0",
+      "pct": 9.7
+    }
+  ]
+}

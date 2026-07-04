@@ -1,0 +1,36 @@
+{
+  "team_a": "argentina",
+  "team_b": "algeria",
+  "n_sims": 1000000,
+  "xg": {
+    "argentina": 2.767,
+    "algeria": 0.653
+  },
+  "odds": {
+    "argentina": 81.3,
+    "draw": 12.4,
+    "algeria": 6.2
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 12.5
+    },
+    {
+      "score": "3-0",
+      "pct": 11.6
+    },
+    {
+      "score": "1-0",
+      "pct": 9.0
+    },
+    {
+      "score": "2-1",
+      "pct": 8.1
+    },
+    {
+      "score": "4-0",
+      "pct": 8.0
+    }
+  ]
+}

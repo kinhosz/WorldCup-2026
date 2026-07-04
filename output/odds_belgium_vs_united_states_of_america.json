@@ -1,0 +1,36 @@
+{
+  "team_a": "belgium",
+  "team_b": "united_states_of_america",
+  "n_sims": 1000000,
+  "xg": {
+    "belgium": 1.779,
+    "united_states_of_america": 1.373
+  },
+  "odds": {
+    "belgium": 47.2,
+    "draw": 23.1,
+    "united_states_of_america": 29.7
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 10.4
+    },
+    {
+      "score": "2-1",
+      "pct": 9.3
+    },
+    {
+      "score": "1-0",
+      "pct": 7.6
+    },
+    {
+      "score": "1-2",
+      "pct": 7.1
+    },
+    {
+      "score": "2-0",
+      "pct": 6.8
+    }
+  ]
+}

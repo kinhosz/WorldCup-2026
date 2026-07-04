@@ -1,0 +1,36 @@
+{
+  "team_a": "france",
+  "team_b": "senegal",
+  "n_sims": 1000000,
+  "xg": {
+    "france": 2.321,
+    "senegal": 0.831
+  },
+  "odds": {
+    "france": 70.8,
+    "draw": 17.4,
+    "senegal": 11.8
+  },
+  "top_scores": [
+    {
+      "score": "2-0",
+      "pct": 11.5
+    },
+    {
+      "score": "1-0",
+      "pct": 10.0
+    },
+    {
+      "score": "2-1",
+      "pct": 9.6
+    },
+    {
+      "score": "3-0",
+      "pct": 8.9
+    },
+    {
+      "score": "1-1",
+      "pct": 8.2
+    }
+  ]
+}

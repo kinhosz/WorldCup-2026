@@ -1,0 +1,36 @@
+{
+  "team_a": "ghana",
+  "team_b": "panama",
+  "n_sims": 1000000,
+  "xg": {
+    "ghana": 1.026,
+    "panama": 0.318
+  },
+  "odds": {
+    "ghana": 53.4,
+    "draw": 35.3,
+    "panama": 11.4
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 26.7
+    },
+    {
+      "score": "0-0",
+      "pct": 26.0
+    },
+    {
+      "score": "2-0",
+      "pct": 13.8
+    },
+    {
+      "score": "1-1",
+      "pct": 8.5
+    },
+    {
+      "score": "0-1",
+      "pct": 8.3
+    }
+  ]
+}

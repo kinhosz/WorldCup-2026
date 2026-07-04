@@ -1,0 +1,36 @@
+{
+  "team_a": "congo",
+  "team_b": "colombia",
+  "n_sims": 1000000,
+  "xg": {
+    "congo": 0.744,
+    "colombia": 1.24
+  },
+  "odds": {
+    "congo": 22.4,
+    "draw": 29.7,
+    "colombia": 48.0
+  },
+  "top_scores": [
+    {
+      "score": "0-1",
+      "pct": 17.0
+    },
+    {
+      "score": "0-0",
+      "pct": 13.7
+    },
+    {
+      "score": "1-1",
+      "pct": 12.7
+    },
+    {
+      "score": "0-2",
+      "pct": 10.6
+    },
+    {
+      "score": "1-0",
+      "pct": 10.3
+    }
+  ]
+}

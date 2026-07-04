@@ -1,0 +1,36 @@
+{
+  "team_a": "austria",
+  "team_b": "jordan",
+  "n_sims": 1000000,
+  "xg": {
+    "austria": 2.213,
+    "jordan": 1.132
+  },
+  "odds": {
+    "austria": 61.8,
+    "draw": 19.7,
+    "jordan": 18.4
+  },
+  "top_scores": [
+    {
+      "score": "2-1",
+      "pct": 9.8
+    },
+    {
+      "score": "1-1",
+      "pct": 8.8
+    },
+    {
+      "score": "2-0",
+      "pct": 8.7
+    },
+    {
+      "score": "1-0",
+      "pct": 7.8
+    },
+    {
+      "score": "3-1",
+      "pct": 7.2
+    }
+  ]
+}

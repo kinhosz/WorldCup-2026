@@ -1,0 +1,36 @@
+{
+  "team_a": "republic_of_korea",
+  "team_b": "czech_republic",
+  "n_sims": 1000000,
+  "xg": {
+    "republic_of_korea": 1.577,
+    "czech_republic": 1.018
+  },
+  "odds": {
+    "republic_of_korea": 50.3,
+    "draw": 25.3,
+    "czech_republic": 24.4
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 12.0
+    },
+    {
+      "score": "1-0",
+      "pct": 11.7
+    },
+    {
+      "score": "2-1",
+      "pct": 9.4
+    },
+    {
+      "score": "2-0",
+      "pct": 9.3
+    },
+    {
+      "score": "0-1",
+      "pct": 7.6
+    }
+  ]
+}

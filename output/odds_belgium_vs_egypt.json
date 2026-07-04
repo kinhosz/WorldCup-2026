@@ -1,0 +1,36 @@
+{
+  "team_a": "belgium",
+  "team_b": "egypt",
+  "n_sims": 1000000,
+  "xg": {
+    "belgium": 1.419,
+    "egypt": 0.858
+  },
+  "odds": {
+    "belgium": 50.1,
+    "draw": 27.1,
+    "egypt": 22.7
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 14.6
+    },
+    {
+      "score": "1-1",
+      "pct": 12.5
+    },
+    {
+      "score": "2-0",
+      "pct": 10.4
+    },
+    {
+      "score": "0-0",
+      "pct": 10.2
+    },
+    {
+      "score": "2-1",
+      "pct": 8.9
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "team_a": "canada",
+  "team_b": "morocco",
+  "n_sims": 1000000,
+  "xg": {
+    "canada": 0.916,
+    "morocco": 2.984
+  },
+  "odds": {
+    "canada": 8.4,
+    "draw": 12.7,
+    "morocco": 78.9
+  },
+  "top_scores": [
+    {
+      "score": "0-2",
+      "pct": 9.0
+    },
+    {
+      "score": "0-3",
+      "pct": 9.0
+    },
+    {
+      "score": "1-2",
+      "pct": 8.3
+    },
+    {
+      "score": "1-3",
+      "pct": 8.2
+    },
+    {
+      "score": "0-4",
+      "pct": 6.7
+    }
+  ]
+}

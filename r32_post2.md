@@ -66,6 +66,11 @@ chip 1: 1 – 1   12.3%
 chip 2: 0 – 1   9.3%
 chip 3: 1 – 0   9.0%
 
+Model call badge (single rounded horizontal pill, dark background #1E293B, drop shadow, centered):
+— Left (small caps, muted #94A3B8): MODEL'S CALL
+— Separator (muted): ·
+— Right (white bold): No call — nearly identical xGs, scores split in every direction
+
 Insight line (color #93C5FD, small): Belgium's attack bias 0.632 — the lowest of all 32 teams in the tournament. Senegal's defensive bias 0.710 is one of the strongest. Senegal slight favorite despite squad gap.
 
 Footer (muted #64748B, very small): Model4 · SA+biases att+def · 1.000.000 simulations
@@ -100,6 +105,11 @@ TOP SCORES label (white, small caps) followed by 3 chips inline. Each chip has d
 chip 1: 3 – 1   8.1%
 chip 2: 2 – 1   7.5%
 chip 3: 3 – 0   7.1%
+
+Model call badge (single rounded horizontal pill, dark background #1E293B, drop shadow, centered):
+— Left (small caps, muted #94A3B8): MODEL'S CALL
+— Separator (muted): ·
+— Right (white bold): USA advances — xG 3× above Bosnia
 
 Insight line (color #93C5FD, small): USA's attack bias 1.350 — the highest of all 32 teams. They consistently outscored squad predictions throughout the group stage.
 
@@ -136,6 +146,11 @@ chip 1: 1 – 0   15.2%
 chip 2: 2 – 0   13.8%
 chip 3: 1 – 1   10.1%
 
+Model call badge (single rounded horizontal pill, dark background #1E293B, drop shadow, centered):
+— Left (small caps, muted #94A3B8): MODEL'S CALL
+— Separator (muted): ·
+— Right (white bold): Spain advances — Austria with only 13% upset chance
+
 Insight line (color #93C5FD, small): Spain's attack bias 0.745 and defensive bias 1.228 — they scored less and conceded more than squad attributes suggest. Squad quality still generates xG 1.81 advantage.
 
 Footer (muted #64748B, very small): Model4 · SA+biases att+def · 1.000.000 simulations
@@ -170,6 +185,11 @@ TOP SCORES label (white, small caps) followed by 3 chips inline. Each chip has d
 chip 1: 2 – 0   12.5%
 chip 2: 1 – 0   11.1%
 chip 3: 3 – 0   9.4%
+
+Model call badge (single rounded horizontal pill, dark background #1E293B, drop shadow, centered):
+— Left (small caps, muted #94A3B8): MODEL'S CALL
+— Separator (muted): ·
+— Right (white bold): Portugal advances — top 3 scores are all clean-sheet wins
 
 Insight line (color #93C5FD, small): Croatia's defensive bias 0.578 — 2nd best in the tournament, conceded far less than squad attributes predict. Portugal's squad depth still generates an xG advantage of 1.51.
 
@@ -206,6 +226,11 @@ chip 1: 1 – 1   11.1%
 chip 2: 2 – 1   9.3%
 chip 3: 1 – 0   8.5%
 
+Model call badge (single rounded horizontal pill, dark background #1E293B, drop shadow, centered):
+— Left (small caps, muted #94A3B8): MODEL'S CALL
+— Separator (muted): ·
+— Right (white bold): Switzerland, no conviction — Algeria at 30% is a real threat
+
 Insight line (color #93C5FD, small): Two of the strongest defensive biases in the R32 face each other — Switzerland 0.774, Algeria 0.722. Expect a tight, low-scoring contest.
 
 Footer (muted #64748B, very small): Model4 · SA+biases att+def · 1.000.000 simulations
@@ -238,6 +263,11 @@ TOP SCORES label (white, small caps) followed by 3 chips inline. Each chip has d
 chip 1: 0 – 1   16.8%
 chip 2: 0 – 0   16.3%
 chip 3: 1 – 1   13.2%
+
+Model call badge (single rounded horizontal pill, dark background #1E293B, drop shadow, centered):
+— Left (small caps, muted #94A3B8): MODEL'S CALL
+— Separator (muted): ·
+— Right (white bold): Egypt or draw — 0-0 is the second most likely outcome
 
 Insight line (color #93C5FD, small): Lowest combined xG of the round — 0.78 vs 1.04. Both teams scored below squad expectations (attack biases 0.782 and 0.729). 0 – 0 is the second most likely outcome at 16.3%.
 
@@ -274,6 +304,11 @@ chip 1: 1 – 0   21.0%
 chip 2: 2 – 0   19.4%
 chip 3: 3 – 0   12.0%
 
+Model call badge (single rounded horizontal pill, dark background #1E293B, drop shadow, centered):
+— Left (small caps, muted #94A3B8): MODEL'S CALL
+— Separator (muted): ·
+— Right (white bold): Argentina advances — top 3 outcomes (1-0, 2-0, 3-0) sum to 52.4%
+
 Insight line (color #93C5FD, small): Cape Verde's xG of 0.33 is the lowest of any team in this round. Argentina's three most likely outcomes (1–0, 2–0, 3–0) account for 52.4% of all simulations combined.
 
 Footnote (muted #64748B, very small): Above 70% confidence, the model was correct in 97% of group stage games.
@@ -308,6 +343,11 @@ TOP SCORES label (white, small caps) followed by 3 chips inline. Each chip has d
 chip 1: 1 – 0   21.2%
 chip 2: 0 – 0   17.3%
 chip 3: 2 – 0   12.9%
+
+Model call badge (single rounded horizontal pill, dark background #1E293B, drop shadow, centered):
+— Left (small caps, muted #94A3B8): MODEL'S CALL
+— Separator (muted): ·
+— Right (white bold): Colombia, but draw at 30.5% — highest in this round
 
 Insight line (color #93C5FD, small): Ghana's defensive bias 1.312 — the weakest defense in the entire tournament. Yet both teams score below squad expectations (attack biases 0.722 and 0.731), keeping xGs low.
 
