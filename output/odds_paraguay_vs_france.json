@@ -2,35 +2,54 @@
   "team_a": "paraguay",
   "team_b": "france",
   "n_sims": 1000000,
+  "knockout": true,
   "xg": {
-    "paraguay": 0.266,
-    "france": 2.575
+    "paraguay": 0.231,
+    "france": 2.134
   },
   "odds": {
-    "paraguay": 2.5,
-    "draw": 10.6,
-    "france": 87.0
+    "paraguay": 3.1,
+    "draw": 14.6,
+    "france": 82.3
+  },
+  "advance": {
+    "paraguay": 10.4,
+    "france": 89.6
+  },
+  "derived_metrics": {
+    "over_2_5": 42.1,
+    "under_2_5": 57.9,
+    "btts_yes": 18.2,
+    "btts_no": 81.8,
+    "clean_sheet_a": 11.8,
+    "clean_sheet_b": 79.4,
+    "margin_a_2plus": 0.3,
+    "margin_b_2plus": 56.9
+  },
+  "assertive_bet": {
+    "label": "Nem todas marcam",
+    "pct": 81.8
   },
   "top_scores": [
     {
       "score": "0-2",
-      "pct": 19.4
-    },
-    {
-      "score": "0-3",
-      "pct": 16.7
+      "pct": 21.4
     },
     {
       "score": "0-1",
-      "pct": 15.0
+      "pct": 20.0
     },
     {
-      "score": "0-4",
-      "pct": 10.7
+      "score": "0-3",
+      "pct": 15.2
     },
     {
       "score": "0-0",
-      "pct": 5.8
+      "pct": 9.4
+    },
+    {
+      "score": "0-4",
+      "pct": 8.1
     }
   ]
 }

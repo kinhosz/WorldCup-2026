@@ -1,0 +1,55 @@
+{
+  "team_a": "switzerland",
+  "team_b": "colombia",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "switzerland": 0.643,
+    "colombia": 0.797
+  },
+  "odds": {
+    "switzerland": 26.7,
+    "draw": 37.5,
+    "colombia": 35.8
+  },
+  "advance": {
+    "switzerland": 45.4,
+    "colombia": 54.6
+  },
+  "derived_metrics": {
+    "over_2_5": 17.6,
+    "under_2_5": 82.4,
+    "btts_yes": 26.1,
+    "btts_no": 73.9,
+    "clean_sheet_a": 45.1,
+    "clean_sheet_b": 52.5,
+    "margin_a_2plus": 7.2,
+    "margin_b_2plus": 11.7
+  },
+  "assertive_bet": {
+    "label": "Menos de 2.5 gols",
+    "pct": 82.4
+  },
+  "top_scores": [
+    {
+      "score": "0-0",
+      "pct": 23.7
+    },
+    {
+      "score": "0-1",
+      "pct": 18.8
+    },
+    {
+      "score": "1-0",
+      "pct": 15.3
+    },
+    {
+      "score": "1-1",
+      "pct": 12.2
+    },
+    {
+      "score": "0-2",
+      "pct": 7.5
+    }
+  ]
+}

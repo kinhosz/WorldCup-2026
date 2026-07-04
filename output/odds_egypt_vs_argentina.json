@@ -1,0 +1,55 @@
+{
+  "team_a": "egypt",
+  "team_b": "argentina",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "egypt": 0.653,
+    "argentina": 1.605
+  },
+  "odds": {
+    "egypt": 14.9,
+    "draw": 24.6,
+    "argentina": 60.4
+  },
+  "advance": {
+    "egypt": 27.2,
+    "argentina": 72.8
+  },
+  "derived_metrics": {
+    "over_2_5": 39.2,
+    "under_2_5": 60.8,
+    "btts_yes": 38.3,
+    "btts_no": 61.7,
+    "clean_sheet_a": 20.1,
+    "clean_sheet_b": 52.1,
+    "margin_a_2plus": 3.8,
+    "margin_b_2plus": 33.2
+  },
+  "assertive_bet": {
+    "label": "Nem todas marcam",
+    "pct": 61.7
+  },
+  "top_scores": [
+    {
+      "score": "0-1",
+      "pct": 16.8
+    },
+    {
+      "score": "0-2",
+      "pct": 13.5
+    },
+    {
+      "score": "1-1",
+      "pct": 11.0
+    },
+    {
+      "score": "0-0",
+      "pct": 10.5
+    },
+    {
+      "score": "1-2",
+      "pct": 8.7
+    }
+  ]
+}

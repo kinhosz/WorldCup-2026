@@ -2,35 +2,54 @@
   "team_a": "mexico",
   "team_b": "england",
   "n_sims": 1000000,
+  "knockout": true,
   "xg": {
-    "mexico": 0.615,
-    "england": 1.227
+    "mexico": 0.773,
+    "england": 1.205
   },
   "odds": {
-    "mexico": 18.6,
-    "draw": 30.3,
-    "england": 51.1
+    "mexico": 23.7,
+    "draw": 30.0,
+    "england": 46.3
+  },
+  "advance": {
+    "mexico": 38.7,
+    "england": 61.3
+  },
+  "derived_metrics": {
+    "over_2_5": 31.8,
+    "under_2_5": 68.2,
+    "btts_yes": 37.7,
+    "btts_no": 62.3,
+    "clean_sheet_a": 30.0,
+    "clean_sheet_b": 46.2,
+    "margin_a_2plus": 7.2,
+    "margin_b_2plus": 20.5
+  },
+  "assertive_bet": {
+    "label": "Menos de 2.5 gols",
+    "pct": 68.2
   },
   "top_scores": [
     {
       "score": "0-1",
-      "pct": 19.4
+      "pct": 16.7
     },
     {
       "score": "0-0",
-      "pct": 15.9
+      "pct": 13.8
     },
     {
       "score": "1-1",
-      "pct": 12.0
-    },
-    {
-      "score": "0-2",
-      "pct": 11.9
+      "pct": 12.8
     },
     {
       "score": "1-0",
-      "pct": 9.7
+      "pct": 10.7
+    },
+    {
+      "score": "0-2",
+      "pct": 10.0
     }
   ]
 }

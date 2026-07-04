@@ -2,35 +2,54 @@
   "team_a": "brazil",
   "team_b": "norway",
   "n_sims": 1000000,
+  "knockout": true,
   "xg": {
-    "brazil": 3.435,
-    "norway": 0.909
+    "brazil": 3.172,
+    "norway": 1.091
   },
   "odds": {
-    "brazil": 84.1,
-    "draw": 9.9,
-    "norway": 6.1
+    "brazil": 78.0,
+    "draw": 12.6,
+    "norway": 9.4
+  },
+  "advance": {
+    "brazil": 84.3,
+    "norway": 15.7
+  },
+  "derived_metrics": {
+    "over_2_5": 79.8,
+    "under_2_5": 20.2,
+    "btts_yes": 63.6,
+    "btts_no": 36.4,
+    "clean_sheet_a": 33.6,
+    "clean_sheet_b": 4.2,
+    "margin_a_2plus": 59.8,
+    "margin_b_2plus": 3.2
+  },
+  "assertive_bet": {
+    "label": "Mais de 2.5 gols",
+    "pct": 79.8
   },
   "top_scores": [
     {
-      "score": "3-0",
-      "pct": 8.8
-    },
-    {
       "score": "3-1",
-      "pct": 8.0
-    },
-    {
-      "score": "2-0",
-      "pct": 7.7
-    },
-    {
-      "score": "4-0",
-      "pct": 7.5
+      "pct": 8.2
     },
     {
       "score": "2-1",
-      "pct": 6.9
+      "pct": 7.7
+    },
+    {
+      "score": "3-0",
+      "pct": 7.5
+    },
+    {
+      "score": "2-0",
+      "pct": 7.1
+    },
+    {
+      "score": "4-1",
+      "pct": 6.5
     }
   ]
 }

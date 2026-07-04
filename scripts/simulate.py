@@ -373,14 +373,18 @@ def simulate_tournament(scores):
         return w
 
     # Round of 16 — bracket real fixo (R32 já decidido)
-    r32_participants = set()
+    r16_participants = set()   # os 16 times reais que chegaram ao R16 (fato, 100%)
     for mid, (ta, tb) in REAL_R16_BRACKET.items():
         match_teams[mid] = (ta, tb)
-        r32_participants.add(ta)
-        r32_participants.add(tb)
+        r16_participants.add(ta)
+        r16_participants.add(tb)
         play(mid)
 
-    r16_participants = set(winners[mid] for mid in REAL_R16_BRACKET)
+    # 32 times reais que jogaram o R32 (fato, 100%) — vencedores + perdedores
+    r32_participants = set()
+    for game in _REAL_KNOCKOUT_RESULTS.values():
+        r32_participants.add(game['home'])
+        r32_participants.add(game['away'])
 
     # Quarterfinals
     for mid, src1, src2 in QUARTERFINALS:

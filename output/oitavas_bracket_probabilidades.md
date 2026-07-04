@@ -110,4 +110,4 @@ Cada célula = adversário "chalk" daquela fase + chance real do time testado ve
 | 9 | Suíça | 2.71% | 2.71% |
 | 10 | EUA | 2.21% | 2.21% |
 
-Caminho do Brasil (Monte Carlo): R16 84.25% · QF 84.25% · SF 56.11% · Final 38.12% · Campeão 20.19% — bate com a decomposição exata (84.18% / 56.04% / 38.07% / 20.16%) dentro do ruído esperado de amostragem. Holanda, Alemanha e Japão confirmados em 0% (times já eliminados de verdade).
+Caminho do Brasil (Monte Carlo): vence R16 (chega à QF) 84.25% · chega à semi 56.11% · chega à final 38.12% · Campeão 20.19% — bate com a decomposição exata (84.18% / 56.04% / 38.07% / 20.16%) dentro do ruído esperado de amostragem. Holanda, Alemanha e Japão confirmados em 0% de chance de título (times já eliminados de verdade).

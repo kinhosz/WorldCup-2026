@@ -276,6 +276,7 @@ Em vez de comparar estratégias estruturalmente diferentes, o Model5 usou a mesm
 | `output/r32_analise_completa.md` | Análise completa do R32 pro post técnico Instagram: tabela dos 16 jogos, acertos/erros/zebras, empates, calibração, ganchos editoriais, auto-reflexão do modelo |
 | `output/model5_vs_model4_r32.md` | Model5 vs Model4 nos 16 jogos do R32 (previsão, Rank, RankScore por jogo) |
 | `output/oitavas_bracket_probabilidades.md` | Top 10 campeões (oitavas em diante), caminho completo do Brasil, chalk bracket dos Top 10, com bug do bracket documentado e cross-check Monte Carlo 10M |
+| `output/top10_mudancas_model4_vs_model5.md` | Por que o Top 10 mudou tanto: eliminações reais, recalibração de bias por seleção, posição no chaveamento |
 | `output/weights_s08.json` … `output/weights_s21.json` | Pesos de cada estratégia treinada |
 | `output/model_eval.json` | Avaliação formal R1+R2 (48 jogos, Model3) |
 | `output/score_audit.md` | Breakdown por jogador (tier, rating, dropped?) |

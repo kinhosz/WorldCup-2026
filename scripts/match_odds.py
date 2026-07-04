@@ -81,10 +81,49 @@ def run_match(team_a, team_b, scores, n_sims):
     return wins_a, draws, wins_b, score_counts, xg_a, xg_b
 
 
+def derived_metrics(score_counts, n_sims):
+    """Métricas assertivas derivadas do placar — indiferentes a quem vence,
+    então funcionam mesmo em jogos de mata-mata (ver metodologia em CLAUDE.md).
+    """
+    def pct(cond):
+        return sum(c for (ga, gb), c in score_counts.items() if cond(ga, gb)) / n_sims * 100
+
+    return {
+        "over_2_5":        pct(lambda ga, gb: ga + gb >= 3),
+        "under_2_5":       pct(lambda ga, gb: ga + gb <= 2),
+        "btts_yes":        pct(lambda ga, gb: ga >= 1 and gb >= 1),
+        "btts_no":         pct(lambda ga, gb: ga == 0 or gb == 0),
+        "clean_sheet_a":   pct(lambda ga, gb: gb == 0),
+        "clean_sheet_b":   pct(lambda ga, gb: ga == 0),
+        "margin_a_2plus":  pct(lambda ga, gb: ga - gb >= 2),
+        "margin_b_2plus":  pct(lambda ga, gb: gb - ga >= 2),
+    }
+
+
+def best_assertive_claim(dm, name_a, name_b):
+    """Escolhe a claim de maior probabilidade entre as métricas derivadas
+    (não inclui quem-avança — essa já é a chamada principal do card)."""
+    candidates = [
+        (f"Menos de 2.5 gols",              dm["under_2_5"]),
+        (f"Mais de 2.5 gols",               dm["over_2_5"]),
+        (f"Ambas marcam",                   dm["btts_yes"]),
+        (f"Nem todas marcam",               dm["btts_no"]),
+        (f"{name_a} não sofre gol",         dm["clean_sheet_a"]),
+        (f"{name_b} não sofre gol",         dm["clean_sheet_b"]),
+        (f"{name_a} vence por 2+ gols",     dm["margin_a_2plus"]),
+        (f"{name_b} vence por 2+ gols",     dm["margin_b_2plus"]),
+    ]
+    label, pct = max(candidates, key=lambda x: x[1])
+    return label, pct
+
+
 def main():
     args = sys.argv[1:]
+    knockout = "--mata-mata" in args or "--knockout" in args
+    args = [a for a in args if a not in ("--mata-mata", "--knockout")]
+
     if len(args) < 2:
-        sys.exit("Uso: python scripts/match_odds.py <time_casa> <time_fora> [N]")
+        sys.exit("Uso: python scripts/match_odds.py <time_casa> <time_fora> [N] [--mata-mata]")
 
     team_a_raw = args[0]
     team_b_raw = args[1]
@@ -116,14 +155,28 @@ def main():
     name_a = dn(team_a)
     name_b = dn(team_b)
 
+    dm = derived_metrics(score_counts, n_sims)
+    assertive_label, assertive_pct = best_assertive_claim(dm, name_a, name_b)
+
+    advance_a = pct_a + 0.5 * pct_d
+    advance_b = pct_b + 0.5 * pct_d
+
     print()
     print(f"{'═'*55}")
     print(f"  {name_a}  vs  {name_b}")
     print(f"  {n_sims:,} simulações  |  xG: {xg_a:.2f} – {xg_b:.2f}")
     print(f"{'═'*55}")
-    print(f"  {name_a:<28} {pct_a:>6.1f}%")
-    print(f"  {'Empate':<28} {pct_d:>6.1f}%")
-    print(f"  {name_b:<28} {pct_b:>6.1f}%")
+    if knockout:
+        print(f"  Quem avança (pênaltis 50/50 se empatar):")
+        print(f"  {name_a:<28} {advance_a:>6.1f}%")
+        print(f"  {name_b:<28} {advance_b:>6.1f}%")
+        print(f"  (referência 90': {name_a} {pct_a:.1f}% · Empate {pct_d:.1f}% · {name_b} {pct_b:.1f}%)")
+    else:
+        print(f"  {name_a:<28} {pct_a:>6.1f}%")
+        print(f"  {'Empate':<28} {pct_d:>6.1f}%")
+        print(f"  {name_b:<28} {pct_b:>6.1f}%")
+    print(f"{'─'*55}")
+    print(f"  Aposta assertiva: {assertive_label} — {assertive_pct:.1f}%")
     print(f"{'─'*55}")
     print(f"  Placares mais prováveis:")
     for (ga, gb), count in top_scores:
@@ -137,12 +190,19 @@ def main():
         "team_a":     team_a,
         "team_b":     team_b,
         "n_sims":     n_sims,
+        "knockout":   knockout,
         "xg": {team_a: round(xg_a, 3), team_b: round(xg_b, 3)},
         "odds": {
             team_a:  round(pct_a, 1),
             "draw":  round(pct_d, 1),
             team_b:  round(pct_b, 1),
         },
+        "advance": {
+            team_a: round(advance_a, 1),
+            team_b: round(advance_b, 1),
+        } if knockout else None,
+        "derived_metrics": {k: round(v, 1) for k, v in dm.items()},
+        "assertive_bet": {"label": assertive_label, "pct": round(assertive_pct, 1)},
         "top_scores": [
             {"score": f"{ga}-{gb}", "pct": round(count / n_sims * 100, 1)}
             for (ga, gb), count in top_scores
