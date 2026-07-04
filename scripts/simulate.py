@@ -68,16 +68,33 @@ ROUND32 = [
 ]
 
 # Each entry: (match_id, source_match_1, source_match_2)
+# Pareamento sequencial oficial (ver output/r32_bracket.json → r16_pairs):
+# 73&74, 75&76, 77&78, 79&80, 81&82, 83&84, 85&86, 87&88.
+# Mantido para compatibilidade (megazord.py) — simulate_tournament() usa
+# REAL_R16_BRACKET abaixo, que trava os times reais em vez de resolver
+# pelos specs de grupo do ROUND32 (dessincronizados dos resultados reais).
 ROUND16 = [
-    (89,  74, 77),
-    (90,  73, 75),
-    (91,  76, 78),
+    (89,  73, 74),
+    (90,  75, 76),
+    (91,  77, 78),
     (92,  79, 80),
-    (93,  83, 84),
-    (94,  81, 82),
-    (95,  86, 88),
-    (96,  85, 87),
+    (93,  81, 82),
+    (94,  83, 84),
+    (95,  85, 86),
+    (96,  87, 88),
 ]
+
+# Oitavas (R16) — bracket real fixo, confirmado com os 16 resultados do R32.
+REAL_R16_BRACKET = {
+    89: ('canada',      'morocco'),
+    90: ('paraguay',    'france'),
+    91: ('belgium',     'united_states_of_america'),
+    92: ('spain',       'portugal'),
+    93: ('brazil',      'norway'),
+    94: ('mexico',      'england'),
+    95: ('switzerland', 'colombia'),
+    96: ('egypt',       'argentina'),
+}
 
 QUARTERFINALS = [
     (97,   89, 90),
@@ -87,8 +104,8 @@ QUARTERFINALS = [
 ]
 
 SEMIFINALS = [
-    (101,  97,  98),
-    (102,  99, 100),
+    (101,  97,  99),
+    (102,  98, 100),
 ]
 
 FINAL_ID   = 104
@@ -326,51 +343,24 @@ def _assign_thirds(qualifying):
 
 def simulate_tournament(scores):
     """
-    Simulate one complete tournament.
+    Simulate one complete tournament from the Round of 16 onward.
+
+    Fase de grupos + R32 são fato consumado (72 jogos de grupo + 16 do R32
+    já decididos de verdade) — usa o bracket real fixo das oitavas
+    (REAL_R16_BRACKET) em vez de resolver pelos specs de grupo do ROUND32,
+    que ficaram dessincronizados dos resultados reais entrados em
+    copa_real_state.json (ver TASKS.md/CLAUDE.md).
 
     Returns a dict with sets of teams that *participated* in each round:
       champion          : team key
-      group_rankings    : {letter: [1st, 2nd, 3rd, 4th]}
-      r32_participants  : 32 teams in R32 bracket (advanced from groups)
-      r16_participants  : 16 teams in R16  (= R32 winners)
+      r32_participants  : 32 teams that reached R32 (fato real, fixo)
+      r16_participants  : 16 teams in R16  (= R32 winners, fato real, fixo)
       qf_participants   :  8 teams in QFs  (= R16 winners)
       sf_participants   :  4 teams in SFs  (= QF winners)
       finalists         :  2 teams in Final (= SF winners)
     """
-    # ── Group stage ──────────────────────────────────────────────────
-    group_rankings = {}   # letter → [(team, pts, gd, gf, wins), ...]
-    thirds         = []   # (group_letter, team, pts, gd, gf, wins)
-
-    for letter, teams in GROUPS.items():
-        ranked = simulate_group(teams, scores, letter=letter)
-        group_rankings[letter] = ranked
-        _, *third = ranked[2]
-        thirds.append((letter, ranked[2][0], *third))
-
-    # ── Best-8 third-place ────────────────────────────────────────────
-    ranked_thirds    = _rank_thirds(thirds)
-    qualifying_thirds = [(g, t) for g, t, *_ in ranked_thirds[:8]]
-    third_slot_map   = _assign_thirds(qualifying_thirds)  # {match_id: team}
-
-    # ── Build Round-of-32 matchups ────────────────────────────────────
     match_teams = {}   # match_id → (team_a, team_b)
-
-    for mid, spec1, spec2 in ROUND32:
-        def resolve(spec, mid=mid):
-            kind, val = spec
-            if kind == '1':
-                return group_rankings[val][0][0]
-            if kind == '2':
-                return group_rankings[val][1][0]
-            # '3rd'
-            return third_slot_map.get(mid)
-
-        team_a = resolve(spec1)
-        team_b = resolve(spec2)
-        match_teams[mid] = (team_a, team_b)
-
-    # ── Simulate knockout rounds ──────────────────────────────────────
-    winners = {}   # match_id → winning team
+    winners = {}       # match_id → winning team
 
     def play(mid):
         ta, tb = match_teams[mid]
@@ -382,28 +372,22 @@ def simulate_tournament(scores):
         winners[mid] = w
         return w
 
-    # Round of 32 — collect participants before simulating
+    # Round of 16 — bracket real fixo (R32 já decidido)
     r32_participants = set()
-    for mid, _, _ in ROUND32:
-        ta, tb = match_teams[mid]
+    for mid, (ta, tb) in REAL_R16_BRACKET.items():
+        match_teams[mid] = (ta, tb)
         r32_participants.add(ta)
-        if tb is not None:
-            r32_participants.add(tb)
+        r32_participants.add(tb)
         play(mid)
 
-    # Round of 16
-    for mid, src1, src2 in ROUND16:
-        match_teams[mid] = (winners[src1], winners[src2])
-        play(mid)
-
-    r16_participants = set(winners[mid] for mid, *_ in ROUND32)   # R32 winners
+    r16_participants = set(winners[mid] for mid in REAL_R16_BRACKET)
 
     # Quarterfinals
     for mid, src1, src2 in QUARTERFINALS:
         match_teams[mid] = (winners[src1], winners[src2])
         play(mid)
 
-    qf_participants = set(winners[mid] for mid, *_ in ROUND16)    # R16 winners
+    qf_participants = set(winners[mid] for mid in REAL_R16_BRACKET)  # R16 winners
 
     # Semifinals
     sf_losers = []
@@ -423,7 +407,6 @@ def simulate_tournament(scores):
 
     return {
         'champion':          champion,
-        'group_rankings':    {l: [t for t, *_ in ranked] for l, ranked in group_rankings.items()},
         'r32_participants':  r32_participants,   # 32 teams
         'r16_participants':  r16_participants,   # 16 teams
         'qf_participants':   qf_participants,    #  8 teams
@@ -563,7 +546,7 @@ def main():
     print_results(results, n_sims)
 
     os.makedirs("output", exist_ok=True)
-    out_path = "output/simulation_results.json"
+    out_path = sys.argv[2] if len(sys.argv) > 2 else "output/simulation_results.json"
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(
             {'n_simulations': n_sims, 'groups': GROUPS, 'results': results},

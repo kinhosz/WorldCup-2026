@@ -9,7 +9,8 @@
 - **16/16 jogos do R32** registrados em `copa_real_state.json` (`knockout_results` #73–88) ✅
 - **Análise W/D/L do R32** salva em `output/r32_wdl_report.md` ✅
 - **Model5 ativo** — treinado com 88 jogos (72 grupo + 16 R32), pesos de rodada revisados + bônus time vivo ✅ (ver `CLAUDE.md` → Estado Atual e `output/model5_vs_model4_r32.md`)
-- **Bracket das oitavas definido** (a partir dos vencedores reais) ⬜ odds pendentes
+- **Bracket das oitavas definido e corrigido no `simulate.py`** ✅ — ver seção "Bug do bracket" abaixo. Top 10 campeões + caminho do Brasil em `output/oitavas_bracket_probabilidades.md`
+- Odds individuais das oitavas (`match_odds.py` por jogo) ⬜ pendentes
 
 ### Oitavas (R16) — confrontos definidos
 
@@ -23,6 +24,18 @@
 | R16 #6 | México x Inglaterra |
 | R16 #7 | Suíça x Colômbia |
 | R16 #8 | Egito x Argentina |
+
+## Bug do bracket em `simulate.py` — CORRIGIDO (04 jul 2026)
+
+Três problemas encontrados e corrigidos, nessa ordem:
+
+1. **`ROUND16` embaralhado** — pares 1, 2, 3, 7 e 8 não seguiam a ordem sequencial oficial (73&74, 75&76, 77&78, 79&80, 81&82, 83&84, 85&86, 87&88).
+2. **`SEMIFINALS` cruzando metades cedo demais** — Brasil (metade B: jogos 81–88) encontrava o lado da França (metade A: 73–80) já na semifinal em vez de só na final. Corrigido: SF1=QF1×QF2 (metade A), SF2=QF3×QF4 (metade B).
+3. **`ROUND32` (specs de grupo, ex: "1º E vs 3º ABCDF") dessincronizado dos resultados reais em 15 dos 16 jogos** — a simulação não reconhecia o resultado real e resimulava do zero, deixando times já eliminados (Holanda, Alemanha, Japão) reaparecerem nas odds de campeão. **Fix definitivo:** `simulate_tournament()` não simula mais fase de grupos nem resolve o R32 por specs — usa `REAL_R16_BRACKET`, um dicionário fixo com os 16 times reais das oitavas. Fase de grupos e R32 são fato consumado, não precisam mais ser simulados.
+
+**Atenção:** `megazord.py` ainda usa a lógica antiga (`ROUND32` + specs de grupo) e não foi corrigido — mantém o mesmo bug se for rodado agora. `ROUND16` foi mantido no código (não removido) só por compatibilidade com esse import.
+
+Validado: Monte Carlo de 10M pós-fix bate com o cálculo exato via recursão de bracket (França 26.70% vs 26.72%, Brasil 20.19% vs 20.16%) — ver `output/oitavas_bracket_probabilidades.md`.
 
 ---
 

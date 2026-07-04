@@ -17,6 +17,7 @@ Simulador Monte Carlo da Copa do Mundo 2026. Usa atributos de jogadores (FC25/FI
   - Performance nos 16 jogos do R32 (in-sample, o modelo viu esses jogos no treino): RankScore 98 (vs 51 do Model4), Top-3 12/16 (75%), W/D/L 11/16 (68.75%) — ver `output/model5_vs_model4_r32.md`
   - Model4 (S14, treinado só com os 72 jogos de grupo) preservado em `output/weights_s14.json` como referência histórica
 - **Oitavas (R16):** Canadá-Marrocos, Paraguai-França, Bélgica-EUA, Espanha-Portugal, Brasil-Noruega, México-Inglaterra, Suíça-Colômbia, Egito-Argentina
+- **Bug do bracket em `simulate.py` corrigido** — `ROUND32` (specs de grupo) estava dessincronizado dos resultados reais em 15/16 jogos, deixando times já eliminados (Holanda, Alemanha, Japão) reaparecerem nas odds. Agora usa `REAL_R16_BRACKET` (bracket fixo, sem re-simular grupo/R32). Detalhe completo em TASKS.md. Top 10 campeões pós-fix + caminho do Brasil em `output/oitavas_bracket_probabilidades.md`
 - **Próximo passo:** implementar metodologia de mata-mata (ver seção abaixo) no `match_odds.py`, gerar odds das oitavas com Model5
 
 ---
@@ -274,6 +275,7 @@ Em vez de comparar estratégias estruturalmente diferentes, o Model5 usou a mesm
 | `output/r32_wdl_report.md` | Análise W/D/L do R32 (16 jogos) — base pra `r32_analise_completa.md` |
 | `output/r32_analise_completa.md` | Análise completa do R32 pro post técnico Instagram: tabela dos 16 jogos, acertos/erros/zebras, empates, calibração, ganchos editoriais, auto-reflexão do modelo |
 | `output/model5_vs_model4_r32.md` | Model5 vs Model4 nos 16 jogos do R32 (previsão, Rank, RankScore por jogo) |
+| `output/oitavas_bracket_probabilidades.md` | Top 10 campeões (oitavas em diante), caminho completo do Brasil, chalk bracket dos Top 10, com bug do bracket documentado e cross-check Monte Carlo 10M |
 | `output/weights_s08.json` … `output/weights_s21.json` | Pesos de cada estratégia treinada |
 | `output/model_eval.json` | Avaliação formal R1+R2 (48 jogos, Model3) |
 | `output/score_audit.md` | Breakdown por jogador (tier, rating, dropped?) |
