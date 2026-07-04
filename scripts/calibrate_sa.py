@@ -107,13 +107,26 @@ GROUPS = {
 ROUND_WEIGHTS = {
     'r1':    1.0,
     'r2':    1.0,
-    'r3':    0.7,
-    'r32':   2.0,
+    'r3':    0.5,
+    'r32':   3.0,
     'r16':   3.0,
     'qf':    4.0,
     'sf':    5.0,
     'final': 6.0,
 }
+
+# Times ainda vivos no torneio (pós-R32) — cada um presente num jogo soma +0.2
+# ao peso daquele jogo na loss, até +0.4 se os dois times do confronto estiverem vivos.
+ALIVE_BONUS = 0.2
+ALIVE_TEAMS = {
+    'canada', 'morocco', 'paraguay', 'france', 'belgium',
+    'united_states_of_america', 'spain', 'portugal', 'brazil', 'norway',
+    'mexico', 'england', 'switzerland', 'colombia', 'egypt', 'argentina',
+}
+
+
+def _alive_bonus(ta, tb):
+    return ALIVE_BONUS * ((ta in ALIVE_TEAMS) + (tb in ALIVE_TEAMS))
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -150,9 +163,19 @@ def _knockout_round(match_id):
     return 'final'
 
 
-def _parse_score(score_str):
-    """Extrai (gols_a, gols_b) de score_str como '1–1' ou '2-0'."""
+def _parse_score(score_str, note=None):
+    """Extrai o placar de 90' de score_str, ignorando prorrogação/pênaltis.
+
+    Formatos suportados: '1–1', '2-0', '1–1 pen.', '3–2 (1–1 AET)'.
+    Em jogos AET, o placar de 90' vem entre parênteses — a prorrogação não
+    entra no treino (decisão de projeto: modelar só os 90').
+    """
     s = score_str.replace('–', '-').replace('—', '-')
+    if note == 'AET':
+        s = s[s.index('(') + 1:s.index(')')]
+    else:
+        s = s.split('(')[0]
+    s = s.replace('pen.', '').replace('PEN', '').replace('AET', '').strip()
     a, b = s.split('-')
     return int(a.strip()), int(b.strip())
 
@@ -439,7 +462,7 @@ def load_data(exclude_outliers):
             if ta not in scores or tb not in scores:
                 continue
             rnd = _group_round(ta, tb)
-            w   = ROUND_WEIGHTS[f'r{rnd}']
+            w   = ROUND_WEIGHTS[f'r{rnd}'] + _alive_bonus(ta, tb)
             out = 'a' if ga > gb else ('b' if ga < gb else 'draw')
             matches.append({'team_a': ta, 'team_b': tb,
                             'goals_a': ga, 'goals_b': gb,
@@ -449,10 +472,10 @@ def load_data(exclude_outliers):
         ta, tb = game['home'], game['away']
         if ta not in scores or tb not in scores:
             continue
-        ga, gb = _parse_score(game['score_str'])
+        ga, gb = _parse_score(game['score_str'], game.get('note'))
         out = 'a' if ga > gb else ('b' if ga < gb else 'draw')
         rnd = _knockout_round(mid)
-        w   = ROUND_WEIGHTS[rnd]
+        w   = ROUND_WEIGHTS[rnd] + _alive_bonus(ta, tb)
         matches.append({'team_a': ta, 'team_b': tb,
                         'goals_a': ga, 'goals_b': gb,
                         'outcome': out, 'weight': w, 'round': rnd})
@@ -528,7 +551,8 @@ def main():
     round_counts = Counter(m['round'] for m in matches)
     print(f"  {len(matches)} jogos  |  {len(teams_list)} seleções")
     print(f"  Jogos por rodada: { {r: round_counts[r] for r in ['r1','r2','r3','r32','r16','qf','sf','final'] if round_counts[r]} }")
-    print(f"  Pesos (Opção B): r1=1.0  r2=1.0  r3=0.7  r32=2.0  r16=3.0  qf=4.0  sf=5.0  final=6.0")
+    print(f"  Pesos por rodada: r1=1.0  r2=1.0  r3=0.5  r32=3.0  r16=3.0  qf=4.0  sf=5.0  final=6.0")
+    print(f"  Bônus time vivo: +{ALIVE_BONUS} por time ainda no torneio ({len(ALIVE_TEAMS)} times vivos)")
     if uc:
         print(f"  Modo unconstrained: {ng} pesos livres, BASE_XG={FIXED_BASE_XG}")
     if use_biases:
@@ -661,6 +685,8 @@ def main():
         'method':           'simulated_annealing',
         'n_matches':        len(matches),
         'round_weights':    ROUND_WEIGHTS,
+        'alive_bonus':      ALIVE_BONUS,
+        'alive_teams':      sorted(ALIVE_TEAMS),
         'exclude_outliers': args.exclude_outliers,
         'use_biases':       use_biases,
         'att_only':         att_only,

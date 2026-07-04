@@ -6,16 +6,53 @@ Simulador Monte Carlo da Copa do Mundo 2026. Usa atributos de jogadores (FC25/FI
 
 ---
 
-## Estado Atual (28 jun 2026)
+## Estado Atual (04 jul 2026)
 
-- **Branch:** `group-phase/round-2` — fase de grupos ENCERRADA (72/72 jogos)
-- **Fase de grupos:** ✅ completa — bracket R32 salvo em `output/r32_bracket.json`
-- **Modelo ativo: Model4 (S14)** — SA+biases att+def, λ=2.0, treinado com 72 jogos
-  - Método: `--biases` att+def (att_bias + def_bias por seleção, 100 parâmetros)
-  - NLL=64.55, RankScore=+241; escolhido após comparação de 21 estratégias (S01–S21)
-  - Pesos lidos dinamicamente de `output/calibrated_weights_sa.json`
-  - Performance fase de grupos: 46/72 W/D/L (64%), ≥70% de confiança → 97% de acerto
-- **Próximo passo:** odds R32 com Model4, posts Instagram R32
+- **Branch:** `group-phase/round-2` — R32 ENCERRADO (16/16 jogos), oitavas definidas
+- **Modelo ativo: Model5** — SA+biases att+def, λ=2.0, treinado com 88 jogos (72 grupo + 16 R32)
+  - Método: `--biases` att+def, com pesos por rodada revisados (r3=0.5, r32=3.0) e bônus `+0.2` por time ainda vivo no torneio no peso de cada jogo (até `+0.4` se os dois times do confronto estiverem vivos)
+  - Escolhido entre 5 seeds (999, 2026, 7, 123, 42) rodadas em paralelo com a mesma config — NLL final quase idêntico entre todas (135.12–135.13, convergência robusta), RankScore empatado entre as 2 melhores → adotada a **seed 2026**
+  - NLL=135.12, Brier=0.4204 (nos 88 jogos de treino)
+  - Pesos lidos dinamicamente de `output/calibrated_weights_sa.json` (cópia de referência: `output/weights_model5.json`)
+  - Performance nos 16 jogos do R32 (in-sample, o modelo viu esses jogos no treino): RankScore 98 (vs 51 do Model4), Top-3 12/16 (75%), W/D/L 11/16 (68.75%) — ver `output/model5_vs_model4_r32.md`
+  - Model4 (S14, treinado só com os 72 jogos de grupo) preservado em `output/weights_s14.json` como referência histórica
+- **Oitavas (R16):** Canadá-Marrocos, Paraguai-França, Bélgica-EUA, Espanha-Portugal, Brasil-Noruega, México-Inglaterra, Suíça-Colômbia, Egito-Argentina
+- **Próximo passo:** implementar metodologia de mata-mata (ver seção abaixo) no `match_odds.py`, gerar odds das oitavas com Model5
+
+---
+
+## Metodologia de Mata-Mata (decidido 04 jul 2026)
+
+A partir do R32, jogos de eliminatória direta usam uma abordagem diferente da fase de grupos, porque (a) o modelo nunca prevê empate como resultado mais provável (limitação estrutural do Poisson independente — precisa de dois xG quase idênticos e baixos simultaneamente, o que quase nunca ocorre) e (b) placar exato de baixo score (0–1, 1–0, 1–1) carrega pouca informação pra uma "aposta" editorial.
+
+### "Quem avança" substitui W/D/L nos posts de mata-mata
+
+```
+P(avança_A) = P(vence_A) + 0.5 × P(empate)
+P(avança_B) = P(vence_B) + 0.5 × P(empate)
+```
+
+- **Pênaltis tratados como 50/50** — decisão consciente de não modelar prorrogação, porque exigiria squad-score com profundidade de banco/reservas, que o `build_team_scores.py` não tem (só usa top-K, a melhor escalação titular).
+- Não muda quem é o favorito (soma a mesma fatia dos dois lados), mas mede a métrica certa: jogos que empatam nos 90' mas o favorito avança nos pênaltis contam como acerto, não erro.
+- Validado no R32: bucket de confiança ≥70% sobe de 60% (W/D/L 90') para 87.5% (quem avança) — muito mais coerente com os 97% históricos da fase de grupos.
+- **Só se aplica ao mata-mata.** Fase de grupos continua usando W/D/L normal — lá o empate é resultado final válido.
+
+### Métricas derivadas para "aposta assertiva" (complementam o top-score, não substituem)
+
+Calculadas a partir dos dois xG de Poisson já existentes, sem retreinar nada:
+
+| Métrica | Fórmula | Vantagem |
+|---------|---------|----------|
+| Over/Under gols (ex: 2.5) | soma das duas Poisson | Indiferente a quem ganha |
+| Ambas marcam (BTTS) | `(1-P(A=0)) × (1-P(B=0))` | Indiferente a quem ganha |
+| Clean sheet | `P(oponente=0)` | Forte quando defesa muito acima da média |
+| Vitória por margem (2+) | soma da diagonal da matriz | Mais assertivo que placar exato |
+
+Regra: calcular todas + W/D/L, escolher a de maior probabilidade como "aposta do modelo". Top-3 score continua no post como detalhe/curiosidade, não mais como aposta principal.
+
+**Pendente:** implementação no `match_odds.py` (ainda não feita).
+
+**Bug corrigido (04 jul 2026):** `calibrate_sa.py::_parse_score` quebrava em `score_str` com sufixo `PEN`/`AET` — agora extrai corretamente o placar de 90' (formatos `"1–1 pen."` e `"3–2 (1–1 AET)"` tratados).
 
 ---
 
@@ -49,22 +86,24 @@ resistance_B = RES_DEF_W × defense_B + RES_GK_W  × goalkeeper_B + RES_MID_W ×
 xG_A = min(BASE_XG × offense_A / max(resistance_B, 0.10), 8.0)
 ```
 
-**Constantes atuais — Model4 (S14)** — SA+biases att+def, 72 jogos, λ=2.0:
+**Constantes atuais — Model5** — SA+biases att+def, 88 jogos (72 grupo + 16 R32), λ=2.0:
 
-| Constante | Model4 (ativo) | Model3 (R1+R2) |
-|-----------|----------------|----------------|
-| `BASE_XG` | **1.1438** | 1.1438 |
-| `OFF_ATT_W` | **0.7146** | 0.7146 |
-| `OFF_MID_W` | **0.2854** | 0.2854 |
-| `RES_DEF_W` | **0.4474** | 0.4474 |
-| `RES_GK_W` | **0.05** | 0.05 |
-| `RES_MID_W` | **0.5026** | 0.5026 |
+| Constante | Model5 (ativo) | Model4 (S14) |
+|-----------|----------------|--------------|
+| `BASE_XG` | **1.0118** | 1.1438 |
+| `OFF_ATT_W` | **0.5809** | 0.7146 |
+| `OFF_MID_W` | **0.4191** | 0.2854 |
+| `RES_DEF_W` | **0.3223** | 0.4474 |
+| `RES_GK_W` | **0.454** | 0.05 |
+| `RES_MID_W` | **0.2237** | 0.5026 |
 
-Pesos globais convergiram ao mesmo mínimo; diferença principal em relação ao Model3: biases att+def treinados com 72 jogos (antes: att_only, 48 jogos).
+Diferença em relação ao Model4: dataset de treino cresceu de 72 pra 88 jogos (incluindo R32), pesos por rodada revisados (r3=0.5, r32=3.0) e bônus de time vivo (+0.2/time). Pesos globais migraram — mais peso em `RES_GK_W`, menos em `RES_DEF_W`/`RES_MID_W`, reflexo do R32 pesando mais na loss.
 
-**Biases por seleção (att+def):** carregados de `output/calibrated_weights_sa.json` (= `output/weights_s14.json`).
+**Biases por seleção (att+def):** carregados de `output/calibrated_weights_sa.json` (= `output/weights_model5.json`).
 
-**Performance fase de grupos com Model4:** 46/72 W/D/L (64%) — vitórias: 37/41 (90%), empates: 0/20 (0% — limitação estrutural Poisson), derrotas: 9/11 (82%). Acima de 70% de confiança: 97% de acerto, 0 zebras.
+**Performance fase de grupos com Model4 (referência histórica):** 46/72 W/D/L (64%) — vitórias: 37/41 (90%), empates: 0/20 (0% — limitação estrutural Poisson), derrotas: 9/11 (82%). Acima de 70% de confiança: 97% de acerto, 0 zebras.
+
+**Performance Model5 nos 88 jogos de treino (in-sample):** RankScore 312 (vs 292 do Model4 nos mesmos 88), Top-1 22/88, Top-3 51/88, W/D/L 58/88 (65.9%). Não é teste de generalização — o Model5 treinou nesses mesmos jogos.
 
 ---
 
@@ -146,10 +185,14 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 ### Histórico de calibração
 - **R1 → R2:** pesos globais — ✅
 - **R2 → R3:** att_only 48 jogos λ=1.5 (Model3) — ✅
-- **R3 → R32:** att+def 72 jogos λ=2.0 → **Model4 (S14)** — ✅ ativo
+- **R3 → R32:** att+def 72 jogos λ=2.0 → **Model4 (S14)** — ✅ histórico
+- **R32 → Oitavas:** att+def 88 jogos λ=2.0, pesos por rodada revisados + bônus time vivo → **Model5** — ✅ ativo
 
 ### Comparação de estratégias (`model_compare.py`)
-21 estratégias testadas (S01–S21) com RankScore como métrica principal. Vencedor: **S14** (SA+biases att+def, λ=2.0, 72 jogos, RankScore=+241). Resultado salvo em `output/model_comparison.md`.
+21 estratégias testadas (S01–S21) com RankScore como métrica principal. Vencedor da fase de grupos: **S14** (SA+biases att+def, λ=2.0, 72 jogos, RankScore=+241) → virou Model4. Resultado salvo em `output/model_comparison.md`.
+
+### Seleção do Model5 por múltiplas seeds
+Em vez de comparar estratégias estruturalmente diferentes, o Model5 usou a mesma config do S14 (biases att+def, λ=2.0, 500k iters × 5 restarts) rodada com 5 seeds distintas (999, 2026, 7, 123, 42) em paralelo — uma espécie de "restart em escala maior". Resultado: NLL final quase idêntico entre todas (135.12–135.13), RankScore empatado (312) entre as duas melhores (seed 999 e 2026) — sinal de que a otimização já converge de forma robusta pro mesmo mínimo global independente da seed. Adotada a seed 2026.
 
 ---
 
@@ -216,9 +259,10 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 | Arquivo | Conteúdo |
 |---------|----------|
 | `output/team_scores.json` | Scores GK/DEF/MID/ATT por seleção |
-| `output/copa_real_state.json` | Resultados reais — 72 jogos fase de grupos |
-| `output/calibrated_weights_sa.json` | **Model4 (S14)** — pesos ativos (lidos por simulate.py e match_odds.py) |
-| `output/weights_s14.json` | Cópia de referência do Model4 |
+| `output/copa_real_state.json` | Resultados reais — 72 jogos de grupo + 16 do R32 |
+| `output/calibrated_weights_sa.json` | **Model5** — pesos ativos (lidos por simulate.py e match_odds.py) |
+| `output/weights_model5.json` | Cópia de referência do Model5 |
+| `output/weights_s14.json` | Cópia de referência do Model4 (histórico) |
 | `output/calibrated_weights.json` | Pesos L-BFGS-B (referência, não aplicado) |
 | `output/simulation_results.json` | Última simulação 1M (pós-R3, Model3 — recalcular com Model4) |
 | `output/simulation_results_pre_r3.json` | Backup odds campeão pré-R3 |
@@ -227,6 +271,9 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 | `output/model4_vs_reality.md` | Top-3 predições vs resultado real — 72 jogos |
 | `output/model4_report.md` | Análise por time: acertos, erros, classificados, placares exatos |
 | `output/model4_wdl_report.md` | Análise W/D/L: matriz de confusão, calibração, zebras |
+| `output/r32_wdl_report.md` | Análise W/D/L do R32 (16 jogos) — base pra `r32_analise_completa.md` |
+| `output/r32_analise_completa.md` | Análise completa do R32 pro post técnico Instagram: tabela dos 16 jogos, acertos/erros/zebras, empates, calibração, ganchos editoriais, auto-reflexão do modelo |
+| `output/model5_vs_model4_r32.md` | Model5 vs Model4 nos 16 jogos do R32 (previsão, Rank, RankScore por jogo) |
 | `output/weights_s08.json` … `output/weights_s21.json` | Pesos de cada estratégia treinada |
 | `output/model_eval.json` | Avaliação formal R1+R2 (48 jogos, Model3) |
 | `output/score_audit.md` | Breakdown por jogador (tier, rating, dropped?) |
