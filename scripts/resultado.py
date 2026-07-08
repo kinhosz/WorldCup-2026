@@ -110,15 +110,18 @@ KNOCKOUT_SCHEDULE = {
     86:  ("Round of 32", "1º J",  "2º H"),
     87:  ("Round of 32", "1º K",  "3º DEIJL"),
     88:  ("Round of 32", "2º D",  "2º G"),
-    # Round of 16
-    89:  ("Oitavas",     "W74",   "W77"),
-    90:  ("Oitavas",     "W73",   "W75"),
-    91:  ("Oitavas",     "W76",   "W78"),
+    # Round of 16 — pares sequenciais (73&74, 75&76, 77&78, 79&80, 81&82, 83&84,
+    # 85&86, 87&88), confirmados contra REAL_R16_BRACKET em simulate.py. Esse
+    # dict estava com os pares 1, 2, 3, 7 e 8 embaralhados (mesmo bug do
+    # simulate.py, nunca corrigido aqui) — corrigido em 07 jul 2026.
+    89:  ("Oitavas",     "W73",   "W74"),
+    90:  ("Oitavas",     "W75",   "W76"),
+    91:  ("Oitavas",     "W77",   "W78"),
     92:  ("Oitavas",     "W79",   "W80"),
-    93:  ("Oitavas",     "W83",   "W84"),
-    94:  ("Oitavas",     "W81",   "W82"),
-    95:  ("Oitavas",     "W86",   "W88"),
-    96:  ("Oitavas",     "W85",   "W87"),
+    93:  ("Oitavas",     "W81",   "W82"),
+    94:  ("Oitavas",     "W83",   "W84"),
+    95:  ("Oitavas",     "W85",   "W86"),
+    96:  ("Oitavas",     "W87",   "W88"),
     # Quartas
     97:  ("Quartas",     "W89",   "W90"),
     98:  ("Quartas",     "W93",   "W94"),

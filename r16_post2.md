@@ -2,6 +2,36 @@
 
 Formato validado com Canadá x Marrocos. Texto sempre em inglês. Formato 4:5, 1080×1350. Dados de `output/odds_*.json` (Model5). Metodologia e regras de seleção da "aposta do modelo" em `r16_template_jogo.md`.
 
+Bélgica x EUA e Espanha x Portugal já aconteceram no mundo real antes da postagem — os slides individuais (1 e 2 abaixo) continuam os mesmos, publicados por auditoria (comparar previsão pré-jogo vs resultado real depois). O Slide 0 (hook) avisa isso explicitamente pro leitor, com tag laranja "AUDIT" nas duas linhas já decididas.
+
+---
+
+## SLIDE 0 — Hook (título do carrossel)
+
+```
+IMPORTANT: the final image MUST be exactly 4:5 portrait aspect ratio, 1080×1350 pixels — taller than it is wide, like an Instagram post. Do not generate a landscape or square image. Portrait orientation is mandatory.
+
+Professional sports editorial infographic, 4:5 portrait 1080×1350px. Inter or equivalent sans-serif font, tabular numbers. All text in English. Do not invent any values not listed below. Do not render any of these instructional labels as visible text in the image — only render the exact quoted strings.
+
+BACKGROUND: a real cinematic photo of a packed football stadium at night, floodlights blazing, red pyrotechnic flares/smoke in the crowd. Apply a dark navy overlay at 78% opacity on top of the whole scene (color #080C18) so it reads as moody and atmospheric behind the UI, not distracting.
+
+Large bold title text, centered near the top, white with a red neon glow, two lines, huge and bold: "OITAVAS" on the first line, "BATCH 2" on the second line.
+
+Directly below the title, a rounded pill/ribbon, orange background #FB923C, dark bold text, centered, reading exactly: "⚠ BELGIUM-USA & SPAIN-PORTUGAL ALREADY PLAYED — POSTED FOR AUDIT"
+
+Below that, four rows stacked vertically and evenly spaced, matching the style of the previously published "OITAVAS BATCH 1" post exactly: each row has a shield-shaped crest (rounded-bottom heraldic shield outline, dark #1E293B fill, thin light border, drop shadow) filled edge-to-edge with the left team's flag design, bold white "VS" centered between the two shields, then a matching shield filled with the right team's flag design, team names not needed below the shields (same as the reference post).
+
+ROW 1: LEFT SHIELD — Belgium flag (vertical black-yellow-red bands). RIGHT SHIELD — United States flag (red/white horizontal stripes, blue rectangle with white stars in upper-left). A small rounded pill tag reading exactly "AUDIT" (background #FB923C, dark bold text) sits at the right edge of this row only.
+
+ROW 2: LEFT SHIELD — Spain flag (horizontal red-yellow-red bands, wider yellow band with a coat of arms on the left side). RIGHT SHIELD — Portugal flag (vertical green band on the left, wider red band on the right, coat of arms centered where they meet). A small rounded pill tag reading exactly "AUDIT" (background #FB923C, dark bold text) sits at the right edge of this row only.
+
+ROW 3: LEFT SHIELD — Switzerland flag (red square field with a bold white cross in the center). RIGHT SHIELD — Colombia flag (horizontal yellow-blue-red bands, yellow band double height). No tag on this row.
+
+ROW 4: LEFT SHIELD — Egypt flag (horizontal red-white-black bands, golden Eagle of Saladin centered in the white band). RIGHT SHIELD — Argentina flag (horizontal light-blue-white-light-blue bands with a golden sun face centered in the white band). No tag on this row.
+
+Caption below the rows, small caps, wide letter-spacing, color #93C5FD, centered, reading exactly: "ROUND OF 16 · FIFA WORLD CUP 2026"
+```
+
 ---
 
 ## SLIDE 1 — Bélgica x EUA
