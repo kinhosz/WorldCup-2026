@@ -6,19 +6,42 @@ Simulador Monte Carlo da Copa do Mundo 2026. Usa atributos de jogadores (FC25/FI
 
 ---
 
-## Estado Atual (04 jul 2026)
+## Estado Atual (08 jul 2026)
 
-- **Branch:** `group-phase/round-2` — R32 ENCERRADO (16/16 jogos), oitavas definidas
-- **Modelo ativo: Model5** — SA+biases att+def, λ=2.0, treinado com 88 jogos (72 grupo + 16 R32)
-  - Método: `--biases` att+def, com pesos por rodada revisados (r3=0.5, r32=3.0) e bônus `+0.2` por time ainda vivo no torneio no peso de cada jogo (até `+0.4` se os dois times do confronto estiverem vivos)
-  - Escolhido entre 5 seeds (999, 2026, 7, 123, 42) rodadas em paralelo com a mesma config — NLL final quase idêntico entre todas (135.12–135.13, convergência robusta), RankScore empatado entre as 2 melhores → adotada a **seed 2026**
-  - NLL=135.12, Brier=0.4204 (nos 88 jogos de treino)
-  - Pesos lidos dinamicamente de `output/calibrated_weights_sa.json` (cópia de referência: `output/weights_model5.json`)
-  - Performance nos 16 jogos do R32 (in-sample, o modelo viu esses jogos no treino): RankScore 98 (vs 51 do Model4), Top-3 12/16 (75%), W/D/L 11/16 (68.75%) — ver `output/model5_vs_model4_r32.md`
-  - Model4 (S14, treinado só com os 72 jogos de grupo) preservado em `output/weights_s14.json` como referência histórica
-- **Oitavas (R16):** Canadá-Marrocos, Paraguai-França, Bélgica-EUA, Espanha-Portugal, Brasil-Noruega, México-Inglaterra, Suíça-Colômbia, Egito-Argentina
-- **Bug do bracket em `simulate.py` corrigido** — `ROUND32` (specs de grupo) estava dessincronizado dos resultados reais em 15/16 jogos, deixando times já eliminados (Holanda, Alemanha, Japão) reaparecerem nas odds. Agora usa `REAL_R16_BRACKET` (bracket fixo, sem re-simular grupo/R32). Detalhe completo em TASKS.md. Top 10 campeões pós-fix + caminho do Brasil em `output/oitavas_bracket_probabilidades.md`
-- **Próximo passo:** implementar metodologia de mata-mata (ver seção abaixo) no `match_odds.py`, gerar odds das oitavas com Model5
+- **Oitavas (R16) ENCERRADAS** (8/8 jogos) — modelo congelado a partir de agora, quartas em diante são teste out-of-sample de verdade (primeira vez no projeto)
+- **Modelo ativo: Model6** — SA por **pontos** (não mais NLL), treinado com 96 jogos (72 grupo + 16 R32 + 8 R16)
+  - Mudança de metodologia (08 jul 2026): o objetivo do SA deixou de ser minimizar Poisson NLL e passou a **maximizar pontos** — ver seção "Calibração por Pontos (Model6)" abaixo
+  - Escolhido entre 5 seeds (999, 2026, 7, 123, 42) rodadas em paralelo com a mesma config (`--biases`, λ=2.0, 300k iters × 5 restarts) — **seed 42** venceu em TODAS as métricas ao mesmo tempo (pontos 68.0/78 = 87.2%, NLL 80.39, Brier 0.494), sem empate/trade-off como no Model5
+  - Pesos lidos dinamicamente de `output/calibrated_weights_sa.json` (cópia de referência: `output/weights_model6.json`; logs das 5 seeds em `output/model6_seeds/`)
+  - Bias do Brasil caiu de forma acentuada (att_bias≈0.64) — o objetivo por pontos puniu diretamente a superconfiança (84.3%) que gerou a zebra contra a Noruega no R16
+  - Model5 (88 jogos, objetivo NLL) preservado em `output/weights_model5.json` como referência histórica
+- **Análise completa das oitavas (Model5, in-sample):** `output/r16_wdl_report.md` — quem avança 6/8 (75%), zebra do Brasil quebrou a sequência de 97% de acerto acima de 70% de confiança
+- **Próximo passo:** gerar odds das quartas com Model6 (`match_odds.py`), publicar posts; após os 4 jogos, decidir se recalibra de novo ou mantém Model6 até a final
+
+---
+
+## Calibração por Pontos (Model6, decidido 08 jul 2026)
+
+Mudança de objetivo pedida pelo usuário: em vez de minimizar Poisson NLL, o `calibrate_sa.py` agora **maximiza pontos** — uma métrica discreta desenhada pra refletir o que realmente importa pro projeto (acerto de resultado + qualidade do placar), não a verossimilhança estatística pura. Faz sentido usar Simulated Annealing pra isso porque SA não precisa de gradiente — funciona bem com objetivos discretos/não-suaves, ao contrário de L-BFGS-B.
+
+### Peso por rodada (pontos por acerto)
+
+| R1 | R2 | R3 | R32 | R16 | QF | SF | Final |
+|---|---|---|---|---|---|---|---|
+| 0.5 | 0.5 | 0.25 | 1.0 | 1.0 | 1.0 | 1.0* | 1.0* |
+
+*SF e Final ainda não têm jogos disputados — assumido igual ao resto do mata-mata (1.0) até serem jogados; revisar se o usuário quiser diferenciar.
+
+### Fórmula de pontos por jogo
+
+- **Fase de grupos (R1/R2/R3):** acerto de W/D/L (outcome com maior probabilidade Poisson bate com o resultado real) → pontos = peso da rodada. Sem bônus de placar.
+- **Mata-mata (R32 em diante):** acerto de "quem avança" (`P(vence) + 0.5×P(empate) ≥ 50%` bate com o vencedor real, pênaltis incluídos) → pontos = peso da rodada. **+ bônus de placar exato**, só no mata-mata: se o placar real é o mais provável do modelo (top-1) → +1.0; se é o 2º mais provável (top-2) → +0.667; se é o 3º (top-3) → +0.444 (queda constante de razão 2/3). Fora do top-3 → +0.
+- Sem alive bonus (o `+0.2 por time vivo` do Model5 foi removido — não fazia parte do novo esquema).
+- Regularização L2 dos biases (`λ×Σ(bias−1)²`) mantida como critério de desempate suave entre soluções com pontuação idêntica.
+
+### Resultado Model6 (96 jogos de treino)
+
+Pontos máximos possíveis: 78.0. Baseline (pesos default): 37.6 (48.2%). L-BFGS-B: 39.1 (50.1%). Model6 (SA, seed 42): **68.0 (87.2%)**.
 
 ---
 
@@ -87,24 +110,26 @@ resistance_B = RES_DEF_W × defense_B + RES_GK_W  × goalkeeper_B + RES_MID_W ×
 xG_A = min(BASE_XG × offense_A / max(resistance_B, 0.10), 8.0)
 ```
 
-**Constantes atuais — Model5** — SA+biases att+def, 88 jogos (72 grupo + 16 R32), λ=2.0:
+**Constantes atuais — Model6** — SA por pontos, biases att+def, 96 jogos (72 grupo + 16 R32 + 8 R16), λ=2.0:
 
-| Constante | Model5 (ativo) | Model4 (S14) |
-|-----------|----------------|--------------|
-| `BASE_XG` | **1.0118** | 1.1438 |
-| `OFF_ATT_W` | **0.5809** | 0.7146 |
-| `OFF_MID_W` | **0.4191** | 0.2854 |
-| `RES_DEF_W` | **0.3223** | 0.4474 |
-| `RES_GK_W` | **0.454** | 0.05 |
-| `RES_MID_W` | **0.2237** | 0.5026 |
+| Constante | Model6 (ativo) | Model5 | Model4 (S14) |
+|-----------|----------------|--------|--------------|
+| `BASE_XG` | **1.3796** | 1.0118 | 1.1438 |
+| `OFF_ATT_W` | **0.5127** | 0.5809 | 0.7146 |
+| `OFF_MID_W` | **0.4873** | 0.4191 | 0.2854 |
+| `RES_DEF_W` | **0.1969** | 0.3223 | 0.4474 |
+| `RES_GK_W` | **0.5** | 0.454 | 0.05 |
+| `RES_MID_W` | **0.3031** | 0.2237 | 0.5026 |
 
-Diferença em relação ao Model4: dataset de treino cresceu de 72 pra 88 jogos (incluindo R32), pesos por rodada revisados (r3=0.5, r32=3.0) e bônus de time vivo (+0.2/time). Pesos globais migraram — mais peso em `RES_GK_W`, menos em `RES_DEF_W`/`RES_MID_W`, reflexo do R32 pesando mais na loss.
+Diferença em relação ao Model5: dataset cresceu de 88 pra 96 jogos (incluindo R16) e, principalmente, **o objetivo de calibração mudou de NLL pra pontos** (ver "Calibração por Pontos" acima). `BASE_XG` subiu bastante (1.01 → 1.38) — reflexo direto de as oitavas terem sido mais goleadoras do que o modelo esperava (3 dos 8 jogos com 5+ gols no total), e o objetivo por pontos recompensa acertar volume de gols via o bônus de placar exato.
 
-**Biases por seleção (att+def):** carregados de `output/calibrated_weights_sa.json` (= `output/weights_model5.json`).
+**Biases por seleção (att+def):** carregados de `output/calibrated_weights_sa.json` (= `output/weights_model6.json`). Bias do Brasil caiu de forma acentuada (att≈0.64, def≈0.65) — correção direta da superconfiança que gerou a zebra contra a Noruega no R16.
 
 **Performance fase de grupos com Model4 (referência histórica):** 46/72 W/D/L (64%) — vitórias: 37/41 (90%), empates: 0/20 (0% — limitação estrutural Poisson), derrotas: 9/11 (82%). Acima de 70% de confiança: 97% de acerto, 0 zebras.
 
 **Performance Model5 nos 88 jogos de treino (in-sample):** RankScore 312 (vs 292 do Model4 nos mesmos 88), Top-1 22/88, Top-3 51/88, W/D/L 58/88 (65.9%). Não é teste de generalização — o Model5 treinou nesses mesmos jogos.
+
+**Performance Model6 nos 96 jogos de treino (in-sample, objetivo por pontos):** 68.0/78.0 pontos (87.2%) — ver "Calibração por Pontos" acima. Ainda não avaliado fora da amostra; quartas em diante são o primeiro teste real de generalização do projeto.
 
 ---
 
@@ -173,27 +198,32 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 - **Flag:** `--exclude-outliers` remove jogos com diff ≥ 4 gols
 
 ### Simulated Annealing (`calibrate_sa.py`)
-- Mesma loss, explora espaço globalmente (não segue gradiente local)
+- Explora espaço globalmente (não segue gradiente local) — por isso funciona tanto pra NLL contínua quanto pro objetivo por pontos (discreto, sem gradiente) do Model6
+- **Objetivo:** a partir do Model6, `neg_points_loss` (maximizar pontos, ver "Calibração por Pontos") — antes disso, `poisson_nll` (minimizar NLL). A função `poisson_nll` continua existindo só pro diagnóstico final (NLL/Brier reportados por continuidade histórica, não mais o alvo da busca)
 - **Modo padrão:** 4 parâmetros globais
 - **`--biases`:** adiciona `att_bias` e `def_bias` por seleção com regularização L2
   - `xG_A = BASE_XG × (off_A × att_bias_A) / (res_B × def_bias_B)`
-  - `loss = NLL + λ × Σ(bias − 1)²`
+  - `loss = -pontos + λ × Σ(bias − 1)²` (regularização como desempate suave entre soluções com pontuação idêntica)
   - Perturbação: 50% globais, 50% biases
 - **`--att-only`:** só `att_bias` por seleção (sem def_bias), 52 parâmetros
 - **`--unconstrained`:** remove restrições de soma (w_mid_off = 1−w_att etc.), libera 5 pesos independentes com BASE_XG fixo em 1.0. Testado em S19–S21; convergiu ao mesmo mínimo que constrained → não muda resultado na prática.
-- Logs a cada 10k iterações: temperatura, taxa de aceitação, NLL, pesos
+- Logs a cada 10k iterações: temperatura, taxa de aceitação, pontos (ou NLL nos modelos pré-Model6), pesos
 
 ### Histórico de calibração
 - **R1 → R2:** pesos globais — ✅
 - **R2 → R3:** att_only 48 jogos λ=1.5 (Model3) — ✅
 - **R3 → R32:** att+def 72 jogos λ=2.0 → **Model4 (S14)** — ✅ histórico
-- **R32 → Oitavas:** att+def 88 jogos λ=2.0, pesos por rodada revisados + bônus time vivo → **Model5** — ✅ ativo
+- **R32 → Oitavas:** att+def 88 jogos λ=2.0, pesos por rodada revisados + bônus time vivo, objetivo NLL → **Model5** — ✅ histórico
+- **Oitavas → Quartas:** att+def 96 jogos λ=2.0, pesos por rodada redesenhados, objetivo mudou pra **pontos** → **Model6** — ✅ ativo
 
 ### Comparação de estratégias (`model_compare.py`)
 21 estratégias testadas (S01–S21) com RankScore como métrica principal. Vencedor da fase de grupos: **S14** (SA+biases att+def, λ=2.0, 72 jogos, RankScore=+241) → virou Model4. Resultado salvo em `output/model_comparison.md`.
 
 ### Seleção do Model5 por múltiplas seeds
 Em vez de comparar estratégias estruturalmente diferentes, o Model5 usou a mesma config do S14 (biases att+def, λ=2.0, 500k iters × 5 restarts) rodada com 5 seeds distintas (999, 2026, 7, 123, 42) em paralelo — uma espécie de "restart em escala maior". Resultado: NLL final quase idêntico entre todas (135.12–135.13), RankScore empatado (312) entre as duas melhores (seed 999 e 2026) — sinal de que a otimização já converge de forma robusta pro mesmo mínimo global independente da seed. Adotada a seed 2026.
+
+### Seleção do Model6 por múltiplas seeds
+Mesma metodologia do Model5 (5 seeds em paralelo, config idêntica: `--biases`, λ=2.0, 300k iters × 5 restarts — default do script), mas agora otimizando pontos em vez de NLL. Resultado: seed 42 venceu em **todas** as métricas simultaneamente (pontos 68.0/78=87.2%, NLL 80.39, Brier 0.494) — sem empate/trade-off como no Model5. Logs completos das 5 seeds em `output/model6_seeds/`.
 
 ---
 
@@ -260,9 +290,14 @@ Em vez de comparar estratégias estruturalmente diferentes, o Model5 usou a mesm
 | Arquivo | Conteúdo |
 |---------|----------|
 | `output/team_scores.json` | Scores GK/DEF/MID/ATT por seleção |
-| `output/copa_real_state.json` | Resultados reais — 72 jogos de grupo + 16 do R32 |
-| `output/calibrated_weights_sa.json` | **Model5** — pesos ativos (lidos por simulate.py e match_odds.py) |
-| `output/weights_model5.json` | Cópia de referência do Model5 |
+| `output/copa_real_state.json` | Resultados reais — 72 jogos de grupo + 24 do mata-mata (R32+R16) |
+| `output/calibrated_weights_sa.json` | **Model6** — pesos ativos (lidos por simulate.py e match_odds.py) |
+| `output/weights_model6.json` | Cópia de referência do Model6 (objetivo por pontos) |
+| `output/model6_seeds/` | Logs + pesos das 5 seeds testadas pro Model6 (999, 2026, 7, 123, **42 vencedora**) |
+| `output/r16_wdl_report.md` | Análise "quem avança" das 8 oitavas com Model5 — 6/8 (75%), zebra do Brasil |
+| `output/model6_full_evaluation.md` | Reavaliação retroativa das 96 partidas com Model6 (in-sample) + combinações entre os 8 times vivos |
+| `output/model6_evaluation.html` | Mesmo conteúdo do `.md` acima em página interativa standalone (abas por rodada, barras de confiança) — abrir direto no navegador |
+| `output/weights_model5.json` | Cópia de referência do Model5 (histórico, objetivo NLL) |
 | `output/weights_s14.json` | Cópia de referência do Model4 (histórico) |
 | `output/calibrated_weights.json` | Pesos L-BFGS-B (referência, não aplicado) |
 | `output/simulation_results.json` | Última simulação 1M (pós-R3, Model3 — recalcular com Model4) |

@@ -425,6 +425,62 @@
       "score_str": "3–2 (1–1 AET)",
       "note": "AET",
       "winner": "argentina"
+    },
+    "91": {
+      "home": "belgium",
+      "away": "united_states_of_america",
+      "score_str": "4–1",
+      "note": "90'",
+      "winner": "belgium"
+    },
+    "92": {
+      "home": "spain",
+      "away": "portugal",
+      "score_str": "1–0",
+      "note": "90'",
+      "winner": "spain"
+    },
+    "93": {
+      "home": "brazil",
+      "away": "norway",
+      "score_str": "1–2",
+      "note": "90'",
+      "winner": "norway"
+    },
+    "89": {
+      "home": "canada",
+      "away": "morocco",
+      "score_str": "0–3",
+      "note": "90'",
+      "winner": "morocco"
+    },
+    "90": {
+      "home": "paraguay",
+      "away": "france",
+      "score_str": "0–1",
+      "note": "90'",
+      "winner": "france"
+    },
+    "94": {
+      "home": "mexico",
+      "away": "england",
+      "score_str": "2–3",
+      "note": "90'",
+      "winner": "england"
+    },
+    "95": {
+      "home": "switzerland",
+      "away": "colombia",
+      "score_str": "0–0",
+      "note": "PEN",
+      "winner": "switzerland"
+    },
+    "96": {
+      "home": "egypt",
+      "away": "argentina",
+      "score_str": "2–3",
+      "note": "90'",
+      "winner": "argentina"
     }
   }
 }

@@ -1,0 +1,52 @@
+{
+  "team_a": "argentina",
+  "team_b": "egypt",
+  "n_sims": 100000,
+  "knockout": false,
+  "xg": {
+    "argentina": 3.001,
+    "egypt": 2.0
+  },
+  "odds": {
+    "argentina": 58.7,
+    "draw": 17.0,
+    "egypt": 24.3
+  },
+  "advance": null,
+  "derived_metrics": {
+    "over_2_5": 87.7,
+    "under_2_5": 12.3,
+    "btts_yes": 82.4,
+    "btts_no": 17.6,
+    "clean_sheet_a": 13.4,
+    "clean_sheet_b": 4.9,
+    "margin_a_2plus": 40.2,
+    "margin_b_2plus": 12.4
+  },
+  "assertive_bet": {
+    "label": "Mais de 2.5 gols",
+    "pct": 87.7
+  },
+  "top_scores": [
+    {
+      "score": "3-2",
+      "pct": 6.2
+    },
+    {
+      "score": "2-2",
+      "pct": 6.2
+    },
+    {
+      "score": "3-1",
+      "pct": 6.1
+    },
+    {
+      "score": "2-1",
+      "pct": 6.0
+    },
+    {
+      "score": "4-1",
+      "pct": 4.6
+    }
+  ]
+}

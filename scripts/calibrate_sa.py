@@ -105,28 +105,22 @@ GROUPS = {
 }
 
 ROUND_WEIGHTS = {
-    'r1':    1.0,
-    'r2':    1.0,
-    'r3':    0.5,
-    'r32':   3.0,
-    'r16':   3.0,
-    'qf':    4.0,
-    'sf':    5.0,
-    'final': 6.0,
+    'r1':    0.5,
+    'r2':    0.5,
+    'r3':    0.25,
+    'r32':   1.0,
+    'r16':   1.0,
+    'qf':    1.0,
+    'sf':    1.0,    # ainda não jogado — assumido igual ao resto do mata-mata
+    'final': 1.0,    # idem
 }
 
-# Times ainda vivos no torneio (pós-R32) — cada um presente num jogo soma +0.2
-# ao peso daquele jogo na loss, até +0.4 se os dois times do confronto estiverem vivos.
-ALIVE_BONUS = 0.2
-ALIVE_TEAMS = {
-    'canada', 'morocco', 'paraguay', 'france', 'belgium',
-    'united_states_of_america', 'spain', 'portugal', 'brazil', 'norway',
-    'mexico', 'england', 'switzerland', 'colombia', 'egypt', 'argentina',
-}
-
-
-def _alive_bonus(ta, tb):
-    return ALIVE_BONUS * ((ta in ALIVE_TEAMS) + (tb in ALIVE_TEAMS))
+# Objetivo Model6: maximizar pontos, não minimizar NLL. Pontos = acerto do
+# resultado (peso da rodada acima) + bônus de placar exato só no mata-mata
+# (fase de grupos não ganha bônus de placar, só o ponto de W/D/L).
+KNOCKOUT_ROUNDS  = {'r32', 'r16', 'qf', 'sf', 'final'}
+TOP_SCORE_BONUS  = [1.0, 2 / 3, 4 / 9]   # queda constante (razão 2/3) — top1/top2/top3
+SCORE_BONUS_GRID = 10                     # 0..9 gols cobre a massa de probabilidade relevante
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -282,6 +276,111 @@ def brier_score(probs, outcome):
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  Objetivo por pontos (Model6) — usado no loop quente do SA, sem scipy
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def _pmf(lam, max_k):
+    """Poisson pmf k=0..max_k via recorrência — evita overhead do scipy no loop quente do SA."""
+    p = math.exp(-lam)
+    out = [p]
+    for k in range(1, max_k + 1):
+        p *= lam / k
+        out.append(p)
+    return out
+
+
+def _outcome_probs(pa, pb):
+    """win_a, draw, win_b via somas cumulativas — O(n), sem outer product."""
+    n = len(pa)
+    cum_b = [0.0] * (n + 1)
+    for j in range(n):
+        cum_b[j + 1] = cum_b[j] + pb[j]
+    total_b = cum_b[n]
+    win_a = sum(pa[i] * cum_b[i] for i in range(n))
+    draw  = sum(pa[i] * pb[i] for i in range(n))
+    win_b = sum(pa[i] * (total_b - cum_b[i + 1]) for i in range(n))
+    s = win_a + draw + win_b
+    if s <= 0:
+        return 1 / 3, 1 / 3, 1 / 3
+    return win_a / s, draw / s, win_b / s
+
+
+def _score_bonus(pa, pb, ga, gb, grid=SCORE_BONUS_GRID):
+    """Bônus de placar exato — só chamado para jogos de mata-mata.
+
+    Conta quantos placares da grade têm probabilidade estritamente maior que o
+    placar real; rank 0 = placar mais provável do modelo (top-1).
+    """
+    if ga >= len(pa) or gb >= len(pb):
+        return 0.0
+    p_actual = pa[ga] * pb[gb]
+    rank = 0
+    for i in range(grid):
+        pai = pa[i] if i < len(pa) else 0.0
+        for j in range(grid):
+            pbj = pb[j] if j < len(pb) else 0.0
+            if pai * pbj > p_actual:
+                rank += 1
+                if rank >= 3:
+                    return 0.0
+    return TOP_SCORE_BONUS[rank]
+
+
+def points_score(theta, matches, scores, teams_idx=None, att_only=False, uc=False, max_goals=MAX_GOALS):
+    """Pontos totais: acerto do resultado (peso da rodada) + bônus de placar exato (só mata-mata)."""
+    n_teams = len(teams_idx) if teams_idx is not None else 0
+    total = 0.0
+    for m in matches:
+        if teams_idx is not None:
+            xg_a, xg_b = compute_xg_biased(
+                scores[m['team_a']], scores[m['team_b']], theta,
+                teams_idx[m['team_a']], teams_idx[m['team_b']], n_teams,
+                att_only=att_only, uc=uc,
+            )
+        else:
+            xg_a, xg_b = compute_xg(scores[m['team_a']], scores[m['team_b']], theta, uc=uc)
+
+        pa = _pmf(xg_a, max_goals)
+        pb = _pmf(xg_b, max_goals)
+        win_a, draw, win_b = _outcome_probs(pa, pb)
+
+        if m['round'] in KNOCKOUT_ROUNDS:
+            pred = 'a' if (win_a + 0.5 * draw) >= 0.5 else 'b'
+            if pred == m['winner_side']:
+                total += m['weight']
+            total += _score_bonus(pa, pb, m['goals_a'], m['goals_b'])
+        else:
+            if win_a >= draw and win_a >= win_b:
+                pred = 'a'
+            elif draw >= win_b:
+                pred = 'draw'
+            else:
+                pred = 'b'
+            if pred == m['outcome']:
+                total += m['weight']
+
+    return total
+
+
+def max_possible_points(matches):
+    return sum(m['weight'] for m in matches) + sum(
+        TOP_SCORE_BONUS[0] for m in matches if m['round'] in KNOCKOUT_ROUNDS
+    )
+
+
+def neg_points_loss(theta, matches, scores, teams_idx=None, lam=0.0, att_only=False, uc=False):
+    """Objetivo do SA: minimizar -pontos + regularização L2 dos biases (desempate suave)."""
+    loss = -points_score(theta, matches, scores, teams_idx, att_only, uc)
+    if teams_idx is not None:
+        ng = N_GLOBAL_UC if uc else N_GLOBAL
+        n_teams = len(teams_idx)
+        n_biases = n_teams if att_only else 2 * n_teams
+        biases = theta[ng:ng + n_biases]
+        loss += lam * sum((b - 1.0) ** 2 for b in biases)
+    return loss
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #  SA — vizinhança e perturbação
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -359,7 +458,7 @@ def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
                         teams_idx, teams_list, lam, att_only=False, uc=False):
     n_teams   = len(teams_list)
     theta     = build_initial_theta(rng, use_biases, n_teams, restart_idx == 0, att_only, uc)
-    curr_loss = poisson_nll(theta, matches, scores, teams_idx if use_biases else None, lam, att_only, uc)
+    curr_loss = neg_points_loss(theta, matches, scores, teams_idx if use_biases else None, lam, att_only, uc)
     best_theta = theta[:]
     best_loss  = curr_loss
 
@@ -381,12 +480,12 @@ def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
     print(f"\n{'━'*72}")
     print(f"  Restart {restart_idx+1}/{n_restarts}  |  {n_iter:,} iters  |  T0={T0}  |  {mode_str}  |  θ={n_params}")
     print(f"  globals: {format_globals(theta, uc)}")
-    print(f"  loss inicial: {curr_loss:.4f}")
+    print(f"  pontos iniciais: {-curr_loss:.3f}")
     print(f"{'━'*72}")
 
     for k in range(1, n_iter + 1):
         new_theta = neighbor(theta, rng, use_biases, n_teams, att_only, uc)
-        new_loss  = poisson_nll(new_theta, matches, scores, teams_idx if use_biases else None, lam, att_only, uc)
+        new_loss  = neg_points_loss(new_theta, matches, scores, teams_idx if use_biases else None, lam, att_only, uc)
 
         delta        = new_loss - curr_loss
         total_window += 1
@@ -409,7 +508,7 @@ def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
             print(
                 f"  [{k:>7,}/{n_iter:,}  {progress:4.1f}%  {elapsed:5.1f}s]"
                 f"  T={T:.5f}  acc={acc_rate:5.1f}%"
-                f"  curr={curr_loss:.4f}  best={best_loss:.4f}"
+                f"  curr={-curr_loss:.3f}pts  best={-best_loss:.3f}pts"
             )
             print(f"    globals: {format_globals(best_theta, uc)}")
             if use_biases:
@@ -419,7 +518,7 @@ def simulated_annealing(matches, scores, n_iter, T0, alpha, rng,
             total_window   = 0
 
     elapsed = time.time() - t_start
-    print(f"\n  Restart {restart_idx+1} concluído em {elapsed:.1f}s  |  best loss={best_loss:.4f}")
+    print(f"\n  Restart {restart_idx+1} concluído em {elapsed:.1f}s  |  best pontos={-best_loss:.3f}")
 
     return best_theta, best_loss
 
@@ -462,7 +561,7 @@ def load_data(exclude_outliers):
             if ta not in scores or tb not in scores:
                 continue
             rnd = _group_round(ta, tb)
-            w   = ROUND_WEIGHTS[f'r{rnd}'] + _alive_bonus(ta, tb)
+            w   = ROUND_WEIGHTS[f'r{rnd}']
             out = 'a' if ga > gb else ('b' if ga < gb else 'draw')
             matches.append({'team_a': ta, 'team_b': tb,
                             'goals_a': ga, 'goals_b': gb,
@@ -475,10 +574,12 @@ def load_data(exclude_outliers):
         ga, gb = _parse_score(game['score_str'], game.get('note'))
         out = 'a' if ga > gb else ('b' if ga < gb else 'draw')
         rnd = _knockout_round(mid)
-        w   = ROUND_WEIGHTS[rnd] + _alive_bonus(ta, tb)
+        w   = ROUND_WEIGHTS[rnd]
+        winner_side = 'a' if game['winner'] == ta else 'b'
         matches.append({'team_a': ta, 'team_b': tb,
                         'goals_a': ga, 'goals_b': gb,
-                        'outcome': out, 'weight': w, 'round': rnd})
+                        'outcome': out, 'weight': w, 'round': rnd,
+                        'winner_side': winner_side})
 
     if exclude_outliers:
         before  = len(matches)
@@ -551,8 +652,13 @@ def main():
     round_counts = Counter(m['round'] for m in matches)
     print(f"  {len(matches)} jogos  |  {len(teams_list)} seleções")
     print(f"  Jogos por rodada: { {r: round_counts[r] for r in ['r1','r2','r3','r32','r16','qf','sf','final'] if round_counts[r]} }")
-    print(f"  Pesos por rodada: r1=1.0  r2=1.0  r3=0.5  r32=3.0  r16=3.0  qf=4.0  sf=5.0  final=6.0")
-    print(f"  Bônus time vivo: +{ALIVE_BONUS} por time ainda no torneio ({len(ALIVE_TEAMS)} times vivos)")
+    rw = ROUND_WEIGHTS
+    print(f"  Pesos por rodada: r1={rw['r1']}  r2={rw['r2']}  r3={rw['r3']}  r32={rw['r32']}  "
+          f"r16={rw['r16']}  qf={rw['qf']}  sf={rw['sf']}  final={rw['final']}")
+    print(f"  Bônus placar exato (só mata-mata): top1={TOP_SCORE_BONUS[0]:.3f}  "
+          f"top2={TOP_SCORE_BONUS[1]:.3f}  top3={TOP_SCORE_BONUS[2]:.3f}")
+    max_pts = max_possible_points(matches)
+    print(f"  Pontos máximos possíveis: {max_pts:.3f}")
     if uc:
         print(f"  Modo unconstrained: {ng} pesos livres, BASE_XG={FIXED_BASE_XG}")
     if use_biases:
@@ -565,16 +671,20 @@ def main():
 
     defaults_g = DEFAULTS_UC if uc else DEFAULTS
     nll_default, brier_default = evaluate(defaults_g, matches, scores, uc=uc)
-    print(f"\n  NLL baseline (defaults): {nll_default:.4f}  Brier: {brier_default:.4f}")
+    points_default = points_score(defaults_g, matches, scores, uc=uc)
+    print(f"\n  NLL baseline (defaults): {nll_default:.4f}  Brier: {brier_default:.4f}  "
+          f"Pontos: {points_default:.3f}/{max_pts:.3f}")
 
-    lbfgs_theta = lbfgs_nll = lbfgs_brier = None
+    lbfgs_theta = lbfgs_nll = lbfgs_brier = lbfgs_points = None
     if not uc and os.path.exists(LBFGS_FILE):
         with open(LBFGS_FILE) as f:
             lb = json.load(f)
         lbfgs_theta = [lb['weights']['BASE_XG'], lb['weights']['OFF_ATT_W'],
                        lb['weights']['RES_DEF_W'], lb['weights']['RES_GK_W']]
         lbfgs_nll, lbfgs_brier = evaluate(lbfgs_theta, matches, scores)
-        print(f"  NLL L-BFGS-B:            {lbfgs_nll:.4f}  Brier: {lbfgs_brier:.4f}")
+        lbfgs_points = points_score(lbfgs_theta, matches, scores)
+        print(f"  NLL L-BFGS-B:            {lbfgs_nll:.4f}  Brier: {lbfgs_brier:.4f}  "
+              f"Pontos: {lbfgs_points:.3f}/{max_pts:.3f}")
         print(f"  θ L-BFGS-B: {format_globals(lbfgs_theta)}")
 
     # ── SA ────────────────────────────────────────────────────────────────────
@@ -603,7 +713,7 @@ def main():
         if loss < global_best_loss:
             global_best_loss  = loss
             global_best_theta = theta[:]
-            print(f"  *** Novo melhor global: loss={loss:.4f} ***")
+            print(f"  *** Novo melhor global: pontos={-loss:.3f} ***")
 
     elapsed = time.time() - t_total
 
@@ -611,17 +721,20 @@ def main():
 
     eval_idx = teams_idx if use_biases else None
     nll_sa, brier_sa = evaluate(global_best_theta, matches, scores, eval_idx, att_only, uc)
+    points_sa = points_score(global_best_theta, matches, scores, eval_idx, att_only, uc)
 
     print(f"\n{'=' * 72}")
     print(f"  RESULTADO FINAL  ({elapsed:.1f}s total)")
     print(f"{'=' * 72}\n")
 
-    print(f"  {'Método':<22} {'NLL':>8}  {'Δ default':>10}  {'Brier':>8}")
-    print(f"  {'-'*22} {'-'*8}  {'-'*10}  {'-'*8}")
-    print(f"  {'Padrão (original)':<22} {nll_default:>8.4f}  {'—':>10}  {brier_default:>8.4f}")
+    print(f"  {'Método':<22} {'Pontos':>14}  {'NLL':>8}  {'Δ default':>10}  {'Brier':>8}")
+    print(f"  {'-'*22} {'-'*14}  {'-'*8}  {'-'*10}  {'-'*8}")
+    print(f"  {'Padrão (original)':<22} {points_default:>7.3f}/{max_pts:<6.3f}  {nll_default:>8.4f}  {'—':>10}  {brier_default:>8.4f}")
     if lbfgs_nll is not None:
-        print(f"  {'L-BFGS-B':<22} {lbfgs_nll:>8.4f}  {lbfgs_nll-nll_default:>+10.4f}  {lbfgs_brier:>8.4f}")
-    print(f"  {'SA':<22} {nll_sa:>8.4f}  {nll_sa-nll_default:>+10.4f}  {brier_sa:>8.4f}")
+        print(f"  {'L-BFGS-B':<22} {lbfgs_points:>7.3f}/{max_pts:<6.3f}  {lbfgs_nll:>8.4f}  {lbfgs_nll-nll_default:>+10.4f}  {lbfgs_brier:>8.4f}")
+    print(f"  {'SA (Model6)':<22} {points_sa:>7.3f}/{max_pts:<6.3f}  {nll_sa:>8.4f}  {nll_sa-nll_default:>+10.4f}  {brier_sa:>8.4f}")
+    print(f"\n  SA capturou {points_sa/max_pts*100:.1f}% dos pontos possíveis "
+          f"({points_default/max_pts*100:.1f}% no baseline padrão)")
 
     param_names_g = PARAM_NAMES_UC if uc else PARAM_NAMES
     defaults_g    = DEFAULTS_UC   if uc else DEFAULTS
@@ -651,13 +764,13 @@ def main():
             else:
                 print(f"  {team:<28} {att:>10.4f}  {dfb:>10.4f}{flag}")
 
-    if lbfgs_nll is not None:
-        if nll_sa < lbfgs_nll - 0.01:
-            verdict = "SA encontrou mínimo MELHOR que L-BFGS-B"
-        elif nll_sa > lbfgs_nll + 0.01:
-            verdict = "L-BFGS-B mantém resultado melhor"
+    if lbfgs_points is not None:
+        if points_sa > lbfgs_points + 0.01:
+            verdict = "SA encontrou MAIS pontos que L-BFGS-B"
+        elif points_sa < lbfgs_points - 0.01:
+            verdict = "L-BFGS-B mantém resultado melhor em pontos"
         else:
-            verdict = "SA e L-BFGS-B convergiram para mínimo equivalente"
+            verdict = "SA e L-BFGS-B empatam em pontos"
         print(f"\n  Veredicto: {verdict}")
 
     # ── Salva ─────────────────────────────────────────────────────────────────
@@ -683,10 +796,10 @@ def main():
 
     out = {
         'method':           'simulated_annealing',
+        'objective':        'points',
         'n_matches':        len(matches),
         'round_weights':    ROUND_WEIGHTS,
-        'alive_bonus':      ALIVE_BONUS,
-        'alive_teams':      sorted(ALIVE_TEAMS),
+        'top_score_bonus':  {'top1': TOP_SCORE_BONUS[0], 'top2': TOP_SCORE_BONUS[1], 'top3': TOP_SCORE_BONUS[2]},
         'exclude_outliers': args.exclude_outliers,
         'use_biases':       use_biases,
         'att_only':         att_only,
@@ -700,6 +813,10 @@ def main():
             'seed':       args.seed,
             'lambda':     args.lam if use_biases else None,
         },
+        'max_points':      round(max_pts, 4),
+        'points_default':  round(points_default, 4),
+        'points_sa':       round(points_sa, 4),
+        'points_lbfgs':    round(lbfgs_points, 4) if lbfgs_points is not None else None,
         'nll_default': round(nll_default, 4),
         'nll_sa':      round(nll_sa,      4),
         'nll_lbfgs':   round(lbfgs_nll,   4) if lbfgs_nll else None,

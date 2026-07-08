@@ -1,0 +1,1280 @@
+<title>Model6 — Raio-X das 96 Partidas</title>
+<style>
+:root {
+  --bg: #f4f6f5;
+  --surface: #ffffff;
+  --surface-alt: #eef2f0;
+  --border: #d8dedc;
+  --text: #10161b;
+  --text-muted: #5b6b70;
+  --accent: #0f7a4c;
+  --accent-soft: #e4f5ec;
+  --good: #128a4a;
+  --bad: #c4433a;
+  --gold: #a8730f;
+  --gold-soft: #f7ecd6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0f0d;
+    --surface: #121815;
+    --surface-alt: #161d19;
+    --border: #26312b;
+    --text: #e7efea;
+    --text-muted: #8fa39a;
+    --accent: #34d399;
+    --accent-soft: rgba(52,211,153,0.12);
+    --good: #34d399;
+    --bad: #f87171;
+    --gold: #f2c14e;
+    --gold-soft: rgba(242,193,78,0.14);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a0f0d; --surface: #121815; --surface-alt: #161d19; --border: #26312b;
+  --text: #e7efea; --text-muted: #8fa39a; --accent: #34d399; --accent-soft: rgba(52,211,153,0.12);
+  --good: #34d399; --bad: #f87171; --gold: #f2c14e; --gold-soft: rgba(242,193,78,0.14);
+}
+:root[data-theme="light"] {
+  --bg: #f4f6f5; --surface: #ffffff; --surface-alt: #eef2f0; --border: #d8dedc;
+  --text: #10161b; --text-muted: #5b6b70; --accent: #0f7a4c; --accent-soft: #e4f5ec;
+  --good: #128a4a; --bad: #c4433a; --gold: #a8730f; --gold-soft: #f7ecd6;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+}
+.mono { font-family: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace; font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+header.hero {
+  border-top: 4px solid var(--accent);
+  background: var(--surface);
+  padding: 2rem 2rem 1.6rem;
+  margin-bottom: 1.75rem;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+h1 {
+  font-family: "Archivo Black", "Arial Black", -apple-system, sans-serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  margin: 0.35rem 0 0.4rem;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.hero-sub { color: var(--text-muted); font-size: 0.98rem; max-width: 62ch; }
+.hero-sub b { color: var(--text); }
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.stat {
+  background: var(--surface);
+  padding: 1.1rem 1.2rem;
+}
+.stat .label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+.stat .value {
+  font-family: ui-monospace, "SF Mono", "Roboto Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.stat .sub { font-size: 0.76rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.9rem;
+}
+.tab-btn {
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+}
+.tab-btn.active {
+  background: var(--accent);
+  color: #06120c;
+  border-color: var(--accent);
+}
+.tab-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.panel { display: none; margin-bottom: 2rem; }
+.panel.active { display: block; }
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.panel-head h2 { font-size: 1.15rem; margin: 0; }
+.panel-stat { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; }
+.note-block {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  background: var(--gold-soft);
+  border-left: 3px solid var(--gold);
+  padding: 0.7rem 1rem;
+  margin: 0 0 1rem;
+}
+.note-block b { color: var(--text); }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); }
+table { border-collapse: collapse; width: 100%; min-width: 760px; background: var(--surface); }
+thead th {
+  text-align: left;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  background: var(--surface-alt);
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+tbody td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+  vertical-align: middle;
+}
+tbody tr:nth-child(even) { background: var(--surface-alt); }
+tbody tr.no { background: color-mix(in srgb, var(--bad) 6%, var(--surface)); }
+tbody tr.no:nth-child(even) { background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+.teams { font-weight: 600; white-space: nowrap; }
+.vs { color: var(--text-muted); font-weight: 400; }
+.score { white-space: nowrap; }
+.note { color: var(--text-muted); font-size: 0.78rem; }
+.arrow { color: var(--text-muted); }
+.xg { color: var(--text-muted); white-space: nowrap; }
+
+.conf-bar {
+  display: inline-block;
+  width: 60px;
+  height: 6px;
+  background: var(--border);
+  vertical-align: middle;
+  margin-right: 0.4rem;
+  overflow: hidden;
+}
+.bar-fill { height: 100%; background: var(--text-muted); }
+.bar-fill.bar-good { background: var(--good); }
+.bar-fill.bar-bad { background: var(--bad); }
+.pct { font-size: 0.78rem; color: var(--text-muted); }
+.pct-inline { font-size: 0.78rem; color: var(--text-muted); margin: 0 0.4rem; }
+
+.chips { white-space: nowrap; }
+.chip {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-family: ui-monospace, "SF Mono", monospace;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 0.12rem 0.4rem;
+  margin-right: 0.25rem;
+  white-space: nowrap;
+}
+.chip b { font-weight: 700; }
+
+.pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.5rem;
+}
+.pill.ok { background: var(--accent-soft); color: var(--good); }
+.pill.no { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+.pill.muted { background: var(--surface-alt); color: var(--text-muted); }
+.bonus { font-size: 0.72rem; color: var(--gold); }
+.outcome-cell { text-align: right; }
+
+footer { color: var(--text-muted); font-size: 0.78rem; margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Model6 &middot; Avaliação retroativa &middot; in-sample</div>
+    <h1>96 partidas, um modelo só: como o Model6 se saiu</h1>
+    <p class="hero-sub">Todos os jogos já disputados da Copa 2026 reavaliados com os pesos <b>ativos</b> do Model6 (objetivo por pontos). Como esses mesmos 96 jogos fizeram parte do treino, os números abaixo medem <b>ajuste</b>, não generalização &mdash; as quartas em diante são o primeiro teste de verdade.</p>
+  </header>
+
+  <div class="scoreboard">
+    <div class="stat"><div class="label">Acerto geral</div><div class="value">75/96</div><div class="sub">78.1%</div></div>
+    <div class="stat"><div class="label">Pontos (Model6)</div><div class="value">67.0/78</div><div class="sub">85.9% do máximo</div></div>
+    <div class="stat"><div class="label">Grupo &middot; W/D/L</div><div class="value">52/72</div><div class="sub">72.2%</div></div>
+    <div class="stat"><div class="label">Mata-mata &middot; quem avança</div><div class="value">23/24</div><div class="sub">95.8%</div></div>
+    <div class="stat"><div class="label">Placar exato top-1</div><div class="value">20/24</div><div class="sub">mata-mata</div></div>
+    <div class="stat"><div class="label">Placar exato top-3</div><div class="value">23/24</div><div class="sub">mata-mata</div></div>
+  </div>
+
+  <nav class="tabs"><button class="tab-btn" data-tab="r1">Rodada 1</button><button class="tab-btn" data-tab="r2">Rodada 2</button><button class="tab-btn" data-tab="r3">Rodada 3</button><button class="tab-btn" data-tab="r32">Round of 32</button><button class="tab-btn" data-tab="r16">Oitavas de Final</button><button class="tab-btn" data-tab="alive">Times vivos</button></nav>
+
+  
+<section class="panel" id="panel-r1">
+  <div class="panel-head">
+    <h2>Rodada 1</h2>
+    <span class="panel-stat">15/24 acertos &middot; 62.5%</span>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th>Confronto</th><th>Placar real</th><th>Pick do modelo</th><th>Confiança</th>
+      <th>xG</th><th>Top-3 placares</th><th>Resultado</th>
+    </tr></thead>
+    <tbody><tr class="ok">
+<td class="teams">Mexico <span class="vs">x</span> South Africa</td>
+<td class="mono score">2–0</td>
+<td>Mexico</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:60.9%"></div></div><span class="pct">60.9%</span></td>
+<td class="mono xg">1.54 – 0.57</td>
+<td class="chips"><span class="chip">1-0 <b>18.6%</b></span><span class="chip">2-0 <b>14.3%</b></span><span class="chip">0-0 <b>12.1%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">South Korea <span class="vs">x</span> Czech Republic</td>
+<td class="mono score">2–1</td>
+<td>South Korea</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:37.8%"></div></div><span class="pct">37.8%</span></td>
+<td class="mono xg">1.48 – 1.48</td>
+<td class="chips"><span class="chip">1-1 <b>11.3%</b></span><span class="chip">2-1 <b>8.4%</b></span><span class="chip">1-2 <b>8.4%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Canada <span class="vs">x</span> Bosnia-Herzegovina</td>
+<td class="mono score">1–1</td>
+<td>Canada</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:43.0%"></div></div><span class="pct">43.0%</span></td>
+<td class="mono xg">1.39 – 1.13</td>
+<td class="chips"><span class="chip">1-1 <b>12.6%</b></span><span class="chip">1-0 <b>11.2%</b></span><span class="chip">0-1 <b>9.1%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="no">
+<td class="teams">Qatar <span class="vs">x</span> Switzerland</td>
+<td class="mono score">1–1</td>
+<td>Switzerland</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:77.8%"></div></div><span class="pct">77.8%</span></td>
+<td class="mono xg">0.56 – 2.36</td>
+<td class="chips"><span class="chip">0-2 <b>15.1%</b></span><span class="chip">0-1 <b>12.8%</b></span><span class="chip">0-3 <b>11.9%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="no">
+<td class="teams">Brazil <span class="vs">x</span> Morocco</td>
+<td class="mono score">1–1</td>
+<td>Morocco</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:42.0%"></div></div><span class="pct">42.0%</span></td>
+<td class="mono xg">1.30 – 1.50</td>
+<td class="chips"><span class="chip">1-1 <b>11.8%</b></span><span class="chip">0-1 <b>9.1%</b></span><span class="chip">1-2 <b>8.9%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Haiti <span class="vs">x</span> Scotland</td>
+<td class="mono score">0–1</td>
+<td>Scotland</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:60.3%"></div></div><span class="pct">60.3%</span></td>
+<td class="mono xg">0.72 – 1.68</td>
+<td class="chips"><span class="chip">0-1 <b>15.2%</b></span><span class="chip">0-2 <b>12.7%</b></span><span class="chip">1-1 <b>11.0%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Australia <span class="vs">x</span> Turkey</td>
+<td class="mono score">2–0</td>
+<td>Australia</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:35.3%"></div></div><span class="pct">35.3%</span></td>
+<td class="mono xg">1.00 – 0.97</td>
+<td class="chips"><span class="chip">1-0 <b>13.9%</b></span><span class="chip">0-0 <b>13.9%</b></span><span class="chip">1-1 <b>13.5%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">USA <span class="vs">x</span> Paraguay</td>
+<td class="mono score">4–1</td>
+<td>USA</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:44.8%"></div></div><span class="pct">44.8%</span></td>
+<td class="mono xg">1.46 – 1.13</td>
+<td class="chips"><span class="chip">1-1 <b>12.4%</b></span><span class="chip">1-0 <b>11.0%</b></span><span class="chip">2-1 <b>9.0%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Germany <span class="vs">x</span> Curacao</td>
+<td class="mono score">7–1</td>
+<td>Germany</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:78.7%"></div></div><span class="pct">78.7%</span></td>
+<td class="mono xg">2.50 – 0.60</td>
+<td class="chips"><span class="chip">2-0 <b>14.1%</b></span><span class="chip">3-0 <b>11.7%</b></span><span class="chip">1-0 <b>11.3%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Côte d'Ivoire <span class="vs">x</span> Ecuador</td>
+<td class="mono score">1–0</td>
+<td>Côte d'Ivoire</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:80.3%"></div></div><span class="pct">80.3%</span></td>
+<td class="mono xg">2.76 – 0.69</td>
+<td class="chips"><span class="chip">2-0 <b>12.1%</b></span><span class="chip">3-0 <b>11.1%</b></span><span class="chip">1-0 <b>8.8%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Netherlands <span class="vs">x</span> Japan</td>
+<td class="mono score">2–2</td>
+<td>Netherlands</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:64.2%"></div></div><span class="pct">64.2%</span></td>
+<td class="mono xg">2.53 – 1.30</td>
+<td class="chips"><span class="chip">2-1 <b>9.0%</b></span><span class="chip">3-1 <b>7.6%</b></span><span class="chip">1-1 <b>7.1%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Sweden <span class="vs">x</span> Tunisia</td>
+<td class="mono score">5–1</td>
+<td>Sweden</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:50.2%"></div></div><span class="pct">50.2%</span></td>
+<td class="mono xg">1.94 – 1.39</td>
+<td class="chips"><span class="chip">1-1 <b>9.7%</b></span><span class="chip">2-1 <b>9.3%</b></span><span class="chip">1-0 <b>6.9%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Belgium <span class="vs">x</span> Egypt</td>
+<td class="mono score">1–1</td>
+<td>Belgium</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:69.6%"></div></div><span class="pct">69.6%</span></td>
+<td class="mono xg">3.95 – 2.18</td>
+<td class="chips"><span class="chip">3-2 <b>5.3%</b></span><span class="chip">4-2 <b>5.2%</b></span><span class="chip">3-1 <b>4.9%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="no">
+<td class="teams">Iran <span class="vs">x</span> New Zealand</td>
+<td class="mono score">2–2</td>
+<td>Iran</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:88.1%"></div></div><span class="pct">88.1%</span></td>
+<td class="mono xg">4.17 – 1.07</td>
+<td class="chips"><span class="chip">4-1 <b>7.1%</b></span><span class="chip">3-1 <b>6.9%</b></span><span class="chip">4-0 <b>6.7%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="no">
+<td class="teams">Saudi Arabia <span class="vs">x</span> Uruguay</td>
+<td class="mono score">1–1</td>
+<td>Uruguay</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:75.0%"></div></div><span class="pct">75.0%</span></td>
+<td class="mono xg">0.60 – 2.26</td>
+<td class="chips"><span class="chip">0-2 <b>14.5%</b></span><span class="chip">0-1 <b>12.9%</b></span><span class="chip">0-3 <b>11.0%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="no">
+<td class="teams">Spain <span class="vs">x</span> Cape Verde</td>
+<td class="mono score">0–0</td>
+<td>Spain</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:79.2%"></div></div><span class="pct">79.2%</span></td>
+<td class="mono xg">2.36 – 0.49</td>
+<td class="chips"><span class="chip">2-0 <b>16.0%</b></span><span class="chip">1-0 <b>13.6%</b></span><span class="chip">3-0 <b>12.6%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">France <span class="vs">x</span> Senegal</td>
+<td class="mono score">3–1</td>
+<td>France</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:54.3%"></div></div><span class="pct">54.3%</span></td>
+<td class="mono xg">1.71 – 0.99</td>
+<td class="chips"><span class="chip">1-0 <b>11.5%</b></span><span class="chip">1-1 <b>11.4%</b></span><span class="chip">2-0 <b>9.8%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Iraq <span class="vs">x</span> Norway</td>
+<td class="mono score">1–4</td>
+<td>Norway</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:84.7%"></div></div><span class="pct">84.7%</span></td>
+<td class="mono xg">0.91 – 3.50</td>
+<td class="chips"><span class="chip">0-3 <b>8.7%</b></span><span class="chip">1-3 <b>7.9%</b></span><span class="chip">0-4 <b>7.6%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Argentina <span class="vs">x</span> Algeria</td>
+<td class="mono score">3–0</td>
+<td>Argentina</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:66.6%"></div></div><span class="pct">66.6%</span></td>
+<td class="mono xg">2.91 – 1.49</td>
+<td class="chips"><span class="chip">2-1 <b>7.8%</b></span><span class="chip">3-1 <b>7.5%</b></span><span class="chip">2-2 <b>5.8%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Austria <span class="vs">x</span> Jordan</td>
+<td class="mono score">3–1</td>
+<td>Austria</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:49.8%"></div></div><span class="pct">49.8%</span></td>
+<td class="mono xg">1.73 – 1.20</td>
+<td class="chips"><span class="chip">1-1 <b>11.1%</b></span><span class="chip">2-1 <b>9.6%</b></span><span class="chip">1-0 <b>9.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Portugal <span class="vs">x</span> Congo</td>
+<td class="mono score">1–1</td>
+<td>Portugal</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:75.8%"></div></div><span class="pct">75.8%</span></td>
+<td class="mono xg">2.85 – 0.98</td>
+<td class="chips"><span class="chip">2-0 <b>8.8%</b></span><span class="chip">2-1 <b>8.6%</b></span><span class="chip">3-0 <b>8.4%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Uzbekistan <span class="vs">x</span> Colombia</td>
+<td class="mono score">1–3</td>
+<td>Colombia</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:70.9%"></div></div><span class="pct">70.9%</span></td>
+<td class="mono xg">0.57 – 1.98</td>
+<td class="chips"><span class="chip">0-1 <b>15.4%</b></span><span class="chip">0-2 <b>15.3%</b></span><span class="chip">0-3 <b>10.1%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">England <span class="vs">x</span> Croatia</td>
+<td class="mono score">4–2</td>
+<td>England</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:61.8%"></div></div><span class="pct">61.8%</span></td>
+<td class="mono xg">2.10 – 1.04</td>
+<td class="chips"><span class="chip">2-1 <b>9.9%</b></span><span class="chip">2-0 <b>9.5%</b></span><span class="chip">1-1 <b>9.4%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Ghana <span class="vs">x</span> Panama</td>
+<td class="mono score">1–0</td>
+<td>Ghana</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:54.7%"></div></div><span class="pct">54.7%</span></td>
+<td class="mono xg">1.99 – 1.24</td>
+<td class="chips"><span class="chip">1-1 <b>9.8%</b></span><span class="chip">2-1 <b>9.7%</b></span><span class="chip">1-0 <b>7.9%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr></tbody>
+  </table>
+  </div>
+</section>
+<section class="panel" id="panel-r2">
+  <div class="panel-head">
+    <h2>Rodada 2</h2>
+    <span class="panel-stat">21/24 acertos &middot; 87.5%</span>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th>Confronto</th><th>Placar real</th><th>Pick do modelo</th><th>Confiança</th>
+      <th>xG</th><th>Top-3 placares</th><th>Resultado</th>
+    </tr></thead>
+    <tbody><tr class="ok">
+<td class="teams">Mexico <span class="vs">x</span> South Korea</td>
+<td class="mono score">1–0</td>
+<td>Mexico</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:37.7%"></div></div><span class="pct">37.7%</span></td>
+<td class="mono xg">1.46 – 1.46</td>
+<td class="chips"><span class="chip">1-1 <b>11.5%</b></span><span class="chip">2-1 <b>8.4%</b></span><span class="chip">1-2 <b>8.4%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">South Africa <span class="vs">x</span> Czech Republic</td>
+<td class="mono score">1–1</td>
+<td>Czech Republic</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:61.3%"></div></div><span class="pct">61.3%</span></td>
+<td class="mono xg">0.58 – 1.56</td>
+<td class="chips"><span class="chip">0-1 <b>18.3%</b></span><span class="chip">0-2 <b>14.3%</b></span><span class="chip">0-0 <b>11.7%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Bosnia-Herzegovina <span class="vs">x</span> Switzerland</td>
+<td class="mono score">1–4</td>
+<td>Switzerland</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:75.4%"></div></div><span class="pct">75.4%</span></td>
+<td class="mono xg">0.50 – 2.13</td>
+<td class="chips"><span class="chip">0-2 <b>16.3%</b></span><span class="chip">0-1 <b>15.3%</b></span><span class="chip">0-3 <b>11.6%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Canada <span class="vs">x</span> Qatar</td>
+<td class="mono score">6–0</td>
+<td>Canada</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:44.1%"></div></div><span class="pct">44.1%</span></td>
+<td class="mono xg">1.54 – 1.25</td>
+<td class="chips"><span class="chip">1-1 <b>11.8%</b></span><span class="chip">1-0 <b>9.5%</b></span><span class="chip">2-1 <b>9.1%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Brazil <span class="vs">x</span> Haiti</td>
+<td class="mono score">3–0</td>
+<td>Brazil</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:78.8%"></div></div><span class="pct">78.8%</span></td>
+<td class="mono xg">2.38 – 0.53</td>
+<td class="chips"><span class="chip">2-0 <b>15.4%</b></span><span class="chip">1-0 <b>13.0%</b></span><span class="chip">3-0 <b>12.3%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Morocco <span class="vs">x</span> Scotland</td>
+<td class="mono score">1–0</td>
+<td>Morocco</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:63.9%"></div></div><span class="pct">63.9%</span></td>
+<td class="mono xg">2.06 – 0.92</td>
+<td class="chips"><span class="chip">2-0 <b>10.8%</b></span><span class="chip">1-0 <b>10.5%</b></span><span class="chip">2-1 <b>9.9%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Paraguay <span class="vs">x</span> Turkey</td>
+<td class="mono score">1–0</td>
+<td>Paraguay</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:33.8%"></div></div><span class="pct">33.8%</span></td>
+<td class="mono xg">0.93 – 0.93</td>
+<td class="chips"><span class="chip">0-0 <b>15.7%</b></span><span class="chip">1-0 <b>14.5%</b></span><span class="chip">0-1 <b>14.5%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">USA <span class="vs">x</span> Australia</td>
+<td class="mono score">2–0</td>
+<td>USA</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:44.5%"></div></div><span class="pct">44.5%</span></td>
+<td class="mono xg">1.53 – 1.22</td>
+<td class="chips"><span class="chip">1-1 <b>11.9%</b></span><span class="chip">1-0 <b>9.8%</b></span><span class="chip">2-1 <b>9.1%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Ecuador <span class="vs">x</span> Curacao</td>
+<td class="mono score">0–0</td>
+<td>Empate</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:34.0%"></div></div><span class="pct">34.0%</span></td>
+<td class="mono xg">0.87 – 0.83</td>
+<td class="chips"><span class="chip">0-0 <b>18.2%</b></span><span class="chip">1-0 <b>15.8%</b></span><span class="chip">0-1 <b>15.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Germany <span class="vs">x</span> Côte d'Ivoire</td>
+<td class="mono score">2–1</td>
+<td>Germany</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:39.6%"></div></div><span class="pct">39.6%</span></td>
+<td class="mono xg">1.99 – 1.99</td>
+<td class="chips"><span class="chip">1-1 <b>7.4%</b></span><span class="chip">2-1 <b>7.4%</b></span><span class="chip">1-2 <b>7.4%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Netherlands <span class="vs">x</span> Sweden</td>
+<td class="mono score">5–1</td>
+<td>Netherlands</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:74.1%"></div></div><span class="pct">74.1%</span></td>
+<td class="mono xg">3.08 – 1.23</td>
+<td class="chips"><span class="chip">3-1 <b>8.0%</b></span><span class="chip">2-1 <b>7.8%</b></span><span class="chip">3-0 <b>6.5%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Tunisia <span class="vs">x</span> Japan</td>
+<td class="mono score">0–4</td>
+<td>Japan</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:58.0%"></div></div><span class="pct">58.0%</span></td>
+<td class="mono xg">1.15 – 2.04</td>
+<td class="chips"><span class="chip">1-2 <b>9.9%</b></span><span class="chip">1-1 <b>9.7%</b></span><span class="chip">0-2 <b>8.6%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Belgium <span class="vs">x</span> Iran</td>
+<td class="mono score">0–0</td>
+<td>Belgium</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:87.9%"></div></div><span class="pct">87.9%</span></td>
+<td class="mono xg">4.33 – 1.17</td>
+<td class="chips"><span class="chip">4-1 <b>7.0%</b></span><span class="chip">3-1 <b>6.5%</b></span><span class="chip">5-1 <b>6.1%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">New Zealand <span class="vs">x</span> Egypt</td>
+<td class="mono score">1–3</td>
+<td>Egypt</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:99.0%"></div></div><span class="pct">99.0%</span></td>
+<td class="mono xg">0.97 – 7.73</td>
+<td class="chips"><span class="chip">0-7 <b>5.4%</b></span><span class="chip">1-7 <b>5.3%</b></span><span class="chip">0-8 <b>5.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Spain <span class="vs">x</span> Saudi Arabia</td>
+<td class="mono score">4–0</td>
+<td>Spain</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:99.1%"></div></div><span class="pct">99.1%</span></td>
+<td class="mono xg">6.20 – 0.38</td>
+<td class="chips"><span class="chip">6-0 <b>11.0%</b></span><span class="chip">5-0 <b>10.7%</b></span><span class="chip">7-0 <b>9.7%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Uruguay <span class="vs">x</span> Cape Verde</td>
+<td class="mono score">2–2</td>
+<td>Empate</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:34.6%"></div></div><span class="pct">34.6%</span></td>
+<td class="mono xg">0.86 – 0.80</td>
+<td class="chips"><span class="chip">0-0 <b>19.1%</b></span><span class="chip">1-0 <b>16.4%</b></span><span class="chip">0-1 <b>15.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">France <span class="vs">x</span> Iraq</td>
+<td class="mono score">3–0</td>
+<td>France</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:86.0%"></div></div><span class="pct">86.0%</span></td>
+<td class="mono xg">2.77 – 0.42</td>
+<td class="chips"><span class="chip">2-0 <b>15.8%</b></span><span class="chip">3-0 <b>14.6%</b></span><span class="chip">1-0 <b>11.4%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Norway <span class="vs">x</span> Senegal</td>
+<td class="mono score">3–2</td>
+<td>Norway</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:40.1%"></div></div><span class="pct">40.1%</span></td>
+<td class="mono xg">2.16 – 2.16</td>
+<td class="chips"><span class="chip">2-2 <b>7.2%</b></span><span class="chip">2-1 <b>6.7%</b></span><span class="chip">1-2 <b>6.7%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Algeria <span class="vs">x</span> Jordan</td>
+<td class="mono score">2–1</td>
+<td>Algeria</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:49.4%"></div></div><span class="pct">49.4%</span></td>
+<td class="mono xg">1.88 – 1.38</td>
+<td class="chips"><span class="chip">1-1 <b>10.0%</b></span><span class="chip">2-1 <b>9.4%</b></span><span class="chip">1-0 <b>7.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Argentina <span class="vs">x</span> Austria</td>
+<td class="mono score">2–0</td>
+<td>Argentina</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:62.7%"></div></div><span class="pct">62.7%</span></td>
+<td class="mono xg">2.54 – 1.38</td>
+<td class="chips"><span class="chip">2-1 <b>8.8%</b></span><span class="chip">3-1 <b>7.5%</b></span><span class="chip">1-1 <b>7.0%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Congo <span class="vs">x</span> Colombia</td>
+<td class="mono score">0–1</td>
+<td>Colombia</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:59.5%"></div></div><span class="pct">59.5%</span></td>
+<td class="mono xg">1.08 – 2.04</td>
+<td class="chips"><span class="chip">1-2 <b>9.9%</b></span><span class="chip">1-1 <b>9.8%</b></span><span class="chip">0-2 <b>9.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Portugal <span class="vs">x</span> Uzbekistan</td>
+<td class="mono score">5–0</td>
+<td>Portugal</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:84.0%"></div></div><span class="pct">84.0%</span></td>
+<td class="mono xg">2.77 – 0.52</td>
+<td class="chips"><span class="chip">2-0 <b>14.2%</b></span><span class="chip">3-0 <b>13.2%</b></span><span class="chip">1-0 <b>10.3%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Croatia <span class="vs">x</span> Panama</td>
+<td class="mono score">1–0</td>
+<td>Croatia</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:67.3%"></div></div><span class="pct">67.3%</span></td>
+<td class="mono xg">2.30 – 0.97</td>
+<td class="chips"><span class="chip">2-0 <b>10.1%</b></span><span class="chip">2-1 <b>9.8%</b></span><span class="chip">1-0 <b>8.8%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">England <span class="vs">x</span> Ghana</td>
+<td class="mono score">0–0</td>
+<td>England</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:75.4%"></div></div><span class="pct">75.4%</span></td>
+<td class="mono xg">2.70 – 0.90</td>
+<td class="chips"><span class="chip">2-0 <b>10.0%</b></span><span class="chip">3-0 <b>9.0%</b></span><span class="chip">2-1 <b>9.0%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr></tbody>
+  </table>
+  </div>
+</section>
+<section class="panel" id="panel-r3">
+  <div class="panel-head">
+    <h2>Rodada 3</h2>
+    <span class="panel-stat">16/24 acertos &middot; 66.7%</span>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th>Confronto</th><th>Placar real</th><th>Pick do modelo</th><th>Confiança</th>
+      <th>xG</th><th>Top-3 placares</th><th>Resultado</th>
+    </tr></thead>
+    <tbody><tr class="ok">
+<td class="teams">Mexico <span class="vs">x</span> Czech Republic</td>
+<td class="mono score">3–0</td>
+<td>Mexico</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:35.2%"></div></div><span class="pct">35.2%</span></td>
+<td class="mono xg">1.07 – 1.07</td>
+<td class="chips"><span class="chip">1-1 <b>13.5%</b></span><span class="chip">1-0 <b>12.6%</b></span><span class="chip">0-1 <b>12.6%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">South Africa <span class="vs">x</span> South Korea</td>
+<td class="mono score">1–0</td>
+<td>South Korea</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:68.2%"></div></div><span class="pct">68.2%</span></td>
+<td class="mono xg">0.80 – 2.13</td>
+<td class="chips"><span class="chip">0-2 <b>12.2%</b></span><span class="chip">0-1 <b>11.4%</b></span><span class="chip">1-2 <b>9.7%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Bosnia-Herzegovina <span class="vs">x</span> Qatar</td>
+<td class="mono score">3–1</td>
+<td>Bosnia-Herzegovina</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:35.7%"></div></div><span class="pct">35.7%</span></td>
+<td class="mono xg">1.13 – 1.13</td>
+<td class="chips"><span class="chip">1-1 <b>13.3%</b></span><span class="chip">1-0 <b>11.8%</b></span><span class="chip">0-1 <b>11.8%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Canada <span class="vs">x</span> Switzerland</td>
+<td class="mono score">1–2</td>
+<td>Switzerland</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:74.8%"></div></div><span class="pct">74.8%</span></td>
+<td class="mono xg">0.69 – 2.36</td>
+<td class="chips"><span class="chip">0-2 <b>13.3%</b></span><span class="chip">0-1 <b>11.3%</b></span><span class="chip">0-3 <b>10.4%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Brazil <span class="vs">x</span> Scotland</td>
+<td class="mono score">3–0</td>
+<td>Brazil</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:57.6%"></div></div><span class="pct">57.6%</span></td>
+<td class="mono xg">1.76 – 0.90</td>
+<td class="chips"><span class="chip">1-0 <b>12.3%</b></span><span class="chip">1-1 <b>11.1%</b></span><span class="chip">2-0 <b>10.8%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Morocco <span class="vs">x</span> Haiti</td>
+<td class="mono score">4–2</td>
+<td>Morocco</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:84.0%"></div></div><span class="pct">84.0%</span></td>
+<td class="mono xg">2.79 – 0.54</td>
+<td class="chips"><span class="chip">2-0 <b>14.0%</b></span><span class="chip">3-0 <b>13.0%</b></span><span class="chip">1-0 <b>10.0%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Paraguay <span class="vs">x</span> Australia</td>
+<td class="mono score">0–0</td>
+<td>Empate</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:33.9%"></div></div><span class="pct">33.9%</span></td>
+<td class="mono xg">0.84 – 0.87</td>
+<td class="chips"><span class="chip">0-0 <b>18.0%</b></span><span class="chip">0-1 <b>15.7%</b></span><span class="chip">1-0 <b>15.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">USA <span class="vs">x</span> Turkey</td>
+<td class="mono score">2–3</td>
+<td>USA</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:46.4%"></div></div><span class="pct">46.4%</span></td>
+<td class="mono xg">1.68 – 1.30</td>
+<td class="chips"><span class="chip">1-1 <b>11.1%</b></span><span class="chip">2-1 <b>9.3%</b></span><span class="chip">1-0 <b>8.6%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Curacao <span class="vs">x</span> Côte d'Ivoire</td>
+<td class="mono score">0–2</td>
+<td>Côte d'Ivoire</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:74.7%"></div></div><span class="pct">74.7%</span></td>
+<td class="mono xg">0.51 – 2.09</td>
+<td class="chips"><span class="chip">0-2 <b>16.3%</b></span><span class="chip">0-1 <b>15.6%</b></span><span class="chip">0-3 <b>11.4%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Germany <span class="vs">x</span> Ecuador</td>
+<td class="mono score">1–2</td>
+<td>Germany</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:83.9%"></div></div><span class="pct">83.9%</span></td>
+<td class="mono xg">3.28 – 0.83</td>
+<td class="chips"><span class="chip">3-0 <b>9.7%</b></span><span class="chip">2-0 <b>8.8%</b></span><span class="chip">3-1 <b>8.0%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="no">
+<td class="teams">Japan <span class="vs">x</span> Sweden</td>
+<td class="mono score">1–1</td>
+<td>Japan</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:49.2%"></div></div><span class="pct">49.2%</span></td>
+<td class="mono xg">2.23 – 1.74</td>
+<td class="chips"><span class="chip">2-1 <b>8.2%</b></span><span class="chip">1-1 <b>7.3%</b></span><span class="chip">2-2 <b>7.1%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Netherlands <span class="vs">x</span> Tunisia</td>
+<td class="mono score">3–1</td>
+<td>Netherlands</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:78.8%"></div></div><span class="pct">78.8%</span></td>
+<td class="mono xg">2.82 – 0.81</td>
+<td class="chips"><span class="chip">2-0 <b>10.5%</b></span><span class="chip">3-0 <b>9.9%</b></span><span class="chip">2-1 <b>8.6%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Belgium <span class="vs">x</span> New Zealand</td>
+<td class="mono score">5–1</td>
+<td>Belgium</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:99.4%"></div></div><span class="pct">99.4%</span></td>
+<td class="mono xg">8.00 – 0.80</td>
+<td class="chips"><span class="chip">8-0 <b>6.2%</b></span><span class="chip">7-0 <b>6.2%</b></span><span class="chip">9-0 <b>5.6%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Egypt <span class="vs">x</span> Iran</td>
+<td class="mono score">1–1</td>
+<td>Egypt</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:67.7%"></div></div><span class="pct">67.7%</span></td>
+<td class="mono xg">2.89 – 1.42</td>
+<td class="chips"><span class="chip">2-1 <b>8.0%</b></span><span class="chip">3-1 <b>7.7%</b></span><span class="chip">2-2 <b>5.7%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="no">
+<td class="teams">Cape Verde <span class="vs">x</span> Saudi Arabia</td>
+<td class="mono score">0–0</td>
+<td>Cape Verde</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:75.0%"></div></div><span class="pct">75.0%</span></td>
+<td class="mono xg">2.38 – 0.69</td>
+<td class="chips"><span class="chip">2-0 <b>13.2%</b></span><span class="chip">1-0 <b>11.1%</b></span><span class="chip">3-0 <b>10.4%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Spain <span class="vs">x</span> Uruguay</td>
+<td class="mono score">1–0</td>
+<td>Spain</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:75.2%"></div></div><span class="pct">75.2%</span></td>
+<td class="mono xg">2.07 – 0.47</td>
+<td class="chips"><span class="chip">2-0 <b>16.9%</b></span><span class="chip">1-0 <b>16.3%</b></span><span class="chip">3-0 <b>11.7%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">France <span class="vs">x</span> Norway</td>
+<td class="mono score">4–1</td>
+<td>France</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:60.3%"></div></div><span class="pct">60.3%</span></td>
+<td class="mono xg">2.47 – 1.43</td>
+<td class="chips"><span class="chip">2-1 <b>8.8%</b></span><span class="chip">3-1 <b>7.3%</b></span><span class="chip">1-1 <b>7.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Senegal <span class="vs">x</span> Iraq</td>
+<td class="mono score">5–0</td>
+<td>Senegal</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:77.1%"></div></div><span class="pct">77.1%</span></td>
+<td class="mono xg">2.43 – 0.63</td>
+<td class="chips"><span class="chip">2-0 <b>13.9%</b></span><span class="chip">1-0 <b>11.4%</b></span><span class="chip">3-0 <b>11.2%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Algeria <span class="vs">x</span> Austria</td>
+<td class="mono score">3–3</td>
+<td>Austria</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:40.6%"></div></div><span class="pct">40.6%</span></td>
+<td class="mono xg">1.67 – 1.76</td>
+<td class="chips"><span class="chip">1-1 <b>9.6%</b></span><span class="chip">1-2 <b>8.4%</b></span><span class="chip">2-1 <b>8.0%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Argentina <span class="vs">x</span> Jordan</td>
+<td class="mono score">3–1</td>
+<td>Argentina</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:74.2%"></div></div><span class="pct">74.2%</span></td>
+<td class="mono xg">2.87 – 1.08</td>
+<td class="chips"><span class="chip">2-1 <b>8.6%</b></span><span class="chip">3-1 <b>8.2%</b></span><span class="chip">2-0 <b>7.9%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Congo <span class="vs">x</span> Uzbekistan</td>
+<td class="mono score">3–1</td>
+<td>Congo</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:60.3%"></div></div><span class="pct">60.3%</span></td>
+<td class="mono xg">2.24 – 1.23</td>
+<td class="chips"><span class="chip">2-1 <b>9.6%</b></span><span class="chip">1-1 <b>8.6%</b></span><span class="chip">2-0 <b>7.8%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Portugal <span class="vs">x</span> Colombia</td>
+<td class="mono score">0–0</td>
+<td>Portugal</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:47.5%"></div></div><span class="pct">47.5%</span></td>
+<td class="mono xg">1.33 – 0.87</td>
+<td class="chips"><span class="chip">1-0 <b>14.8%</b></span><span class="chip">1-1 <b>12.8%</b></span><span class="chip">0-0 <b>11.1%</b></span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">Croatia <span class="vs">x</span> Ghana</td>
+<td class="mono score">2–1</td>
+<td>Croatia</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:53.4%"></div></div><span class="pct">53.4%</span></td>
+<td class="mono xg">2.12 – 1.42</td>
+<td class="chips"><span class="chip">2-1 <b>9.2%</b></span><span class="chip">1-1 <b>8.7%</b></span><span class="chip">2-2 <b>6.6%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">England <span class="vs">x</span> Panama</td>
+<td class="mono score">2–0</td>
+<td>England</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:84.2%"></div></div><span class="pct">84.2%</span></td>
+<td class="mono xg">2.94 – 0.61</td>
+<td class="chips"><span class="chip">2-0 <b>12.4%</b></span><span class="chip">3-0 <b>12.2%</b></span><span class="chip">4-0 <b>8.9%</b></span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr></tbody>
+  </table>
+  </div>
+</section>
+<section class="panel" id="panel-r32">
+  <div class="panel-head">
+    <h2>Round of 32</h2>
+    <span class="panel-stat">15/16 acertos &middot; 93.8%</span>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th>Confronto</th><th>Placar real</th><th>Pick do modelo</th><th>Confiança</th>
+      <th>xG</th><th>Top-3 placares</th><th>Rank placar</th><th>Resultado</th>
+    </tr></thead>
+    <tbody><tr class="ok">
+<td class="teams">South Africa <span class="vs">x</span> Canada</td>
+<td class="mono score">0–1 <span class="arrow">&rarr;</span> Canada</td>
+<td>Canada</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:57.1%"></div></div><span class="pct">57.1%</span></td>
+<td class="mono xg">1.00 – 1.29</td>
+<td class="chips"><span class="chip">0-1 <b>13.1%</b></span><span class="chip">1-1 <b>13.1%</b></span><span class="chip">0-0 <b>10.1%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Netherlands <span class="vs">x</span> Morocco</td>
+<td class="mono score">1–1 <span class="note">(PEN)</span> <span class="arrow">&rarr;</span> Morocco</td>
+<td>Morocco</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:50.3%"></div></div><span class="pct">50.3%</span></td>
+<td class="mono xg">1.65 – 1.66</td>
+<td class="chips"><span class="chip">1-1 <b>10.0%</b></span><span class="chip">1-2 <b>8.3%</b></span><span class="chip">2-1 <b>8.2%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="no">
+<td class="teams">Germany <span class="vs">x</span> Paraguay</td>
+<td class="mono score">1–1 <span class="note">(PEN)</span> <span class="arrow">&rarr;</span> Paraguay</td>
+<td>Germany</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-bad" style="width:69.6%"></div></div><span class="pct">69.6%</span></td>
+<td class="mono xg">1.91 – 1.00</td>
+<td class="chips"><span class="chip">1-1 <b>10.4%</b></span><span class="chip">1-0 <b>10.4%</b></span><span class="chip">2-1 <b>9.9%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill no">ERROU</span></td>
+</tr><tr class="ok">
+<td class="teams">France <span class="vs">x</span> Sweden</td>
+<td class="mono score">3–0 <span class="arrow">&rarr;</span> France</td>
+<td>France</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:87.3%"></div></div><span class="pct">87.3%</span></td>
+<td class="mono xg">3.00 – 0.80</td>
+<td class="chips"><span class="chip">3-0 <b>10.1%</b></span><span class="chip">2-0 <b>10.1%</b></span><span class="chip">3-1 <b>8.1%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Belgium <span class="vs">x</span> Senegal</td>
+<td class="mono score">2–2 <span class="note">(AET)</span> <span class="arrow">&rarr;</span> Belgium</td>
+<td>Belgium</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:58.0%"></div></div><span class="pct">58.0%</span></td>
+<td class="mono xg">2.44 – 2.00</td>
+<td class="chips"><span class="chip">2-2 <b>7.0%</b></span><span class="chip">2-1 <b>7.0%</b></span><span class="chip">1-2 <b>5.8%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">USA <span class="vs">x</span> Bosnia-Herzegovina</td>
+<td class="mono score">2–0 <span class="arrow">&rarr;</span> USA</td>
+<td>USA</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:72.5%"></div></div><span class="pct">72.5%</span></td>
+<td class="mono xg">2.08 – 1.00</td>
+<td class="chips"><span class="chip">2-0 <b>10.0%</b></span><span class="chip">2-1 <b>9.9%</b></span><span class="chip">1-0 <b>9.6%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Spain <span class="vs">x</span> Austria</td>
+<td class="mono score">3–0 <span class="arrow">&rarr;</span> Spain</td>
+<td>Spain</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:89.3%"></div></div><span class="pct">89.3%</span></td>
+<td class="mono xg">3.00 – 0.66</td>
+<td class="chips"><span class="chip">3-0 <b>11.6%</b></span><span class="chip">2-0 <b>11.6%</b></span><span class="chip">4-0 <b>8.7%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Portugal <span class="vs">x</span> Croatia</td>
+<td class="mono score">2–1 <span class="arrow">&rarr;</span> Portugal</td>
+<td>Portugal</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:71.2%"></div></div><span class="pct">71.2%</span></td>
+<td class="mono xg">2.00 – 1.00</td>
+<td class="chips"><span class="chip">2-1 <b>10.0%</b></span><span class="chip">2-0 <b>10.0%</b></span><span class="chip">1-1 <b>10.0%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Brazil <span class="vs">x</span> Japan</td>
+<td class="mono score">2–1 <span class="note">(90+4')</span> <span class="arrow">&rarr;</span> Brazil</td>
+<td>Brazil</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:67.3%"></div></div><span class="pct">67.3%</span></td>
+<td class="mono xg">2.00 – 1.17</td>
+<td class="chips"><span class="chip">2-1 <b>9.8%</b></span><span class="chip">1-1 <b>9.8%</b></span><span class="chip">2-0 <b>8.4%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Côte d'Ivoire <span class="vs">x</span> Norway</td>
+<td class="mono score">1–2 <span class="arrow">&rarr;</span> Norway</td>
+<td>Norway</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:61.8%"></div></div><span class="pct">61.8%</span></td>
+<td class="mono xg">1.98 – 2.64</td>
+<td class="chips"><span class="chip">1-2 <b>6.8%</b></span><span class="chip">2-2 <b>6.7%</b></span><span class="chip">1-3 <b>6.0%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Mexico <span class="vs">x</span> Ecuador</td>
+<td class="mono score">2–0 <span class="arrow">&rarr;</span> Mexico</td>
+<td>Mexico</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:80.2%"></div></div><span class="pct">80.2%</span></td>
+<td class="mono xg">2.00 – 0.60</td>
+<td class="chips"><span class="chip">1-0 <b>14.8%</b></span><span class="chip">2-0 <b>14.8%</b></span><span class="chip">3-0 <b>9.9%</b></span></td>
+<td class="mono"><span class="pill ok">top-2</span> <span class="bonus">+0.67pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">England <span class="vs">x</span> Congo</td>
+<td class="mono score">2–1 <span class="arrow">&rarr;</span> England</td>
+<td>England</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:83.7%"></div></div><span class="pct">83.7%</span></td>
+<td class="mono xg">3.00 – 1.02</td>
+<td class="chips"><span class="chip">2-1 <b>8.2%</b></span><span class="chip">3-1 <b>8.2%</b></span><span class="chip">2-0 <b>8.1%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Switzerland <span class="vs">x</span> Algeria</td>
+<td class="mono score">2–0 <span class="arrow">&rarr;</span> Switzerland</td>
+<td>Switzerland</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:71.2%"></div></div><span class="pct">71.2%</span></td>
+<td class="mono xg">2.00 – 1.00</td>
+<td class="chips"><span class="chip">2-0 <b>10.0%</b></span><span class="chip">1-0 <b>10.0%</b></span><span class="chip">2-1 <b>10.0%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Colombia <span class="vs">x</span> Ghana</td>
+<td class="mono score">1–0 <span class="arrow">&rarr;</span> Colombia</td>
+<td>Colombia</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:69.5%"></div></div><span class="pct">69.5%</span></td>
+<td class="mono xg">1.83 – 0.95</td>
+<td class="chips"><span class="chip">1-0 <b>11.3%</b></span><span class="chip">1-1 <b>10.8%</b></span><span class="chip">2-0 <b>10.4%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Australia <span class="vs">x</span> Egypt</td>
+<td class="mono score">1–1 <span class="note">(PEN)</span> <span class="arrow">&rarr;</span> Egypt</td>
+<td>Egypt</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:66.5%"></div></div><span class="pct">66.5%</span></td>
+<td class="mono xg">1.21 – 2.00</td>
+<td class="chips"><span class="chip">1-1 <b>9.8%</b></span><span class="chip">1-2 <b>9.8%</b></span><span class="chip">0-1 <b>8.1%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Argentina <span class="vs">x</span> Cape Verde</td>
+<td class="mono score">1–1 <span class="note">(AET)</span> <span class="arrow">&rarr;</span> Argentina</td>
+<td>Argentina</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:70.4%"></div></div><span class="pct">70.4%</span></td>
+<td class="mono xg">2.00 – 1.03</td>
+<td class="chips"><span class="chip">1-1 <b>10.0%</b></span><span class="chip">2-1 <b>10.0%</b></span><span class="chip">1-0 <b>9.6%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr></tbody>
+  </table>
+  </div>
+</section>
+<section class="panel" id="panel-r16">
+  <div class="panel-head">
+    <h2>Oitavas de Final</h2>
+    <span class="panel-stat">8/8 acertos &middot; 100.0%</span>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th>Confronto</th><th>Placar real</th><th>Pick do modelo</th><th>Confiança</th>
+      <th>xG</th><th>Top-3 placares</th><th>Rank placar</th><th>Resultado</th>
+    </tr></thead>
+    <tbody><tr class="ok">
+<td class="teams">Canada <span class="vs">x</span> Morocco</td>
+<td class="mono score">0–3 <span class="arrow">&rarr;</span> Morocco</td>
+<td>Morocco</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:87.5%"></div></div><span class="pct">87.5%</span></td>
+<td class="mono xg">0.78 – 3.00</td>
+<td class="chips"><span class="chip">0-3 <b>10.2%</b></span><span class="chip">0-2 <b>10.2%</b></span><span class="chip">1-3 <b>8.0%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Paraguay <span class="vs">x</span> France</td>
+<td class="mono score">0–1 <span class="arrow">&rarr;</span> France</td>
+<td>France</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:83.5%"></div></div><span class="pct">83.5%</span></td>
+<td class="mono xg">0.45 – 2.00</td>
+<td class="chips"><span class="chip">0-1 <b>17.2%</b></span><span class="chip">0-2 <b>17.2%</b></span><span class="chip">0-3 <b>11.5%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Belgium <span class="vs">x</span> USA</td>
+<td class="mono score">4–1 <span class="arrow">&rarr;</span> Belgium</td>
+<td>Belgium</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:83.6%"></div></div><span class="pct">83.6%</span></td>
+<td class="mono xg">4.00 – 1.67</td>
+<td class="chips"><span class="chip">3-1 <b>6.2%</b></span><span class="chip">4-1 <b>6.2%</b></span><span class="chip">3-2 <b>5.1%</b></span></td>
+<td class="mono"><span class="pill ok">top-2</span> <span class="bonus">+0.67pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Spain <span class="vs">x</span> Portugal</td>
+<td class="mono score">1–0 <span class="arrow">&rarr;</span> Spain</td>
+<td>Spain</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:63.1%"></div></div><span class="pct">63.1%</span></td>
+<td class="mono xg">1.56 – 1.00</td>
+<td class="chips"><span class="chip">1-0 <b>12.0%</b></span><span class="chip">1-1 <b>12.0%</b></span><span class="chip">2-0 <b>9.4%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Brazil <span class="vs">x</span> Norway</td>
+<td class="mono score">1–2 <span class="arrow">&rarr;</span> Norway</td>
+<td>Norway</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:50.0%"></div></div><span class="pct">50.0%</span></td>
+<td class="mono xg">2.00 – 2.00</td>
+<td class="chips"><span class="chip">2-2 <b>7.3%</b></span><span class="chip">1-2 <b>7.3%</b></span><span class="chip">2-1 <b>7.3%</b></span></td>
+<td class="mono"><span class="pill ok">top-2</span> <span class="bonus">+0.67pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Mexico <span class="vs">x</span> England</td>
+<td class="mono score">2–3 <span class="arrow">&rarr;</span> England</td>
+<td>England</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:75.4%"></div></div><span class="pct">75.4%</span></td>
+<td class="mono xg">0.74 – 1.89</td>
+<td class="chips"><span class="chip">0-1 <b>13.7%</b></span><span class="chip">0-2 <b>12.9%</b></span><span class="chip">1-1 <b>10.1%</b></span></td>
+<td class="mono"><span class="pill muted">fora do top-3</span> <span class="bonus">+0.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Switzerland <span class="vs">x</span> Colombia</td>
+<td class="mono score">0–0 <span class="note">(PEN)</span> <span class="arrow">&rarr;</span> Switzerland</td>
+<td>Switzerland</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:50.0%"></div></div><span class="pct">50.0%</span></td>
+<td class="mono xg">1.00 – 1.00</td>
+<td class="chips"><span class="chip">0-0 <b>13.6%</b></span><span class="chip">1-0 <b>13.6%</b></span><span class="chip">0-1 <b>13.5%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr><tr class="ok">
+<td class="teams">Egypt <span class="vs">x</span> Argentina</td>
+<td class="mono score">2–3 <span class="arrow">&rarr;</span> Argentina</td>
+<td>Argentina</td>
+<td class="mono"><div class="conf-bar"><div class="bar-fill bar-good" style="width:66.9%"></div></div><span class="pct">66.9%</span></td>
+<td class="mono xg">2.00 – 3.00</td>
+<td class="chips"><span class="chip">2-3 <b>6.1%</b></span><span class="chip">1-3 <b>6.1%</b></span><span class="chip">2-2 <b>6.1%</b></span></td>
+<td class="mono"><span class="pill ok">top-1</span> <span class="bonus">+1.00pt</span></td>
+<td class="outcome-cell"><span class="pill ok">ACERTOU</span></td>
+</tr></tbody>
+  </table>
+  </div>
+</section>
+  
+<section class="panel" id="panel-alive">
+  <div class="panel-head">
+    <h2>Times ainda vivos &mdash; todas as combinações possíveis</h2>
+    <span class="panel-stat">28 confrontos hipotéticos entre os 8 times restantes</span>
+  </div>
+  <p class="note-block">O chaveamento oficial das quartas ainda não foi confirmado nesta análise &mdash; a tabela abaixo mostra o Model6 aplicado a <b>todas as combinações possíveis</b> entre Marrocos, França, Bélgica, Espanha, Noruega, Inglaterra, Suíça e Argentina, ordenadas pela diferença de força entre os dois lados.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Confronto</th><th>xG</th><th>Favorito</th><th>Top-3 placares</th></tr></thead>
+    <tbody><tr>
+<td class="teams">Spain <span class="vs">x</span> Norway</td>
+<td class="mono xg">3.16 – 1.27</td>
+<td><b>Spain</b> <span class="pct-inline">81.3%</span><div class="conf-bar"><div class="bar-fill" style="width:81.3%"></div></div></td>
+<td class="chips"><span class="chip">3-1 <b>8.0%</b></span><span class="chip">2-1 <b>7.6%</b></span><span class="chip">4-1 <b>6.3%</b></span></td>
+</tr><tr>
+<td class="teams">Spain <span class="vs">x</span> Argentina</td>
+<td class="mono xg">2.69 – 1.09</td>
+<td><b>Spain</b> <span class="pct-inline">79.1%</span><div class="conf-bar"><div class="bar-fill" style="width:79.1%"></div></div></td>
+<td class="chips"><span class="chip">2-1 <b>9.0%</b></span><span class="chip">2-0 <b>8.3%</b></span><span class="chip">3-1 <b>8.1%</b></span></td>
+</tr><tr>
+<td class="teams">Belgium <span class="vs">x</span> Spain</td>
+<td class="mono xg">1.44 – 2.92</td>
+<td><b>Spain</b> <span class="pct-inline">75.8%</span><div class="conf-bar"><div class="bar-fill" style="width:75.8%"></div></div></td>
+<td class="chips"><span class="chip">1-2 <b>7.8%</b></span><span class="chip">1-3 <b>7.6%</b></span><span class="chip">2-2 <b>5.6%</b></span></td>
+</tr><tr>
+<td class="teams">Spain <span class="vs">x</span> Switzerland</td>
+<td class="mono xg">1.80 – 0.75</td>
+<td><b>Spain</b> <span class="pct-inline">73.7%</span><div class="conf-bar"><div class="bar-fill" style="width:73.7%"></div></div></td>
+<td class="chips"><span class="chip">1-0 <b>14.1%</b></span><span class="chip">2-0 <b>12.7%</b></span><span class="chip">1-1 <b>10.5%</b></span></td>
+</tr><tr>
+<td class="teams">Morocco <span class="vs">x</span> Spain</td>
+<td class="mono xg">0.96 – 2.06</td>
+<td><b>Spain</b> <span class="pct-inline">73.1%</span><div class="conf-bar"><div class="bar-fill" style="width:73.1%"></div></div></td>
+<td class="chips"><span class="chip">0-2 <b>10.4%</b></span><span class="chip">0-1 <b>10.1%</b></span><span class="chip">1-2 <b>9.9%</b></span></td>
+</tr><tr>
+<td class="teams">France <span class="vs">x</span> Norway</td>
+<td class="mono xg">2.47 – 1.43</td>
+<td><b>France</b> <span class="pct-inline">69.6%</span><div class="conf-bar"><div class="bar-fill" style="width:69.6%"></div></div></td>
+<td class="chips"><span class="chip">2-1 <b>8.8%</b></span><span class="chip">3-1 <b>7.3%</b></span><span class="chip">1-1 <b>7.2%</b></span></td>
+</tr><tr>
+<td class="teams">Norway <span class="vs">x</span> England</td>
+<td class="mono xg">1.60 – 2.58</td>
+<td><b>England</b> <span class="pct-inline">67.9%</span><div class="conf-bar"><div class="bar-fill" style="width:67.9%"></div></div></td>
+<td class="chips"><span class="chip">1-2 <b>8.1%</b></span><span class="chip">1-3 <b>7.0%</b></span><span class="chip">2-2 <b>6.5%</b></span></td>
+</tr><tr>
+<td class="teams">France <span class="vs">x</span> Argentina</td>
+<td class="mono xg">2.10 – 1.22</td>
+<td><b>France</b> <span class="pct-inline">67.9%</span><div class="conf-bar"><div class="bar-fill" style="width:67.9%"></div></div></td>
+<td class="chips"><span class="chip">2-1 <b>9.7%</b></span><span class="chip">1-1 <b>9.2%</b></span><span class="chip">2-0 <b>7.9%</b></span></td>
+</tr><tr>
+<td class="teams">England <span class="vs">x</span> Argentina</td>
+<td class="mono xg">2.20 – 1.38</td>
+<td><b>England</b> <span class="pct-inline">66.3%</span><div class="conf-bar"><div class="bar-fill" style="width:66.3%"></div></div></td>
+<td class="chips"><span class="chip">2-1 <b>9.3%</b></span><span class="chip">1-1 <b>8.5%</b></span><span class="chip">3-1 <b>6.8%</b></span></td>
+</tr><tr>
+<td class="teams">France <span class="vs">x</span> Switzerland</td>
+<td class="mono xg">1.41 – 0.84</td>
+<td><b>France</b> <span class="pct-inline">63.8%</span><div class="conf-bar"><div class="bar-fill" style="width:63.8%"></div></div></td>
+<td class="chips"><span class="chip">1-0 <b>14.8%</b></span><span class="chip">1-1 <b>12.5%</b></span><span class="chip">0-0 <b>10.6%</b></span></td>
+</tr><tr>
+<td class="teams">Spain <span class="vs">x</span> England</td>
+<td class="mono xg">1.62 – 1.05</td>
+<td><b>Spain</b> <span class="pct-inline">63.1%</span><div class="conf-bar"><div class="bar-fill" style="width:63.1%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>11.8%</b></span><span class="chip">1-0 <b>11.2%</b></span><span class="chip">2-1 <b>9.6%</b></span></td>
+</tr><tr>
+<td class="teams">France <span class="vs">x</span> Belgium</td>
+<td class="mono xg">2.29 – 1.61</td>
+<td><b>France</b> <span class="pct-inline">62.9%</span><div class="conf-bar"><div class="bar-fill" style="width:62.9%"></div></div></td>
+<td class="chips"><span class="chip">2-1 <b>8.5%</b></span><span class="chip">1-1 <b>7.5%</b></span><span class="chip">2-2 <b>6.9%</b></span></td>
+</tr><tr>
+<td class="teams">England <span class="vs">x</span> Switzerland</td>
+<td class="mono xg">1.47 – 0.95</td>
+<td><b>England</b> <span class="pct-inline">62.5%</span><div class="conf-bar"><div class="bar-fill" style="width:62.5%"></div></div></td>
+<td class="chips"><span class="chip">1-0 <b>13.1%</b></span><span class="chip">1-1 <b>12.4%</b></span><span class="chip">2-0 <b>9.6%</b></span></td>
+</tr><tr>
+<td class="teams">Morocco <span class="vs">x</span> France</td>
+<td class="mono xg">1.07 – 1.61</td>
+<td><b>France</b> <span class="pct-inline">62.2%</span><div class="conf-bar"><div class="bar-fill" style="width:62.2%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>11.8%</b></span><span class="chip">0-1 <b>11.0%</b></span><span class="chip">1-2 <b>9.5%</b></span></td>
+</tr><tr>
+<td class="teams">Belgium <span class="vs">x</span> England</td>
+<td class="mono xg">1.81 – 2.39</td>
+<td><b>England</b> <span class="pct-inline">60.8%</span><div class="conf-bar"><div class="bar-fill" style="width:60.8%"></div></div></td>
+<td class="chips"><span class="chip">1-2 <b>7.7%</b></span><span class="chip">2-2 <b>7.0%</b></span><span class="chip">1-1 <b>6.5%</b></span></td>
+</tr><tr>
+<td class="teams">Morocco <span class="vs">x</span> England</td>
+<td class="mono xg">1.21 – 1.68</td>
+<td><b>England</b> <span class="pct-inline">60.5%</span><div class="conf-bar"><div class="bar-fill" style="width:60.5%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>11.3%</b></span><span class="chip">1-2 <b>9.5%</b></span><span class="chip">0-1 <b>9.4%</b></span></td>
+</tr><tr>
+<td class="teams">France <span class="vs">x</span> Spain</td>
+<td class="mono xg">1.00 – 1.45</td>
+<td><b>Spain</b> <span class="pct-inline">60.5%</span><div class="conf-bar"><div class="bar-fill" style="width:60.5%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>12.5%</b></span><span class="chip">0-1 <b>12.5%</b></span><span class="chip">1-2 <b>9.0%</b></span></td>
+</tr><tr>
+<td class="teams">Belgium <span class="vs">x</span> Norway</td>
+<td class="mono xg">3.52 – 2.89</td>
+<td><b>Belgium</b> <span class="pct-inline">59.7%</span><div class="conf-bar"><div class="bar-fill" style="width:59.7%"></div></div></td>
+<td class="chips"><span class="chip">3-2 <b>5.0%</b></span><span class="chip">3-3 <b>4.8%</b></span><span class="chip">4-2 <b>4.4%</b></span></td>
+</tr><tr>
+<td class="teams">Belgium <span class="vs">x</span> Argentina</td>
+<td class="mono xg">3.00 – 2.48</td>
+<td><b>Belgium</b> <span class="pct-inline">58.6%</span><div class="conf-bar"><div class="bar-fill" style="width:58.6%"></div></div></td>
+<td class="chips"><span class="chip">2-2 <b>5.8%</b></span><span class="chip">3-2 <b>5.8%</b></span><span class="chip">2-3 <b>4.8%</b></span></td>
+</tr><tr>
+<td class="teams">Belgium <span class="vs">x</span> Switzerland</td>
+<td class="mono xg">2.01 – 1.71</td>
+<td><b>Belgium</b> <span class="pct-inline">56.0%</span><div class="conf-bar"><div class="bar-fill" style="width:56.0%"></div></div></td>
+<td class="chips"><span class="chip">2-1 <b>8.4%</b></span><span class="chip">1-1 <b>8.4%</b></span><span class="chip">2-2 <b>7.1%</b></span></td>
+</tr><tr>
+<td class="teams">Morocco <span class="vs">x</span> Norway</td>
+<td class="mono xg">2.35 – 2.03</td>
+<td><b>Morocco</b> <span class="pct-inline">55.8%</span><div class="conf-bar"><div class="bar-fill" style="width:55.8%"></div></div></td>
+<td class="chips"><span class="chip">2-2 <b>7.1%</b></span><span class="chip">2-1 <b>7.0%</b></span><span class="chip">1-2 <b>6.1%</b></span></td>
+</tr><tr>
+<td class="teams">Morocco <span class="vs">x</span> Argentina</td>
+<td class="mono xg">2.00 – 1.74</td>
+<td><b>Morocco</b> <span class="pct-inline">55.1%</span><div class="conf-bar"><div class="bar-fill" style="width:55.1%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>8.3%</b></span><span class="chip">2-1 <b>8.3%</b></span><span class="chip">1-2 <b>7.2%</b></span></td>
+</tr><tr>
+<td class="teams">Morocco <span class="vs">x</span> Switzerland</td>
+<td class="mono xg">1.34 – 1.20</td>
+<td><b>Morocco</b> <span class="pct-inline">53.2%</span><div class="conf-bar"><div class="bar-fill" style="width:53.2%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>12.7%</b></span><span class="chip">1-0 <b>10.6%</b></span><span class="chip">0-1 <b>9.5%</b></span></td>
+</tr><tr>
+<td class="teams">Morocco <span class="vs">x</span> Belgium</td>
+<td class="mono xg">2.17 – 2.29</td>
+<td><b>Belgium</b> <span class="pct-inline">52.2%</span><div class="conf-bar"><div class="bar-fill" style="width:52.2%"></div></div></td>
+<td class="chips"><span class="chip">2-2 <b>7.1%</b></span><span class="chip">1-2 <b>6.6%</b></span><span class="chip">2-1 <b>6.2%</b></span></td>
+</tr><tr>
+<td class="teams">France <span class="vs">x</span> England</td>
+<td class="mono xg">1.27 – 1.18</td>
+<td><b>France</b> <span class="pct-inline">52.1%</span><div class="conf-bar"><div class="bar-fill" style="width:52.1%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>12.9%</b></span><span class="chip">1-0 <b>10.9%</b></span><span class="chip">0-1 <b>10.2%</b></span></td>
+</tr><tr>
+<td class="teams">Norway <span class="vs">x</span> Switzerland</td>
+<td class="mono xg">1.78 – 1.84</td>
+<td><b>Switzerland</b> <span class="pct-inline">51.3%</span><div class="conf-bar"><div class="bar-fill" style="width:51.3%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>8.8%</b></span><span class="chip">1-2 <b>8.1%</b></span><span class="chip">2-1 <b>7.8%</b></span></td>
+</tr><tr>
+<td class="teams">Switzerland <span class="vs">x</span> Argentina</td>
+<td class="mono xg">1.57 – 1.52</td>
+<td><b>Switzerland</b> <span class="pct-inline">50.9%</span><div class="conf-bar"><div class="bar-fill" style="width:50.9%"></div></div></td>
+<td class="chips"><span class="chip">1-1 <b>10.9%</b></span><span class="chip">2-1 <b>8.5%</b></span><span class="chip">1-2 <b>8.3%</b></span></td>
+</tr><tr>
+<td class="teams">Norway <span class="vs">x</span> Argentina</td>
+<td class="mono xg">2.65 – 2.67</td>
+<td><b>Argentina</b> <span class="pct-inline">50.3%</span><div class="conf-bar"><div class="bar-fill" style="width:50.3%"></div></div></td>
+<td class="chips"><span class="chip">2-2 <b>6.1%</b></span><span class="chip">2-3 <b>5.5%</b></span><span class="chip">3-2 <b>5.4%</b></span></td>
+</tr></tbody>
+  </table>
+  </div>
+</section>
+
+  <footer>Model6 &middot; SA por pontos, biases att+def, 96 jogos de treino &middot; pesos em output/calibrated_weights_sa.json</footer>
+</div>
+
+<script>
+const buttons = document.querySelectorAll('.tab-btn');
+const panels = document.querySelectorAll('.panel');
+function activate(key) {
+  buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === key));
+  panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + key));
+}
+buttons.forEach(b => b.addEventListener('click', () => activate(b.dataset.tab)));
+activate(buttons[0].dataset.tab);
+</script>

@@ -1,0 +1,245 @@
+{
+  "method": "simulated_annealing",
+  "objective": "points",
+  "n_matches": 96,
+  "round_weights": {
+    "r1": 0.5,
+    "r2": 0.5,
+    "r3": 0.25,
+    "r32": 1.0,
+    "r16": 1.0,
+    "qf": 1.0,
+    "sf": 1.0,
+    "final": 1.0
+  },
+  "top_score_bonus": {
+    "top1": 1.0,
+    "top2": 0.6666666666666666,
+    "top3": 0.4444444444444444
+  },
+  "exclude_outliers": false,
+  "use_biases": true,
+  "att_only": false,
+  "unconstrained": false,
+  "sa_params": {
+    "n_iter": 300000,
+    "n_restarts": 5,
+    "T0": 3.0,
+    "alpha": 0.99996,
+    "T_final": 1.8e-05,
+    "seed": 7,
+    "lambda": 2.0
+  },
+  "max_points": 78.0,
+  "points_default": 37.6111,
+  "points_sa": 63.75,
+  "points_lbfgs": 39.1111,
+  "nll_default": 91.8141,
+  "nll_sa": 82.867,
+  "nll_lbfgs": 90.4344,
+  "brier_default": 0.5487,
+  "brier_sa": 0.5191,
+  "brier_lbfgs": 0.5463,
+  "weights": {
+    "BASE_XG": 1.3532,
+    "OFF_ATT_W": 0.3341,
+    "OFF_MID_W": 0.6659,
+    "RES_DEF_W": 0.38,
+    "RES_GK_W": 0.5,
+    "RES_MID_W": 0.12
+  },
+  "biases": {
+    "algeria": {
+      "att_bias": 1.0029,
+      "def_bias": 0.7896
+    },
+    "argentina": {
+      "att_bias": 0.9026,
+      "def_bias": 0.4238
+    },
+    "australia": {
+      "att_bias": 0.9983,
+      "def_bias": 1.0004
+    },
+    "austria": {
+      "att_bias": 1.004,
+      "def_bias": 0.782
+    },
+    "belgium": {
+      "att_bias": 1.1702,
+      "def_bias": 0.6426
+    },
+    "bosnia_and_herzegovina": {
+      "att_bias": 0.9994,
+      "def_bias": 1.0724
+    },
+    "brazil": {
+      "att_bias": 0.9974,
+      "def_bias": 0.8478
+    },
+    "canada": {
+      "att_bias": 1.0011,
+      "def_bias": 1.1553
+    },
+    "cape_verte": {
+      "att_bias": 1.0015,
+      "def_bias": 1.222
+    },
+    "colombia": {
+      "att_bias": 0.8745,
+      "def_bias": 1.0972
+    },
+    "congo": {
+      "att_bias": 1.0925,
+      "def_bias": 1.0033
+    },
+    "croatia": {
+      "att_bias": 1.048,
+      "def_bias": 0.9734
+    },
+    "curacao": {
+      "att_bias": 1.0207,
+      "def_bias": 1.1976
+    },
+    "czech_republic": {
+      "att_bias": 0.931,
+      "def_bias": 0.9247
+    },
+    "ecuador": {
+      "att_bias": 0.7846,
+      "def_bias": 0.7237
+    },
+    "egypt": {
+      "att_bias": 1.0956,
+      "def_bias": 0.7786
+    },
+    "england": {
+      "att_bias": 0.9991,
+      "def_bias": 0.8689
+    },
+    "france": {
+      "att_bias": 0.9238,
+      "def_bias": 0.9981
+    },
+    "germany": {
+      "att_bias": 0.7897,
+      "def_bias": 0.5859
+    },
+    "ghana": {
+      "att_bias": 0.9965,
+      "def_bias": 1.0029
+    },
+    "haiti": {
+      "att_bias": 0.9976,
+      "def_bias": 0.9978
+    },
+    "ira": {
+      "att_bias": 0.9997,
+      "def_bias": 1.0017
+    },
+    "iraq": {
+      "att_bias": 0.9992,
+      "def_bias": 1.002
+    },
+    "ivory_coast": {
+      "att_bias": 0.8961,
+      "def_bias": 0.9991
+    },
+    "japan": {
+      "att_bias": 1.1006,
+      "def_bias": 1.0005
+    },
+    "jordan": {
+      "att_bias": 0.9979,
+      "def_bias": 0.9994
+    },
+    "mexico": {
+      "att_bias": 1.1837,
+      "def_bias": 1.1015
+    },
+    "morocco": {
+      "att_bias": 1.028,
+      "def_bias": 1.0297
+    },
+    "netherlands": {
+      "att_bias": 0.9668,
+      "def_bias": 0.967
+    },
+    "new_zealand": {
+      "att_bias": 1.0008,
+      "def_bias": 1.0
+    },
+    "norway": {
+      "att_bias": 1.22,
+      "def_bias": 1.2457
+    },
+    "panama": {
+      "att_bias": 0.9983,
+      "def_bias": 1.0015
+    },
+    "paraguay": {
+      "att_bias": 1.1323,
+      "def_bias": 1.3097
+    },
+    "portugal": {
+      "att_bias": 0.9187,
+      "def_bias": 0.9967
+    },
+    "qatar": {
+      "att_bias": 0.8562,
+      "def_bias": 0.8676
+    },
+    "republic_of_korea": {
+      "att_bias": 0.9528,
+      "def_bias": 0.9419
+    },
+    "saudi_arabia": {
+      "att_bias": 1.0009,
+      "def_bias": 0.9983
+    },
+    "scotland": {
+      "att_bias": 0.9972,
+      "def_bias": 0.9985
+    },
+    "senegal": {
+      "att_bias": 1.1077,
+      "def_bias": 0.7682
+    },
+    "south_africa": {
+      "att_bias": 0.6892,
+      "def_bias": 1.0003
+    },
+    "spain": {
+      "att_bias": 1.0794,
+      "def_bias": 1.1096
+    },
+    "sweden": {
+      "att_bias": 1.0053,
+      "def_bias": 0.8082
+    },
+    "switzerland": {
+      "att_bias": 1.0069,
+      "def_bias": 1.1342
+    },
+    "tunisia": {
+      "att_bias": 0.9997,
+      "def_bias": 1.0
+    },
+    "turkey": {
+      "att_bias": 0.9987,
+      "def_bias": 0.9988
+    },
+    "united_states_of_america": {
+      "att_bias": 1.0116,
+      "def_bias": 0.7542
+    },
+    "uruguay": {
+      "att_bias": 0.9982,
+      "def_bias": 1.0012
+    },
+    "uzbekistan": {
+      "att_bias": 0.9983,
+      "def_bias": 0.9972
+    }
+  }
+}
