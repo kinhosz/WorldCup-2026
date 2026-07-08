@@ -1,6 +1,6 @@
 # TASKS — Estado e Próximos Passos
 
-*Atualizado: 08 jul 2026 — Oitavas encerradas (8/8), Model6 treinado com novo objetivo por pontos, modelo congelado pras quartas em diante*
+*Atualizado: 08 jul 2026 — Oitavas encerradas (8/8), Model6 treinado com novo objetivo por pontos, bracket das quartas confirmado, odds geradas*
 
 ---
 
@@ -11,7 +11,21 @@
 - **Nova metodologia de calibração: objetivo por pontos** ✅ — ver seção abaixo. `calibrate_sa.py` agora maximiza pontos em vez de minimizar NLL
 - **Model6 ativo** — treinado com 96 jogos (72 grupo + 16 R32 + 8 R16), objetivo por pontos, seed 42 (venceu em todas as métricas: pontos 68.0/78=87.2%, NLL 80.39, Brier 0.494) — ver `CLAUDE.md` → Estado Atual e "Calibração por Pontos"
 - **A partir de agora o modelo fica congelado** — quartas, semi, 3º lugar e final usam Model6 sem retreinar. Primeira vez no projeto que a performance reportada será genuinamente *out-of-sample* (todos os modelos anteriores foram avaliados nos mesmos jogos em que treinaram)
-- Odds das quartas (`match_odds.py` por jogo) ⬜ pendente — falta saber os 4 confrontos (dependem de quem passou nas oitavas, já sabemos os 8 times: Marrocos, França, Bélgica, Espanha, Noruega, Inglaterra, Suíça, Argentina)
+- **Bracket das quartas em diante CONFIRMADO** (08 jul 2026) ✅ — ver tabela abaixo
+- **Odds das 4 quartas geradas com Model6** ✅ — `output/odds_france_vs_morocco.json`, `output/odds_spain_vs_belgium.json`, `output/odds_norway_vs_england.json`, `output/odds_argentina_vs_switzerland.json`
+- **Achado:** Argentina x Suíça está praticamente 50/50 (37,2% x 39,0%, leve favoritismo suíço) — bias da Argentina caiu bastante e o da Suíça subiu desde que ela avançou nos pênaltis contra a Colômbia
+
+### Bracket confirmado — Quartas em diante
+
+| Fase | Confronto |
+|------|-----------|
+| QF1 | França x Marrocos |
+| QF2 | Espanha x Bélgica |
+| QF3 | Noruega x Inglaterra |
+| QF4 | Argentina x Suíça |
+| SF1 | vencedor QF1 x vencedor QF2 |
+| SF2 | vencedor QF3 x vencedor QF4 |
+| Final | vencedor SF1 x vencedor SF2 |
 
 ### Resultados das oitavas (R16)
 
@@ -108,22 +122,40 @@ Como o modelo nunca prevê empate (limitação estrutural do Poisson independent
 
 ## Próximos Passos
 
-### 1. Confirmar confrontos das quartas ⬜
-Times classificados: Marrocos, França, Bélgica, Espanha, Noruega, Inglaterra, Suíça, Argentina. Falta saber o chaveamento oficial — confirmar contra a fonte oficial da FIFA, não assumir.
+### 1. Confirmar confrontos das quartas ✅
+Bracket confirmado pelo usuário (08 jul 2026) — ver tabela em "Estado Atual" acima.
 
-### 2. Atualizar bracket fixo em `simulate.py` pras quartas ⬜
-Mesmo fix do R32→oitavas, agora precisa incorporar os resultados reais das oitavas (não re-simular).
+### 2. Bracket fixo em `simulate.py` pras quartas ✅ (nenhuma mudança necessária)
+Testado em 08 jul 2026: `play()` já checa `_REAL_KNOCKOUT_RESULTS` genericamente pra qualquer `match_id`, não só R16 — como os 8 resultados das oitavas já estão em `copa_real_state.json`, o QF já é montado com os vencedores reais automaticamente, sem re-simular. Confirmado rodando 200k simulações: os 8 times vivos saem com 100% em QF/R16 e os 88 eliminados com 0% em tudo. Campeão: Espanha 35.4%, Inglaterra 19.8%, França 16.9%, Suíça 7.1%, Marrocos 5.8%, Argentina 5.6%, Bélgica 5.1%, Noruega 4.4%.
 
-### 3. Gerar odds das quartas com Model6 ⬜
+### 3. Gerar odds das quartas com Model6 ✅
 
 ```bash
-python3 scripts/match_odds.py <time_a> <time_b> 1000000   # repetir pros 4 jogos
+python3 scripts/match_odds.py france morocco 1000000 --knockout
+python3 scripts/match_odds.py spain belgium 1000000 --knockout
+python3 scripts/match_odds.py norway england 1000000 --knockout
+python3 scripts/match_odds.py argentina switzerland 1000000 --knockout
 ```
 
-### 4. Post Instagram quartas ⬜
+Nota: rodado primeiro sem `--knockout` (odds ficaram certas, mas sem o campo `advance`/exibição "quem avança") e depois refeito com a flag — usar sempre `--knockout` no mata-mata daqui pra frente.
 
-- [ ] Hook + slide técnico (performance oitavas: 75% quem avança, zebra do Brasil)
-- [ ] Slides por jogo — mesmo formato validado nas oitavas
+### 3b. Probabilidade de campeão — Model6, 10M simulações ✅
+
+```bash
+python3 scripts/simulate.py 10000000 output/simulation_results_model6.json
+```
+
+Resultado (só os 8 times vivos têm chance >0%): Espanha 35.3%, Inglaterra 19.8%, França 17.0%, Suíça 7.2%, Marrocos 5.8%, Argentina 5.6%, Bélgica 5.2%, Noruega 4.3%.
+
+### 4. Post Instagram quartas ✅
+
+Novo estilo "Troféu Chegando" (aprovado pelo usuário 08 jul 2026) — ver `qf_post.md` e seção "Identidade visual" no `CLAUDE.md`.
+
+- [x] Hook (4 confrontos + linha "path to the final")
+- [x] Slide técnico (performance oitavas com Model5: 75% quem avança, zebra do Brasil)
+- [x] Slide de probabilidade de campeão (ranking dos 8 times, Model6)
+- [x] Slides "O que o modelo aprendeu" (2b + 2c) — cobrem os 8 times vivos, agrupados pelo lado do chaveamento, cada um com att/def bias + 1 linha de comentário citando resultado real (ex: Argentina def=0.55 → empate com Cabo Verde + 2 gols do Egito; Espanha att/def=1.14/1.16 → 0 gols sofridos em 5 jogos)
+- [x] Slides por jogo (4) — novo template dourado/serifado
 
 ### 5. Após quartas: entrada de resultados + decisão sobre retreino ⬜
 

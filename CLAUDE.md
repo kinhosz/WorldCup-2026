@@ -16,7 +16,11 @@ Simulador Monte Carlo da Copa do Mundo 2026. Usa atributos de jogadores (FC25/FI
   - Bias do Brasil caiu de forma acentuada (att_bias≈0.64) — o objetivo por pontos puniu diretamente a superconfiança (84.3%) que gerou a zebra contra a Noruega no R16
   - Model5 (88 jogos, objetivo NLL) preservado em `output/weights_model5.json` como referência histórica
 - **Análise completa das oitavas (Model5, in-sample):** `output/r16_wdl_report.md` — quem avança 6/8 (75%), zebra do Brasil quebrou a sequência de 97% de acerto acima de 70% de confiança
-- **Próximo passo:** gerar odds das quartas com Model6 (`match_odds.py`), publicar posts; após os 4 jogos, decidir se recalibra de novo ou mantém Model6 até a final
+- **Bracket das quartas em diante confirmado** (08 jul 2026): QF1 França x Marrocos, QF2 Espanha x Bélgica, QF3 Noruega x Inglaterra, QF4 Argentina x Suíça — SF1=QF1×QF2, SF2=QF3×QF4, Final=SF1×SF2
+- **Odds das 4 quartas geradas com Model6** (`--knockout`) — quem avança: França 62.2%, Espanha 75.8% (única ≥70%), Inglaterra 68.0%, Suíça 51.0% (Argentina x Suíça é o jogo mais parelho do round)
+- **Bracket fixo em `simulate.py` confirmado sem necessidade de mudança** — `play()` já usa resultados reais de qualquer `match_id` genericamente; 10M simulações rodadas: Espanha 35.3% campeã, Inglaterra 19.8%, França 17.0%, Suíça 7.2%, Marrocos 5.8%, Argentina 5.6%, Bélgica 5.2%, Noruega 4.3% (`output/simulation_results_model6.json`)
+- **Post das quartas pronto** — `qf_post.md`, novo estilo visual "Troféu Chegando" (ver "Identidade visual por rodada" abaixo)
+- **Próximo passo:** gerar as imagens no Gemini e publicar; após os 4 jogos, decidir se recalibra de novo ou mantém Model6 até a final
 
 ---
 
@@ -297,10 +301,13 @@ Mesma metodologia do Model5 (5 seeds em paralelo, config idêntica: `--biases`, 
 | `output/r16_wdl_report.md` | Análise "quem avança" das 8 oitavas com Model5 — 6/8 (75%), zebra do Brasil |
 | `output/model6_full_evaluation.md` | Reavaliação retroativa das 96 partidas com Model6 (in-sample) + combinações entre os 8 times vivos |
 | `output/model6_evaluation.html` | Mesmo conteúdo do `.md` acima em página interativa standalone (abas por rodada, barras de confiança) — abrir direto no navegador |
+| `output/simulation_results_model6.json` | 10M simulações Model6 pós-oitavas — probabilidade de campeão/finalista/semi dos 8 times vivos |
+| `output/odds_france_vs_morocco.json`, `..._spain_vs_belgium.json`, `..._norway_vs_england.json`, `..._argentina_vs_switzerland.json` | Odds das 4 quartas (Model6, `--knockout`) |
+| `qf_post.md` | Prompts Instagram das quartas — novo estilo "Troféu Chegando" (preto quente + dourado, path-to-final) |
 | `output/weights_model5.json` | Cópia de referência do Model5 (histórico, objetivo NLL) |
 | `output/weights_s14.json` | Cópia de referência do Model4 (histórico) |
 | `output/calibrated_weights.json` | Pesos L-BFGS-B (referência, não aplicado) |
-| `output/simulation_results.json` | Última simulação 1M (pós-R3, Model3 — recalcular com Model4) |
+| `output/simulation_results.json` | Última simulação (10M, Model6, pós-oitavas) — cópia idêntica de `simulation_results_model6.json` |
 | `output/simulation_results_pre_r3.json` | Backup odds campeão pré-R3 |
 | `output/r32_bracket.json` | 32 times classificados para o mata-mata |
 | `output/model_comparison.md` | Tabela completa 21 estratégias (S01–S21) com RankScore |
@@ -333,6 +340,17 @@ Arquivos de prompts: `r{N}_{descricao}.md` na raiz do projeto (ex: `r3_grupos_ab
 | R1 | dark navy `#080C18` | dark `#1E293B` | verde neon `#00E676` | — |
 | R2 | off-white `#F0F4F8` | branco `#FFFFFF` | azul `#2563EB` | coral `#F97316` |
 | R3 | midnight blue `#1A2E4A` | branco `#FFFFFF` | laranja `#E95420` | cinza `#94A3B8` |
+| R32/R16 | foto estádio + bandeiras 28% opacity | dark `#1E293B` | verde neon `#4ADE80` | cinza `#94A3B8` |
+| **QF em diante** | **preto quente `#14110C`** | **bronze `#201A12`** | **dourado metálico `#E3B341`** | **grafite `#6B7280`** |
+
+**QF em diante — "Troféu Chegando" (validado 08 jul 2026, ver `qf_post.md`):**
+- Tema: paleta esquenta conforme o torneio avança rumo à final — preto quente + dourado metálico substituem o azul/verde neon das rodadas anteriores
+- Tipografia: serifada de exibição pros nomes/títulos (efeito "placa gravada"), sans-serif geométrica pros dados, números tabulares
+- Tag de rodada: vermelho oxblood `#7A2E2E` (não mais vermelho puro)
+- Elemento novo, exclusivo do mata-mata avançado: linha **"PATH TO THE FINAL"** (QF → SF → Final, nó ativo em dourado) — só faz sentido a partir daqui porque o bracket completo até a final já é conhecido
+- Barra "quem avança": dourado `#E3B341` (com glow) pro favorito, grafite `#6B7280` pro azarão — sem meio-termo verde/vermelho
+- Confidence pill (≥70%): fundo dourado `#E3B341`, texto escuro (antes era verde `#4ADE80`)
+- Novos tipos de slide validados: "Model Report Card" (recap do modelo anterior) e "Title Odds" (ranking de probabilidade de campeão com barra dourada) — usar quando fizer sentido editorial, não obrigatório em toda rodada
 
 **R3 — detalhes do design (validado):**
 - Fundo: `#1A2E4A` (midnight steel blue)

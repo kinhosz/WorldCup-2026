@@ -1,0 +1,55 @@
+{
+  "team_a": "spain",
+  "team_b": "belgium",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "spain": 2.925,
+    "belgium": 1.436
+  },
+  "odds": {
+    "spain": 68.0,
+    "draw": 15.7,
+    "belgium": 16.3
+  },
+  "advance": {
+    "spain": 75.8,
+    "belgium": 24.2
+  },
+  "derived_metrics": {
+    "over_2_5": 81.0,
+    "under_2_5": 19.0,
+    "btts_yes": 72.2,
+    "btts_no": 27.8,
+    "clean_sheet_a": 23.8,
+    "clean_sheet_b": 5.4,
+    "margin_a_2plus": 48.6,
+    "margin_b_2plus": 6.7
+  },
+  "assertive_bet": {
+    "label": "Mais de 2.5 gols",
+    "pct": 81.0
+  },
+  "top_scores": [
+    {
+      "score": "2-1",
+      "pct": 7.9
+    },
+    {
+      "score": "3-1",
+      "pct": 7.7
+    },
+    {
+      "score": "2-2",
+      "pct": 5.6
+    },
+    {
+      "score": "4-1",
+      "pct": 5.6
+    },
+    {
+      "score": "3-2",
+      "pct": 5.5
+    }
+  ]
+}

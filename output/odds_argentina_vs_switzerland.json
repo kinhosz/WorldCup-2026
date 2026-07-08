@@ -1,0 +1,55 @@
+{
+  "team_a": "argentina",
+  "team_b": "switzerland",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "argentina": 1.524,
+    "switzerland": 1.567
+  },
+  "odds": {
+    "argentina": 37.1,
+    "draw": 23.9,
+    "switzerland": 39.0
+  },
+  "advance": {
+    "argentina": 49.0,
+    "switzerland": 51.0
+  },
+  "derived_metrics": {
+    "over_2_5": 59.8,
+    "under_2_5": 40.2,
+    "btts_yes": 62.0,
+    "btts_no": 38.0,
+    "clean_sheet_a": 20.8,
+    "clean_sheet_b": 21.7,
+    "margin_a_2plus": 17.8,
+    "margin_b_2plus": 19.2
+  },
+  "assertive_bet": {
+    "label": "Ambas marcam",
+    "pct": 62.0
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 10.9
+    },
+    {
+      "score": "1-2",
+      "pct": 8.5
+    },
+    {
+      "score": "2-1",
+      "pct": 8.3
+    },
+    {
+      "score": "0-1",
+      "pct": 7.1
+    },
+    {
+      "score": "1-0",
+      "pct": 6.9
+    }
+  ]
+}

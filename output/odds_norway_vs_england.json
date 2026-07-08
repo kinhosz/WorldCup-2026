@@ -1,0 +1,55 @@
+{
+  "team_a": "norway",
+  "team_b": "england",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "norway": 1.604,
+    "england": 2.581
+  },
+  "odds": {
+    "norway": 22.9,
+    "draw": 18.3,
+    "england": 58.8
+  },
+  "advance": {
+    "norway": 32.0,
+    "england": 68.0
+  },
+  "derived_metrics": {
+    "over_2_5": 78.8,
+    "under_2_5": 21.2,
+    "btts_yes": 73.9,
+    "btts_no": 26.1,
+    "clean_sheet_a": 7.6,
+    "clean_sheet_b": 20.1,
+    "margin_a_2plus": 10.4,
+    "margin_b_2plus": 38.8
+  },
+  "assertive_bet": {
+    "label": "Mais de 2.5 gols",
+    "pct": 78.8
+  },
+  "top_scores": [
+    {
+      "score": "1-2",
+      "pct": 8.1
+    },
+    {
+      "score": "1-3",
+      "pct": 7.0
+    },
+    {
+      "score": "2-2",
+      "pct": 6.5
+    },
+    {
+      "score": "1-1",
+      "pct": 6.3
+    },
+    {
+      "score": "2-3",
+      "pct": 5.6
+    }
+  ]
+}
