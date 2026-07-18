@@ -1,42 +1,101 @@
 # WorldCup 2026 — Monte Carlo Simulation
 
-A complete 2026 FIFA World Cup simulator using FC25 and FIFA22 player attributes as strength proxies, Poisson-distributed xG to model matches, and Monte Carlo to estimate title probabilities across all 48 nations.
+A Monte Carlo simulator for the 2026 FIFA World Cup: player attributes from FC25/FIFA22/Transfermarket become per-nation sector scores (GK/DEF/MID/ATT), which feed a Poisson xG model to simulate every match. Real results are tracked round by round and the model is recalibrated (Simulated Annealing) against them as the tournament progresses.
 
-**Results (1,000,000 simulations):** Brazil 20.8% · Portugal 17.1% · France 16.9% · England 9.3% · Argentina 8.2%
-
----
-
-## Documents
-
-| Document | Language | Contents |
-|----------|----------|----------|
-| [SIMULATION.md](SIMULATION.md) | English | Methodology, scores, full results table, group-stage odds |
-| [ANALYSIS.md](ANALYSIS.md) | English | Deep analysis: data quality bugs fixed, FC25 impact, team-by-team interpretation |
-| [SIMULACAO.md](SIMULACAO.md) | Portuguese | Full methodology + individual simulation traces |
-| [ANALISE.md](ANALISE.md) | Portuguese | Deep analysis (Portuguese version) |
-| [output/score_audit.md](output/score_audit.md) | — | Per-player breakdown: data source and rating for all 48 squads |
-| [output/megazord_report_en.md](output/megazord_report_en.md) | English | Megazord — consensus bracket: argmax predictions + advance probabilities |
+Followed the whole thing on Instagram? Welcome — this is where all the numbers behind the posts actually live.
 
 ---
 
-## Megazord — Consensus Bracket
+## Where things stand
 
-The Megazord is a single deterministic tournament built from the **most likely outcome at every stage**, derived from thousands of simulations rather than a single random draw.
+🏆 **Final: Spain vs Argentina** · 🥉 **3rd place: France vs England**
 
-**How it works:**
+Model7 (the current, final calibration) gives Spain **86.5%** to lift the trophy against Argentina's **13.5%**, and France **70.9%** to take 3rd over England's **29.1%**. Full breakdown — xG, score probabilities, extra-time modeling — in `output/odds_spain_vs_argentina.json` and `output/odds_france_vs_england.json`.
 
-1. **Group stage — 50,000 simulations.** Each team's probability of finishing 1st, 2nd, 3rd, or 4th is computed across all runs, along with their probability of advancing to R32 (including the best-3rd-place rule across all 12 groups). Bracket positions are assigned by **greedy argmax**: the team most likely to finish 1st gets the 1st-place slot, the team most likely to finish 2nd among the remaining three gets 2nd, and so on.
-2. **Knockout rounds — 10,000 sub-simulations per match.** Each knockout match is resolved independently: 10k head-to-head simulations determine the modal winner, who advances with their modal scoreline.
-3. The result is a single, fully-determined bracket — not a single random seed, but the **statistically most likely path** through the entire tournament.
+**Interactive report** — every match played so far re-evaluated with Model7 (pick, confidence, top score, right/wrong), the two pending predictions, and all 48 nations ranked by score and calibrated bias:
+👉 **https://kinhosz.github.io/WorldCup-2026/**
 
-**Result:** Brazil beats France 1–0 in the final (54% win probability in that specific matchup).
+For the full story of how the model evolved (Model1 → Model7, every calibration decision and why) see [CLAUDE.md](CLAUDE.md) and [TASKS.md](TASKS.md) — this repo's real running log.
 
-```bash
-python3 scripts/megazord.py          # runs 50k group sims (default)
-python3 scripts/megazord.py 100000   # more sims, more stable modes
+---
+
+## How the model works
+
+```
+squads/*.json + player datasets
+        │
+        ▼
+build_team_scores.py   →  output/team_scores.json      (GK/DEF/MID/ATT per nation, 0.1–1.0)
+        │
+        ▼
+simulate.py             →  output/simulation_results.json   (Monte Carlo, N simulations)
+match_odds.py            →  output/odds_{a}_vs_{b}.json      (odds for one specific match)
+        │
+        ▼
+resultado.py             →  output/copa_real_state.json      (real results, entered as they happen)
+        │
+        ▼
+calibrate_sa.py           →  output/calibrated_weights_sa.json  (Simulated Annealing recalibration)
 ```
 
-### Visual Bracket
+**xG formula:**
+
+```
+offense_A    = OFF_ATT_W × attack_A  + OFF_MID_W × midfield_A
+resistance_B = RES_DEF_W × defense_B + RES_GK_W  × goalkeeper_B + RES_MID_W × midfield_B
+
+xG_A = min(BASE_XG × (offense_A × att_bias_A) / max(resistance_B × def_bias_B, 0.10), 8.0)
+```
+
+`att_bias`/`def_bias` are per-nation multipliers learned by Simulated Annealing from real results — they're how the model corrects itself when a squad's actual performance diverges from what raw player ratings predicted (see Argentina, Brazil, Spain in the interactive report above for the most dramatic examples).
+
+Knockout matches: draws after 90' go to a modeled extra time (30min at 1/3 the 90'-xG rate), then penalties as a 50/50 coin flip if still level — except the 3rd-place match, which skips extra time entirely per FIFA rules.
+
+---
+
+## Tracking real results
+
+```bash
+python3 scripts/resultado.py --list          # all games and their IDs
+python3 scripts/resultado.py --list r1       # filter: r1 r2 r3 r32 r16 qf sf final
+python3 scripts/resultado.py                 # enter a result interactively by game ID
+```
+
+State persists in `output/copa_real_state.json` across runs — `Ctrl+C` any time to pause and resume later.
+
+---
+
+## Branch structure
+
+Each branch snapshots the project at a specific tournament phase:
+
+| Branch | Phase |
+|--------|-------|
+| `main` | Pre-tournament predictions (frozen) |
+| `fase-grupos/rodada-2` | After Rodada 1 |
+| `fase-grupos/rodada-3` | After Rodada 2 |
+| `rodada-de-32` | After group stage closes |
+| `oitavas-de-final` | After Round of 32 |
+| `quartas-de-final` | After Round of 16 |
+| `semifinal` | After Quarterfinals |
+| `final` | After Semifinals — current |
+
+---
+
+## Running it yourself
+
+```bash
+python3 scripts/build_team_scores.py            # generates output/team_scores.json
+python3 scripts/simulate.py 1000000              # runs 1M Monte Carlo simulations
+python3 scripts/match_odds.py spain argentina 1000000 --knockout   # odds for one match
+python3 scripts/full_evaluation.py               # regenerates the interactive report above
+```
+
+---
+
+## Megazord — consensus bracket (pre-tournament demo)
+
+A single deterministic bracket built from the most likely outcome at every stage of a *pre-tournament* simulation — kept here as a snapshot of what the model projected before a single real result came in. Not updated with real results (see `CLAUDE.md` for the known bracket-logic bug in `megazord.py`).
 
 | Stage | Image |
 |-------|-------|
@@ -47,131 +106,6 @@ python3 scripts/megazord.py 100000   # more sims, more stable modes
 | Round of 16 | ![Round of 16](images/round_of_16.png) |
 | Quarterfinals → Final | ![Quarters to Final](images/quarters_to_final.png) |
 
----
-
-## Tracking Real Results
-
-As the tournament progresses, real match results are entered via `resultado.py` and saved to `output/copa_real_state.json`.
-
 ```bash
-# List all games and their IDs
-python3 scripts/resultado.py --list
-
-# Filter by phase
-python3 scripts/resultado.py --list r1     # Rodada 1 (IDs 1–24)
-python3 scripts/resultado.py --list r2     # Rodada 2 (IDs 25–48)
-python3 scripts/resultado.py --list r3     # Rodada 3 (IDs 49–72)
-python3 scripts/resultado.py --list r32    # Round of 32 (IDs 73–88)
-python3 scripts/resultado.py --list r16    # Round of 16 (IDs 89–96)
-python3 scripts/resultado.py --list qf     # Quarterfinals (IDs 97–100)
-python3 scripts/resultado.py --list sf     # Semifinals (IDs 101–102)
-python3 scripts/resultado.py --list final  # 3rd place + Final (IDs 103–104)
-
-# Enter a result by game ID
-python3 scripts/resultado.py
-#  → Enter game ID: 5
-#  → Result (e.g. 2-1): 2-0
-```
-
-**Game ID layout — Group Stage:**
-
-| IDs | Phase | Groups covered |
-|-----|-------|----------------|
-| 1–24 | Rodada 1 | A–L (2 games each) |
-| 25–48 | Rodada 2 | A–L |
-| 49–72 | Rodada 3 | A–L |
-
-Within each rodada, groups run A → L in order (2 games per group). Example for Rodada 1:
-
-| ID | Group | Match |
-|----|-------|-------|
-| 1 | A | Mexico vs South Africa |
-| 2 | A | South Korea vs Czech Republic |
-| 3 | B | Canada vs Bosnia-Herz. |
-| 4 | B | Qatar vs Switzerland |
-| 5 | C | Brazil vs Morocco |
-| 6 | C | Haiti vs Scotland |
-| … | … | … |
-| 23 | L | England vs Croatia |
-| 24 | L | Ghana vs Panama |
-
-State is persisted across runs — `Ctrl+C` at any time to pause and resume later.
-
----
-
-## Branch Structure
-
-Each branch captures the project state at a specific tournament phase, enabling easy auditing and calibration after real results come in:
-
-| Branch | Phase |
-|--------|-------|
-| `main` | Pre-tournament predictions (frozen) |
-| `fase-grupos/rodada-2` | After Rodada 1 results |
-| `fase-grupos/rodada-3` | After Rodada 2 results |
-| `rodada-de-32` | After group stage closes |
-| `oitavas-de-final` | After Round of 32 |
-| `quartas-de-final` | After Round of 16 |
-| `semifinal` | After Quarterfinals |
-| `final` | After Semifinals |
-
----
-
-## How to Run
-
-```bash
-python3 scripts/build_team_scores.py   # generates output/team_scores.json
-python3 scripts/simulate.py 100000     # runs 100k simulations
-python3 scripts/generate_report.py     # regenerates SIMULACAO.md
-```
-
----
-
-## Data Pipeline
-
-```
-squads/*.json
-    │
-    ▼
-build_team_scores.py
-    │  Tier 1: FC25    (datasets/extracted/fc25_akshay/players_info.csv)
-    │  Tier 2: FIFA22  (datasets/extracted/players_22.csv)
-    │  Tier 3: Transfermarket market value → log-linear rating
-    │  Tier 4: global sector median
-    ▼
-output/team_scores.json  →  simulate.py  →  output/simulation_results.json
-```
-
----
-
-## Results — 1,000,000 Simulations
-
-| # | Team | Champion | Finalist | Semi | QF |
-|---|------|----------|----------|------|----|
-| 1 | Brazil | 20.82% | 31.96% | 48.03% | 68.09% |
-| 2 | Portugal | 17.09% | 28.49% | 49.87% | 71.28% |
-| 3 | France | 16.89% | 30.04% | 44.63% | 65.29% |
-| 4 | England | 9.32% | 17.88% | 33.11% | 63.48% |
-| 5 | Argentina | 8.18% | 15.79% | 31.93% | 55.64% |
-| 6 | Netherlands | 7.00% | 15.56% | 26.80% | 51.82% |
-| 7 | Spain | 6.95% | 15.45% | 32.05% | 47.38% |
-| 8 | Colombia | 3.45% | 9.45% | 23.71% | 41.85% |
-| 9 | Germany | 3.24% | 8.23% | 16.60% | 31.81% |
-| 10 | Belgium | 2.65% | 8.63% | 24.26% | 58.66% |
-
-Full 48-team table and group-stage odds: [SIMULATION.md](SIMULATION.md)
-
----
-
-## Example Seeds
-
-Each seed produces a fully deterministic tournament — run it again and you get the exact same bracket.
-
-| Seed | Champion | Final | Output |
-|------|----------|-------|--------|
-| `2026` | Netherlands | Netherlands 3–1 England | [output/JOGO_2026.md](output/JOGO_2026.md) |
-| `303` | Brazil | Brazil 2–1 France | [output/JOGO_303.md](output/JOGO_303.md) |
-
-```bash
-python3 scripts/play_simulation.py 2026   # Netherlands lifts the trophy
-python3 scripts/play_simulation.py 303    # Brazil campeão
+python3 scripts/megazord.py 100000
 ```

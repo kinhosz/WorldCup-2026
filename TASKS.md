@@ -1,15 +1,30 @@
 # TASKS — Estado e Próximos Passos
 
-*Atualizado: 18 jul 2026 — Semifinais encerradas (2/2), Model7 recalibrado (102 jogos, bônus SF/Final), prorrogação modelada explicitamente, odds do 3º lugar e Final geradas*
+*Atualizado: 18 jul 2026 — Projeto encerrado: Model7 é a calibração final, relatório interativo publicado, post da Final pronto*
 
 ---
 
-## Estado Atual: Semifinais encerradas → 3º Lugar + Final
+## Estado Final do Projeto (18 jul 2026)
+
+- **Copa encerrada** (confirmado pelo usuário) — **não haverá mais recalibração**. Model7 é a versão final do modelo.
+- **Relatório interativo publicado:** https://kinhosz.github.io/WorldCup-2026/ (GitHub Pages, branch `main`, pasta `/docs`) — raio-X das 102 partidas + previsões de 3º lugar/Final + ranking das 48 seleções por scores e biases (Model7). Gerado por `scripts/full_evaluation.py`; espelhado em `docs/index.html` (cópia estática, **não é regenerado automaticamente** — não há por quê, já que não vem mais resultado novo).
+- **Limpeza do repo (18 jul 2026):** removidos ~18 arquivos `.md` da raiz que eram prompts de posts do Instagram já publicados (r16_*, r32_*, r2_tecnico, r3_*, qf_post, sf_post, multiverso_sobreviventes, meme_orgulho_latino) e notas antigas de planejamento (pos_rodada_2.md). Mantidos: `CLAUDE.md`, `TASKS.md`, `README.md`, `strategies.md`, e o novo `final_post.md`.
+- **README.md reescrito** — resumo do estado atual do projeto (Final Espanha x Argentina, link do relatório interativo) no topo, em vez das projeções pré-torneio desatualizadas que estavam lá.
+- **`final_post.md` criado** — post Instagram de fechamento, estilo "Troféu Chegando": Hook com troféu em destaque, Report Card da semifinal (Model6, a zebra da Argentina — ver correção abaixo), insight de biases Espanha x Argentina (Model7), jogo do 3º lugar, jogo da Final com troféu em destaque, e slide de agradecimento à comunidade do Instagram (40k+ views) convidando pro repo GitHub.
+- **GitHub Pages habilitado** pelo usuário via Settings → Pages (branch `main`, pasta `/docs`) — link no ar e confirmado funcionando.
+
+### Correção de um erro deste projeto (18 jul 2026)
+
+Um erro foi introduzido e depois corrigido nesta sessão: o relato inicial dizia que o Model6 tinha acertado "quem avança" 2/2 nas semis. **Isso estava errado** — o Model6 acertou só a Espanha (60.5%); favoreceu a Inglaterra (66.3%) contra a Argentina e errou (a Argentina passou). O erro veio de confundir a reavaliação **in-sample** do Model7 (que já treina sabendo o resultado, então acerta tudo por definição) com a predição **out-of-sample** real do Model6 (o teste que de fato importa). Corrigido em `CLAUDE.md` e `TASKS.md` — ver seção abaixo.
+
+---
+
+## Estado Anterior: Semifinais encerradas → 3º Lugar + Final
 
 - **2/2 jogos das semis** registrados em `copa_real_state.json` (`knockout_results` #101–102): **França 0–2 Espanha** (90'), **Inglaterra 1–2 Argentina** (90', virada) ✅
 - **Correção de entrada (18 jul 2026):** o placar de Inglaterra x Argentina foi digitado errado na primeira vez (2–1 Inglaterra, por má interpretação da mensagem do usuário) — corrigido pra 1–2 Argentina antes de qualquer cálculo posterior. Nenhum output tinha sido gerado com o placar errado.
 - **Final confirmada: Espanha x Argentina** · **3º lugar: França x Inglaterra**
-- **Model6 avaliado out-of-sample nas semis** (pesos de antes desta recalibração) — quem avança 2/2 (100%, mas nenhum jogo bateu 70% de confiança: Espanha 60.5%, Inglaterra 66.3%). Placar exato: Inglaterra x Argentina 2–1 (a virada) foi o top-1 do modelo; França x Espanha 0–2 ficou em 4º/5º lugar (9.0%, empatado com 1–2).
+- **Model6 avaliado out-of-sample nas semis** (pesos de antes desta recalibração) — quem avança **1/2 (50%)**: acertou Espanha (60.5% x 39.5% França), **errou** Inglaterra x Argentina (favoreceu Inglaterra 66.3% x 33.7%, quem passou foi a Argentina — segunda zebra consecutiva da Argentina, depois do quase-50/50 das quartas contra a Suíça). Placar exato: nenhum dos dois bateu o top-3 — França x Espanha 0–2 ficou em 4º lugar (9.0%, empatado com 1–2), Inglaterra x Argentina 1–2 ficou em 7º (5.8%, o modelo favorecia 2–1 Inglaterra como top-1).
 - **Pedido do usuário (18 jul 2026): última recalibração antes da final** — 3 partes: (1) bônus de peso pra SF/Final, (2) modelar prorrogação em vez de pênaltis 50/50 direto, já que a Argentina marcou gols na prorrogação 2x, (3) manter pênaltis como 50/50 quando não há mais o que modelar
 - **`ROUND_WEIGHTS` atualizado:** `sf: 1.0→1.5`, `final: 1.0→2.0` (resto sem mudança) — ver "Calibração por Pontos" no `CLAUDE.md`
 - **Prorrogação modelada:** `simulate.py::sim_knockout_match` e `match_odds.py::extra_time_breakdown` — xG escalado a 1/3 (30min ≈ 1/3 de 90min) pra quem empata nos 90', pênaltis 50/50 só se continuar empatado depois disso

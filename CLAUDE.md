@@ -6,24 +6,25 @@ Simulador Monte Carlo da Copa do Mundo 2026. Usa atributos de jogadores (FC25/FI
 
 ---
 
-## Estado Atual (18 jul 2026)
+## Estado Atual (18 jul 2026) — PROJETO ENCERRADO
 
+- **A Copa acabou** (confirmado pelo usuário) — **não haverá mais recalibração**. Model7 é a versão final. Relatório interativo publicado em **https://kinhosz.github.io/WorldCup-2026/** (GitHub Pages, `main`/`docs`), post de fechamento em `final_post.md`. Repo limpo dos prompts de posts já publicados — ver TASKS.md.
 - **Semifinais ENCERRADAS** (2/2 jogos) — **Final confirmada: Espanha x Argentina** · **3º lugar: França x Inglaterra**
 - **Resultados das semis:** França 0–2 Espanha (90'), Inglaterra 1–2 Argentina (90', virada — Argentina estava perdendo)
-- **Performance out-of-sample do Model6 nas semis** (pesos de antes da recalibração desta rodada): quem avança 2/2 (100% — Espanha 60.5%, Inglaterra 66.3%, nenhum bateu 70% de confiança). Placar exato: Inglaterra x Argentina 2–1 foi o **top-1** do modelo (a virada da Argentina bateu certo no placar); França x Espanha 0–2 ficou empatado em 4º/5º (9.0%, junto com 1–2).
+- **Performance out-of-sample do Model6 nas semis** (pesos de antes da recalibração desta rodada): quem avança **1/2 (50%)** — acertou Espanha (60.5% x 39.5%), **errou** Inglaterra x Argentina (favoreceu Inglaterra 66.3% x 33.7%, quem passou foi a Argentina — 2ª zebra consecutiva dela, depois do quase-50/50 das quartas). Placar exato: nenhum dos dois bateu o top-3 — o modelo favorecia 2–1 Inglaterra (7º lugar, 5.8%) quando o real foi 1–2 Argentina; França x Espanha 0–2 ficou em 4º (9.0%, junto com 1–2).
 - **Bug de bracket corrigido em `resultado.py`** (14 jul 2026, ver TASKS.md) — pares da semifinal (`101`/`102`) estavam errados, já fixado antes de registrar os resultados reais.
 - **Correção de leitura na entrada dos resultados (18 jul 2026):** o placar de Inglaterra x Argentina foi inicialmente registrado como 2–1 (Inglaterra) por erro de interpretação da mensagem do usuário — corrigido pra 1–2 (Argentina, de virada) antes de qualquer cálculo posterior.
 - **Modelo ativo: Model7** — mesma metodologia de pontos do Model6, agora com **102 jogos** (96 do Model6 + 4 QF + 2 SF) e **bônus de peso pra SF/Final** (pedido do usuário, 18 jul 2026) — ver "Calibração por Pontos" abaixo
   - Escolhido entre 5 seeds (999, 2026, 7, 123, 42), mesma config do Model6 (`--biases`, λ=2.0, 300k iters × 5 restarts) — **seed 123** venceu em pontos (77.14/91 = 84.8%), mas **não** em todos os critérios ao mesmo tempo (seed 999 teve melhor Brier 0.5015, seed 2026 melhor NLL 94.06) — trade-off como no Model5, decidido pelo critério oficial do projeto (pontos é o objetivo, NLL/Brier são só diagnóstico)
   - Pesos em `output/calibrated_weights_sa.json` (cópia: `output/weights_model7.json`; logs das 5 seeds em `output/model7_seeds/`)
-  - `BASE_XG` subiu bastante (1.38 → 1.45); Espanha ganhou bias forte de ataque e defesa (att=1.13, def=1.30 — reflexo de 0 gols sofridos em 6 jogos); Argentina ficou com def_bias baixo (0.51, fragilidade defensiva real) mas att_bias positivo (1.04); Inglaterra caiu nos dois (att=0.77, def=0.76) após a eliminação
+  - `BASE_XG` subiu bastante (1.38 → 1.45); Espanha ganhou bias forte de ataque e defesa (att=1.13, def=1.30 — reflexo de só 1 gol sofrido em 7 jogos); Argentina ficou com def_bias baixo (0.51, fragilidade defensiva real — 7 gols sofridos em 7 jogos) mas att_bias positivo (1.04); Inglaterra caiu nos dois (att=0.77, def=0.76) após a eliminação
   - Model6 (96 jogos, sem bônus SF/Final) preservado em `output/weights_model6.json` como referência histórica
 - **Prorrogação modelada explicitamente (18 jul 2026, pedido do usuário)** — antes, todo empate nos 90' do mata-mata caía direto em pênaltis 50/50. Agora `simulate.py::sim_knockout_match` e `match_odds.py` simulam 30min de prorrogação com xG escalado a 1/3 (proporcional ao tempo) antes de cair em pênaltis. **Validado** contra os 8 empates reais do mata-mata até as semis: 8.72 gols esperados vs 7 observados — bem alinhado. Curiosidade (não modelada como bias específico, n=2 é pouco): a Argentina marcou nas 2 vezes em que foi à prorrogação (Cabo Verde e Suíça), acima do esperado (0.67 e 0.52).
 - **Correção de regra: disputa de 3º lugar NÃO tem prorrogação** (regra FIFA — só a Final tem). `match_odds.py` ganhou a flag `--terceiro-lugar`/`--no-extra-time` pra pular a prorrogação e ir direto de empate nos 90' pra pênaltis 50/50.
 - **Odds geradas com Model7:**
   - 3º lugar (sem prorrogação): França 70.9% x Inglaterra 29.1% (`output/odds_france_vs_england.json`)
   - Final (com prorrogação): Espanha 86.5% x Argentina 13.5% (`output/odds_spain_vs_argentina.json`)
-- **Próximo passo:** gerar posts Instagram do 3º lugar e da Final (estilo "Troféu Chegando"), depois publicar
+- **Próximo passo:** nenhum — projeto encerrado. `final_post.md` está pronto pra gerar as imagens no Gemini e publicar.
 
 ---
 
@@ -158,7 +159,7 @@ Diferença em relação ao Model6: dataset cresceu de 96 pra 102 jogos (QF+SF) e
 
 **Performance Model5 nos 88 jogos de treino (in-sample):** RankScore 312 (vs 292 do Model4 nos mesmos 88), Top-1 22/88, Top-3 51/88, W/D/L 58/88 (65.9%). Não é teste de generalização — o Model5 treinou nesses mesmos jogos.
 
-**Performance Model6 nos 96 jogos de treino (in-sample, objetivo por pontos):** 68.0/78.0 pontos (87.2%). Out-of-sample nas quartas: quem avança 3/4 (75%). Out-of-sample nas semis (pesos do Model6, antes desta recalibração): quem avança 2/2 (100%), incluindo o placar exato 2–1 da virada da Argentina como top-1 do modelo.
+**Performance Model6 nos 96 jogos de treino (in-sample, objetivo por pontos):** 68.0/78.0 pontos (87.2%). Out-of-sample nas quartas: quem avança 3/4 (75%). Out-of-sample nas semis (pesos do Model6, antes desta recalibração): quem avança **1/2 (50%)** — acertou Espanha (60.5%), errou Inglaterra x Argentina (favoreceu Inglaterra 66.3%, a Argentina passou — 2ª zebra consecutiva da Argentina). Nenhum placar exato bateu o top-3 nos dois jogos.
 
 **Performance Model7 nos 102 jogos de treino (in-sample, objetivo por pontos com bônus SF/Final):** 77.14/91.0 pontos (84.8%) — ver "Calibração por Pontos" acima. Ainda não avaliado fora da amostra — só restam 3º lugar e Final.
 
