@@ -90,22 +90,3 @@ python3 scripts/simulate.py 1000000              # runs 1M Monte Carlo simulatio
 python3 scripts/match_odds.py spain argentina 1000000 --knockout   # odds for one match
 python3 scripts/full_evaluation.py               # regenerates the interactive report above
 ```
-
----
-
-## Megazord — consensus bracket (pre-tournament demo)
-
-A single deterministic bracket built from the most likely outcome at every stage of a *pre-tournament* simulation — kept here as a snapshot of what the model projected before a single real result came in. Not updated with real results (see `CLAUDE.md` for the known bracket-logic bug in `megazord.py`).
-
-| Stage | Image |
-|-------|-------|
-| Group Stage (A–F) | ![Group Stage 1](images/group_1.png) |
-| Group Stage (G–L) | ![Group Stage 2](images/group_2.png) |
-| Best Third-Place Qualifiers | ![Best 3rd](images/best_3.png) |
-| Round of 32 | ![Round of 32](images/round_of_32.png) |
-| Round of 16 | ![Round of 16](images/round_of_16.png) |
-| Quarterfinals → Final | ![Quarters to Final](images/quarters_to_final.png) |
-
-```bash
-python3 scripts/megazord.py 100000
-```
