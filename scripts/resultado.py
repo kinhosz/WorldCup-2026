@@ -127,9 +127,11 @@ KNOCKOUT_SCHEDULE = {
     98:  ("Quartas",     "W93",   "W94"),
     99:  ("Quartas",     "W91",   "W92"),
     100: ("Quartas",     "W95",   "W96"),
-    # Semifinal
-    101: ("Semifinal",   "W97",   "W98"),
-    102: ("Semifinal",   "W99",   "W100"),
+    # Semifinal — pareamento confirmado contra SEMIFINALS em simulate.py
+    # (W97 x W99, W98 x W100) — este dict estava com os pares errados
+    # (mesma classe de bug do R16, nunca corrigida aqui). Corrigido 14 jul 2026.
+    101: ("Semifinal",   "W97",   "W99"),
+    102: ("Semifinal",   "W98",   "W100"),
     # Terceiro lugar
     103: ("3º Lugar",    "Perdedor SF101", "Perdedor SF102"),
     # Final

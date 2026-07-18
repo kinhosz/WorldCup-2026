@@ -1,0 +1,56 @@
+{
+  "team_a": "france",
+  "team_b": "england",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "france": 1.888,
+    "england": 0.928
+  },
+  "odds": {
+    "france": 59.9,
+    "draw": 22.0,
+    "england": 18.1
+  },
+  "advance": {
+    "france": 70.9,
+    "england": 29.1
+  },
+  "extra_time": null,
+  "derived_metrics": {
+    "over_2_5": 53.5,
+    "under_2_5": 46.5,
+    "btts_yes": 51.3,
+    "btts_no": 48.7,
+    "clean_sheet_a": 39.5,
+    "clean_sheet_b": 15.1,
+    "margin_a_2plus": 35.3,
+    "margin_b_2plus": 6.0
+  },
+  "assertive_bet": {
+    "label": "Mais de 2.5 gols",
+    "pct": 53.5
+  },
+  "top_scores": [
+    {
+      "score": "1-0",
+      "pct": 11.3
+    },
+    {
+      "score": "2-0",
+      "pct": 10.7
+    },
+    {
+      "score": "1-1",
+      "pct": 10.5
+    },
+    {
+      "score": "2-1",
+      "pct": 9.9
+    },
+    {
+      "score": "3-0",
+      "pct": 6.7
+    }
+  ]
+}

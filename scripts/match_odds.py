@@ -81,6 +81,32 @@ def run_match(team_a, team_b, scores, n_sims):
     return wins_a, draws, wins_b, score_counts, xg_a, xg_b
 
 
+def extra_time_breakdown(xg_a, xg_b, n_draws):
+    """Simula os 30min de prorrogação pra quem empatou nos 90'.
+
+    xG escalado por 1/3 (proporcional ao tempo) — validado contra os 8
+    empates reais do mata-mata até as semifinais: 8.72 gols esperados vs
+    7 observados (4 jogos foram a pênaltis sem gol na prorrogação, 4 tiveram
+    gols, com a Argentina marcando nas 2 vezes em que foi a prorrogação).
+    Pênaltis, se ainda empatado após a prorrogação, seguem 50/50.
+    """
+    if n_draws == 0:
+        return {"et_wins_a": 0, "et_wins_b": 0, "et_draws": 0,
+                "pens_a": 0, "pens_b": 0}
+
+    et_a = np.random.poisson(xg_a / 3, n_draws)
+    et_b = np.random.poisson(xg_b / 3, n_draws)
+    et_wins_a = int((et_a > et_b).sum())
+    et_wins_b = int((et_b > et_a).sum())
+    et_draws  = n_draws - et_wins_a - et_wins_b
+
+    pens_a = int((np.random.random(et_draws) < 0.5).sum())
+    pens_b = et_draws - pens_a
+
+    return {"et_wins_a": et_wins_a, "et_wins_b": et_wins_b, "et_draws": et_draws,
+            "pens_a": pens_a, "pens_b": pens_b}
+
+
 def derived_metrics(score_counts, n_sims):
     """Métricas assertivas derivadas do placar — indiferentes a quem vence,
     então funcionam mesmo em jogos de mata-mata (ver metodologia em CLAUDE.md).
@@ -120,7 +146,9 @@ def best_assertive_claim(dm, name_a, name_b):
 def main():
     args = sys.argv[1:]
     knockout = "--mata-mata" in args or "--knockout" in args
-    args = [a for a in args if a not in ("--mata-mata", "--knockout")]
+    no_et = "--no-extra-time" in args or "--terceiro-lugar" in args
+    args = [a for a in args if a not in
+            ("--mata-mata", "--knockout", "--no-extra-time", "--terceiro-lugar")]
 
     if len(args) < 2:
         sys.exit("Uso: python scripts/match_odds.py <time_casa> <time_fora> [N] [--mata-mata]")
@@ -158,19 +186,36 @@ def main():
     dm = derived_metrics(score_counts, n_sims)
     assertive_label, assertive_pct = best_assertive_claim(dm, name_a, name_b)
 
-    advance_a = pct_a + 0.5 * pct_d
-    advance_b = pct_b + 0.5 * pct_d
+    et = None
+    if knockout and not no_et:
+        et = extra_time_breakdown(xg_a, xg_b, draws)
+        advance_a = (wins_a + et["et_wins_a"] + et["pens_a"]) / n_sims * 100
+        advance_b = (wins_b + et["et_wins_b"] + et["pens_b"]) / n_sims * 100
+        pct_et_a  = et["et_wins_a"] / n_sims * 100
+        pct_et_b  = et["et_wins_b"] / n_sims * 100
+        pct_et_d  = et["et_draws"]  / n_sims * 100
+    else:
+        # Sem prorrogação (3º lugar, regra FIFA) — empate nos 90' vai direto pra pênaltis 50/50
+        advance_a = pct_a + 0.5 * pct_d
+        advance_b = pct_b + 0.5 * pct_d
 
     print()
     print(f"{'═'*55}")
     print(f"  {name_a}  vs  {name_b}")
     print(f"  {n_sims:,} simulações  |  xG: {xg_a:.2f} – {xg_b:.2f}")
     print(f"{'═'*55}")
-    if knockout:
-        print(f"  Quem avança (pênaltis 50/50 se empatar):")
+    if knockout and not no_et:
+        print(f"  Quem avança (prorrogação modelada + pênaltis 50/50):")
         print(f"  {name_a:<28} {advance_a:>6.1f}%")
         print(f"  {name_b:<28} {advance_b:>6.1f}%")
-        print(f"  (referência 90': {name_a} {pct_a:.1f}% · Empate {pct_d:.1f}% · {name_b} {pct_b:.1f}%)")
+        print(f"  (90': {name_a} {pct_a:.1f}% · Empate {pct_d:.1f}% · {name_b} {pct_b:.1f}%)")
+        print(f"  (prorrogação, dado empate nos 90': {name_a} {pct_et_a:.1f}% · "
+              f"ainda empatado {pct_et_d:.1f}% · {name_b} {pct_et_b:.1f}%)")
+    elif knockout:
+        print(f"  Quem avança (sem prorrogação — regra FIFA do 3º lugar — pênaltis 50/50):")
+        print(f"  {name_a:<28} {advance_a:>6.1f}%")
+        print(f"  {name_b:<28} {advance_b:>6.1f}%")
+        print(f"  (90': {name_a} {pct_a:.1f}% · Empate {pct_d:.1f}% · {name_b} {pct_b:.1f}%)")
     else:
         print(f"  {name_a:<28} {pct_a:>6.1f}%")
         print(f"  {'Empate':<28} {pct_d:>6.1f}%")
@@ -201,6 +246,12 @@ def main():
             team_a: round(advance_a, 1),
             team_b: round(advance_b, 1),
         } if knockout else None,
+        "extra_time": {
+            team_a:  round(pct_et_a, 1),
+            "draw":  round(pct_et_d, 1),
+            team_b:  round(pct_et_b, 1),
+            "note":  "% dado empate nos 90'; pênaltis (50/50) resolvem o que sobra empatado",
+        } if (knockout and not no_et) else None,
         "derived_metrics": {k: round(v, 1) for k, v in dm.items()},
         "assertive_bet": {"label": assertive_label, "pct": round(assertive_pct, 1)},
         "top_scores": [

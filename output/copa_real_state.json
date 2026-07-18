@@ -481,6 +481,48 @@
       "score_str": "2–3",
       "note": "90'",
       "winner": "argentina"
+    },
+    "97": {
+      "home": "morocco",
+      "away": "france",
+      "score_str": "0–2",
+      "note": "90'",
+      "winner": "france"
+    },
+    "98": {
+      "home": "norway",
+      "away": "england",
+      "score_str": "1–2 (1–1 AET)",
+      "note": "AET",
+      "winner": "england"
+    },
+    "99": {
+      "home": "belgium",
+      "away": "spain",
+      "score_str": "1–2",
+      "note": "90'",
+      "winner": "spain"
+    },
+    "100": {
+      "home": "switzerland",
+      "away": "argentina",
+      "score_str": "1–3 (1–1 AET)",
+      "note": "AET",
+      "winner": "argentina"
+    },
+    "101": {
+      "home": "france",
+      "away": "spain",
+      "score_str": "0–2",
+      "note": "90'",
+      "winner": "spain"
+    },
+    "102": {
+      "home": "england",
+      "away": "argentina",
+      "score_str": "1–2",
+      "note": "90'",
+      "winner": "argentina"
     }
   }
 }

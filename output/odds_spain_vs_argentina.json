@@ -1,0 +1,61 @@
+{
+  "team_a": "spain",
+  "team_b": "argentina",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "spain": 3.086,
+    "argentina": 1.059
+  },
+  "odds": {
+    "spain": 77.5,
+    "draw": 12.9,
+    "argentina": 9.6
+  },
+  "advance": {
+    "spain": 86.5,
+    "argentina": 13.5
+  },
+  "extra_time": {
+    "spain": 6.7,
+    "draw": 4.5,
+    "argentina": 1.6,
+    "note": "% dado empate nos 90'; pênaltis (50/50) resolvem o que sobra empatado"
+  },
+  "derived_metrics": {
+    "over_2_5": 78.2,
+    "under_2_5": 21.8,
+    "btts_yes": 62.4,
+    "btts_no": 37.6,
+    "clean_sheet_a": 34.7,
+    "clean_sheet_b": 4.6,
+    "margin_a_2plus": 58.9,
+    "margin_b_2plus": 3.2
+  },
+  "assertive_bet": {
+    "label": "Mais de 2.5 gols",
+    "pct": 78.2
+  },
+  "top_scores": [
+    {
+      "score": "3-1",
+      "pct": 8.2
+    },
+    {
+      "score": "2-1",
+      "pct": 7.9
+    },
+    {
+      "score": "3-0",
+      "pct": 7.7
+    },
+    {
+      "score": "2-0",
+      "pct": 7.5
+    },
+    {
+      "score": "4-1",
+      "pct": 6.4
+    }
+  ]
+}

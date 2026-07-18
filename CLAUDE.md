@@ -6,21 +6,24 @@ Simulador Monte Carlo da Copa do Mundo 2026. Usa atributos de jogadores (FC25/FI
 
 ---
 
-## Estado Atual (08 jul 2026)
+## Estado Atual (18 jul 2026)
 
-- **Oitavas (R16) ENCERRADAS** (8/8 jogos) — modelo congelado a partir de agora, quartas em diante são teste out-of-sample de verdade (primeira vez no projeto)
-- **Modelo ativo: Model6** — SA por **pontos** (não mais NLL), treinado com 96 jogos (72 grupo + 16 R32 + 8 R16)
-  - Mudança de metodologia (08 jul 2026): o objetivo do SA deixou de ser minimizar Poisson NLL e passou a **maximizar pontos** — ver seção "Calibração por Pontos (Model6)" abaixo
-  - Escolhido entre 5 seeds (999, 2026, 7, 123, 42) rodadas em paralelo com a mesma config (`--biases`, λ=2.0, 300k iters × 5 restarts) — **seed 42** venceu em TODAS as métricas ao mesmo tempo (pontos 68.0/78 = 87.2%, NLL 80.39, Brier 0.494), sem empate/trade-off como no Model5
-  - Pesos lidos dinamicamente de `output/calibrated_weights_sa.json` (cópia de referência: `output/weights_model6.json`; logs das 5 seeds em `output/model6_seeds/`)
-  - Bias do Brasil caiu de forma acentuada (att_bias≈0.64) — o objetivo por pontos puniu diretamente a superconfiança (84.3%) que gerou a zebra contra a Noruega no R16
-  - Model5 (88 jogos, objetivo NLL) preservado em `output/weights_model5.json` como referência histórica
-- **Análise completa das oitavas (Model5, in-sample):** `output/r16_wdl_report.md` — quem avança 6/8 (75%), zebra do Brasil quebrou a sequência de 97% de acerto acima de 70% de confiança
-- **Bracket das quartas em diante confirmado** (08 jul 2026): QF1 França x Marrocos, QF2 Espanha x Bélgica, QF3 Noruega x Inglaterra, QF4 Argentina x Suíça — SF1=QF1×QF2, SF2=QF3×QF4, Final=SF1×SF2
-- **Odds das 4 quartas geradas com Model6** (`--knockout`) — quem avança: França 62.2%, Espanha 75.8% (única ≥70%), Inglaterra 68.0%, Suíça 51.0% (Argentina x Suíça é o jogo mais parelho do round)
-- **Bracket fixo em `simulate.py` confirmado sem necessidade de mudança** — `play()` já usa resultados reais de qualquer `match_id` genericamente; 10M simulações rodadas: Espanha 35.3% campeã, Inglaterra 19.8%, França 17.0%, Suíça 7.2%, Marrocos 5.8%, Argentina 5.6%, Bélgica 5.2%, Noruega 4.3% (`output/simulation_results_model6.json`)
-- **Post das quartas pronto** — `qf_post.md`, novo estilo visual "Troféu Chegando" (ver "Identidade visual por rodada" abaixo)
-- **Próximo passo:** gerar as imagens no Gemini e publicar; após os 4 jogos, decidir se recalibra de novo ou mantém Model6 até a final
+- **Semifinais ENCERRADAS** (2/2 jogos) — **Final confirmada: Espanha x Argentina** · **3º lugar: França x Inglaterra**
+- **Resultados das semis:** França 0–2 Espanha (90'), Inglaterra 1–2 Argentina (90', virada — Argentina estava perdendo)
+- **Performance out-of-sample do Model6 nas semis** (pesos de antes da recalibração desta rodada): quem avança 2/2 (100% — Espanha 60.5%, Inglaterra 66.3%, nenhum bateu 70% de confiança). Placar exato: Inglaterra x Argentina 2–1 foi o **top-1** do modelo (a virada da Argentina bateu certo no placar); França x Espanha 0–2 ficou empatado em 4º/5º (9.0%, junto com 1–2).
+- **Bug de bracket corrigido em `resultado.py`** (14 jul 2026, ver TASKS.md) — pares da semifinal (`101`/`102`) estavam errados, já fixado antes de registrar os resultados reais.
+- **Correção de leitura na entrada dos resultados (18 jul 2026):** o placar de Inglaterra x Argentina foi inicialmente registrado como 2–1 (Inglaterra) por erro de interpretação da mensagem do usuário — corrigido pra 1–2 (Argentina, de virada) antes de qualquer cálculo posterior.
+- **Modelo ativo: Model7** — mesma metodologia de pontos do Model6, agora com **102 jogos** (96 do Model6 + 4 QF + 2 SF) e **bônus de peso pra SF/Final** (pedido do usuário, 18 jul 2026) — ver "Calibração por Pontos" abaixo
+  - Escolhido entre 5 seeds (999, 2026, 7, 123, 42), mesma config do Model6 (`--biases`, λ=2.0, 300k iters × 5 restarts) — **seed 123** venceu em pontos (77.14/91 = 84.8%), mas **não** em todos os critérios ao mesmo tempo (seed 999 teve melhor Brier 0.5015, seed 2026 melhor NLL 94.06) — trade-off como no Model5, decidido pelo critério oficial do projeto (pontos é o objetivo, NLL/Brier são só diagnóstico)
+  - Pesos em `output/calibrated_weights_sa.json` (cópia: `output/weights_model7.json`; logs das 5 seeds em `output/model7_seeds/`)
+  - `BASE_XG` subiu bastante (1.38 → 1.45); Espanha ganhou bias forte de ataque e defesa (att=1.13, def=1.30 — reflexo de 0 gols sofridos em 6 jogos); Argentina ficou com def_bias baixo (0.51, fragilidade defensiva real) mas att_bias positivo (1.04); Inglaterra caiu nos dois (att=0.77, def=0.76) após a eliminação
+  - Model6 (96 jogos, sem bônus SF/Final) preservado em `output/weights_model6.json` como referência histórica
+- **Prorrogação modelada explicitamente (18 jul 2026, pedido do usuário)** — antes, todo empate nos 90' do mata-mata caía direto em pênaltis 50/50. Agora `simulate.py::sim_knockout_match` e `match_odds.py` simulam 30min de prorrogação com xG escalado a 1/3 (proporcional ao tempo) antes de cair em pênaltis. **Validado** contra os 8 empates reais do mata-mata até as semis: 8.72 gols esperados vs 7 observados — bem alinhado. Curiosidade (não modelada como bias específico, n=2 é pouco): a Argentina marcou nas 2 vezes em que foi à prorrogação (Cabo Verde e Suíça), acima do esperado (0.67 e 0.52).
+- **Correção de regra: disputa de 3º lugar NÃO tem prorrogação** (regra FIFA — só a Final tem). `match_odds.py` ganhou a flag `--terceiro-lugar`/`--no-extra-time` pra pular a prorrogação e ir direto de empate nos 90' pra pênaltis 50/50.
+- **Odds geradas com Model7:**
+  - 3º lugar (sem prorrogação): França 70.9% x Inglaterra 29.1% (`output/odds_france_vs_england.json`)
+  - Final (com prorrogação): Espanha 86.5% x Argentina 13.5% (`output/odds_spain_vs_argentina.json`)
+- **Próximo passo:** gerar posts Instagram do 3º lugar e da Final (estilo "Troféu Chegando"), depois publicar
 
 ---
 
@@ -32,9 +35,9 @@ Mudança de objetivo pedida pelo usuário: em vez de minimizar Poisson NLL, o `c
 
 | R1 | R2 | R3 | R32 | R16 | QF | SF | Final |
 |---|---|---|---|---|---|---|---|
-| 0.5 | 0.5 | 0.25 | 1.0 | 1.0 | 1.0 | 1.0* | 1.0* |
+| 0.5 | 0.5 | 0.25 | 1.0 | 1.0 | 1.0 | 1.5† | 2.0† |
 
-*SF e Final ainda não têm jogos disputados — assumido igual ao resto do mata-mata (1.0) até serem jogados; revisar se o usuário quiser diferenciar.
+†Bônus decidido pelo usuário no Model7 (18 jul 2026) — SF e Final pesam mais porque são os jogos que definem finalistas e campeão. Antes (Model6), eram 1.0 (igual ao resto do mata-mata) por ainda não terem sido disputados.
 
 ### Fórmula de pontos por jogo
 
@@ -46,6 +49,12 @@ Mudança de objetivo pedida pelo usuário: em vez de minimizar Poisson NLL, o `c
 ### Resultado Model6 (96 jogos de treino)
 
 Pontos máximos possíveis: 78.0. Baseline (pesos default): 37.6 (48.2%). L-BFGS-B: 39.1 (50.1%). Model6 (SA, seed 42): **68.0 (87.2%)**.
+
+### Resultado Model7 (102 jogos de treino — 96 + QF + SF, bônus SF/Final)
+
+Pontos máximos possíveis: 91.0 (subiu por causa do bônus de peso, não só dos 6 jogos novos). Baseline: 43.6 (47.9%). L-BFGS-B: 45.5 (50.0%). Model7 (SA, seed 123): **77.14 (84.8%)**.
+
+Diferente do Model6 (que venceu em pontos, NLL e Brier simultaneamente), o Model7 teve trade-off entre seeds: seed 123 (pontos 77.14) vs seed 999 (pontos 76.11, mas melhor Brier 0.5015) vs seed 2026 (pontos 76.75, melhor NLL 94.06). Decidido pelo critério oficial do projeto — pontos é o objetivo real da busca, NLL/Brier são só diagnóstico histórico.
 
 ---
 
@@ -60,10 +69,26 @@ P(avança_A) = P(vence_A) + 0.5 × P(empate)
 P(avança_B) = P(vence_B) + 0.5 × P(empate)
 ```
 
-- **Pênaltis tratados como 50/50** — decisão consciente de não modelar prorrogação, porque exigiria squad-score com profundidade de banco/reservas, que o `build_team_scores.py` não tem (só usa top-K, a melhor escalação titular).
 - Não muda quem é o favorito (soma a mesma fatia dos dois lados), mas mede a métrica certa: jogos que empatam nos 90' mas o favorito avança nos pênaltis contam como acerto, não erro.
 - Validado no R32: bucket de confiança ≥70% sobe de 60% (W/D/L 90') para 87.5% (quem avança) — muito mais coerente com os 97% históricos da fase de grupos.
 - **Só se aplica ao mata-mata.** Fase de grupos continua usando W/D/L normal — lá o empate é resultado final válido.
+
+### Prorrogação modelada explicitamente (decidido 18 jul 2026, substitui a decisão anterior)
+
+Até a Model6, pênaltis eram tratados como 50/50 direto a partir do empate nos 90' — decisão de não modelar prorrogação porque exigiria squad-score com profundidade de banco/reservas (`build_team_scores.py` só usa top-K, a melhor escalação titular). O usuário pediu pra revisar isso depois de notar que a Argentina já tinha marcado gols na prorrogação duas vezes (contra Cabo Verde e Suíça).
+
+Nova abordagem, sem precisar de dados de banco:
+
+```
+xG_prorrogação_A = xG_90_A / 3      (30min ≈ 1/3 dos 90min, mesma taxa de gols)
+xG_prorrogação_B = xG_90_B / 3
+```
+
+- Se A x B empatam nos 90': simula os 30min extras com Poisson(xG/3) pra cada time.
+- Se ainda empatar depois da prorrogação: pênaltis, continuam 50/50 (não modelados — mesma limitação de sempre, squad depth).
+- **Validado** contra os 8 empates reais do mata-mata até as semifinais: modelo esperava 8.72 gols na prorrogação somando os 16 períodos (8 jogos × 2 times), aconteceram 7 — bem alinhado. 4 dos 8 jogos foram a pênaltis sem gol na prorrogação, 4 tiveram gol. A Argentina marcou nas 2 vezes em que foi à prorrogação (Cabo Verde e Suíça), acima do esperado pelo modelo (0.67 e 0.52) — não virou bias específico por ser só 2 jogos (overfitting), mas é um dado editorial válido pros posts.
+- Implementado em `simulate.py::sim_knockout_match` (Monte Carlo completo) e `match_odds.py::extra_time_breakdown` (odds de um jogo específico).
+- **Exceção: disputa de 3º lugar não tem prorrogação** (regra oficial da FIFA — só a Final tem). `match_odds.py` ganhou a flag `--terceiro-lugar` (ou `--no-extra-time`) pra pular a prorrogação nesse caso e ir direto de empate nos 90' pra pênaltis 50/50.
 
 ### Métricas derivadas para "aposta assertiva" (complementam o top-score, não substituem)
 
@@ -78,7 +103,7 @@ Calculadas a partir dos dois xG de Poisson já existentes, sem retreinar nada:
 
 Regra: calcular todas + W/D/L, escolher a de maior probabilidade como "aposta do modelo". Top-3 score continua no post como detalhe/curiosidade, não mais como aposta principal.
 
-**Pendente:** implementação no `match_odds.py` (ainda não feita).
+Implementado em `match_odds.py::derived_metrics` + `best_assertive_claim` (escolhe a de maior probabilidade automaticamente).
 
 **Bug corrigido (04 jul 2026):** `calibrate_sa.py::_parse_score` quebrava em `score_str` com sufixo `PEN`/`AET` — agora extrai corretamente o placar de 90' (formatos `"1–1 pen."` e `"3–2 (1–1 AET)"` tratados).
 
@@ -114,26 +139,28 @@ resistance_B = RES_DEF_W × defense_B + RES_GK_W  × goalkeeper_B + RES_MID_W ×
 xG_A = min(BASE_XG × offense_A / max(resistance_B, 0.10), 8.0)
 ```
 
-**Constantes atuais — Model6** — SA por pontos, biases att+def, 96 jogos (72 grupo + 16 R32 + 8 R16), λ=2.0:
+**Constantes atuais — Model7** — SA por pontos, biases att+def, 102 jogos (72 grupo + 16 R32 + 8 R16 + 4 QF + 2 SF), λ=2.0, bônus SF/Final:
 
-| Constante | Model6 (ativo) | Model5 | Model4 (S14) |
-|-----------|----------------|--------|--------------|
-| `BASE_XG` | **1.3796** | 1.0118 | 1.1438 |
-| `OFF_ATT_W` | **0.5127** | 0.5809 | 0.7146 |
-| `OFF_MID_W` | **0.4873** | 0.4191 | 0.2854 |
-| `RES_DEF_W` | **0.1969** | 0.3223 | 0.4474 |
-| `RES_GK_W` | **0.5** | 0.454 | 0.05 |
-| `RES_MID_W` | **0.3031** | 0.2237 | 0.5026 |
+| Constante | Model7 (ativo) | Model6 | Model5 | Model4 (S14) |
+|-----------|----------------|--------|--------|--------------|
+| `BASE_XG` | **1.4453** | 1.3796 | 1.0118 | 1.1438 |
+| `OFF_ATT_W` | **0.3643** | 0.5127 | 0.5809 | 0.7146 |
+| `OFF_MID_W` | **0.6357** | 0.4873 | 0.4191 | 0.2854 |
+| `RES_DEF_W` | **0.1556** | 0.1969 | 0.3223 | 0.4474 |
+| `RES_GK_W` | **0.5** | 0.5 | 0.454 | 0.05 |
+| `RES_MID_W` | **0.3444** | 0.3031 | 0.2237 | 0.5026 |
 
-Diferença em relação ao Model5: dataset cresceu de 88 pra 96 jogos (incluindo R16) e, principalmente, **o objetivo de calibração mudou de NLL pra pontos** (ver "Calibração por Pontos" acima). `BASE_XG` subiu bastante (1.01 → 1.38) — reflexo direto de as oitavas terem sido mais goleadoras do que o modelo esperava (3 dos 8 jogos com 5+ gols no total), e o objetivo por pontos recompensa acertar volume de gols via o bônus de placar exato.
+Diferença em relação ao Model6: dataset cresceu de 96 pra 102 jogos (QF+SF) e o `ROUND_WEIGHTS` ganhou bônus pra SF (1.5) e Final (2.0) — ver "Calibração por Pontos" acima. `OFF_MID_W` passou a pesar mais que `OFF_ATT_W` (inversão em relação ao Model6) — meio-campo virou o principal preditor de ataque nessa seed.
 
-**Biases por seleção (att+def):** carregados de `output/calibrated_weights_sa.json` (= `output/weights_model6.json`). Bias do Brasil caiu de forma acentuada (att≈0.64, def≈0.65) — correção direta da superconfiança que gerou a zebra contra a Noruega no R16.
+**Biases por seleção (att+def):** carregados de `output/calibrated_weights_sa.json` (= `output/weights_model7.json`). Espanha ganhou bias forte de ataque e defesa (att=1.13, def=1.30 — reflexo de não sofrer gols); Argentina ficou com def_bias baixo (0.51 — fragilidade defensiva real, mesmo avançando) mas att_bias positivo (1.04); Inglaterra caiu nos dois (att=0.77, def=0.76) após a eliminação na semi; França também caiu um pouco (att=0.95, def=1.07) após perder a semi.
 
 **Performance fase de grupos com Model4 (referência histórica):** 46/72 W/D/L (64%) — vitórias: 37/41 (90%), empates: 0/20 (0% — limitação estrutural Poisson), derrotas: 9/11 (82%). Acima de 70% de confiança: 97% de acerto, 0 zebras.
 
 **Performance Model5 nos 88 jogos de treino (in-sample):** RankScore 312 (vs 292 do Model4 nos mesmos 88), Top-1 22/88, Top-3 51/88, W/D/L 58/88 (65.9%). Não é teste de generalização — o Model5 treinou nesses mesmos jogos.
 
-**Performance Model6 nos 96 jogos de treino (in-sample, objetivo por pontos):** 68.0/78.0 pontos (87.2%) — ver "Calibração por Pontos" acima. Ainda não avaliado fora da amostra; quartas em diante são o primeiro teste real de generalização do projeto.
+**Performance Model6 nos 96 jogos de treino (in-sample, objetivo por pontos):** 68.0/78.0 pontos (87.2%). Out-of-sample nas quartas: quem avança 3/4 (75%). Out-of-sample nas semis (pesos do Model6, antes desta recalibração): quem avança 2/2 (100%), incluindo o placar exato 2–1 da virada da Argentina como top-1 do modelo.
+
+**Performance Model7 nos 102 jogos de treino (in-sample, objetivo por pontos com bônus SF/Final):** 77.14/91.0 pontos (84.8%) — ver "Calibração por Pontos" acima. Ainda não avaliado fora da amostra — só restam 3º lugar e Final.
 
 ---
 
@@ -218,7 +245,8 @@ Torneio: 12 grupos × 4 times → top-2 + 8 melhores 3ºs avançam → R32 → R
 - **R2 → R3:** att_only 48 jogos λ=1.5 (Model3) — ✅
 - **R3 → R32:** att+def 72 jogos λ=2.0 → **Model4 (S14)** — ✅ histórico
 - **R32 → Oitavas:** att+def 88 jogos λ=2.0, pesos por rodada revisados + bônus time vivo, objetivo NLL → **Model5** — ✅ histórico
-- **Oitavas → Quartas:** att+def 96 jogos λ=2.0, pesos por rodada redesenhados, objetivo mudou pra **pontos** → **Model6** — ✅ ativo
+- **Oitavas → Quartas:** att+def 96 jogos λ=2.0, pesos por rodada redesenhados, objetivo mudou pra **pontos** → **Model6** — ✅ histórico
+- **Semis → Final:** att+def 102 jogos λ=2.0, bônus de peso SF(1.5)/Final(2.0) → **Model7** — ✅ ativo
 
 ### Comparação de estratégias (`model_compare.py`)
 21 estratégias testadas (S01–S21) com RankScore como métrica principal. Vencedor da fase de grupos: **S14** (SA+biases att+def, λ=2.0, 72 jogos, RankScore=+241) → virou Model4. Resultado salvo em `output/model_comparison.md`.
@@ -228,6 +256,9 @@ Em vez de comparar estratégias estruturalmente diferentes, o Model5 usou a mesm
 
 ### Seleção do Model6 por múltiplas seeds
 Mesma metodologia do Model5 (5 seeds em paralelo, config idêntica: `--biases`, λ=2.0, 300k iters × 5 restarts — default do script), mas agora otimizando pontos em vez de NLL. Resultado: seed 42 venceu em **todas** as métricas simultaneamente (pontos 68.0/78=87.2%, NLL 80.39, Brier 0.494) — sem empate/trade-off como no Model5. Logs completos das 5 seeds em `output/model6_seeds/`.
+
+### Seleção do Model7 por múltiplas seeds
+Mesma metodologia (5 seeds em paralelo, config idêntica ao Model6), agora com 102 jogos e `ROUND_WEIGHTS` com bônus SF/Final. Resultado: seed 123 venceu em pontos (77.14/91=84.8%), mas não simultaneamente em NLL/Brier — seed 999 teve melhor Brier (0.5015, pontos 76.11) e seed 2026 melhor NLL (94.06, pontos 76.75). Trade-off como no Model5, decidido por pontos (critério oficial da busca). Logs completos das 5 seeds em `output/model7_seeds/`.
 
 ---
 
@@ -242,7 +273,7 @@ Mesma metodologia do Model5 (5 seeds em paralelo, config idêntica: `--biases`, 
 | `calibrate_sa.py` | Calibrar via Simulated Annealing (com suporte a biases, --unconstrained) | `output/calibrated_weights_sa.json` |
 | `model_compare.py` | Comparar N estratégias de calibração via RankScore | `output/model_comparison.md` |
 | `model_eval.py` | Avaliar modelo (Brier, acurácia) | `output/model_eval.json` |
-| `match_odds.py` | Odds de um jogo específico (usa biases) | `output/odds_{a}_vs_{b}.json` |
+| `match_odds.py` | Odds de um jogo específico (usa biases; `--knockout` pra prorrogação+pênaltis, `--terceiro-lugar` pra pênaltis direto sem prorrogação) | `output/odds_{a}_vs_{b}.json` |
 | `group_projection.py` | Probabilidade de classificação por grupo | `output/group_projection.json` |
 | `round_report.py` | Visual PNG de uma rodada | `output/round_{N}_report.png` |
 | `play_simulation.py` | Simulação determinística (seed) | `output/JOGO_{seed}.md` |
@@ -294,16 +325,22 @@ Mesma metodologia do Model5 (5 seeds em paralelo, config idêntica: `--biases`, 
 | Arquivo | Conteúdo |
 |---------|----------|
 | `output/team_scores.json` | Scores GK/DEF/MID/ATT por seleção |
-| `output/copa_real_state.json` | Resultados reais — 72 jogos de grupo + 24 do mata-mata (R32+R16) |
-| `output/calibrated_weights_sa.json` | **Model6** — pesos ativos (lidos por simulate.py e match_odds.py) |
-| `output/weights_model6.json` | Cópia de referência do Model6 (objetivo por pontos) |
-| `output/model6_seeds/` | Logs + pesos das 5 seeds testadas pro Model6 (999, 2026, 7, 123, **42 vencedora**) |
+| `output/copa_real_state.json` | Resultados reais — 72 jogos de grupo + 30 do mata-mata (R32+R16+QF+SF) |
+| `output/calibrated_weights_sa.json` | **Model7** — pesos ativos (lidos por simulate.py e match_odds.py) |
+| `output/weights_model7.json` | Cópia de referência do Model7 (102 jogos, bônus SF/Final) |
+| `output/model7_seeds/` | Logs + pesos das 5 seeds testadas pro Model7 (999, 2026, 7, **123 vencedora**, 42) |
+| `output/weights_model6.json` | Cópia de referência do Model6 (histórico, 96 jogos, sem bônus SF/Final) |
+| `output/model6_seeds/` | Logs + pesos das 5 seeds testadas pro Model6 (999, 2026, 7, 123, 42 vencedora) |
 | `output/r16_wdl_report.md` | Análise "quem avança" das 8 oitavas com Model5 — 6/8 (75%), zebra do Brasil |
 | `output/model6_full_evaluation.md` | Reavaliação retroativa das 96 partidas com Model6 (in-sample) + combinações entre os 8 times vivos |
 | `output/model6_evaluation.html` | Mesmo conteúdo do `.md` acima em página interativa standalone (abas por rodada, barras de confiança) — abrir direto no navegador |
 | `output/simulation_results_model6.json` | 10M simulações Model6 pós-oitavas — probabilidade de campeão/finalista/semi dos 8 times vivos |
 | `output/odds_france_vs_morocco.json`, `..._spain_vs_belgium.json`, `..._norway_vs_england.json`, `..._argentina_vs_switzerland.json` | Odds das 4 quartas (Model6, `--knockout`) |
+| `output/odds_france_vs_spain.json`, `..._england_vs_argentina.json` | Odds das 2 semifinais (Model6, antes da recalibração pro Model7) |
+| `output/odds_france_vs_england.json` | Odds do 3º lugar (Model7, `--knockout --terceiro-lugar` — sem prorrogação, regra FIFA) |
+| `output/odds_spain_vs_argentina.json` | Odds da Final (Model7, `--knockout` — com prorrogação modelada) |
 | `qf_post.md` | Prompts Instagram das quartas — novo estilo "Troféu Chegando" (preto quente + dourado, path-to-final) |
+| `sf_post.md` | Prompts Instagram das semifinais, mesmo estilo |
 | `output/weights_model5.json` | Cópia de referência do Model5 (histórico, objetivo NLL) |
 | `output/weights_s14.json` | Cópia de referência do Model4 (histórico) |
 | `output/calibrated_weights.json` | Pesos L-BFGS-B (referência, não aplicado) |

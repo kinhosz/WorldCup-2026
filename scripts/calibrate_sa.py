@@ -111,8 +111,8 @@ ROUND_WEIGHTS = {
     'r32':   1.0,
     'r16':   1.0,
     'qf':    1.0,
-    'sf':    1.0,    # ainda não jogado — assumido igual ao resto do mata-mata
-    'final': 1.0,    # idem
+    'sf':    1.5,    # bônus (18 jul 2026, pedido do usuário) — jogo define quem chega à final
+    'final': 2.0,    # bônus maior ainda — decide o campeão
 }
 
 # Objetivo Model6: maximizar pontos, não minimizar NLL. Pontos = acerto do

@@ -1,0 +1,55 @@
+{
+  "team_a": "england",
+  "team_b": "argentina",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "england": 2.197,
+    "argentina": 1.376
+  },
+  "odds": {
+    "england": 56.1,
+    "draw": 20.3,
+    "argentina": 23.6
+  },
+  "advance": {
+    "england": 66.3,
+    "argentina": 33.7
+  },
+  "derived_metrics": {
+    "over_2_5": 69.2,
+    "under_2_5": 30.8,
+    "btts_yes": 66.4,
+    "btts_no": 33.6,
+    "clean_sheet_a": 25.3,
+    "clean_sheet_b": 11.1,
+    "margin_a_2plus": 34.6,
+    "margin_b_2plus": 10.1
+  },
+  "assertive_bet": {
+    "label": "Mais de 2.5 gols",
+    "pct": 69.2
+  },
+  "top_scores": [
+    {
+      "score": "2-1",
+      "pct": 9.3
+    },
+    {
+      "score": "1-1",
+      "pct": 8.5
+    },
+    {
+      "score": "3-1",
+      "pct": 6.8
+    },
+    {
+      "score": "2-0",
+      "pct": 6.8
+    },
+    {
+      "score": "2-2",
+      "pct": 6.4
+    }
+  ]
+}

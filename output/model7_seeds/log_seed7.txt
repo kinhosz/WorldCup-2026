@@ -1,0 +1,592 @@
+========================================================================
+  Simulated Annealing — Calibração xG  |  Copa do Mundo 2026
+========================================================================
+  Iters/restart : 300,000
+  Restarts      : 5
+  T0 → T_final  : 3.0 → 0.00002
+  alpha         : 0.99996
+  Seed          : 7
+  Outliers      : incluídos
+  Modo          : biases att+def  (λ=2.0)
+========================================================================
+
+Carregando dados...
+  102 jogos  |  48 seleções
+  Jogos por rodada: {'r1': 24, 'r2': 24, 'r3': 24, 'r32': 16, 'r16': 8, 'qf': 4, 'sf': 2}
+  Pesos por rodada: r1=0.5  r2=0.5  r3=0.25  r32=1.0  r16=1.0  qf=1.0  sf=1.5  final=2.0
+  Bônus placar exato (só mata-mata): top1=1.000  top2=0.667  top3=0.444
+  Pontos máximos possíveis: 91.000
+  Parâmetros totais: 100  (4 globais + 96 biases)
+  Ratio params/dados: 100/204 = 0.49
+
+  NLL baseline (defaults): 107.0661  Brier: 0.5598  Pontos: 43.611/91.000
+  NLL L-BFGS-B:            104.9005  Brier: 0.5562  Pontos: 45.500/91.000
+  θ L-BFGS-B: BASE_XG=1.1439  w_att=0.7146  w_def=0.4475  w_gk=0.0500
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Restart 1/5  |  300,000 iters  |  T0=3.0  |  biases λ=2.0  |  θ=100
+  globals: BASE_XG=1.3000  w_att=0.7000  w_def=0.6000  w_gk=0.2000
+  pontos iniciais: 43.611
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [ 10,000/300,000   3.3%   12.0s]  T=2.01094  acc= 96.0%  curr=23.337pts  best=47.469pts
+    globals: BASE_XG=1.3307  w_att=0.6404  w_def=0.5247  w_gk=0.2634
+    top bias: scotland(att=0.95,def=0.96)  qatar(att=1.00,def=0.93)  mexico(att=1.00,def=1.06)  south_africa(att=1.00,def=1.03)  canada(att=1.00,def=1.03)
+  [ 20,000/300,000   6.7%   22.9s]  T=1.34797  acc= 93.8%  curr=14.589pts  best=47.469pts
+    globals: BASE_XG=1.3307  w_att=0.6404  w_def=0.5247  w_gk=0.2634
+    top bias: scotland(att=0.95,def=0.96)  qatar(att=1.00,def=0.93)  mexico(att=1.00,def=1.06)  south_africa(att=1.00,def=1.03)  canada(att=1.00,def=1.03)
+  [ 30,000/300,000  10.0%   33.8s]  T=0.90356  acc= 91.8%  curr=14.401pts  best=47.469pts
+    globals: BASE_XG=1.3307  w_att=0.6404  w_def=0.5247  w_gk=0.2634
+    top bias: scotland(att=0.95,def=0.96)  qatar(att=1.00,def=0.93)  mexico(att=1.00,def=1.06)  south_africa(att=1.00,def=1.03)  canada(att=1.00,def=1.03)
+  [ 40,000/300,000  13.3%   44.6s]  T=0.60567  acc= 89.0%  curr=19.455pts  best=47.469pts
+    globals: BASE_XG=1.3307  w_att=0.6404  w_def=0.5247  w_gk=0.2634
+    top bias: scotland(att=0.95,def=0.96)  qatar(att=1.00,def=0.93)  mexico(att=1.00,def=1.06)  south_africa(att=1.00,def=1.03)  canada(att=1.00,def=1.03)
+  [ 50,000/300,000  16.7%   55.6s]  T=0.40599  acc= 83.7%  curr=34.878pts  best=47.469pts
+    globals: BASE_XG=1.3307  w_att=0.6404  w_def=0.5247  w_gk=0.2634
+    top bias: scotland(att=0.95,def=0.96)  qatar(att=1.00,def=0.93)  mexico(att=1.00,def=1.06)  south_africa(att=1.00,def=1.03)  canada(att=1.00,def=1.03)
+  [ 60,000/300,000  20.0%   67.5s]  T=0.27214  acc= 75.9%  curr=47.421pts  best=49.489pts
+    globals: BASE_XG=1.3434  w_att=0.5104  w_def=0.3301  w_gk=0.2410
+    top bias: algeria(att=0.46,def=1.45)  switzerland(att=1.49,def=0.58)  qatar(att=0.79,def=0.35)  argentina(att=1.56,def=1.28)  senegal(att=0.49,def=1.32)
+  [ 70,000/300,000  23.3%   79.6s]  T=0.18242  acc= 71.3%  curr=55.784pts  best=56.328pts
+    globals: BASE_XG=1.4710  w_att=0.1346  w_def=0.2714  w_gk=0.2231
+    top bias: algeria(att=0.32,def=0.83)  qatar(att=0.62,def=0.55)  turkey(att=0.66,def=0.55)  saudi_arabia(att=0.61,def=1.34)  curacao(att=0.52,def=1.22)
+  [ 80,000/300,000  26.7%   91.9s]  T=0.12228  acc= 64.1%  curr=60.493pts  best=61.964pts
+    globals: BASE_XG=1.5694  w_att=0.2631  w_def=0.1319  w_gk=0.4211
+    top bias: spain(att=1.39,def=1.65)  cape_verte(att=1.25,def=1.35)  jordan(att=1.20,def=0.67)  senegal(att=1.07,def=0.55)  australia(att=0.97,def=1.48)
+  [ 90,000/300,000  30.0%  104.2s]  T=0.08197  acc= 60.1%  curr=64.928pts  best=65.662pts
+    globals: BASE_XG=1.5766  w_att=0.1501  w_def=0.1326  w_gk=0.5000
+    top bias: spain(att=1.34,def=1.52)  south_africa(att=0.58,def=0.73)  norway(att=1.18,def=1.41)  ecuador(att=0.81,def=0.63)  mexico(att=1.17,def=1.34)
+  [100,000/300,000  33.3%  117.1s]  T=0.05494  acc= 54.0%  curr=66.280pts  best=66.434pts
+    globals: BASE_XG=1.5756  w_att=0.1688  w_def=0.2732  w_gk=0.4200
+    top bias: spain(att=1.33,def=1.51)  switzerland(att=1.05,def=1.53)  south_africa(att=0.56,def=1.12)  norway(att=1.16,def=1.32)  colombia(att=0.95,def=1.39)
+  [110,000/300,000  36.7%  129.6s]  T=0.03683  acc= 50.4%  curr=68.242pts  best=68.242pts
+    globals: BASE_XG=1.5399  w_att=0.1916  w_def=0.2223  w_gk=0.5000
+    top bias: spain(att=1.39,def=1.41)  mexico(att=1.21,def=1.30)  south_africa(att=0.58,def=0.95)  qatar(att=0.70,def=0.86)  paraguay(att=1.03,def=1.42)
+  [120,000/300,000  40.0%  142.0s]  T=0.02469  acc= 44.7%  curr=68.796pts  best=68.914pts
+    globals: BASE_XG=1.4751  w_att=0.1900  w_def=0.1808  w_gk=0.4914
+    top bias: spain(att=1.31,def=1.37)  mexico(att=1.25,def=1.22)  south_africa(att=0.56,def=1.00)  norway(att=1.09,def=1.33)  qatar(att=0.76,def=0.83)
+  [130,000/300,000  43.3%  154.1s]  T=0.01655  acc= 38.6%  curr=69.002pts  best=69.243pts
+    globals: BASE_XG=1.4753  w_att=0.1932  w_def=0.2300  w_gk=0.5000
+    top bias: spain(att=1.37,def=1.33)  norway(att=1.17,def=1.30)  south_africa(att=0.59,def=0.95)  colombia(att=0.83,def=1.28)  qatar(att=0.75,def=0.84)
+  [140,000/300,000  46.7%  166.2s]  T=0.01109  acc= 35.9%  curr=69.037pts  best=69.302pts
+    globals: BASE_XG=1.4909  w_att=0.1786  w_def=0.2130  w_gk=0.5000
+    top bias: spain(att=1.33,def=1.33)  norway(att=1.09,def=1.36)  qatar(att=0.75,def=0.82)  colombia(att=0.86,def=1.30)  south_africa(att=0.60,def=1.03)
+  [150,000/300,000  50.0%  178.5s]  T=0.00744  acc= 28.7%  curr=69.463pts  best=69.545pts
+    globals: BASE_XG=1.4822  w_att=0.1712  w_def=0.2211  w_gk=0.4944
+    top bias: spain(att=1.33,def=1.33)  south_africa(att=0.62,def=0.96)  colombia(att=0.88,def=1.29)  qatar(att=0.74,def=0.85)  norway(att=1.07,def=1.34)
+  [160,000/300,000  53.3%  190.5s]  T=0.00498  acc= 22.4%  curr=69.648pts  best=69.698pts
+    globals: BASE_XG=1.4805  w_att=0.1717  w_def=0.2037  w_gk=0.4886
+    top bias: spain(att=1.33,def=1.34)  qatar(att=0.76,def=0.84)  mexico(att=1.18,def=1.21)  south_africa(att=0.63,def=0.99)  england(att=0.87,def=0.75)
+  [170,000/300,000  56.7%  202.5s]  T=0.00334  acc= 19.1%  curr=69.758pts  best=69.785pts
+    globals: BASE_XG=1.4839  w_att=0.1732  w_def=0.2100  w_gk=0.4869
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.76,def=0.85)  mexico(att=1.18,def=1.21)  south_africa(att=0.63,def=1.01)  england(att=0.86,def=0.77)
+  [180,000/300,000  60.0%  214.7s]  T=0.00224  acc= 16.2%  curr=69.813pts  best=69.820pts
+    globals: BASE_XG=1.4827  w_att=0.1676  w_def=0.2092  w_gk=0.4853
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.76,def=0.84)  mexico(att=1.17,def=1.22)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=0.99)
+  [190,000/300,000  63.3%  226.9s]  T=0.00150  acc= 14.0%  curr=69.862pts  best=69.864pts
+    globals: BASE_XG=1.4843  w_att=0.1681  w_def=0.2072  w_gk=0.4865
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.76,def=0.84)  south_africa(att=0.63,def=1.01)  england(att=0.85,def=0.76)  mexico(att=1.17,def=1.21)
+  [200,000/300,000  66.7%  239.2s]  T=0.00101  acc= 11.7%  curr=69.906pts  best=69.909pts
+    globals: BASE_XG=1.4836  w_att=0.1686  w_def=0.2082  w_gk=0.4871
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  south_africa(att=0.63,def=0.98)  england(att=0.85,def=0.76)  mexico(att=1.17,def=1.20)
+  [210,000/300,000  70.0%  251.2s]  T=0.00067  acc=  9.1%  curr=69.922pts  best=69.923pts
+    globals: BASE_XG=1.4844  w_att=0.1685  w_def=0.2079  w_gk=0.4865
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=0.99)  mexico(att=1.17,def=1.20)
+  [220,000/300,000  73.3%  263.3s]  T=0.00045  acc=  7.7%  curr=69.931pts  best=69.933pts
+    globals: BASE_XG=1.4844  w_att=0.1683  w_def=0.2078  w_gk=0.4866
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=0.99)  mexico(att=1.17,def=1.20)
+  [230,000/300,000  76.7%  277.4s]  T=0.00030  acc=  6.3%  curr=69.940pts  best=69.942pts
+    globals: BASE_XG=1.4845  w_att=0.1682  w_def=0.2077  w_gk=0.4869
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=1.00)  mexico(att=1.17,def=1.20)
+  [240,000/300,000  80.0%  290.5s]  T=0.00020  acc=  5.0%  curr=69.944pts  best=69.944pts
+    globals: BASE_XG=1.4845  w_att=0.1681  w_def=0.2077  w_gk=0.4868
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=0.99)  mexico(att=1.17,def=1.20)
+  [250,000/300,000  83.3%  302.9s]  T=0.00014  acc=  4.6%  curr=69.948pts  best=69.949pts
+    globals: BASE_XG=1.4847  w_att=0.1682  w_def=0.2077  w_gk=0.4871
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=1.00)  mexico(att=1.17,def=1.20)
+  [260,000/300,000  86.7%  315.5s]  T=0.00009  acc=  3.6%  curr=69.950pts  best=69.950pts
+    globals: BASE_XG=1.4845  w_att=0.1681  w_def=0.2077  w_gk=0.4867
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=1.00)  mexico(att=1.17,def=1.20)
+  [270,000/300,000  90.0%  328.2s]  T=0.00006  acc=  2.8%  curr=69.953pts  best=69.953pts
+    globals: BASE_XG=1.4845  w_att=0.1681  w_def=0.2077  w_gk=0.4867
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=0.99)  mexico(att=1.17,def=1.20)
+  [280,000/300,000  93.3%  340.8s]  T=0.00004  acc=  2.4%  curr=69.955pts  best=69.955pts
+    globals: BASE_XG=1.4848  w_att=0.1682  w_def=0.2079  w_gk=0.4870
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=1.00)  mexico(att=1.17,def=1.20)
+  [290,000/300,000  96.7%  353.2s]  T=0.00003  acc=  2.0%  curr=69.956pts  best=69.956pts
+    globals: BASE_XG=1.4849  w_att=0.1682  w_def=0.2077  w_gk=0.4871
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=1.00)  mexico(att=1.17,def=1.20)
+  [300,000/300,000  100.0%  365.6s]  T=0.00002  acc=  1.7%  curr=69.957pts  best=69.957pts
+    globals: BASE_XG=1.4848  w_att=0.1681  w_def=0.2077  w_gk=0.4871
+    top bias: spain(att=1.32,def=1.34)  qatar(att=0.77,def=0.83)  england(att=0.85,def=0.76)  south_africa(att=0.63,def=1.00)  mexico(att=1.17,def=1.20)
+
+  Restart 1 concluído em 365.6s  |  best pontos=69.957
+  *** Novo melhor global: pontos=69.957 ***
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Restart 2/5  |  300,000 iters  |  T0=3.0  |  biases λ=2.0  |  θ=100
+  globals: BASE_XG=2.9522  w_att=0.6804  w_def=0.6736  w_gk=0.2671
+  pontos iniciais: 37.500
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [ 10,000/300,000   3.3%   11.0s]  T=2.01094  acc= 97.6%  curr=28.549pts  best=41.916pts
+    globals: BASE_XG=1.9107  w_att=0.1000  w_def=0.7685  w_gk=0.3794
+    top bias: turkey(att=0.52,def=0.68)  ira(att=1.26,def=1.47)  croatia(att=1.16,def=1.47)  egypt(att=1.36,def=0.77)  germany(att=0.75,def=1.34)
+  [ 20,000/300,000   6.7%   22.1s]  T=1.34797  acc= 94.9%  curr=19.376pts  best=41.916pts
+    globals: BASE_XG=1.9107  w_att=0.1000  w_def=0.7685  w_gk=0.3794
+    top bias: turkey(att=0.52,def=0.68)  ira(att=1.26,def=1.47)  croatia(att=1.16,def=1.47)  egypt(att=1.36,def=0.77)  germany(att=0.75,def=1.34)
+  [ 30,000/300,000  10.0%   33.6s]  T=0.90356  acc= 91.0%  curr=24.542pts  best=41.916pts
+    globals: BASE_XG=1.9107  w_att=0.1000  w_def=0.7685  w_gk=0.3794
+    top bias: turkey(att=0.52,def=0.68)  ira(att=1.26,def=1.47)  croatia(att=1.16,def=1.47)  egypt(att=1.36,def=0.77)  germany(att=0.75,def=1.34)
+  [ 40,000/300,000  13.3%   45.0s]  T=0.60567  acc= 87.8%  curr=21.664pts  best=41.916pts
+    globals: BASE_XG=1.9107  w_att=0.1000  w_def=0.7685  w_gk=0.3794
+    top bias: turkey(att=0.52,def=0.68)  ira(att=1.26,def=1.47)  croatia(att=1.16,def=1.47)  egypt(att=1.36,def=0.77)  germany(att=0.75,def=1.34)
+  [ 50,000/300,000  16.7%   56.4s]  T=0.40599  acc= 83.8%  curr=38.749pts  best=41.916pts
+    globals: BASE_XG=1.9107  w_att=0.1000  w_def=0.7685  w_gk=0.3794
+    top bias: turkey(att=0.52,def=0.68)  ira(att=1.26,def=1.47)  croatia(att=1.16,def=1.47)  egypt(att=1.36,def=0.77)  germany(att=0.75,def=1.34)
+  [ 60,000/300,000  20.0%   68.1s]  T=0.27214  acc= 78.8%  curr=45.503pts  best=46.242pts
+    globals: BASE_XG=1.2645  w_att=0.3215  w_def=0.1984  w_gk=0.3611
+    top bias: australia(att=0.24,def=0.34)  switzerland(att=1.80,def=0.88)  turkey(att=1.37,def=1.49)  congo(att=1.34,def=1.49)  norway(att=1.48,def=1.36)
+  [ 70,000/300,000  23.3%   80.1s]  T=0.18242  acc= 71.8%  curr=53.156pts  best=53.302pts
+    globals: BASE_XG=1.4876  w_att=0.1000  w_def=0.1312  w_gk=0.3966
+    top bias: scotland(att=0.34,def=0.58)  tunisia(att=0.65,def=1.48)  australia(att=0.81,def=0.39)  jordan(att=1.25,def=0.55)  norway(att=1.25,def=1.44)
+  [ 80,000/300,000  26.7%   92.4s]  T=0.12228  acc= 68.9%  curr=61.350pts  best=61.381pts
+    globals: BASE_XG=1.3511  w_att=0.3585  w_def=0.1977  w_gk=0.5000
+    top bias: spain(att=1.43,def=1.47)  colombia(att=0.66,def=1.35)  czech_republic(att=0.69,def=0.68)  norway(att=1.09,def=1.53)  australia(att=0.82,def=0.62)
+  [ 90,000/300,000  30.0%  104.8s]  T=0.08197  acc= 56.6%  curr=65.972pts  best=66.084pts
+    globals: BASE_XG=1.4239  w_att=0.1853  w_def=0.1579  w_gk=0.4255
+    top bias: paraguay(att=0.71,def=1.39)  ecuador(att=0.68,def=0.65)  spain(att=1.04,def=1.51)  austria(att=0.83,def=0.65)  south_africa(att=0.60,def=0.93)
+  [100,000/300,000  33.3%  117.6s]  T=0.05494  acc= 51.2%  curr=66.943pts  best=67.519pts
+    globals: BASE_XG=1.4249  w_att=0.2586  w_def=0.2707  w_gk=0.4786
+    top bias: norway(att=1.19,def=1.51)  ecuador(att=0.70,def=0.69)  mexico(att=1.44,def=1.17)  spain(att=1.15,def=1.46)  qatar(att=0.75,def=0.71)
+  [110,000/300,000  36.7%  130.3s]  T=0.03683  acc= 47.4%  curr=69.133pts  best=69.226pts
+    globals: BASE_XG=1.4312  w_att=0.1663  w_def=0.1550  w_gk=0.5000
+    top bias: mexico(att=1.44,def=1.25)  spain(att=1.26,def=1.39)  norway(att=1.20,def=1.40)  paraguay(att=0.91,def=1.43)  ecuador(att=0.75,def=0.73)
+  [120,000/300,000  40.0%  143.1s]  T=0.02469  acc= 39.3%  curr=69.681pts  best=69.709pts
+    globals: BASE_XG=1.4197  w_att=0.2208  w_def=0.1582  w_gk=0.4960
+    top bias: spain(att=1.25,def=1.44)  mexico(att=1.46,def=1.09)  ecuador(att=0.78,def=0.74)  norway(att=1.14,def=1.30)  england(att=0.76,def=0.80)
+  [130,000/300,000  43.3%  155.9s]  T=0.01655  acc= 37.8%  curr=69.983pts  best=70.030pts
+    globals: BASE_XG=1.4171  w_att=0.2610  w_def=0.1286  w_gk=0.5000
+    top bias: spain(att=1.22,def=1.42)  mexico(att=1.40,def=1.22)  ecuador(att=0.74,def=0.73)  belgium(att=1.23,def=0.74)  colombia(att=0.80,def=1.26)
+  [140,000/300,000  46.7%  168.7s]  T=0.01109  acc= 31.0%  curr=70.143pts  best=70.188pts
+    globals: BASE_XG=1.4139  w_att=0.2458  w_def=0.1541  w_gk=0.5000
+    top bias: spain(att=1.23,def=1.43)  mexico(att=1.40,def=1.19)  ecuador(att=0.76,def=0.69)  colombia(att=0.81,def=1.27)  england(att=0.74,def=0.82)
+  [150,000/300,000  50.0%  181.6s]  T=0.00744  acc= 30.2%  curr=70.368pts  best=70.430pts
+    globals: BASE_XG=1.4187  w_att=0.2516  w_def=0.1633  w_gk=0.5000
+    top bias: spain(att=1.23,def=1.41)  ecuador(att=0.75,def=0.70)  mexico(att=1.37,def=1.12)  colombia(att=0.81,def=1.25)  paraguay(att=1.06,def=1.38)
+  [160,000/300,000  53.3%  194.5s]  T=0.00498  acc= 26.6%  curr=70.498pts  best=70.527pts
+    globals: BASE_XG=1.4337  w_att=0.2325  w_def=0.1553  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.78,def=0.70)  england(att=0.75,def=0.80)  belgium(att=1.21,def=0.77)  mexico(att=1.36,def=1.09)
+  [170,000/300,000  56.7%  207.8s]  T=0.00334  acc= 23.6%  curr=70.582pts  best=70.616pts
+    globals: BASE_XG=1.4340  w_att=0.2314  w_def=0.1557  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.13)  england(att=0.75,def=0.80)  belgium(att=1.21,def=0.78)
+  [180,000/300,000  60.0%  221.4s]  T=0.00224  acc= 20.7%  curr=70.637pts  best=70.661pts
+    globals: BASE_XG=1.4330  w_att=0.2332  w_def=0.1587  w_gk=0.5000
+    top bias: spain(att=1.23,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.12)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [190,000/300,000  63.3%  235.0s]  T=0.00150  acc= 18.2%  curr=70.674pts  best=70.688pts
+    globals: BASE_XG=1.4318  w_att=0.2321  w_def=0.1604  w_gk=0.5000
+    top bias: spain(att=1.23,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.12)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [200,000/300,000  66.7%  248.8s]  T=0.00101  acc= 16.5%  curr=70.693pts  best=70.697pts
+    globals: BASE_XG=1.4326  w_att=0.2309  w_def=0.1622  w_gk=0.5000
+    top bias: spain(att=1.23,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.12)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [210,000/300,000  70.0%  262.7s]  T=0.00067  acc= 14.1%  curr=70.720pts  best=70.720pts
+    globals: BASE_XG=1.4331  w_att=0.2306  w_def=0.1614  w_gk=0.4998
+    top bias: spain(att=1.23,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [220,000/300,000  73.3%  276.7s]  T=0.00045  acc= 13.1%  curr=70.731pts  best=70.731pts
+    globals: BASE_XG=1.4331  w_att=0.2313  w_def=0.1615  w_gk=0.5000
+    top bias: spain(att=1.23,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [230,000/300,000  76.7%  290.5s]  T=0.00030  acc= 11.8%  curr=70.729pts  best=70.733pts
+    globals: BASE_XG=1.4328  w_att=0.2314  w_def=0.1612  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [240,000/300,000  80.0%  304.5s]  T=0.00020  acc= 10.5%  curr=70.737pts  best=70.739pts
+    globals: BASE_XG=1.4330  w_att=0.2310  w_def=0.1615  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [250,000/300,000  83.3%  319.0s]  T=0.00014  acc=  8.7%  curr=70.743pts  best=70.743pts
+    globals: BASE_XG=1.4329  w_att=0.2313  w_def=0.1608  w_gk=0.4997
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [260,000/300,000  86.7%  333.5s]  T=0.00009  acc=  6.9%  curr=70.746pts  best=70.746pts
+    globals: BASE_XG=1.4328  w_att=0.2314  w_def=0.1606  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [270,000/300,000  90.0%  348.1s]  T=0.00006  acc=  8.8%  curr=70.749pts  best=70.750pts
+    globals: BASE_XG=1.4329  w_att=0.2314  w_def=0.1605  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [280,000/300,000  93.3%  363.0s]  T=0.00004  acc=  8.6%  curr=70.751pts  best=70.751pts
+    globals: BASE_XG=1.4330  w_att=0.2315  w_def=0.1607  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [290,000/300,000  96.7%  378.4s]  T=0.00003  acc=  8.2%  curr=70.752pts  best=70.752pts
+    globals: BASE_XG=1.4330  w_att=0.2315  w_def=0.1607  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+  [300,000/300,000  100.0%  394.0s]  T=0.00002  acc=  7.5%  curr=70.754pts  best=70.754pts
+    globals: BASE_XG=1.4330  w_att=0.2315  w_def=0.1607  w_gk=0.5000
+    top bias: spain(att=1.24,def=1.42)  ecuador(att=0.79,def=0.70)  mexico(att=1.36,def=1.11)  england(att=0.75,def=0.79)  belgium(att=1.20,def=0.78)
+
+  Restart 2 concluído em 394.0s  |  best pontos=70.754
+  *** Novo melhor global: pontos=70.754 ***
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Restart 3/5  |  300,000 iters  |  T0=3.0  |  biases λ=2.0  |  θ=100
+  globals: BASE_XG=3.9098  w_att=0.8913  w_def=0.2478  w_gk=0.2633
+  pontos iniciais: 37.750
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [ 10,000/300,000   3.3%   13.6s]  T=2.01094  acc= 98.4%  curr=23.472pts  best=43.429pts
+    globals: BASE_XG=3.9515  w_att=0.5162  w_def=0.1630  w_gk=0.2086
+    top bias: algeria(att=0.74,def=1.12)  portugal(att=1.22,def=0.96)  switzerland(att=0.85,def=0.90)  england(att=0.78,def=1.00)  jordan(att=0.95,def=1.15)
+  [ 20,000/300,000   6.7%   27.2s]  T=1.34797  acc= 96.9%  curr=15.399pts  best=43.429pts
+    globals: BASE_XG=3.9515  w_att=0.5162  w_def=0.1630  w_gk=0.2086
+    top bias: algeria(att=0.74,def=1.12)  portugal(att=1.22,def=0.96)  switzerland(att=0.85,def=0.90)  england(att=0.78,def=1.00)  jordan(att=0.95,def=1.15)
+  [ 30,000/300,000  10.0%   41.2s]  T=0.90356  acc= 92.2%  curr=20.304pts  best=43.429pts
+    globals: BASE_XG=3.9515  w_att=0.5162  w_def=0.1630  w_gk=0.2086
+    top bias: algeria(att=0.74,def=1.12)  portugal(att=1.22,def=0.96)  switzerland(att=0.85,def=0.90)  england(att=0.78,def=1.00)  jordan(att=0.95,def=1.15)
+  [ 40,000/300,000  13.3%   55.9s]  T=0.60567  acc= 89.5%  curr=32.153pts  best=43.429pts
+    globals: BASE_XG=3.9515  w_att=0.5162  w_def=0.1630  w_gk=0.2086
+    top bias: algeria(att=0.74,def=1.12)  portugal(att=1.22,def=0.96)  switzerland(att=0.85,def=0.90)  england(att=0.78,def=1.00)  jordan(att=0.95,def=1.15)
+  [ 50,000/300,000  16.7%   71.3s]  T=0.40599  acc= 83.3%  curr=39.560pts  best=43.429pts
+    globals: BASE_XG=3.9515  w_att=0.5162  w_def=0.1630  w_gk=0.2086
+    top bias: algeria(att=0.74,def=1.12)  portugal(att=1.22,def=0.96)  switzerland(att=0.85,def=0.90)  england(att=0.78,def=1.00)  jordan(att=0.95,def=1.15)
+  [ 60,000/300,000  20.0%   86.9s]  T=0.27214  acc= 82.0%  curr=48.328pts  best=48.447pts
+    globals: BASE_XG=1.3083  w_att=0.2105  w_def=0.1717  w_gk=0.4281
+    top bias: ivory_coast(att=1.59,def=0.20)  portugal(att=1.63,def=0.62)  united_states_of_america(att=0.85,def=1.83)  uzbekistan(att=0.55,def=1.35)  spain(att=1.62,def=1.12)
+  [ 70,000/300,000  23.3%  102.3s]  T=0.18242  acc= 73.1%  curr=56.561pts  best=56.905pts
+    globals: BASE_XG=1.4179  w_att=0.3526  w_def=0.1487  w_gk=0.3943
+    top bias: republic_of_korea(att=1.31,def=1.65)  brazil(att=0.60,def=0.48)  norway(att=1.14,def=1.60)  jordan(att=1.48,def=0.80)  switzerland(att=1.34,def=1.34)
+  [ 80,000/300,000  26.7%  118.3s]  T=0.12228  acc= 69.3%  curr=62.209pts  best=62.256pts
+    globals: BASE_XG=1.5264  w_att=0.2605  w_def=0.3260  w_gk=0.4316
+    top bias: norway(att=1.24,def=1.64)  switzerland(att=1.40,def=1.45)  brazil(att=0.65,def=0.57)  colombia(att=0.68,def=1.40)  turkey(att=1.47,def=0.78)
+  [ 90,000/300,000  30.0%  134.9s]  T=0.08197  acc= 59.2%  curr=65.419pts  best=65.903pts
+    globals: BASE_XG=1.4394  w_att=0.4051  w_def=0.2437  w_gk=0.4339
+    top bias: norway(att=1.24,def=1.71)  colombia(att=0.83,def=1.51)  mexico(att=1.38,def=1.26)  brazil(att=0.81,def=0.58)  belgium(att=1.40,def=0.81)
+  [100,000/300,000  33.3%  151.9s]  T=0.05494  acc= 51.3%  curr=67.988pts  best=68.337pts
+    globals: BASE_XG=1.4761  w_att=0.3156  w_def=0.2168  w_gk=0.5000
+    top bias: brazil(att=0.73,def=0.56)  norway(att=1.18,def=1.52)  colombia(att=0.74,def=1.41)  ecuador(att=1.10,def=0.57)  ira(att=1.12,def=1.41)
+  [110,000/300,000  36.7%  168.7s]  T=0.03683  acc= 46.6%  curr=69.588pts  best=69.650pts
+    globals: BASE_XG=1.5241  w_att=0.3203  w_def=0.1831  w_gk=0.4925
+    top bias: norway(att=1.12,def=1.60)  brazil(att=0.75,def=0.55)  colombia(att=0.72,def=1.39)  ecuador(att=0.76,def=0.62)  spain(att=1.14,def=1.45)
+  [120,000/300,000  40.0%  185.2s]  T=0.02469  acc= 41.6%  curr=69.889pts  best=70.099pts
+    globals: BASE_XG=1.4932  w_att=0.3365  w_def=0.2238  w_gk=0.4973
+    top bias: norway(att=1.26,def=1.59)  brazil(att=0.74,def=0.62)  colombia(att=0.79,def=1.34)  belgium(att=1.29,def=0.76)  spain(att=1.16,def=1.37)
+  [130,000/300,000  43.3%  201.7s]  T=0.01655  acc= 37.4%  curr=70.464pts  best=70.655pts
+    globals: BASE_XG=1.4958  w_att=0.3708  w_def=0.2469  w_gk=0.5000
+    top bias: norway(att=1.22,def=1.60)  brazil(att=0.72,def=0.62)  colombia(att=0.75,def=1.33)  belgium(att=1.25,def=0.75)  mexico(att=1.29,def=1.17)
+  [140,000/300,000  46.7%  218.3s]  T=0.01109  acc= 35.0%  curr=70.822pts  best=70.948pts
+    globals: BASE_XG=1.5105  w_att=0.3674  w_def=0.2284  w_gk=0.5000
+    top bias: norway(att=1.24,def=1.56)  brazil(att=0.71,def=0.62)  colombia(att=0.77,def=1.32)  spain(att=1.15,def=1.37)  belgium(att=1.23,def=0.76)
+  [150,000/300,000  50.0%  235.3s]  T=0.00744  acc= 31.6%  curr=71.059pts  best=71.105pts
+    globals: BASE_XG=1.5205  w_att=0.3634  w_def=0.2351  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.58)  brazil(att=0.72,def=0.61)  colombia(att=0.76,def=1.31)  spain(att=1.12,def=1.39)  belgium(att=1.25,def=0.77)
+  [160,000/300,000  53.3%  252.1s]  T=0.00498  acc= 27.3%  curr=71.175pts  best=71.182pts
+    globals: BASE_XG=1.5162  w_att=0.3607  w_def=0.2268  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.56)  brazil(att=0.71,def=0.61)  colombia(att=0.78,def=1.31)  spain(att=1.11,def=1.38)  belgium(att=1.23,def=0.76)
+  [170,000/300,000  56.7%  268.6s]  T=0.00334  acc= 24.3%  curr=71.230pts  best=71.243pts
+    globals: BASE_XG=1.5164  w_att=0.3653  w_def=0.2251  w_gk=0.4993
+    top bias: norway(att=1.20,def=1.56)  brazil(att=0.72,def=0.61)  colombia(att=0.78,def=1.30)  belgium(att=1.23,def=0.74)  spain(att=1.11,def=1.38)
+  [180,000/300,000  60.0%  284.8s]  T=0.00224  acc= 22.0%  curr=71.303pts  best=71.308pts
+    globals: BASE_XG=1.5119  w_att=0.3602  w_def=0.2300  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.56)  brazil(att=0.72,def=0.61)  colombia(att=0.78,def=1.30)  spain(att=1.09,def=1.38)  belgium(att=1.21,def=0.74)
+  [190,000/300,000  63.3%  301.1s]  T=0.00150  acc= 19.8%  curr=71.354pts  best=71.373pts
+    globals: BASE_XG=1.5102  w_att=0.3575  w_def=0.2296  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.78,def=1.29)  spain(att=1.09,def=1.38)  belgium(att=1.21,def=0.74)
+  [200,000/300,000  66.7%  317.4s]  T=0.00101  acc= 17.0%  curr=71.381pts  best=71.388pts
+    globals: BASE_XG=1.5102  w_att=0.3573  w_def=0.2296  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.78,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.08,def=1.38)
+  [210,000/300,000  70.0%  333.8s]  T=0.00067  acc= 14.8%  curr=71.399pts  best=71.403pts
+    globals: BASE_XG=1.5102  w_att=0.3572  w_def=0.2300  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.38)
+  [220,000/300,000  73.3%  350.6s]  T=0.00045  acc= 13.9%  curr=71.412pts  best=71.413pts
+    globals: BASE_XG=1.5101  w_att=0.3571  w_def=0.2297  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.78,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+  [230,000/300,000  76.7%  367.3s]  T=0.00030  acc= 12.4%  curr=71.421pts  best=71.421pts
+    globals: BASE_XG=1.5101  w_att=0.3570  w_def=0.2296  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+  [240,000/300,000  80.0%  384.5s]  T=0.00020  acc= 11.1%  curr=71.426pts  best=71.426pts
+    globals: BASE_XG=1.5101  w_att=0.3570  w_def=0.2296  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+  [250,000/300,000  83.3%  401.5s]  T=0.00014  acc= 10.9%  curr=71.428pts  best=71.430pts
+    globals: BASE_XG=1.5101  w_att=0.3570  w_def=0.2296  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+  [260,000/300,000  86.7%  417.9s]  T=0.00009  acc=  9.3%  curr=71.432pts  best=71.432pts
+    globals: BASE_XG=1.5101  w_att=0.3570  w_def=0.2297  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+  [270,000/300,000  90.0%  434.3s]  T=0.00006  acc=  9.5%  curr=71.433pts  best=71.434pts
+    globals: BASE_XG=1.5101  w_att=0.3571  w_def=0.2298  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+  [280,000/300,000  93.3%  450.7s]  T=0.00004  acc=  8.6%  curr=71.434pts  best=71.434pts
+    globals: BASE_XG=1.5101  w_att=0.3571  w_def=0.2297  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+  [290,000/300,000  96.7%  467.3s]  T=0.00003  acc=  8.1%  curr=71.435pts  best=71.435pts
+    globals: BASE_XG=1.5101  w_att=0.3571  w_def=0.2297  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+  [300,000/300,000  100.0%  483.8s]  T=0.00002  acc=  8.1%  curr=71.437pts  best=71.437pts
+    globals: BASE_XG=1.5101  w_att=0.3571  w_def=0.2297  w_gk=0.5000
+    top bias: norway(att=1.20,def=1.55)  brazil(att=0.71,def=0.61)  colombia(att=0.79,def=1.29)  belgium(att=1.21,def=0.74)  spain(att=1.09,def=1.37)
+
+  Restart 3 concluído em 483.8s  |  best pontos=71.437
+  *** Novo melhor global: pontos=71.437 ***
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Restart 4/5  |  300,000 iters  |  T0=3.0  |  biases λ=2.0  |  θ=100
+  globals: BASE_XG=1.1807  w_att=0.5853  w_def=0.1417  w_gk=0.2109
+  pontos iniciais: 46.778
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [ 10,000/300,000   3.3%   15.4s]  T=2.01094  acc= 96.0%  curr=26.543pts  best=47.828pts
+    globals: BASE_XG=1.0912  w_att=0.6053  w_def=0.1722  w_gk=0.1842
+    top bias: turkey(att=1.00,def=0.91)  australia(att=1.07,def=1.00)  bosnia_and_herzegovina(att=1.00,def=0.95)  congo(att=1.00,def=1.04)  japan(att=1.00,def=1.02)
+  [ 20,000/300,000   6.7%   30.0s]  T=1.34797  acc= 94.7%  curr=14.110pts  best=47.828pts
+    globals: BASE_XG=1.0912  w_att=0.6053  w_def=0.1722  w_gk=0.1842
+    top bias: turkey(att=1.00,def=0.91)  australia(att=1.07,def=1.00)  bosnia_and_herzegovina(att=1.00,def=0.95)  congo(att=1.00,def=1.04)  japan(att=1.00,def=1.02)
+  [ 30,000/300,000  10.0%   45.1s]  T=0.90356  acc= 92.8%  curr=7.263pts  best=47.828pts
+    globals: BASE_XG=1.0912  w_att=0.6053  w_def=0.1722  w_gk=0.1842
+    top bias: turkey(att=1.00,def=0.91)  australia(att=1.07,def=1.00)  bosnia_and_herzegovina(att=1.00,def=0.95)  congo(att=1.00,def=1.04)  japan(att=1.00,def=1.02)
+  [ 40,000/300,000  13.3%   60.2s]  T=0.60567  acc= 90.5%  curr=13.980pts  best=47.828pts
+    globals: BASE_XG=1.0912  w_att=0.6053  w_def=0.1722  w_gk=0.1842
+    top bias: turkey(att=1.00,def=0.91)  australia(att=1.07,def=1.00)  bosnia_and_herzegovina(att=1.00,def=0.95)  congo(att=1.00,def=1.04)  japan(att=1.00,def=1.02)
+  [ 50,000/300,000  16.7%   75.6s]  T=0.40599  acc= 84.5%  curr=22.859pts  best=47.828pts
+    globals: BASE_XG=1.0912  w_att=0.6053  w_def=0.1722  w_gk=0.1842
+    top bias: turkey(att=1.00,def=0.91)  australia(att=1.07,def=1.00)  bosnia_and_herzegovina(att=1.00,def=0.95)  congo(att=1.00,def=1.04)  japan(att=1.00,def=1.02)
+  [ 60,000/300,000  20.0%   91.2s]  T=0.27214  acc= 79.4%  curr=43.403pts  best=47.828pts
+    globals: BASE_XG=1.0912  w_att=0.6053  w_def=0.1722  w_gk=0.1842
+    top bias: turkey(att=1.00,def=0.91)  australia(att=1.07,def=1.00)  bosnia_and_herzegovina(att=1.00,def=0.95)  congo(att=1.00,def=1.04)  japan(att=1.00,def=1.02)
+  [ 70,000/300,000  23.3%  107.9s]  T=0.18242  acc= 72.0%  curr=51.839pts  best=52.826pts
+    globals: BASE_XG=1.4201  w_att=0.2673  w_def=0.3927  w_gk=0.3466
+    top bias: spain(att=1.42,def=1.65)  paraguay(att=0.74,def=1.73)  ecuador(att=0.50,def=1.39)  switzerland(att=1.16,def=1.71)  south_africa(att=0.46,def=1.11)
+  [ 80,000/300,000  26.7%  124.2s]  T=0.12228  acc= 68.5%  curr=58.197pts  best=59.274pts
+    globals: BASE_XG=1.3606  w_att=0.1855  w_def=0.4168  w_gk=0.4970
+    top bias: spain(att=1.37,def=1.51)  jordan(att=1.33,def=0.55)  iraq(att=0.84,def=1.44)  brazil(att=1.28,def=0.68)  senegal(att=0.85,def=0.56)
+  [ 90,000/300,000  30.0%  140.9s]  T=0.08197  acc= 60.6%  curr=64.797pts  best=65.047pts
+    globals: BASE_XG=1.4393  w_att=0.2142  w_def=0.3908  w_gk=0.5000
+    top bias: spain(att=1.31,def=1.51)  ecuador(att=0.63,def=0.82)  paraguay(att=0.86,def=1.39)  south_africa(att=0.56,def=0.92)  ivory_coast(att=0.72,def=0.80)
+  [100,000/300,000  33.3%  157.2s]  T=0.05494  acc= 54.1%  curr=67.062pts  best=67.312pts
+    globals: BASE_XG=1.5274  w_att=0.2430  w_def=0.1000  w_gk=0.5000
+    top bias: paraguay(att=0.90,def=1.57)  south_africa(att=0.60,def=1.19)  colombia(att=0.80,def=1.37)  mexico(att=1.32,def=1.23)  belgium(att=1.39,def=0.94)
+  [110,000/300,000  36.7%  173.9s]  T=0.03683  acc= 47.5%  curr=67.403pts  best=68.292pts
+    globals: BASE_XG=1.5243  w_att=0.2297  w_def=0.1628  w_gk=0.4970
+    top bias: paraguay(att=0.83,def=1.50)  ecuador(att=0.76,def=0.70)  colombia(att=0.84,def=1.34)  qatar(att=0.84,def=0.75)  south_africa(att=0.62,def=0.97)
+  [120,000/300,000  40.0%  190.8s]  T=0.02469  acc= 40.8%  curr=68.395pts  best=68.737pts
+    globals: BASE_XG=1.5127  w_att=0.1794  w_def=0.1360  w_gk=0.4678
+    top bias: paraguay(att=0.89,def=1.49)  colombia(att=0.83,def=1.35)  ecuador(att=0.78,def=0.72)  england(att=0.79,def=0.79)  spain(att=1.13,def=1.26)
+  [130,000/300,000  43.3%  207.9s]  T=0.01655  acc= 40.0%  curr=69.086pts  best=69.175pts
+    globals: BASE_XG=1.5773  w_att=0.1913  w_def=0.1697  w_gk=0.4992
+    top bias: ecuador(att=0.76,def=0.70)  colombia(att=0.86,def=1.39)  south_africa(att=0.62,def=1.07)  paraguay(att=0.95,def=1.35)  mexico(att=1.28,def=1.12)
+  [140,000/300,000  46.7%  225.1s]  T=0.01109  acc= 32.4%  curr=69.437pts  best=69.592pts
+    globals: BASE_XG=1.5621  w_att=0.1768  w_def=0.1782  w_gk=0.5000
+    top bias: ecuador(att=0.76,def=0.69)  colombia(att=0.88,def=1.37)  england(att=0.77,def=0.79)  south_africa(att=0.64,def=1.07)  qatar(att=0.79,def=0.83)
+  [150,000/300,000  50.0%  241.4s]  T=0.00744  acc= 30.6%  curr=69.528pts  best=69.592pts
+    globals: BASE_XG=1.5621  w_att=0.1768  w_def=0.1782  w_gk=0.5000
+    top bias: ecuador(att=0.76,def=0.69)  colombia(att=0.88,def=1.37)  england(att=0.77,def=0.79)  south_africa(att=0.64,def=1.07)  qatar(att=0.79,def=0.83)
+  [160,000/300,000  53.3%  257.7s]  T=0.00498  acc= 26.3%  curr=69.710pts  best=69.749pts
+    globals: BASE_XG=1.5458  w_att=0.1682  w_def=0.1579  w_gk=0.4993
+    top bias: colombia(att=0.89,def=1.39)  ecuador(att=0.81,def=0.69)  england(att=0.82,def=0.79)  south_africa(att=0.64,def=0.98)  paraguay(att=0.96,def=1.33)
+  [170,000/300,000  56.7%  274.0s]  T=0.00334  acc= 23.2%  curr=69.814pts  best=69.822pts
+    globals: BASE_XG=1.5432  w_att=0.1765  w_def=0.1593  w_gk=0.5000
+    top bias: ecuador(att=0.80,def=0.69)  colombia(att=0.89,def=1.37)  england(att=0.83,def=0.81)  norway(att=1.13,def=1.23)  paraguay(att=0.99,def=1.33)
+  [180,000/300,000  60.0%  290.4s]  T=0.00224  acc= 21.8%  curr=69.864pts  best=69.904pts
+    globals: BASE_XG=1.5380  w_att=0.1720  w_def=0.1483  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.89,def=1.37)  south_africa(att=0.67,def=0.98)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)
+  [190,000/300,000  63.3%  306.8s]  T=0.00150  acc= 18.6%  curr=69.947pts  best=69.962pts
+    globals: BASE_XG=1.5356  w_att=0.1708  w_def=0.1459  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.89,def=1.36)  england(att=0.84,def=0.81)  norway(att=1.13,def=1.23)  south_africa(att=0.67,def=1.01)
+  [200,000/300,000  66.7%  323.0s]  T=0.00101  acc= 16.2%  curr=69.991pts  best=69.996pts
+    globals: BASE_XG=1.5354  w_att=0.1727  w_def=0.1464  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.89,def=1.36)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  paraguay(att=1.01,def=1.33)
+  [210,000/300,000  70.0%  339.6s]  T=0.00067  acc= 15.2%  curr=69.996pts  best=70.001pts
+    globals: BASE_XG=1.5354  w_att=0.1729  w_def=0.1454  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.89,def=1.35)  england(att=0.84,def=0.81)  paraguay(att=1.02,def=1.33)  norway(att=1.12,def=1.23)
+  [220,000/300,000  73.3%  356.3s]  T=0.00045  acc= 12.9%  curr=70.017pts  best=70.020pts
+    globals: BASE_XG=1.5353  w_att=0.1724  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  paraguay(att=1.01,def=1.33)  norway(att=1.12,def=1.23)
+  [230,000/300,000  76.7%  372.3s]  T=0.00030  acc= 11.7%  curr=70.024pts  best=70.027pts
+    globals: BASE_XG=1.5356  w_att=0.1726  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  france(att=0.77,def=1.10)
+  [240,000/300,000  80.0%  388.8s]  T=0.00020  acc= 11.1%  curr=70.029pts  best=70.029pts
+    globals: BASE_XG=1.5356  w_att=0.1725  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  paraguay(att=0.99,def=1.33)
+  [250,000/300,000  83.3%  405.2s]  T=0.00014  acc=  9.9%  curr=70.033pts  best=70.033pts
+    globals: BASE_XG=1.5356  w_att=0.1726  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  france(att=0.77,def=1.10)
+  [260,000/300,000  86.7%  421.8s]  T=0.00009  acc=  9.1%  curr=70.036pts  best=70.036pts
+    globals: BASE_XG=1.5356  w_att=0.1725  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  france(att=0.77,def=1.10)
+  [270,000/300,000  90.0%  438.3s]  T=0.00006  acc=  8.7%  curr=70.038pts  best=70.039pts
+    globals: BASE_XG=1.5356  w_att=0.1725  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  france(att=0.77,def=1.10)
+  [280,000/300,000  93.3%  454.7s]  T=0.00004  acc=  8.1%  curr=70.039pts  best=70.039pts
+    globals: BASE_XG=1.5356  w_att=0.1725  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  france(att=0.77,def=1.10)
+  [290,000/300,000  96.7%  470.8s]  T=0.00003  acc=  7.3%  curr=70.039pts  best=70.039pts
+    globals: BASE_XG=1.5356  w_att=0.1726  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  paraguay(att=1.01,def=1.33)
+  [300,000/300,000  100.0%  487.0s]  T=0.00002  acc=  7.6%  curr=70.039pts  best=70.039pts
+    globals: BASE_XG=1.5356  w_att=0.1726  w_def=0.1458  w_gk=0.5000
+    top bias: ecuador(att=0.81,def=0.69)  colombia(att=0.90,def=1.35)  england(att=0.84,def=0.81)  norway(att=1.12,def=1.23)  france(att=0.77,def=1.10)
+
+  Restart 4 concluído em 487.0s  |  best pontos=70.039
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Restart 5/5  |  300,000 iters  |  T0=3.0  |  biases λ=2.0  |  θ=100
+  globals: BASE_XG=2.6012  w_att=0.7849  w_def=0.2886  w_gk=0.3558
+  pontos iniciais: 40.444
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [ 10,000/300,000   3.3%   14.8s]  T=2.01094  acc= 97.0%  curr=27.977pts  best=44.216pts
+    globals: BASE_XG=2.3302  w_att=0.8189  w_def=0.2493  w_gk=0.3869
+    top bias: morocco(att=1.00,def=1.22)  new_zealand(att=0.88,def=0.93)  spain(att=0.94,def=0.90)  ecuador(att=1.09,def=1.04)  norway(att=1.00,def=0.88)
+  [ 20,000/300,000   6.7%   30.6s]  T=1.34797  acc= 95.2%  curr=24.775pts  best=44.216pts
+    globals: BASE_XG=2.3302  w_att=0.8189  w_def=0.2493  w_gk=0.3869
+    top bias: morocco(att=1.00,def=1.22)  new_zealand(att=0.88,def=0.93)  spain(att=0.94,def=0.90)  ecuador(att=1.09,def=1.04)  norway(att=1.00,def=0.88)
+  [ 30,000/300,000  10.0%   46.0s]  T=0.90356  acc= 93.4%  curr=25.841pts  best=44.216pts
+    globals: BASE_XG=2.3302  w_att=0.8189  w_def=0.2493  w_gk=0.3869
+    top bias: morocco(att=1.00,def=1.22)  new_zealand(att=0.88,def=0.93)  spain(att=0.94,def=0.90)  ecuador(att=1.09,def=1.04)  norway(att=1.00,def=0.88)
+  [ 40,000/300,000  13.3%   61.8s]  T=0.60567  acc= 90.0%  curr=24.317pts  best=44.216pts
+    globals: BASE_XG=2.3302  w_att=0.8189  w_def=0.2493  w_gk=0.3869
+    top bias: morocco(att=1.00,def=1.22)  new_zealand(att=0.88,def=0.93)  spain(att=0.94,def=0.90)  ecuador(att=1.09,def=1.04)  norway(att=1.00,def=0.88)
+  [ 50,000/300,000  16.7%   77.4s]  T=0.40599  acc= 83.5%  curr=35.222pts  best=44.216pts
+    globals: BASE_XG=2.3302  w_att=0.8189  w_def=0.2493  w_gk=0.3869
+    top bias: morocco(att=1.00,def=1.22)  new_zealand(att=0.88,def=0.93)  spain(att=0.94,def=0.90)  ecuador(att=1.09,def=1.04)  norway(att=1.00,def=0.88)
+  [ 60,000/300,000  20.0%   93.2s]  T=0.27214  acc= 79.5%  curr=40.183pts  best=44.595pts
+    globals: BASE_XG=1.3398  w_att=0.5575  w_def=0.3163  w_gk=0.4596
+    top bias: scotland(att=1.42,def=0.44)  ivory_coast(att=1.68,def=0.72)  germany(att=0.86,def=0.20)  cape_verte(att=1.51,def=1.41)  turkey(att=1.10,def=0.20)
+  [ 70,000/300,000  23.3%  109.5s]  T=0.18242  acc= 72.7%  curr=51.527pts  best=52.024pts
+    globals: BASE_XG=2.1536  w_att=0.2903  w_def=0.8000  w_gk=0.4858
+    top bias: germany(att=0.64,def=0.24)  turkey(att=0.68,def=0.31)  congo(att=1.53,def=0.69)  colombia(att=0.66,def=1.49)  czech_republic(att=0.29,def=1.10)
+  [ 80,000/300,000  26.7%  126.2s]  T=0.12228  acc= 67.3%  curr=55.915pts  best=56.457pts
+    globals: BASE_XG=1.5961  w_att=0.1973  w_def=0.5883  w_gk=0.3806
+    top bias: germany(att=0.35,def=0.57)  turkey(att=0.56,def=0.48)  congo(att=1.60,def=0.81)  colombia(att=0.71,def=1.48)  ecuador(att=0.52,def=1.25)
+  [ 90,000/300,000  30.0%  142.4s]  T=0.08197  acc= 60.8%  curr=59.250pts  best=60.367pts
+    globals: BASE_XG=1.7986  w_att=0.2184  w_def=0.6772  w_gk=0.4545
+    top bias: germany(att=0.56,def=0.41)  turkey(att=0.61,def=0.61)  paraguay(att=1.31,def=1.36)  belgium(att=1.42,def=1.24)  spain(att=1.34,def=1.32)
+  [100,000/300,000  33.3%  159.3s]  T=0.05494  acc= 49.3%  curr=65.377pts  best=65.588pts
+    globals: BASE_XG=1.5357  w_att=0.4159  w_def=0.5076  w_gk=0.4844
+    top bias: paraguay(att=1.38,def=1.62)  germany(att=0.80,def=0.45)  colombia(att=0.66,def=1.31)  ecuador(att=0.58,def=1.17)  england(att=0.85,def=0.63)
+  [110,000/300,000  36.7%  176.8s]  T=0.03683  acc= 50.0%  curr=66.875pts  best=67.363pts
+    globals: BASE_XG=1.4587  w_att=0.3489  w_def=0.3714  w_gk=0.5000
+    top bias: paraguay(att=1.39,def=1.62)  germany(att=0.81,def=0.43)  colombia(att=0.79,def=1.39)  turkey(att=0.79,def=0.66)  spain(att=1.09,def=1.42)
+  [120,000/300,000  40.0%  194.3s]  T=0.02469  acc= 44.2%  curr=67.817pts  best=68.158pts
+    globals: BASE_XG=1.4374  w_att=0.2931  w_def=0.4246  w_gk=0.4953
+    top bias: paraguay(att=1.35,def=1.52)  germany(att=0.78,def=0.41)  spain(att=1.13,def=1.47)  turkey(att=0.80,def=0.61)  ecuador(att=0.68,def=0.85)
+  [130,000/300,000  43.3%  211.7s]  T=0.01655  acc= 40.7%  curr=69.111pts  best=69.217pts
+    globals: BASE_XG=1.3976  w_att=0.3316  w_def=0.4265  w_gk=0.5000
+    top bias: paraguay(att=1.39,def=1.46)  germany(att=0.72,def=0.44)  spain(att=1.16,def=1.43)  turkey(att=0.80,def=0.63)  ivory_coast(att=0.70,def=0.80)
+  [140,000/300,000  46.7%  228.4s]  T=0.01109  acc= 31.7%  curr=69.481pts  best=69.758pts
+    globals: BASE_XG=1.4285  w_att=0.3418  w_def=0.4593  w_gk=0.5000
+    top bias: germany(att=0.76,def=0.42)  paraguay(att=1.38,def=1.44)  spain(att=1.17,def=1.47)  turkey(att=0.80,def=0.64)  ivory_coast(att=0.72,def=0.85)
+  [150,000/300,000  50.0%  245.4s]  T=0.00744  acc= 29.8%  curr=69.703pts  best=69.823pts
+    globals: BASE_XG=1.4306  w_att=0.3306  w_def=0.4506  w_gk=0.5000
+    top bias: paraguay(att=1.39,def=1.44)  germany(att=0.77,def=0.41)  spain(att=1.15,def=1.47)  turkey(att=0.80,def=0.63)  ivory_coast(att=0.72,def=0.83)
+  [160,000/300,000  53.3%  262.8s]  T=0.00498  acc= 26.2%  curr=69.919pts  best=69.923pts
+    globals: BASE_XG=1.4205  w_att=0.3194  w_def=0.4393  w_gk=0.5000
+    top bias: germany(att=0.76,def=0.41)  paraguay(att=1.38,def=1.43)  spain(att=1.15,def=1.45)  turkey(att=0.80,def=0.62)  ivory_coast(att=0.73,def=0.84)
+  [170,000/300,000  56.7%  280.0s]  T=0.00334  acc= 22.3%  curr=70.014pts  best=70.031pts
+    globals: BASE_XG=1.4177  w_att=0.3129  w_def=0.4452  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  spain(att=1.16,def=1.45)  turkey(att=0.79,def=0.62)  ivory_coast(att=0.74,def=0.84)
+  [180,000/300,000  60.0%  296.9s]  T=0.00224  acc= 21.2%  curr=70.111pts  best=70.122pts
+    globals: BASE_XG=1.4161  w_att=0.3070  w_def=0.4493  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.64)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.83)
+  [190,000/300,000  63.3%  313.8s]  T=0.00150  acc= 17.9%  curr=70.129pts  best=70.135pts
+    globals: BASE_XG=1.4174  w_att=0.3076  w_def=0.4506  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.64)  spain(att=1.16,def=1.44)  ivory_coast(att=0.74,def=0.83)
+  [200,000/300,000  66.7%  330.5s]  T=0.00101  acc= 16.0%  curr=70.157pts  best=70.160pts
+    globals: BASE_XG=1.4164  w_att=0.3081  w_def=0.4492  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.44)  ivory_coast(att=0.74,def=0.83)
+  [210,000/300,000  70.0%  347.6s]  T=0.00067  acc= 13.4%  curr=70.172pts  best=70.178pts
+    globals: BASE_XG=1.4163  w_att=0.3081  w_def=0.4489  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [220,000/300,000  73.3%  364.3s]  T=0.00045  acc= 13.0%  curr=70.184pts  best=70.186pts
+    globals: BASE_XG=1.4163  w_att=0.3083  w_def=0.4485  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [230,000/300,000  76.7%  380.4s]  T=0.00030  acc= 11.2%  curr=70.182pts  best=70.186pts
+    globals: BASE_XG=1.4163  w_att=0.3083  w_def=0.4482  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [240,000/300,000  80.0%  396.6s]  T=0.00020  acc= 10.3%  curr=70.190pts  best=70.192pts
+    globals: BASE_XG=1.4162  w_att=0.3083  w_def=0.4484  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [250,000/300,000  83.3%  412.9s]  T=0.00014  acc= 10.0%  curr=70.193pts  best=70.193pts
+    globals: BASE_XG=1.4162  w_att=0.3084  w_def=0.4484  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [260,000/300,000  86.7%  428.8s]  T=0.00009  acc=  7.1%  curr=70.197pts  best=70.198pts
+    globals: BASE_XG=1.4162  w_att=0.3084  w_def=0.4484  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [270,000/300,000  90.0%  445.0s]  T=0.00006  acc=  8.4%  curr=70.199pts  best=70.199pts
+    globals: BASE_XG=1.4162  w_att=0.3082  w_def=0.4485  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [280,000/300,000  93.3%  461.3s]  T=0.00004  acc=  8.3%  curr=70.200pts  best=70.200pts
+    globals: BASE_XG=1.4162  w_att=0.3082  w_def=0.4485  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [290,000/300,000  96.7%  477.7s]  T=0.00003  acc=  8.2%  curr=70.200pts  best=70.200pts
+    globals: BASE_XG=1.4162  w_att=0.3082  w_def=0.4485  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+  [300,000/300,000  100.0%  492.8s]  T=0.00002  acc=  7.2%  curr=70.201pts  best=70.201pts
+    globals: BASE_XG=1.4162  w_att=0.3082  w_def=0.4485  w_gk=0.5000
+    top bias: germany(att=0.77,def=0.41)  paraguay(att=1.38,def=1.43)  turkey(att=0.77,def=0.63)  spain(att=1.16,def=1.43)  ivory_coast(att=0.74,def=0.84)
+
+  Restart 5 concluído em 492.8s  |  best pontos=70.201
+
+========================================================================
+  RESULTADO FINAL  (2223.1s total)
+========================================================================
+
+  Método                         Pontos       NLL   Δ default     Brier
+  ---------------------- --------------  --------  ----------  --------
+  Padrão (original)       43.611/91.000  107.0661           —    0.5598
+  L-BFGS-B                45.500/91.000  104.9005     -2.1656    0.5562
+  SA (Model6)             75.028/91.000   98.0401     -9.0259    0.5204
+
+  SA capturou 82.4% dos pontos possíveis (47.9% no baseline padrão)
+
+  Parâmetros globais SA:
+    BASE_XG      = 1.5101  (default 1.3)
+    w_att        = 0.3571  (default 0.7)
+    w_def        = 0.2297  (default 0.6)
+    w_gk         = 0.5000  (default 0.2)
+
+  Biases por seleção (biases att+def  (λ=2.0)):
+  Seleção                        att_bias    def_bias
+  ---------------------------- ----------  ----------
+  norway                           1.2041      1.5459 ←
+  brazil                           0.7129      0.6109 ←
+  colombia                         0.7857      1.2927 ←
+  belgium                          1.2058      0.7400 ←
+  spain                            1.0857      1.3741 ←
+  mexico                           1.2847      1.1629 ←
+  south_africa                     0.6198      1.0007 ←
+  ecuador                          0.9997      0.6761 ←
+  england                          0.8020      0.8928 ←
+  paraguay                         1.0091      1.2883 ←
+  senegal                          1.2427      0.9798 ←
+  argentina                        1.1720      0.9114 ←
+  qatar                            0.8415      0.9148 ←
+  algeria                          0.9212      0.8370 ←
+  switzerland                      1.0132      1.1997 ←
+  united_states_of_america         1.0003      0.8226 ←
+  austria                          1.0014      0.8421 ←
+  australia                        0.8716      0.9809
+  france                           0.9405      1.0767
+  republic_of_korea                0.9801      0.8853
+  bosnia_and_herzegovina           1.0050      1.1147
+  canada                           1.0050      1.1136
+  netherlands                      0.9637      0.9324
+  morocco                          0.9745      0.9417
+  japan                            0.9992      0.9181
+  czech_republic                   0.9834      0.9828
+  egypt                            1.0029      0.9795
+  croatia                          0.9951      1.0052
+  portugal                         0.9947      1.0036
+  scotland                         1.0018      1.0057
+  cape_verte                       1.0045      0.9978
+  iraq                             0.9972      0.9964
+  turkey                           1.0006      1.0052
+  uruguay                          0.9963      0.9984
+  sweden                           1.0009      0.9963
+  ira                              0.9990      1.0031
+  jordan                           1.0020      1.0013
+  new_zealand                      1.0018      0.9985
+  saudi_arabia                     0.9993      0.9980
+  panama                           0.9975      0.9999
+  germany                          1.0010      1.0016
+  uzbekistan                       0.9993      0.9984
+  tunisia                          1.0009      0.9987
+  ghana                            1.0011      1.0009
+  curacao                          0.9992      1.0012
+  congo                            1.0005      0.9994
+  haiti                            1.0004      1.0006
+  ivory_coast                      0.9998      1.0004
+
+  Veredicto: SA encontrou MAIS pontos que L-BFGS-B
+
+  Salvo em output/model7_seeds/weights_seed7.json
+========================================================================

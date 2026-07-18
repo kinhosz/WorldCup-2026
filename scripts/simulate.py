@@ -198,7 +198,14 @@ def sim_knockout_match(ta, tb, scores):
     if ga != gb:
         return ta if ga > gb else tb
 
-    # Extra time + penalties — times play defensively, most go to shootout (50/50)
+    # Prorrogação (18 jul 2026) — 30min a 1/3 do xG de 90'. Validado contra os
+    # 8 empates reais do mata-mata: 8.72 gols esperados vs 7 observados.
+    ga_et = int(np.random.poisson(xg_a / 3))
+    gb_et = int(np.random.poisson(xg_b / 3))
+    if ga_et != gb_et:
+        return ta if ga_et > gb_et else tb
+
+    # Ainda igual após a prorrogação — pênaltis, tratados como 50/50
     return ta if random.random() < 0.5 else tb
 
 

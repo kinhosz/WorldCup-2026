@@ -1,10 +1,53 @@
 # TASKS — Estado e Próximos Passos
 
-*Atualizado: 08 jul 2026 — Oitavas encerradas (8/8), Model6 treinado com novo objetivo por pontos, bracket das quartas confirmado, odds geradas*
+*Atualizado: 18 jul 2026 — Semifinais encerradas (2/2), Model7 recalibrado (102 jogos, bônus SF/Final), prorrogação modelada explicitamente, odds do 3º lugar e Final geradas*
 
 ---
 
-## Estado Atual: Oitavas encerradas → Quartas
+## Estado Atual: Semifinais encerradas → 3º Lugar + Final
+
+- **2/2 jogos das semis** registrados em `copa_real_state.json` (`knockout_results` #101–102): **França 0–2 Espanha** (90'), **Inglaterra 1–2 Argentina** (90', virada) ✅
+- **Correção de entrada (18 jul 2026):** o placar de Inglaterra x Argentina foi digitado errado na primeira vez (2–1 Inglaterra, por má interpretação da mensagem do usuário) — corrigido pra 1–2 Argentina antes de qualquer cálculo posterior. Nenhum output tinha sido gerado com o placar errado.
+- **Final confirmada: Espanha x Argentina** · **3º lugar: França x Inglaterra**
+- **Model6 avaliado out-of-sample nas semis** (pesos de antes desta recalibração) — quem avança 2/2 (100%, mas nenhum jogo bateu 70% de confiança: Espanha 60.5%, Inglaterra 66.3%). Placar exato: Inglaterra x Argentina 2–1 (a virada) foi o top-1 do modelo; França x Espanha 0–2 ficou em 4º/5º lugar (9.0%, empatado com 1–2).
+- **Pedido do usuário (18 jul 2026): última recalibração antes da final** — 3 partes: (1) bônus de peso pra SF/Final, (2) modelar prorrogação em vez de pênaltis 50/50 direto, já que a Argentina marcou gols na prorrogação 2x, (3) manter pênaltis como 50/50 quando não há mais o que modelar
+- **`ROUND_WEIGHTS` atualizado:** `sf: 1.0→1.5`, `final: 1.0→2.0` (resto sem mudança) — ver "Calibração por Pontos" no `CLAUDE.md`
+- **Prorrogação modelada:** `simulate.py::sim_knockout_match` e `match_odds.py::extra_time_breakdown` — xG escalado a 1/3 (30min ≈ 1/3 de 90min) pra quem empata nos 90', pênaltis 50/50 só se continuar empatado depois disso
+- **Validação da prorrogação:** contra os 8 empates reais do mata-mata até as semis — 8.72 gols esperados vs 7 observados (bem alinhado). A Argentina marcou nas 2 vezes em que foi à prorrogação (Cabo Verde, Suíça), acima do esperado — não virou bias específico (n=2), mas é dado editorial válido
+- **Correção de regra descoberta durante a implementação:** disputa de 3º lugar **não tem prorrogação** (regra FIFA — só a Final tem). `match_odds.py` ganhou a flag `--terceiro-lugar`/`--no-extra-time` pra isso. As odds da França x Inglaterra foram geradas primeiro com prorrogação por engano (`--knockout` sozinho) e depois corrigidas.
+- **Model7 recalibrado** — 5 seeds em paralelo (999, 2026, 7, 123, 42), mesma config do Model6 (`--biases --lambda 2.0`, 300k iters × 5 restarts), agora com 102 jogos e os novos pesos de rodada. **Seed 123 venceu em pontos** (77.14/91=84.8%) mas não em NLL/Brier — trade-off como no Model5 (seed 999 melhor Brier, seed 2026 melhor NLL). Decidido por pontos (critério oficial). Logs em `output/model7_seeds/`.
+- **Odds geradas com Model7:**
+  - 3º lugar (sem prorrogação): **França 70.9% x Inglaterra 29.1%** — `output/odds_france_vs_england.json`
+  - Final (com prorrogação): **Espanha 86.5% x Argentina 13.5%** — `output/odds_spain_vs_argentina.json`
+- **Pendente:** gerar posts Instagram do 3º lugar e da Final (estilo "Troféu Chegando"), depois publicar. Depois da Final, decidir se vale uma última avaliação out-of-sample do Model7 (só 2 jogos — provavelmente pouco significativo, mas documentar por completude do projeto).
+
+---
+
+## Estado Anterior: Quartas encerradas → Semifinais (histórico, 14 jul 2026)
+
+- **4/4 jogos das quartas** registrados em `copa_real_state.json` (`knockout_results` #97–100): França 2–0 Marrocos, Espanha 2–1 Bélgica, Inglaterra 2–1 Noruega (AET, 1–1 nos 90'), Argentina 3–1 Suíça (AET, 1–1 nos 90') ✅
+- **Model6 avaliado out-of-sample nas quartas** (primeiro teste real de generalização) — quem avança 3/4 (75%), confiança ≥70% 1/1 (100%), placar exato top-3 2/4 (50%), aposta derivada 2/4 (50%). Único erro: Argentina x Suíça (51.0% x 49.0%, o azarão venceu, mas o placar 1-1 nos 90' era o top-1 do modelo)
+- **Decisão do usuário: NÃO recalibrar após as quartas** — só 4 jogos novos sobre 96 de treino, pouco pra mover o SA; o ponto de congelar o Model6 era ter um teste out-of-sample de verdade, recalibrar a cada rodada mataria isso. Só restam SF+Final.
+- **Bug encontrado e corrigido (14 jul 2026):** ver seção "Bug do bracket da semifinal" abaixo
+- **Bracket da semifinal confirmado:** SF1 = França x Espanha, SF2 = Inglaterra x Argentina
+- **Odds das 2 semifinais geradas com Model6** ✅ — `output/odds_france_vs_spain.json`, `output/odds_england_vs_argentina.json`
+- **Simulação 10M pós-quartas** ✅ — Espanha 41.4% campeã, Inglaterra 27.4%, França 22.7%, Argentina 8.5% (`output/simulation_results_model6.json`) — não precisou re-rodar após o fix do bug porque `simulate.py` já estava certo, só `resultado.py` (usado pra exibição/entrada) estava errado
+- **Post das semifinais pronto** ✅ — `sf_post.md`, mesmo estilo "Troféu Chegando"
+
+### Bug do bracket da semifinal — CORRIGIDO (14 jul 2026)
+
+`resultado.py::KNOCKOUT_SCHEDULE` tinha os pares 101/102 errados:
+```
+101: ("Semifinal", "W97", "W98"),   # errado — França x Inglaterra
+102: ("Semifinal", "W99", "W100"),  # errado — Espanha x Argentina
+```
+Isso não batia com `simulate.py::SEMIFINALS = [(101, 97, 99), (102, 98, 100)]`, que já estava correto desde o fix de 04 jul 2026 (ver "Bug do bracket em simulate.py" abaixo — "SF1=QF1×QF2 (metade A), SF2=QF3×QF4 (metade B)"). QF1=match97 (França x Marrocos), QF2=match99 (Espanha x Bélgica) → SF1 real = W97×W99 = **França x Espanha**. QF3=match98 (Noruega x Inglaterra), QF4=match100 (Argentina x Suíça) → SF2 real = W98×W100 = **Inglaterra x Argentina**.
+
+Corrigido em `resultado.py` para `101: (W97, W99)`, `102: (W98, W100)`. `simulate.py` não precisou de mudança — a simulação de 10M já estava certa o tempo todo, só a exibição/entrada de resultados via `resultado.py --list sf` mostrava o pareamento errado. **Lição:** sempre conferir `resultado.py::KNOCKOUT_SCHEDULE` contra `simulate.py::QUARTERFINALS`/`SEMIFINALS` antes de confiar no bracket exibido — o mesmo tipo de dessincronização já tinha acontecido no R16.
+
+---
+
+## Estado Anterior: Oitavas encerradas → Quartas (histórico, 08 jul 2026)
 
 - **8/8 jogos das oitavas** registrados em `copa_real_state.json` (`knockout_results` #89–96) ✅
 - **Análise "quem avança" das oitavas** (com Model5, in-sample) salva em `output/r16_wdl_report.md` ✅ — 6/8 (75%), zebra do Brasil (84.3% de confiança, perdeu pra Noruega) quebrou a sequência de 97% acima de 70% de confiança

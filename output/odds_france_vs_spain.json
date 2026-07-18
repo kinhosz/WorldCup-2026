@@ -1,0 +1,55 @@
+{
+  "team_a": "france",
+  "team_b": "spain",
+  "n_sims": 1000000,
+  "knockout": true,
+  "xg": {
+    "france": 1.005,
+    "spain": 1.445
+  },
+  "odds": {
+    "france": 26.2,
+    "draw": 26.6,
+    "spain": 47.2
+  },
+  "advance": {
+    "france": 39.5,
+    "spain": 60.5
+  },
+  "derived_metrics": {
+    "over_2_5": 44.3,
+    "under_2_5": 55.7,
+    "btts_yes": 48.5,
+    "btts_no": 51.5,
+    "clean_sheet_a": 23.6,
+    "clean_sheet_b": 36.6,
+    "margin_a_2plus": 9.6,
+    "margin_b_2plus": 23.2
+  },
+  "assertive_bet": {
+    "label": "Menos de 2.5 gols",
+    "pct": 55.7
+  },
+  "top_scores": [
+    {
+      "score": "1-1",
+      "pct": 12.6
+    },
+    {
+      "score": "0-1",
+      "pct": 12.5
+    },
+    {
+      "score": "1-2",
+      "pct": 9.0
+    },
+    {
+      "score": "0-2",
+      "pct": 9.0
+    },
+    {
+      "score": "1-0",
+      "pct": 8.7
+    }
+  ]
+}
