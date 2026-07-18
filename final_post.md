@@ -136,22 +136,26 @@ Footer, muted #7A6E56, very small, reading exactly: "Model7 · SA by points, 102
 
 ---
 
-## SLIDE 4 — A FINAL: Espanha x Argentina (troféu em destaque)
+## SLIDE 4 — A FINAL: Espanha x Argentina (troféu em destaque + narrativa do bicampeonato 2010→2026)
+
+Versão especial pedida pelo usuário (18 jul 2026) depois de ver a primeira geração do slide: já que é a pick mais confiante do mata-mata inteiro (86.5%), o card ganha um tratamento mais grandioso e um elemento novo dedicado à história — Espanha só tem 1 título (2010); vencer aqui seria a 2ª estrela, 16 anos depois.
 
 ```
 IMPORTANT: the final image MUST be exactly 4:5 portrait aspect ratio, 1080×1350 pixels — taller than it is wide, like an Instagram post. Do not generate a landscape or square image. Portrait orientation is mandatory.
 
 Professional sports editorial infographic, 4:5 portrait 1080×1350px. Elegant serif display typeface for the headline and team names (evoking an engraved trophy plaque), clean geometric sans-serif for labels and data, tabular numbers. All text in English. Do not invent any values not listed below. Do not render any of these instructional labels as visible text in the image — only render the exact quoted strings.
 
-BACKGROUND: a real cinematic photo of a packed football stadium at night, floodlights blazing, warm golden light and heavy gold confetti/pyro haze filling the air — the most spectacular and celebratory of the whole series. On the left third of the image, an illustrated football player in a Spain kit (red shirt, blue shorts), mid-action celebratory pose, face generic/stylized (not a specific real athlete's likeness). On the right third, an illustrated football player in an Argentina kit (light-blue-and-white striped shirt, black shorts), mid-action pose facing toward the center, also generic/no specific likeness. Apply a warm near-black overlay at 76% opacity on top of the whole scene (color #14110C).
+BACKGROUND: a real cinematic photo of a packed football stadium at night, floodlights blazing, warm golden light, dense gold confetti falling, bursts of gold pyro/fireworks in the upper corners — the single most spectacular and celebratory background of the entire series, this is the championship moment. On the left third of the image, an illustrated football player in a Spain kit (red shirt, blue shorts), mid-action celebratory pose, arms raised, face generic/stylized (not a specific real athlete's likeness). On the right third, an illustrated football player in an Argentina kit (light-blue-and-white striped shirt, black shorts), mid-action pose facing toward the center, also generic/no specific likeness. Apply a warm near-black overlay at 74% opacity on top of the whole scene (color #14110C).
 
-CENTERPIECE, placed directly above the "VS", between and slightly behind the two team shields: a smaller companion illustration of the gold World Cup trophy with a soft golden glow, reinforcing that this is the title match.
+CENTERPIECE, placed directly above the "VS", between and slightly behind the two team shields: a large, brightly lit gold World Cup trophy illustration — bigger and more radiant than in previous slides, with a strong golden halo glow and light rays fanning outward, the clear visual hero of this card, reinforcing that this is the title match.
 
 Small ribbon/tag near the very top, rotated slightly, deep oxblood-red background #7A2E2E, white bold text reading exactly: "THE FINAL"
 
 Text label below the ribbon, small caps, wide letter-spacing, color #E3B341, reading exactly: "FIFA WORLD CUP 2026"
 
 Below that, a thin horizontal progress line with 3 small circular nodes evenly spaced, all three labeled "QF", "SF", "FINAL", all filled solid gold, the "FINAL" node with a strong glow (the active stage), connected by a solid gold line all the way across. Small caps micro-label above, color #A99B7D, reading exactly: "PATH TO THE FINAL"
+
+Directly below the path line, a compact horizontal history strip, centered, evoking two stars on a crest connected by a thin dotted gold line: a small solid gold star icon above the text "2010" (both in gold #E3B341), then a dotted gold connector line spanning "16 YEARS" written tiny in muted #A99B7D beneath the dots, then a second star icon — outlined/hollow, not yet filled, with a soft pulsing gold glow around just the outline — above the text "2026?" in gold #E3B341. Small caps label above this whole strip, wide letter-spacing, color #A99B7D, reading exactly: "CHASING A SECOND STAR"
 
 Below that (and below the trophy centerpiece), two generic shield-shaped crests (rounded-bottom heraldic shield outline, dark bronze-brown #201A12 fill, thin gold border, strong drop shadow, a warm gold radial spotlight glow directly behind the pair) side by side, each shield filled edge-to-edge with the team's actual flag design. Between the two shields, large bold serif text reading exactly "VS" with a gold glow. Below each shield, the team name in an elegant serif display font, white bold caps.
 LEFT SHIELD: Spain flag (horizontal red-yellow-red bands, wider yellow band with a coat of arms on the left side). Name below: SPAIN
@@ -167,7 +171,7 @@ LEFT segment: metallic gold #E3B341 with a strong glow, with "86.5%" in bold dar
 RIGHT segment: muted graphite #6B7280, no glow, with "13.5%" in bold white text centered inside the segment.
 Team name labels below the bar (names only, percentages already shown inside the bar): "Spain      Argentina"
 
-Confidence pill (background #E3B341, dark bold text, small trophy icon to the left), reading exactly: "★ MODEL CONFIDENCE 86.5% — HIGHEST OF THE KNOCKOUT STAGE"
+Confidence pill (background #E3B341, dark bold text, small trophy icon to the left, a soft pulsing glow around the whole pill making it the most eye-catching badge on the card), reading exactly: "★ MODEL CONFIDENCE 86.5% — HIGHEST OF THE KNOCKOUT STAGE"
 
 Small caps note below the confidence pill, muted #A99B7D, small, reading exactly: "If level after 90 minutes: extra time modeled, then penalties as a coin flip"
 
@@ -175,7 +179,7 @@ Model's pick badge (dark pill background #201A12, gold border #E3B341) reading e
 
 Small caps label "TOP SCORES" followed by 3 chips inline (dark #201A12 background, thin gold border, white bold text): "3–1  8.2%   2–1  7.9%   3–0  7.7%"
 
-Insight card (color #C9BBA0 text, dark warm card background) reading exactly: "The model's most lopsided pick of the entire knockout stage — but Argentina has already beaten longer odds twice this tournament. Nobody's coasting into this one."
+Insight card (color #C9BBA0 text, dark warm card background, thin gold left border, slightly larger and more prominent than in previous slides) reading exactly: "Spain's only World Cup title came in 2010. Sixteen years later, the model gives them their best shot yet at a second — the most lopsided pick of the entire knockout stage. But Argentina has already beaten longer odds twice this tournament. Nobody's coasting into this one."
 
 Footer, muted #7A6E56, very small, reading exactly: "Model7 · SA by points, 102 training matches · 1,000,000 simulations"
 ```
